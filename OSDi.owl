@@ -22,7 +22,7 @@
                                                                              "OSDi"@es ;
                                                                   osdi:description "Ontology designed for collecting and inferring the parameters required to create a simulation-based Health Technology Assesment"@en ;
                                                                   osdi:description "Ontología diseñada para recopilar e inferir los parámetros necesarios para crear una evaluación de tecnología sanitaria basada en simulación"@es ;
-                                                                  osdi:abstract "This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied."@en ;
+                                                                  osdi:abstract "This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied."@en .
 
 #################################################################
 #    Annotation properties
