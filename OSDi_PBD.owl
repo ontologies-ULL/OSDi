@@ -1,32 +1,32 @@
-@prefix : <http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#> .
+@prefix : <https://ontologies-ull.github.io/OSDi-PBD#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix osdi: <http://www.ull.es/iis/simulation/ontologies/disease-simulation#> .
+@prefix osdi: <https://ontologies-ull.github.io/OSDi#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD> .
+@base <https://ontologies-ull.github.io/OSDi-PBD> .
 
-<http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD> rdf:type owl:Ontology ;
-                                                                      owl:imports <http://www.ull.es/iis/simulation/ontologies/disease-simulation> .
+<https://ontologies-ull.github.io/OSDi-PBD> rdf:type owl:Ontology ;
+                                                                      owl:imports <https://ontologies-ull.github.io/OSDi> .
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation#ConstantProbability1
+###  https://ontologies-ull.github.io/OSDi#ConstantProbability1
 osdi:ConstantProbability1 rdf:type owl:NamedIndividual .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation#ConstantSensitivity1
+###  https://ontologies-ull.github.io/OSDi#ConstantSensitivity1
 osdi:ConstantSensitivity1 rdf:type owl:NamedIndividual .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation#ConstantSpecificity1
+###  https://ontologies-ull.github.io/OSDi#ConstantSpecificity1
 osdi:ConstantSpecificity1 rdf:type owl:NamedIndividual .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BasePopulation
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BasePopulation
 osdi:PBD_BasePopulation rdf:type owl:NamedIndividual ,
                                 osdi:Population ;
                        osdi:hasAge osdi:PBD_BasePopulationAge ;
@@ -43,7 +43,7 @@ osdi:PBD_BasePopulation rdf:type owl:NamedIndividual ,
                        osdi:hasSize 540963 .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BasePopulationAge
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BasePopulationAge
 osdi:PBD_BasePopulationAge rdf:type owl:NamedIndividual ,
                                    osdi:DeterministicParameter ,
                                    osdi:Parameter ;
@@ -54,7 +54,7 @@ osdi:PBD_BasePopulationAge rdf:type owl:NamedIndividual ,
                           osdi:hasExpectedValue "0.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BasePopulationFemaleProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BasePopulationFemaleProportion
 osdi:PBD_BasePopulationFemaleProportion rdf:type owl:NamedIndividual ,
                                                 osdi:DeterministicParameter ,
                                                 osdi:Parameter ;
@@ -65,7 +65,7 @@ osdi:PBD_BasePopulationFemaleProportion rdf:type owl:NamedIndividual ,
                                        osdi:hasExpectedValue "0.5"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BasePopulationLifeExpectancy
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BasePopulationLifeExpectancy
 osdi:PBD_BasePopulationLifeExpectancy rdf:type owl:NamedIndividual ,
                                               osdi:Parameter ,
                                               osdi:SecondOrderUncertaintyParameter ;
@@ -78,7 +78,7 @@ osdi:PBD_BasePopulationLifeExpectancy rdf:type owl:NamedIndividual ,
                                      osdi:hasExpectedValue "82.272854"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BasePopulationLifeExpectancyStochasticUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BasePopulationLifeExpectancyStochasticUncertainty
 osdi:PBD_BasePopulationLifeExpectancyStochasticUncertainty rdf:type owl:NamedIndividual ,
                                                                    osdi:GammaDistributionExpression ;
                                                           osdi:includedByModel osdi:PBD_ModelTree ,
@@ -88,7 +88,7 @@ osdi:PBD_BasePopulationLifeExpectancyStochasticUncertainty rdf:type owl:NamedInd
                                                           osdi:hasLambdaParameter "3.29"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BasePopulationUtility
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BasePopulationUtility
 osdi:PBD_BasePopulationUtility rdf:type owl:NamedIndividual ,
                                        osdi:DeterministicParameter ,
                                        osdi:Utility ;
@@ -103,7 +103,7 @@ osdi:PBD_BasePopulationUtility rdf:type owl:NamedIndividual ,
                               osdi:isDisutility "false"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BirthPrevalenceSpain
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BirthPrevalenceSpain
 osdi:PBD_BirthPrevalenceSpain rdf:type owl:NamedIndividual ,
                                       osdi:EpidemiologicalParameter ,
                                       osdi:SecondOrderUncertaintyParameter ;
@@ -119,7 +119,7 @@ osdi:PBD_BirthPrevalenceSpain rdf:type owl:NamedIndividual ,
                              osdi:isTrueEpidemiologicalParameterEstimate "false"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_BirthPrevalenceSpain_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_BirthPrevalenceSpain_ParamUncertainty
 osdi:PBD_BirthPrevalenceSpain_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                        osdi:BetaDistributionExpression ;
                                               osdi:includedByModel osdi:PBD_ModelTree ,
@@ -129,7 +129,7 @@ osdi:PBD_BirthPrevalenceSpain_ParamUncertainty rdf:type owl:NamedIndividual ,
                                               osdi:hasBetaParameter "540955.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ClinicalDiagnosis
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ClinicalDiagnosis
 osdi:PBD_ClinicalDiagnosis rdf:type owl:NamedIndividual ,
                                    osdi:DiagnosisStrategy ;
                           osdi:hasCost osdi:PBD_CostDiagnosis ;
@@ -141,7 +141,7 @@ osdi:PBD_ClinicalDiagnosis rdf:type owl:NamedIndividual ,
                           osdi:hasDescription "Quantitative enzymatic determination of biotinidase activity in serum and plasma,and analysis of mutations of the biotinidase gene." .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ConstantAge0
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ConstantAge0
 osdi:PBD_ConstantAge0 rdf:type owl:NamedIndividual ,
                               osdi:DeterministicParameter ,
                               osdi:Parameter ;
@@ -153,7 +153,7 @@ osdi:PBD_ConstantAge0 rdf:type owl:NamedIndividual ,
                      osdi:hasExpectedValue "0.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ConstantAge1
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ConstantAge1
 osdi:PBD_ConstantAge1 rdf:type owl:NamedIndividual ,
                               osdi:DeterministicParameter ,
                               osdi:Parameter ;
@@ -165,7 +165,7 @@ osdi:PBD_ConstantAge1 rdf:type owl:NamedIndividual ,
                      osdi:hasExpectedValue "1.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ConstantAge2
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ConstantAge2
 osdi:PBD_ConstantAge2 rdf:type owl:NamedIndividual ,
                               osdi:DeterministicParameter ,
                               osdi:Parameter ;
@@ -177,7 +177,7 @@ osdi:PBD_ConstantAge2 rdf:type owl:NamedIndividual ,
                      osdi:hasExpectedValue "2.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostDiagnosis
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostDiagnosis
 osdi:PBD_CostDiagnosis rdf:type owl:NamedIndividual ,
                                osdi:Cost ,
                                osdi:SecondOrderUncertaintyParameter ;
@@ -193,7 +193,7 @@ osdi:PBD_CostDiagnosis rdf:type owl:NamedIndividual ,
                       osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostDiagnosis_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostDiagnosis_ParamUncertainty
 osdi:PBD_CostDiagnosis_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                 osdi:UniformDistributionExpression ;
                                        osdi:includedByModel osdi:PBD_ModelTree ,
@@ -203,7 +203,7 @@ osdi:PBD_CostDiagnosis_ParamUncertainty rdf:type owl:NamedIndividual ,
                                        osdi:hasUpperLimitParameter "609.65"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostFollowUpStrategy
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostFollowUpStrategy
 osdi:PBD_CostFollowUpStrategy rdf:type owl:NamedIndividual ,
                                       osdi:Cost ,
                                       osdi:DeterministicParameter ;
@@ -218,7 +218,7 @@ osdi:PBD_CostFollowUpStrategy rdf:type owl:NamedIndividual ,
                              osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationHearingProblems
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationHearingProblems
 osdi:PBD_CostManifestationHearingProblems rdf:type owl:NamedIndividual ,
                                                   osdi:Cost ,
                                                   osdi:DeterministicParameter ;
@@ -233,7 +233,7 @@ osdi:PBD_CostManifestationHearingProblems rdf:type owl:NamedIndividual ,
                                          osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationHearingProblemsInitial
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationHearingProblemsInitial
 osdi:PBD_CostManifestationHearingProblemsInitial rdf:type owl:NamedIndividual ,
                                                          osdi:Cost ,
                                                          osdi:DeterministicParameter ;
@@ -248,7 +248,7 @@ osdi:PBD_CostManifestationHearingProblemsInitial rdf:type owl:NamedIndividual ,
                                                 osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationHypotonia
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationHypotonia
 osdi:PBD_CostManifestationHypotonia rdf:type owl:NamedIndividual ,
                                             osdi:Cost ,
                                             osdi:DeterministicParameter ;
@@ -262,7 +262,7 @@ osdi:PBD_CostManifestationHypotonia rdf:type owl:NamedIndividual ,
                                    osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationMentalDelay
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationMentalDelay
 osdi:PBD_CostManifestationMentalDelay rdf:type owl:NamedIndividual ,
                                               osdi:Cost ,
                                               osdi:DeterministicParameter ;
@@ -276,7 +276,7 @@ osdi:PBD_CostManifestationMentalDelay rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationMentalDelayInitial
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationMentalDelayInitial
 osdi:PBD_CostManifestationMentalDelayInitial rdf:type owl:NamedIndividual ,
                                                      osdi:Cost ,
                                                      osdi:DeterministicParameter ;
@@ -290,7 +290,7 @@ osdi:PBD_CostManifestationMentalDelayInitial rdf:type owl:NamedIndividual ,
                                             osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationSeizure
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationSeizure
 osdi:PBD_CostManifestationSeizure rdf:type owl:NamedIndividual ,
                                           osdi:Cost ,
                                           osdi:DeterministicParameter ;
@@ -304,7 +304,7 @@ osdi:PBD_CostManifestationSeizure rdf:type owl:NamedIndividual ,
                                  osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationSkinProblems
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationSkinProblems
 osdi:PBD_CostManifestationSkinProblems rdf:type owl:NamedIndividual ,
                                                osdi:Cost ,
                                                osdi:DeterministicParameter ;
@@ -318,7 +318,7 @@ osdi:PBD_CostManifestationSkinProblems rdf:type owl:NamedIndividual ,
                                       osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationVisionLoss
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationVisionLoss
 osdi:PBD_CostManifestationVisionLoss rdf:type owl:NamedIndividual ,
                                              osdi:Cost ,
                                              osdi:DeterministicParameter ;
@@ -332,7 +332,7 @@ osdi:PBD_CostManifestationVisionLoss rdf:type owl:NamedIndividual ,
                                     osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostManifestationVisionLossInitial
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostManifestationVisionLossInitial
 osdi:PBD_CostManifestationVisionLossInitial rdf:type owl:NamedIndividual ,
                                                     osdi:Cost ,
                                                     osdi:DeterministicParameter ;
@@ -346,7 +346,7 @@ osdi:PBD_CostManifestationVisionLossInitial rdf:type owl:NamedIndividual ,
                                            osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostScreening
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostScreening
 osdi:PBD_CostScreening rdf:type owl:NamedIndividual ,
                                osdi:Cost ,
                                osdi:SecondOrderUncertaintyParameter ;
@@ -362,7 +362,7 @@ osdi:PBD_CostScreening rdf:type owl:NamedIndividual ,
                       osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostScreening_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostScreening_ParamUncertainty
 osdi:PBD_CostScreening_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                 osdi:UniformDistributionExpression ;
                                        osdi:includedByModel osdi:PBD_ModelTree ,
@@ -372,7 +372,7 @@ osdi:PBD_CostScreening_ParamUncertainty rdf:type owl:NamedIndividual ,
                                        osdi:hasUpperLimitParameter "2.5"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_CostTreatmentStrategy
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_CostTreatmentStrategy
 osdi:PBD_CostTreatmentStrategy rdf:type owl:NamedIndividual ,
                                        osdi:Cost ,
                                        osdi:DeterministicParameter ;
@@ -387,7 +387,7 @@ osdi:PBD_CostTreatmentStrategy rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2013"^^xsd:short .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_FakeBirthPrevalence
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_FakeBirthPrevalence
 osdi:PBD_FakeBirthPrevalence rdf:type owl:NamedIndividual ,
                                      osdi:DeterministicParameter ,
                                      osdi:EpidemiologicalParameter ;
@@ -398,7 +398,7 @@ osdi:PBD_FakeBirthPrevalence rdf:type owl:NamedIndividual ,
                             osdi:isTrueEpidemiologicalParameterEstimate "false"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_FakePopulation
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_FakePopulation
 osdi:PBD_FakePopulation rdf:type owl:NamedIndividual ,
                                 osdi:Population ;
                        osdi:hasAge osdi:PBD_BasePopulationAge ;
@@ -410,7 +410,7 @@ osdi:PBD_FakePopulation rdf:type owl:NamedIndividual ,
                        osdi:hasSize 540963 .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_FollowUpStrategy
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_FollowUpStrategy
 osdi:PBD_FollowUpStrategy rdf:type owl:NamedIndividual ,
                                   osdi:FollowUpStrategy ;
                          osdi:hasCost osdi:PBD_CostFollowUpStrategy ;
@@ -421,7 +421,7 @@ osdi:PBD_FollowUpStrategy rdf:type owl:NamedIndividual ,
                          osdi:hasDescription "Ophthalmologic, auditory, and medical geneticist or metabolic specialist evaluations and urinary organic acid and acylcarnitine analyses." .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_InterventionNoScreening
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_InterventionNoScreening
 osdi:PBD_InterventionNoScreening rdf:type owl:NamedIndividual ,
                                          osdi:DiagnosisIntervention ;
                                 osdi:includedByModel osdi:PBD_ModelTree ,
@@ -431,7 +431,7 @@ osdi:PBD_InterventionNoScreening rdf:type owl:NamedIndividual ,
                                 osdi:isAssessedIntervention "false"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_InterventionScreening
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_InterventionScreening
 osdi:PBD_InterventionScreening rdf:type owl:NamedIndividual ,
                                        osdi:ScreeningIntervention ;
                               osdi:hasCost osdi:PBD_CostScreening ;
@@ -445,7 +445,7 @@ osdi:PBD_InterventionScreening rdf:type owl:NamedIndividual ,
                               osdi:isAssessedIntervention "true"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_InterventionScreeningEffect
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_InterventionScreeningEffect
 osdi:PBD_InterventionScreeningEffect rdf:type owl:NamedIndividual ,
                                              osdi:DeterministicParameter ,
                                              osdi:Parameter ;
@@ -463,7 +463,7 @@ osdi:PBD_InterventionScreeningEffect rdf:type owl:NamedIndividual ,
                                     osdi:hasExpectedValue "0.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationHearingProblems
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationHearingProblems
 osdi:PBD_ManifestationHearingProblems rdf:type owl:NamedIndividual ,
                                               osdi:ChronicManifestation ;
                                      osdi:hasCost osdi:PBD_CostManifestationHearingProblems ,
@@ -478,7 +478,7 @@ osdi:PBD_ManifestationHearingProblems rdf:type owl:NamedIndividual ,
                                                           osdi:PBD_ModelTreeFake .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationHearingProblemsProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationHearingProblemsProportion
 osdi:PBD_ManifestationHearingProblemsProportion rdf:type owl:NamedIndividual ,
                                                         osdi:EpidemiologicalParameter ,
                                                         osdi:SecondOrderUncertaintyParameter ;
@@ -490,7 +490,7 @@ osdi:PBD_ManifestationHearingProblemsProportion rdf:type owl:NamedIndividual ,
                                                osdi:hasExpectedValue "0.515"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationHearingProblemsProportion_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationHearingProblemsProportion_ParamUncertainty
 osdi:PBD_ManifestationHearingProblemsProportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                          osdi:BetaDistributionExpression ;
                                                                 osdi:includedByModel osdi:PBD_ModelTree ,
@@ -500,7 +500,7 @@ osdi:PBD_ManifestationHearingProblemsProportion_ParamUncertainty rdf:type owl:Na
                                                                 osdi:hasBetaParameter "34.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationHypotonia
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationHypotonia
 osdi:PBD_ManifestationHypotonia rdf:type owl:NamedIndividual ,
                                         osdi:ChronicManifestation ;
                                osdi:hasCost osdi:PBD_CostManifestationHypotonia ;
@@ -512,7 +512,7 @@ osdi:PBD_ManifestationHypotonia rdf:type owl:NamedIndividual ,
                                                     osdi:PBD_ModelTreeFake .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationHypotoniaProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationHypotoniaProportion
 osdi:PBD_ManifestationHypotoniaProportion rdf:type owl:NamedIndividual ,
                                                   osdi:EpidemiologicalParameter ,
                                                   osdi:SecondOrderUncertaintyParameter ;
@@ -523,7 +523,7 @@ osdi:PBD_ManifestationHypotoniaProportion rdf:type owl:NamedIndividual ,
                                          osdi:hasExpectedValue "0.457"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationHypotoniaProportion_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationHypotoniaProportion_ParamUncertainty
 osdi:PBD_ManifestationHypotoniaProportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                    osdi:BetaDistributionExpression ;
                                                           osdi:includedByModel osdi:PBD_ModelTree ,
@@ -532,7 +532,7 @@ osdi:PBD_ManifestationHypotoniaProportion_ParamUncertainty rdf:type owl:NamedInd
                                                           osdi:hasBetaParameter "20.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationMentalDelay
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationMentalDelay
 osdi:PBD_ManifestationMentalDelay rdf:type owl:NamedIndividual ,
                                           osdi:ChronicManifestation ;
                                  osdi:hasCost osdi:PBD_CostManifestationMentalDelay ,
@@ -547,7 +547,7 @@ osdi:PBD_ManifestationMentalDelay rdf:type owl:NamedIndividual ,
                                                       osdi:PBD_ModelTreeFake .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationMentalDelayLifetimeReduction
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationMentalDelayLifetimeReduction
 osdi:PBD_ManifestationMentalDelayLifetimeReduction rdf:type owl:NamedIndividual ,
                                                            osdi:Parameter ,
                                                            osdi:SecondOrderUncertaintyParameter ;
@@ -558,7 +558,7 @@ osdi:PBD_ManifestationMentalDelayLifetimeReduction rdf:type owl:NamedIndividual 
                                                   osdi:hasExpectedValue "9.6"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationMentalDelayLifetimeReduction_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationMentalDelayLifetimeReduction_ParamUncertainty
 osdi:PBD_ManifestationMentalDelayLifetimeReduction_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                             osdi:GammaDistributionExpression ;
                                                                    osdi:includedByModel osdi:PBD_ModelTree ,
@@ -567,7 +567,7 @@ osdi:PBD_ManifestationMentalDelayLifetimeReduction_ParamUncertainty rdf:type owl
                                                                    osdi:hasLambdaParameter "0.38"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationMentalDelayProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationMentalDelayProportion
 osdi:PBD_ManifestationMentalDelayProportion rdf:type owl:NamedIndividual ,
                                                     osdi:EpidemiologicalParameter ,
                                                     osdi:SecondOrderUncertaintyParameter ;
@@ -578,7 +578,7 @@ osdi:PBD_ManifestationMentalDelayProportion rdf:type owl:NamedIndividual ,
                                            osdi:hasExpectedValue "0.557"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationMentalDelayProportion_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationMentalDelayProportion_ParamUncertainty
 osdi:PBD_ManifestationMentalDelayProportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                      osdi:BetaDistributionExpression ;
                                                             osdi:includedByModel osdi:PBD_ModelTree ,
@@ -587,7 +587,7 @@ osdi:PBD_ManifestationMentalDelayProportion_ParamUncertainty rdf:type owl:NamedI
                                                             osdi:hasBetaParameter "6.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationSeizure
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationSeizure
 osdi:PBD_ManifestationSeizure rdf:type owl:NamedIndividual ,
                                       osdi:ChronicManifestation ;
                              osdi:hasCost osdi:PBD_CostManifestationSeizure ;
@@ -600,7 +600,7 @@ osdi:PBD_ManifestationSeizure rdf:type owl:NamedIndividual ,
                                                   osdi:PBD_ModelTreeFake .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationSeizureProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationSeizureProportion
 osdi:PBD_ManifestationSeizureProportion rdf:type owl:NamedIndividual ,
                                                 osdi:EpidemiologicalParameter ,
                                                 osdi:SecondOrderUncertaintyParameter ;
@@ -611,7 +611,7 @@ osdi:PBD_ManifestationSeizureProportion rdf:type owl:NamedIndividual ,
                                        osdi:hasExpectedValue "0.564"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationSeizureProportion_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationSeizureProportion_ParamUncertainty
 osdi:PBD_ManifestationSeizureProportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                  osdi:BetaDistributionExpression ;
                                                         osdi:includedByModel osdi:PBD_ModelTree ,
@@ -620,7 +620,7 @@ osdi:PBD_ManifestationSeizureProportion_ParamUncertainty rdf:type owl:NamedIndiv
                                                         osdi:hasBetaParameter "50.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationSkinProblems
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationSkinProblems
 osdi:PBD_ManifestationSkinProblems rdf:type owl:NamedIndividual ,
                                            osdi:ChronicManifestation ;
                                   osdi:hasCost osdi:PBD_CostManifestationSkinProblems ;
@@ -633,7 +633,7 @@ osdi:PBD_ManifestationSkinProblems rdf:type owl:NamedIndividual ,
                                   osdi:hasDescription "Skin problems related to the disease" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationSkinProblemsProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationSkinProblemsProportion
 osdi:PBD_ManifestationSkinProblemsProportion rdf:type owl:NamedIndividual ,
                                                      osdi:EpidemiologicalParameter ,
                                                      osdi:SecondOrderUncertaintyParameter ;
@@ -644,7 +644,7 @@ osdi:PBD_ManifestationSkinProblemsProportion rdf:type owl:NamedIndividual ,
                                             osdi:hasExpectedValue "0.41"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationSkinProblemsProportion_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationSkinProblemsProportion_ParamUncertainty
 osdi:PBD_ManifestationSkinProblemsProportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                       osdi:BetaDistributionExpression ;
                                                              osdi:includedByModel osdi:PBD_ModelTree ,
@@ -653,7 +653,7 @@ osdi:PBD_ManifestationSkinProblemsProportion_ParamUncertainty rdf:type owl:Named
                                                              osdi:hasBetaParameter "34.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationVisionLoss
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationVisionLoss
 osdi:PBD_ManifestationVisionLoss rdf:type owl:NamedIndividual ,
                                          osdi:ChronicManifestation ;
                                 osdi:hasCost osdi:PBD_CostManifestationVisionLoss ,
@@ -666,7 +666,7 @@ osdi:PBD_ManifestationVisionLoss rdf:type owl:NamedIndividual ,
                                                      osdi:PBD_ModelTreeFake .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationVisionLossProportion
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationVisionLossProportion
 osdi:PBD_ManifestationVisionLossProportion rdf:type owl:NamedIndividual ,
                                                    osdi:EpidemiologicalParameter ,
                                                    osdi:SecondOrderUncertaintyParameter ;
@@ -677,7 +677,7 @@ osdi:PBD_ManifestationVisionLossProportion rdf:type owl:NamedIndividual ,
                                           osdi:hasExpectedValue "0.175"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ManifestationVisionLossProportion_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ManifestationVisionLossProportion_ParamUncertainty
 osdi:PBD_ManifestationVisionLossProportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                     osdi:BetaDistributionExpression ;
                                                            osdi:includedByModel osdi:PBD_ModelTree ,
@@ -686,7 +686,7 @@ osdi:PBD_ManifestationVisionLossProportion_ParamUncertainty rdf:type owl:NamedIn
                                                            osdi:hasBetaParameter "91.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ModelTree
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ModelTree
 osdi:PBD_ModelTree rdf:type owl:NamedIndividual ,
                            osdi:DecisionTreeModel ;
                   osdi:includesModelItem osdi:Constant_Sensitivity1 ,
@@ -757,7 +757,7 @@ osdi:PBD_ModelTree rdf:type owl:NamedIndividual ,
                   osdi:hasDisutilityCombinationMethod "ADD" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ModelTreeDebug
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ModelTreeDebug
 osdi:PBD_ModelTreeDebug rdf:type owl:NamedIndividual ,
                                 osdi:DecisionTreeModel ;
                        osdi:includesModelItem osdi:Constant_Sensitivity1 ,
@@ -800,12 +800,12 @@ osdi:PBD_ModelTreeDebug rdf:type owl:NamedIndividual ,
                        osdi:hasDisutilityCombinationMethod "ADD" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ModelTreeFake
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ModelTreeFake
 osdi:PBD_ModelTreeFake rdf:type owl:NamedIndividual ,
                                osdi:DecisionTreeModel .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ProfoundBiotinidaseDeficiency
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ProfoundBiotinidaseDeficiency
 osdi:PBD_ProfoundBiotinidaseDeficiency rdf:type owl:NamedIndividual ,
                                                osdi:RareDisease ;
                                       osdi:hasDiagnosisStrategy osdi:PBD_ClinicalDiagnosis ;
@@ -830,7 +830,7 @@ osdi:PBD_ProfoundBiotinidaseDeficiency rdf:type owl:NamedIndividual ,
                                       osdi:hasRefToORDO "ordo:79241" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ScreeningSpecificity
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ScreeningSpecificity
 osdi:PBD_ScreeningSpecificity rdf:type owl:NamedIndividual ,
                                       osdi:Parameter ,
                                       osdi:SecondOrderUncertaintyParameter ;
@@ -842,7 +842,7 @@ osdi:PBD_ScreeningSpecificity rdf:type owl:NamedIndividual ,
                              osdi:hasExpectedValue "0.999935"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ScreeningSpecificity_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ScreeningSpecificity_ParamUncertainty
 osdi:PBD_ScreeningSpecificity_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                        osdi:BetaDistributionExpression ;
                                               osdi:includedByModel osdi:PBD_ModelTree ,
@@ -852,7 +852,7 @@ osdi:PBD_ScreeningSpecificity_ParamUncertainty rdf:type owl:NamedIndividual ,
                                               osdi:hasBetaParameter "35.0"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ScreeningStrategy
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ScreeningStrategy
 osdi:PBD_ScreeningStrategy rdf:type owl:NamedIndividual ,
                                    osdi:ScreeningStrategy ;
                           osdi:hasCost osdi:PBD_CostScreening ;
@@ -864,7 +864,7 @@ osdi:PBD_ScreeningStrategy rdf:type owl:NamedIndividual ,
                           osdi:hasDescription "Measurement of biotinidase activity in blood-saturated filter paper samples on enzymatic assay or semiquantitative fluorometric determination" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_ScreeningTemporaryThreshold
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_ScreeningTemporaryThreshold
 osdi:PBD_ScreeningTemporaryThreshold rdf:type owl:NamedIndividual ,
                                              osdi:DeterministicParameter ,
                                              osdi:Parameter ;
@@ -876,7 +876,7 @@ osdi:PBD_ScreeningTemporaryThreshold rdf:type owl:NamedIndividual ,
                                     rdfs:comment "1.7 days" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_TreatmentStrategy
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_TreatmentStrategy
 osdi:PBD_TreatmentStrategy rdf:type owl:NamedIndividual ,
                                    osdi:LineOfTherapy ;
                           osdi:hasCost osdi:PBD_CostTreatmentStrategy ;
@@ -887,7 +887,7 @@ osdi:PBD_TreatmentStrategy rdf:type owl:NamedIndividual ,
                           osdi:hasDescription "Lifetime treatment with biotin" .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_UtilityManifestationHearingProblems
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_UtilityManifestationHearingProblems
 osdi:PBD_UtilityManifestationHearingProblems rdf:type owl:NamedIndividual ,
                                                      osdi:SecondOrderUncertaintyParameter ,
                                                      osdi:Utility ;
@@ -901,7 +901,7 @@ osdi:PBD_UtilityManifestationHearingProblems rdf:type owl:NamedIndividual ,
                                             osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_UtilityManifestationHearingProblems_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_UtilityManifestationHearingProblems_ParamUncertainty
 osdi:PBD_UtilityManifestationHearingProblems_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                       osdi:UniformDistributionExpression ;
                                                              osdi:includedByModel osdi:PBD_ModelTree ,
@@ -911,7 +911,7 @@ osdi:PBD_UtilityManifestationHearingProblems_ParamUncertainty rdf:type owl:Named
                                                              osdi:hasUpperLimitParameter "0.012"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_UtilityManifestationMentalDelay
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_UtilityManifestationMentalDelay
 osdi:PBD_UtilityManifestationMentalDelay rdf:type owl:NamedIndividual ,
                                                  osdi:SecondOrderUncertaintyParameter ,
                                                  osdi:Utility ;
@@ -924,7 +924,7 @@ osdi:PBD_UtilityManifestationMentalDelay rdf:type owl:NamedIndividual ,
                                         osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_UtilityManifestationMentalDelay_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_UtilityManifestationMentalDelay_ParamUncertainty
 osdi:PBD_UtilityManifestationMentalDelay_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                                   osdi:UniformDistributionExpression ;
                                                          osdi:includedByModel osdi:PBD_ModelTree ,
@@ -933,7 +933,7 @@ osdi:PBD_UtilityManifestationMentalDelay_ParamUncertainty rdf:type owl:NamedIndi
                                                          osdi:hasUpperLimitParameter "0.084"^^xsd:double .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_UtilityManifestationSeizure
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_UtilityManifestationSeizure
 osdi:PBD_UtilityManifestationSeizure rdf:type owl:NamedIndividual ,
                                              osdi:SecondOrderUncertaintyParameter ,
                                              osdi:Utility ;
@@ -947,7 +947,7 @@ osdi:PBD_UtilityManifestationSeizure rdf:type owl:NamedIndividual ,
                                     osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  http://www.ull.es/iis/simulation/ontologies/disease-simulation-PBD#PBD_UtilityManifestationSeizure_ParamUncertainty
+###  https://ontologies-ull.github.io/OSDi-PBD#PBD_UtilityManifestationSeizure_ParamUncertainty
 osdi:PBD_UtilityManifestationSeizure_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                               osdi:UniformDistributionExpression ;
                                                      osdi:includedByModel osdi:PBD_ModelTree ,
