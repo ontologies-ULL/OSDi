@@ -4,7 +4,8 @@ on:
   push:
     paths:
       - "OSDi.owl"   # Solo se dispara si cambia este fichero
-
+  workflow_dispatch: # permite ejecución manual desde GitHub
+  
 jobs:
   build:
     runs-on: ubuntu-latest
