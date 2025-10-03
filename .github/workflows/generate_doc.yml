@@ -13,7 +13,9 @@ jobs:
       # 1. Clonar el repo
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       # 2. Instalar Java (necesario para Widoco)
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -37,16 +39,23 @@ jobs:
             -uniteSections \
             -includeAnnotationProperties
 
-      # Widoco no crea un index.html, así que copiamos la versión inglesa
+      # 5. Widoco no crea un index.html, así que copiamos la versión inglesa
       - name: Copy index-en.html to index.html
         run: |
           cp docs/index-en.html docs/index.html
     
-      # 5. Commit de la documentación actualizada
-      - name: Commit and push changes
+      # 6. Commit y push solo si hay cambios reales
+      - name: Commit and push only if changes exist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add docs
-          git commit -m "Update Widoco documentation [skip ci]" || echo "No changes to commit"
-          git push
+          # Verificar si hay cambios en docs/
+          if git diff --quiet docs; then
+            echo "No changes in docs/, skipping commit"
+          else
+            git add docs
+            git commit -m "Update Widoco documentation [skip ci]"
+            git push
+          fi
