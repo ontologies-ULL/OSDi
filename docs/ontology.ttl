@@ -1,24 +1,24 @@
-@prefix : <https://ontologies-ull.github.io/OSDi#> .
+@prefix : <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://ontologies-ull.github.io/OSDi#> .
+@base <https://w3id.org/ontologies-ULL/OSDi#> .
 
-<https://ontologies-ull.github.io/OSDi> rdf:type owl:Ontology ;
-                                         owl:versionIRI <https://ontologies-ull.github.io/OSDi/1.0> ;
-                                         <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by-nc-sa/4.0/> ;
-                                         rdfs:label "OSDi"@en ,
-                                                    "OSDi"@es ;
-                                         :abstract "This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied."@en ;
-                                         :codeRepository "https://github.com/ontologies-ULL/OSDi"^^xsd:anyURI ;
-                                         :contributor "María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)" ;
-                                         :creator "David Prieto González (https://orcid.org/0000-0003-1411-129X)" ,
-                                                  "Evelio J. González González (https://orcid.org/0000-0002-2203-3757)" ,
-                                                  "Iván Castilla Rodríguez (http://orcid.org/0000-0003-3933-2582)" ;
-                                         :description "Ontology designed for collecting and inferring the parameters required to create a simulation-based Health Technology Assesment"@en ,
-                                                      "Ontología diseñada para recopilar e inferir los parámetros necesarios para crear una evaluación de tecnología sanitaria basada en simulación"@es .
+<https://w3id.org/ontologies-ULL/OSDi> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://w3id.org/ontologies-ULL/OSDi/1.0> ;
+                                        <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+                                        <http://purl.org/dc/elements/1.1/contributor> "María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)" ;
+                                        <http://purl.org/dc/elements/1.1/creator> "David Prieto González (https://orcid.org/0000-0003-1411-129X)" ,
+                                                                                  "Evelio J. González González (https://orcid.org/0000-0002-2203-3757)" ,
+                                                                                  "Iván Castilla Rodríguez (http://orcid.org/0000-0003-3933-2582)" ;
+                                        <http://purl.org/dc/elements/1.1/description> "Ontology designed for collecting and inferring the parameters required to create a simulation-based Health Technology Assesment"@en ,
+                                                                                      "Ontología diseñada para recopilar e inferir los parámetros necesarios para crear una evaluación de tecnología sanitaria basada en simulación"@es ;
+                                        <http://purl.org/dc/elements/1.1/source> <https://github.com/ontologies-ULL/OSDi> ;
+                                        <http://purl.org/dc/terms/abstract> "This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied."@en ;
+                                        rdfs:label "OSDi"@en ,
+                                                   "OSDi"@es .
 
 #################################################################
 #    Annotation properties
@@ -44,35 +44,43 @@
 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> rdf:type owl:AnnotationProperty .
 
 
-###  https://ontologies-ull.github.io/OSDi#TODO
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#TODO
 :TODO rdf:type owl:AnnotationProperty .
 
 
-###  https://ontologies-ull.github.io/OSDi#abstract
-:abstract rdf:type owl:AnnotationProperty .
-
-
-###  https://ontologies-ull.github.io/OSDi#codeRepository
-:codeRepository rdf:type owl:AnnotationProperty .
-
-
-###  https://ontologies-ull.github.io/OSDi#contributor
+###  https://w3id.org/ontologies-ULL/OSDi#contributor
 :contributor rdf:type owl:AnnotationProperty .
 
 
-###  https://ontologies-ull.github.io/OSDi#creator
+###  https://w3id.org/ontologies-ULL/OSDi#creator
 :creator rdf:type owl:AnnotationProperty .
-
-
-###  https://ontologies-ull.github.io/OSDi#description
-:description rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://ontologies-ull.github.io/OSDi#belongsToGroup
+###  https://w3id.org/ontologies-ULL/OSDi#belongsToGroup
 :belongsToGroup rdf:type owl:ObjectProperty ;
                 owl:inverseOf :hasGroupItem ;
                 rdfs:domain :GroupableModelItem ;
@@ -81,14 +89,14 @@
                            "pertenece al grupo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#causesFailOf
+###  https://w3id.org/ontologies-ULL/OSDi#causesFailOf
 :causesFailOf rdf:type owl:ObjectProperty ;
               owl:inverseOf :failsIf ;
               rdfs:domain :Parameter ;
               rdfs:range :LineOfTherapy .
 
 
-###  https://ontologies-ull.github.io/OSDi#dependsOn
+###  https://w3id.org/ontologies-ULL/OSDi#dependsOn
 :dependsOn rdf:type owl:ObjectProperty ;
            owl:inverseOf :hasDependantCalculatedParameter ;
            rdfs:domain :CalculatedParameter ;
@@ -102,7 +110,7 @@
                       "depends on attribute"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#excludesDiseaseProgression
+###  https://w3id.org/ontologies-ULL/OSDi#excludesDiseaseProgression
 :excludesDiseaseProgression rdf:type owl:ObjectProperty ;
                             owl:inverseOf :isExcludedByDiseaseProgression ;
                             rdfs:domain :DiseaseProgression ;
@@ -111,7 +119,7 @@
                                        "excluye la progresión de enfermedad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#failsIf
+###  https://w3id.org/ontologies-ULL/OSDi#failsIf
 :failsIf rdf:type owl:ObjectProperty ;
          rdfs:domain :LineOfTherapy ;
          rdfs:range :Parameter ;
@@ -120,7 +128,7 @@
                     "falla si"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#followedByStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#followedByStrategy
 :followedByStrategy rdf:type owl:ObjectProperty ;
                     owl:inverseOf :followsStrategy ;
                     rdfs:domain :Strategy ;
@@ -129,13 +137,13 @@
                                "seguido por la estrategia"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#followsStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#followsStrategy
 :followsStrategy rdf:type owl:ObjectProperty ;
                  rdfs:domain :Strategy ;
                  rdfs:range :Strategy .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasAge
+###  https://w3id.org/ontologies-ULL/OSDi#hasAge
 :hasAge rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf :usesAttributeValue ;
         rdfs:domain :Population ;
@@ -147,7 +155,7 @@
                    "tiene edad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasAttributeValue
+###  https://w3id.org/ontologies-ULL/OSDi#hasAttributeValue
 :hasAttributeValue rdf:type owl:ObjectProperty ;
                    owl:inverseOf :isValueOfAttribute ;
                    rdfs:domain :Attribute ;
@@ -157,7 +165,7 @@
                               "tiene el valor del atributo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasConditionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#hasConditionExpression
 :hasConditionExpression rdf:type owl:ObjectProperty ;
                         owl:inverseOf :isConditionExpressionOf ;
                         rdfs:domain [ rdf:type owl:Class ;
@@ -171,7 +179,7 @@
                                    "tiene la expresión de condición"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasCost
+###  https://w3id.org/ontologies-ULL/OSDi#hasCost
 :hasCost rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf :hasParameter ;
          rdfs:domain [ rdf:type owl:Class ;
@@ -188,7 +196,7 @@
                     "tiene el coste"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDataItemType
+###  https://w3id.org/ontologies-ULL/OSDi#hasDataItemType
 :hasDataItemType rdf:type owl:ObjectProperty ;
                  owl:inverseOf :isDataItemTypeOf ;
                  rdfs:domain :Parameter ;
@@ -197,7 +205,7 @@
                             "tiene el tipo de datos"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDefaultDiseaseProgression
+###  https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression
 :hasDefaultDiseaseProgression rdf:type owl:ObjectProperty ;
                               rdfs:domain :DiseaseProgressionSet ;
                               rdfs:range [ rdf:type owl:Class ;
@@ -210,7 +218,7 @@
                                          "tiene progresión de enfermedad por defecto"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDependantCalculatedParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasDependantCalculatedParameter
 :hasDependantCalculatedParameter rdf:type owl:ObjectProperty ;
                                  rdfs:domain [ rdf:type owl:Class ;
                                                owl:unionOf ( :Attribute
@@ -220,7 +228,7 @@
                                  rdfs:range :CalculatedParameter .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDiagnosisCost
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost
 :hasDiagnosisCost rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :hasCost ;
                   rdfs:domain [ rdf:type owl:Class ;
@@ -233,7 +241,7 @@
                              "tiene el coste de diagnóstico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDiagnosisStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy
 :hasDiagnosisStrategy rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :hasStrategy ;
                       rdfs:domain [ rdf:type owl:Class ;
@@ -257,7 +265,7 @@
                                  "tiene el coste de diagnóstico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDiseaseProgression
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression
 :hasDiseaseProgression rdf:type owl:ObjectProperty ;
                        owl:inverseOf :isDiseaseProgressionOf ;
                        rdfs:domain [ rdf:type owl:Class ;
@@ -273,7 +281,7 @@
                                   ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDose
+###  https://w3id.org/ontologies-ULL/OSDi#hasDose
 :hasDose rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf :hasParameter ;
          rdfs:domain :Guideline ;
@@ -283,7 +291,7 @@
                     "tiene la dosis"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDuration
+###  https://w3id.org/ontologies-ULL/OSDi#hasDuration
 :hasDuration rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :hasParameter ;
              rdfs:domain :DiseaseProgression ;
@@ -292,7 +300,7 @@
                         "tiene la duración"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasEndAge
+###  https://w3id.org/ontologies-ULL/OSDi#hasEndAge
 :hasEndAge rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :hasParameter ;
            rdfs:domain :DiseaseProgression ;
@@ -301,7 +309,7 @@
                       "tiene la edad de finalización"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasEpidemiologicalParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasEpidemiologicalParameter
 :hasEpidemiologicalParameter rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf :hasParameter ;
                              rdfs:domain [ rdf:type owl:Class ;
@@ -314,7 +322,7 @@
                                         "tiene el parámetro epidemiológico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasExpressionLanguage
+###  https://w3id.org/ontologies-ULL/OSDi#hasExpressionLanguage
 :hasExpressionLanguage rdf:type owl:ObjectProperty ;
                        owl:inverseOf :isExpressionLanguageOf ;
                        rdfs:domain :CalculatedParameter ;
@@ -323,7 +331,7 @@
                                   "tiene el lenguage de expresión"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasFollowUpCost
+###  https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost
 :hasFollowUpCost rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :hasCost ;
                  rdfs:domain [ rdf:type owl:Class ;
@@ -337,7 +345,7 @@
                             "tiene el coste de seguimiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasFollowUpStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy
 :hasFollowUpStrategy rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :hasStrategy ;
                      rdfs:domain [ rdf:type owl:Class ;
@@ -363,7 +371,7 @@
                                 "tiene la estrategia de seguimiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasFrequency
+###  https://w3id.org/ontologies-ULL/OSDi#hasFrequency
 :hasFrequency rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :hasParameter ;
               rdfs:domain [ rdf:type owl:Class ;
@@ -379,7 +387,7 @@ By default = 1, for the Manifestations."""@en ;
                          "tiene la frecuencia"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasGroupItem
+###  https://w3id.org/ontologies-ULL/OSDi#hasGroupItem
 :hasGroupItem rdf:type owl:ObjectProperty ;
               rdfs:domain :Group ;
               rdfs:range :GroupableModelItem ;
@@ -388,7 +396,7 @@ By default = 1, for the Manifestations."""@en ;
                          "tiene el elemento del grupo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasGuideline
+###  https://w3id.org/ontologies-ULL/OSDi#hasGuideline
 :hasGuideline rdf:type owl:ObjectProperty ;
               owl:inverseOf :isGuidelineOf ;
               rdfs:domain [ rdf:type owl:Class ;
@@ -401,7 +409,7 @@ By default = 1, for the Manifestations."""@en ;
                          "tiene la pauta"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasIncreasedMortalityRate
+###  https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate
 :hasIncreasedMortalityRate rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf :hasParameter ;
                            rdfs:domain [ rdf:type owl:Class ;
@@ -415,7 +423,7 @@ By default = 1, for the Manifestations."""@en ;
                                       "tiene la tasa de mortalidad aumentada"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasInitialProportion
+###  https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion
 :hasInitialProportion rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :hasParameter ;
                       rdfs:domain [ rdf:type owl:Class ;
@@ -431,7 +439,7 @@ By default = 1, for the Manifestations."""@en ;
                                  "tiene la proporción inicial"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasIntervention
+###  https://w3id.org/ontologies-ULL/OSDi#hasIntervention
 :hasIntervention rdf:type owl:ObjectProperty ;
                  owl:inverseOf :isInterventionOf ;
                  rdfs:domain :Disease ;
@@ -440,7 +448,7 @@ By default = 1, for the Manifestations."""@en ;
                             "tiene la intervención"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasLifeExpectancy
+###  https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancy
 :hasLifeExpectancy rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :hasParameter ;
                    rdfs:domain :Population ;
@@ -449,7 +457,7 @@ By default = 1, for the Manifestations."""@en ;
                               "tiene la esperanza de vida"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasLifeExpectancyReduction
+###  https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction
 :hasLifeExpectancyReduction rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf :hasParameter ;
                             rdfs:domain [ rdf:type owl:Class ;
@@ -462,7 +470,7 @@ By default = 1, for the Manifestations."""@en ;
                                        "tiene la reducción de la esperanza de vida"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasLineOfTherapy
+###  https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy
 :hasLineOfTherapy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :hasStrategy ;
                   rdfs:domain [ rdf:type owl:Class ;
@@ -487,7 +495,7 @@ By default = 1, for the Manifestations."""@en ;
                              "tiene la línea de tratamiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasOnsetAge
+###  https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge
 :hasOnsetAge rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :hasParameter ;
              rdfs:domain :DiseaseProgression ;
@@ -496,7 +504,7 @@ By default = 1, for the Manifestations."""@en ;
                         "tiene la edad de inicio"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasParameter
 :hasParameter rdf:type owl:ObjectProperty ;
               owl:inverseOf :isParameterOf ;
               rdfs:domain [ rdf:type owl:Class ;
@@ -513,7 +521,7 @@ By default = 1, for the Manifestations."""@en ;
                          "tiene el parámetro"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasProbabilityOfDeath
+###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath
 :hasProbabilityOfDeath rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :hasParameter ;
                        rdfs:domain [ rdf:type owl:Class ;
@@ -527,7 +535,7 @@ By default = 1, for the Manifestations."""@en ;
                                   "tiene la probabilidad de muerte"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasProbabilityOfDiagnosis
+###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis
 :hasProbabilityOfDiagnosis rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf :hasParameter ;
                            rdfs:domain :DiseaseProgression ;
@@ -537,7 +545,7 @@ By default = 1, for the Manifestations."""@en ;
                                       "tiene la probabilidad de diagnóstico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasProportionWithinGroup
+###  https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup
 :hasProportionWithinGroup rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :hasParameter ;
                           rdfs:domain :GroupableModelItem ;
@@ -546,7 +554,7 @@ By default = 1, for the Manifestations."""@en ;
                                      "tiene la proporción dentro del grupo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRiskCharacterization
+###  https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization
 :hasRiskCharacterization rdf:type owl:ObjectProperty ;
                          owl:inverseOf :isRiskCharacterizationOf ;
                          rdfs:domain :DiseaseProgression ;
@@ -560,7 +568,7 @@ By default = 1, for the Manifestations."""@en ;
                          :TODO "Check if this is the best name for the property" .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasScreeningCost
+###  https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost
 :hasScreeningCost rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :hasCost ;
                   rdfs:domain [ rdf:type owl:Class ;
@@ -571,7 +579,7 @@ By default = 1, for the Manifestations."""@en ;
                   rdfs:range :Cost .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasScreeningStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy
 :hasScreeningStrategy rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :hasStrategy ;
                       rdfs:domain [ rdf:type owl:Class ;
@@ -595,7 +603,7 @@ By default = 1, for the Manifestations."""@en ;
                                  "tiene la estrategia de cribado"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasSensitivity
+###  https://w3id.org/ontologies-ULL/OSDi#hasSensitivity
 :hasSensitivity rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :hasParameter ;
                 rdfs:domain [ rdf:type owl:Class ;
@@ -609,7 +617,7 @@ By default = 1, for the Manifestations."""@en ;
                            "tiene la sensibilidad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasSex
+###  https://w3id.org/ontologies-ULL/OSDi#hasSex
 :hasSex rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf :usesAttributeValue ;
         rdfs:domain :Population ;
@@ -621,7 +629,7 @@ By default = 1, for the Manifestations."""@en ;
                    "tiene sexo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasSpecificity
+###  https://w3id.org/ontologies-ULL/OSDi#hasSpecificity
 :hasSpecificity rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :hasParameter ;
                 rdfs:domain [ rdf:type owl:Class ;
@@ -636,7 +644,7 @@ By default = 1, for the Manifestations."""@en ;
                            "tiene la especificidad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#hasStrategy
 :hasStrategy rdf:type owl:ObjectProperty ;
              owl:inverseOf :isStrategyOf ;
              rdfs:domain [ rdf:type owl:Class ;
@@ -662,7 +670,7 @@ By default = 1, for the Manifestations."""@en ;
                         "tiene la estrategia"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasSubpopulation
+###  https://w3id.org/ontologies-ULL/OSDi#hasSubpopulation
 :hasSubpopulation rdf:type owl:ObjectProperty ;
                   owl:inverseOf :isSubpopulationOf ;
                   rdfs:domain :Population ;
@@ -671,7 +679,7 @@ By default = 1, for the Manifestations."""@en ;
                              "tiene la subpoblación"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasTemporaryThreshold
+###  https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold
 :hasTemporaryThreshold rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :hasParameter ;
                        rdfs:domain [ rdf:type owl:Class ;
@@ -685,7 +693,7 @@ By default = 1, for the Manifestations."""@en ;
                                   "tiene el umbral temporal"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasTreatmentCost
+###  https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost
 :hasTreatmentCost rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :hasCost ;
                   rdfs:domain [ rdf:type owl:Class ;
@@ -699,7 +707,7 @@ By default = 1, for the Manifestations."""@en ;
                              "tiene el costo del tratamiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasUncertaintyCharacterization
+###  https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization
 :hasUncertaintyCharacterization rdf:type owl:ObjectProperty ;
                                 owl:inverseOf :isUncertaintyCharacterizationOf ;
                                 rdfs:domain [ rdf:type owl:Class ;
@@ -716,7 +724,7 @@ By default = 1, for the Manifestations."""@en ;
                                            "tiene la caracterización de incertidumbre"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasUtility
+###  https://w3id.org/ontologies-ULL/OSDi#hasUtility
 :hasUtility rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf :hasParameter ;
             rdfs:domain [ rdf:type owl:Class ;
@@ -734,7 +742,7 @@ By default = 1, for the Manifestations."""@en ;
                        "tiene la utilidad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#includedByModel
+###  https://w3id.org/ontologies-ULL/OSDi#includedByModel
 :includedByModel rdf:type owl:ObjectProperty ;
                  owl:inverseOf :includesModelItem ;
                  rdfs:domain :ModelItem ;
@@ -743,7 +751,7 @@ By default = 1, for the Manifestations."""@en ;
                             "incluido por el modelo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#includesModelItem
+###  https://w3id.org/ontologies-ULL/OSDi#includesModelItem
 :includesModelItem rdf:type owl:ObjectProperty ;
                    rdfs:domain :Model ;
                    rdfs:range :ModelItem ;
@@ -751,7 +759,7 @@ By default = 1, for the Manifestations."""@en ;
                               "incluye el elemento del modelo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#involvesModification
+###  https://w3id.org/ontologies-ULL/OSDi#involvesModification
 :involvesModification rdf:type owl:ObjectProperty ;
                       owl:inverseOf :isModificationOf ;
                       rdfs:domain :Intervention ;
@@ -760,7 +768,7 @@ By default = 1, for the Manifestations."""@en ;
                                  "involves modification"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#isConditionExpressionOf
+###  https://w3id.org/ontologies-ULL/OSDi#isConditionExpressionOf
 :isConditionExpressionOf rdf:type owl:ObjectProperty ;
                          rdfs:domain :Parameter ;
                          rdfs:range [ rdf:type owl:Class ;
@@ -770,13 +778,13 @@ By default = 1, for the Manifestations."""@en ;
                                     ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#isDataItemTypeOf
+###  https://w3id.org/ontologies-ULL/OSDi#isDataItemTypeOf
 :isDataItemTypeOf rdf:type owl:ObjectProperty ;
                   rdfs:domain :DataItemType ;
                   rdfs:range :Parameter .
 
 
-###  https://ontologies-ull.github.io/OSDi#isDiseaseProgressionOf
+###  https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf
 :isDiseaseProgressionOf rdf:type owl:ObjectProperty ;
                         rdfs:domain [ rdf:type owl:Class ;
                                       owl:unionOf ( :DiseaseProgression
@@ -791,19 +799,19 @@ By default = 1, for the Manifestations."""@en ;
                                    ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#isExcludedByDiseaseProgression
+###  https://w3id.org/ontologies-ULL/OSDi#isExcludedByDiseaseProgression
 :isExcludedByDiseaseProgression rdf:type owl:ObjectProperty ;
                                 rdfs:domain :DiseaseProgression ;
                                 rdfs:range :DiseaseProgression .
 
 
-###  https://ontologies-ull.github.io/OSDi#isExpressionLanguageOf
+###  https://w3id.org/ontologies-ULL/OSDi#isExpressionLanguageOf
 :isExpressionLanguageOf rdf:type owl:ObjectProperty ;
                         rdfs:domain :ExpressionLanguage ;
                         rdfs:range :CalculatedParameter .
 
 
-###  https://ontologies-ull.github.io/OSDi#isGuidelineOf
+###  https://w3id.org/ontologies-ULL/OSDi#isGuidelineOf
 :isGuidelineOf rdf:type owl:ObjectProperty ;
                rdfs:domain :Guideline ;
                rdfs:range [ rdf:type owl:Class ;
@@ -813,19 +821,19 @@ By default = 1, for the Manifestations."""@en ;
                           ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#isInterventionOf
+###  https://w3id.org/ontologies-ULL/OSDi#isInterventionOf
 :isInterventionOf rdf:type owl:ObjectProperty ;
                   rdfs:domain :Intervention ;
                   rdfs:range :Disease .
 
 
-###  https://ontologies-ull.github.io/OSDi#isModificationOf
+###  https://w3id.org/ontologies-ULL/OSDi#isModificationOf
 :isModificationOf rdf:type owl:ObjectProperty ;
                   rdfs:domain :Parameter ;
                   rdfs:range :Intervention .
 
 
-###  https://ontologies-ull.github.io/OSDi#isModifiedBy
+###  https://w3id.org/ontologies-ULL/OSDi#isModifiedBy
 :isModifiedBy rdf:type owl:ObjectProperty ;
               owl:inverseOf :modifies ;
               rdfs:domain :Parameter ;
@@ -834,7 +842,7 @@ By default = 1, for the Manifestations."""@en ;
                          "is modified by"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#isParameterOf
+###  https://w3id.org/ontologies-ULL/OSDi#isParameterOf
 :isParameterOf rdf:type owl:ObjectProperty ;
                rdfs:domain :Parameter ;
                rdfs:range [ rdf:type owl:Class ;
@@ -850,7 +858,7 @@ By default = 1, for the Manifestations."""@en ;
                           "is parameter of"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#isRequiredBy
+###  https://w3id.org/ontologies-ULL/OSDi#isRequiredBy
 :isRequiredBy rdf:type owl:ObjectProperty ;
               owl:inverseOf :requires ;
               rdfs:domain [ rdf:type owl:Class ;
@@ -861,7 +869,7 @@ By default = 1, for the Manifestations."""@en ;
               rdfs:range :Pathway .
 
 
-###  https://ontologies-ull.github.io/OSDi#isRiskCharacterizationOf
+###  https://w3id.org/ontologies-ULL/OSDi#isRiskCharacterizationOf
 :isRiskCharacterizationOf rdf:type owl:ObjectProperty ;
                           rdfs:domain [ rdf:type owl:Class ;
                                         owl:unionOf ( :Parameter
@@ -871,12 +879,12 @@ By default = 1, for the Manifestations."""@en ;
                           rdfs:range :DiseaseProgression .
 
 
-###  https://ontologies-ull.github.io/OSDi#isStrategyOf
+###  https://w3id.org/ontologies-ULL/OSDi#isStrategyOf
 :isStrategyOf rdf:type owl:ObjectProperty ;
               rdfs:domain :Strategy .
 
 
-###  https://ontologies-ull.github.io/OSDi#isSubpopulationOf
+###  https://w3id.org/ontologies-ULL/OSDi#isSubpopulationOf
 :isSubpopulationOf rdf:type owl:ObjectProperty ;
                    rdfs:domain :Population ;
                    rdfs:range :Population ;
@@ -884,7 +892,7 @@ By default = 1, for the Manifestations."""@en ;
                               "is subpopulation of"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#isUncertaintyCharacterizationOf
+###  https://w3id.org/ontologies-ULL/OSDi#isUncertaintyCharacterizationOf
 :isUncertaintyCharacterizationOf rdf:type owl:ObjectProperty ;
                                  rdfs:domain [ rdf:type owl:Class ;
                                                owl:unionOf ( :Parameter
@@ -898,7 +906,7 @@ By default = 1, for the Manifestations."""@en ;
                                             ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#isUsedAsAttributeValueBy
+###  https://w3id.org/ontologies-ULL/OSDi#isUsedAsAttributeValueBy
 :isUsedAsAttributeValueBy rdf:type owl:ObjectProperty ;
                           owl:inverseOf :usesAttributeValue ;
                           rdfs:domain :AttributeValueParameter ;
@@ -909,14 +917,14 @@ By default = 1, for the Manifestations."""@en ;
                                      ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#isUsedByStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#isUsedByStrategy
 :isUsedByStrategy rdf:type owl:ObjectProperty ;
                   owl:inverseOf :usesHealthTechnology ;
                   rdfs:domain :HealthTechnology ;
                   rdfs:range :Strategy .
 
 
-###  https://ontologies-ull.github.io/OSDi#isValueOfAttribute
+###  https://w3id.org/ontologies-ULL/OSDi#isValueOfAttribute
 :isValueOfAttribute rdf:type owl:ObjectProperty ;
                     rdfs:domain :Parameter ;
                     rdfs:range :Attribute ;
@@ -924,7 +932,7 @@ By default = 1, for the Manifestations."""@en ;
                                "is value of attribute"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#modifies
+###  https://w3id.org/ontologies-ULL/OSDi#modifies
 :modifies rdf:type owl:ObjectProperty ;
           rdfs:domain :Parameter ;
           rdfs:range :Parameter ;
@@ -932,7 +940,7 @@ By default = 1, for the Manifestations."""@en ;
                      "modifies"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#requires
+###  https://w3id.org/ontologies-ULL/OSDi#requires
 :requires rdf:type owl:ObjectProperty ;
           rdfs:domain :Pathway ;
           rdfs:range [ rdf:type owl:Class ;
@@ -944,7 +952,7 @@ By default = 1, for the Manifestations."""@en ;
                      "requires"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#usesAttributeValue
+###  https://w3id.org/ontologies-ULL/OSDi#usesAttributeValue
 :usesAttributeValue rdf:type owl:ObjectProperty ;
                     rdfs:domain [ rdf:type owl:Class ;
                                   owl:unionOf ( :Disease
@@ -957,7 +965,7 @@ By default = 1, for the Manifestations."""@en ;
                                "uses attribute value"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#usesDrug
+###  https://w3id.org/ontologies-ULL/OSDi#usesDrug
 :usesDrug rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf :usesHealthTechnology ;
           rdfs:domain :LineOfTherapy ;
@@ -966,7 +974,7 @@ By default = 1, for the Manifestations."""@en ;
                      "utiliza el fármaco"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#usesFollowUpTest
+###  https://w3id.org/ontologies-ULL/OSDi#usesFollowUpTest
 :usesFollowUpTest rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :usesHealthTechnology ;
                   rdfs:domain :FollowUpStrategy ;
@@ -975,7 +983,7 @@ By default = 1, for the Manifestations."""@en ;
                              "utiliza la prueba de seguimiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#usesHealthTechnology
+###  https://w3id.org/ontologies-ULL/OSDi#usesHealthTechnology
 :usesHealthTechnology rdf:type owl:ObjectProperty ;
                       rdfs:domain :Strategy ;
                       rdfs:range :HealthTechnology ;
@@ -983,7 +991,7 @@ By default = 1, for the Manifestations."""@en ;
                                  "utiliza tecnología sanitaria"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#usesSameModelItemsAs
+###  https://w3id.org/ontologies-ULL/OSDi#usesSameModelItemsAs
 :usesSameModelItemsAs rdf:type owl:ObjectProperty ;
                       rdfs:domain :Model ;
                       rdfs:range :Model ;
@@ -992,7 +1000,7 @@ By default = 1, for the Manifestations."""@en ;
                                  "utiliza los mismos elementos del modelo que"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#usesTreatment
+###  https://w3id.org/ontologies-ULL/OSDi#usesTreatment
 :usesTreatment rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf :usesHealthTechnology ;
                rdfs:domain :LineOfTherapy ;
@@ -1005,7 +1013,7 @@ By default = 1, for the Manifestations."""@en ;
 #    Data properties
 #################################################################
 
-###  https://ontologies-ull.github.io/OSDi#REMOVEhasFrequency
+###  https://w3id.org/ontologies-ULL/OSDi#REMOVEhasFrequency
 :REMOVEhasFrequency rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Guideline ;
                     rdfs:range xsd:string ;
@@ -1014,7 +1022,7 @@ By default = 1, for the Manifestations."""@en ;
 By default = 1, for the Manifestations.""" .
 
 
-###  https://ontologies-ull.github.io/OSDi#appliesOneTime
+###  https://w3id.org/ontologies-ULL/OSDi#appliesOneTime
 :appliesOneTime rdf:type owl:DatatypeProperty ;
                 rdfs:domain [ rdf:type owl:Class ;
                               owl:unionOf ( :Cost
@@ -1027,7 +1035,7 @@ By default = 1, for the Manifestations.""" .
                            "se aplica una única vez"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasAlfaParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasAlfaParameter
 :hasAlfaParameter rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                   rdfs:domain [ rdf:type owl:Class ;
@@ -1040,7 +1048,7 @@ By default = 1, for the Manifestations.""" .
                              "tiene el parámetro alfa"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasAuthor
+###  https://w3id.org/ontologies-ULL/OSDi#hasAuthor
 :hasAuthor rdf:type owl:DatatypeProperty ;
            rdfs:domain :Model ;
            rdfs:range xsd:string ;
@@ -1048,7 +1056,7 @@ By default = 1, for the Manifestations.""" .
                       "tiene el autor"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasAverageParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasAverageParameter
 :hasAverageParameter rdf:type owl:DatatypeProperty ;
                      rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                      rdfs:domain :ProbabilityDistributionExpression ;
@@ -1057,7 +1065,7 @@ By default = 1, for the Manifestations.""" .
                                 "tiene el parámetro promedio"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasBetaParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasBetaParameter
 :hasBetaParameter rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                   rdfs:domain :BetaDistributionExpression ;
@@ -1066,7 +1074,7 @@ By default = 1, for the Manifestations.""" .
                              "tiene el parámetro beta"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasCalculationMethod
+###  https://w3id.org/ontologies-ULL/OSDi#hasCalculationMethod
 :hasCalculationMethod rdf:type owl:DatatypeProperty ;
                       rdfs:domain :QoLDataItemType ;
                       rdfs:range xsd:string ;
@@ -1074,7 +1082,7 @@ By default = 1, for the Manifestations.""" .
                                  "tiene el método de cálculo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDescription
+###  https://w3id.org/ontologies-ULL/OSDi#hasDescription
 :hasDescription rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Describable ;
                 rdfs:range xsd:string ;
@@ -1083,7 +1091,7 @@ By default = 1, for the Manifestations.""" .
                            "tiene la descripción"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasDisutilityCombinationMethod
+###  https://w3id.org/ontologies-ULL/OSDi#hasDisutilityCombinationMethod
 :hasDisutilityCombinationMethod rdf:type owl:DatatypeProperty ;
                                 rdfs:domain :Model ;
                                 rdfs:range [ rdf:type rdfs:Datatype ;
@@ -1099,7 +1107,7 @@ By default = 1, for the Manifestations.""" .
                                            "tiene el método de combinación de disutilidades"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasExpectedValue
+###  https://w3id.org/ontologies-ULL/OSDi#hasExpectedValue
 :hasExpectedValue rdf:type owl:DatatypeProperty ;
                   rdfs:domain [ rdf:type owl:Class ;
                                 owl:unionOf ( :DeterministicParameter
@@ -1111,7 +1119,7 @@ By default = 1, for the Manifestations.""" .
                              "tiene el valor esperado"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasExpressionValue
+###  https://w3id.org/ontologies-ULL/OSDi#hasExpressionValue
 :hasExpressionValue rdf:type owl:DatatypeProperty ;
                     rdfs:domain :CalculatedParameter ;
                     rdfs:range xsd:string ;
@@ -1119,7 +1127,7 @@ By default = 1, for the Manifestations.""" .
                                "tiene el valor de expresión"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasGeographicalContext
+###  https://w3id.org/ontologies-ULL/OSDi#hasGeographicalContext
 :hasGeographicalContext rdf:type owl:DatatypeProperty ;
                         rdfs:domain [ rdf:type owl:Class ;
                                       owl:unionOf ( :Model
@@ -1132,7 +1140,7 @@ By default = 1, for the Manifestations.""" .
                                    "tiene el contexto geográfico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasHoursInterval
+###  https://w3id.org/ontologies-ULL/OSDi#hasHoursInterval
 :hasHoursInterval rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Guideline ;
                   rdfs:range xsd:string ;
@@ -1141,7 +1149,7 @@ By default = 1, for the Manifestations.""" .
                              "tiene el intervalo de horas"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasLambdaParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasLambdaParameter
 :hasLambdaParameter rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                     rdfs:domain [ rdf:type owl:Class ;
@@ -1155,7 +1163,7 @@ By default = 1, for the Manifestations.""" .
                                "tiene el parámetro lambda"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasLowerLimitParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasLowerLimitParameter
 :hasLowerLimitParameter rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                         rdfs:domain :UniformDistributionExpression ;
@@ -1164,7 +1172,7 @@ By default = 1, for the Manifestations.""" .
                                    "tiene el parámetro de límite inferior"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasMaxAge
+###  https://w3id.org/ontologies-ULL/OSDi#hasMaxAge
 :hasMaxAge rdf:type owl:DatatypeProperty ;
            rdfs:domain :Population ;
            rdfs:range xsd:double ;
@@ -1172,7 +1180,7 @@ By default = 1, for the Manifestations.""" .
                       "tiene la edad máxima"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasMinAge
+###  https://w3id.org/ontologies-ULL/OSDi#hasMinAge
 :hasMinAge rdf:type owl:DatatypeProperty ;
            rdfs:domain :Population ;
            rdfs:range xsd:double ;
@@ -1180,7 +1188,7 @@ By default = 1, for the Manifestations.""" .
                       "tiene la edad mínima"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasOffsetParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasOffsetParameter
 :hasOffsetParameter rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                     rdfs:domain :ProbabilityDistributionExpression ;
@@ -1189,7 +1197,7 @@ By default = 1, for the Manifestations.""" .
                                "tiene el parámetro de desplazamiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasProbabilityDistributionParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityDistributionParameter
 :hasProbabilityDistributionParameter rdf:type owl:DatatypeProperty ;
                                      rdfs:domain :ProbabilityDistributionExpression ;
                                      rdfs:range xsd:double ;
@@ -1197,7 +1205,7 @@ By default = 1, for the Manifestations.""" .
                                                 "tiene el parámetro de distribución de probabilidad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasProbabilityParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityParameter
 :hasProbabilityParameter rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                          rdfs:domain :BernoulliDistributionExpression ;
@@ -1206,7 +1214,7 @@ By default = 1, for the Manifestations.""" .
                                     "tiene el parámetro de probabilidad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRange
+###  https://w3id.org/ontologies-ULL/OSDi#hasRange
 :hasRange rdf:type owl:DatatypeProperty ;
           rdfs:domain :Guideline ;
           rdfs:range xsd:string ;
@@ -1217,7 +1225,7 @@ Examples:
    3m-2y   => 3 months to 2 years""" .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefTo
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefTo
 :hasRefTo rdf:type owl:DatatypeProperty ;
           rdfs:domain [ rdf:type owl:Class ;
                         owl:unionOf ( :DataItemType
@@ -1230,7 +1238,7 @@ Examples:
                      "tiene la referencia a"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToDO
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToDO
 :hasRefToDO rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf :hasRefTo ;
             rdfs:domain :Disease ;
@@ -1239,7 +1247,7 @@ Examples:
                        "tiene la referencia a DO"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToGARD
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToGARD
 :hasRefToGARD rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf :hasRefTo ;
               rdfs:domain :RareDisease ;
@@ -1248,7 +1256,7 @@ Examples:
                          "tiene la referencia a GARD"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToICD
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToICD
 :hasRefToICD rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf :hasRefTo ;
              rdfs:domain [ rdf:type owl:Class ;
@@ -1261,7 +1269,7 @@ Examples:
                         "tiene la referencia a ICD"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToOMIM
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToOMIM
 :hasRefToOMIM rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf :hasRefTo ;
               rdfs:domain :Disease ;
@@ -1270,7 +1278,7 @@ Examples:
                          "tiene la referencia a OMIM"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToORDO
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToORDO
 :hasRefToORDO rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf :hasRefTo ;
               rdfs:domain :RareDisease ;
@@ -1279,7 +1287,7 @@ Examples:
                          "tiene la referencia a ORDO"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToSNOMED
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToSNOMED
 :hasRefToSNOMED rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf :hasRefTo ;
                 rdfs:domain [ rdf:type owl:Class ;
@@ -1292,7 +1300,7 @@ Examples:
                            "tiene la referencia a SNOMED"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToSTATO
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToSTATO
 :hasRefToSTATO rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf :hasRefTo ;
                rdfs:domain [ rdf:type owl:Class ;
@@ -1305,7 +1313,7 @@ Examples:
                           "tiene la referencia a STATO"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasRefToWikidata
+###  https://w3id.org/ontologies-ULL/OSDi#hasRefToWikidata
 :hasRefToWikidata rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf :hasRefTo ;
                   rdfs:domain :Currency ;
@@ -1314,7 +1322,7 @@ Examples:
                              "tiene la referencia a Wikidata"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasScaleParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasScaleParameter
 :hasScaleParameter rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                    rdfs:domain :ProbabilityDistributionExpression ;
@@ -1323,7 +1331,7 @@ Examples:
                               "tiene el parámetro de escala"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasSize
+###  https://w3id.org/ontologies-ULL/OSDi#hasSize
 :hasSize rdf:type owl:DatatypeProperty ;
          rdfs:domain :Population ;
          rdfs:range xsd:integer ;
@@ -1331,7 +1339,7 @@ Examples:
                     "tiene el tamaño"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasSource
+###  https://w3id.org/ontologies-ULL/OSDi#hasSource
 :hasSource rdf:type owl:DatatypeProperty ;
            rdfs:domain :Parameter ;
            rdfs:range xsd:string ;
@@ -1339,7 +1347,7 @@ Examples:
                       "tiene la fuente"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasStandardDeviationParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasStandardDeviationParameter
 :hasStandardDeviationParameter rdf:type owl:DatatypeProperty ;
                                rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                                rdfs:domain :ProbabilityDistributionExpression ;
@@ -1348,7 +1356,7 @@ Examples:
                                           "tiene el parámetro de desviación estándar"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasTimeHorizon
+###  https://w3id.org/ontologies-ULL/OSDi#hasTimeHorizon
 :hasTimeHorizon rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Model ;
                 rdfs:range xsd:double ;
@@ -1357,7 +1365,7 @@ Examples:
                            "tiene horizonte temporal"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasUnit
+###  https://w3id.org/ontologies-ULL/OSDi#hasUnit
 :hasUnit rdf:type owl:DatatypeProperty ;
          rdfs:domain :MeasuredDataItemType ;
          rdfs:range xsd:string ;
@@ -1365,7 +1373,7 @@ Examples:
                     "tiene la unidad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasUpperLimitParameter
+###  https://w3id.org/ontologies-ULL/OSDi#hasUpperLimitParameter
 :hasUpperLimitParameter rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf :hasProbabilityDistributionParameter ;
                         rdfs:domain :UniformDistributionExpression ;
@@ -1374,7 +1382,7 @@ Examples:
                                    "tiene el parámetro de límite superior"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#hasYear
+###  https://w3id.org/ontologies-ULL/OSDi#hasYear
 :hasYear rdf:type owl:DatatypeProperty ;
          rdfs:domain [ rdf:type owl:Class ;
                        owl:unionOf ( :Model
@@ -1388,13 +1396,13 @@ Examples:
                     "tiene el año"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#isAssessedIntervention
+###  https://w3id.org/ontologies-ULL/OSDi#isAssessedIntervention
 :isAssessedIntervention rdf:type owl:DatatypeProperty ;
                         rdfs:domain :Intervention ;
                         rdfs:range xsd:boolean .
 
 
-###  https://ontologies-ull.github.io/OSDi#isDisutility
+###  https://w3id.org/ontologies-ULL/OSDi#isDisutility
 :isDisutility rdf:type owl:DatatypeProperty ;
               rdfs:domain :Utility ;
               rdfs:range xsd:boolean ;
@@ -1403,7 +1411,7 @@ Examples:
                          "Is disutility"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#isTrueEpidemiologicalParameterEstimate
+###  https://w3id.org/ontologies-ULL/OSDi#isTrueEpidemiologicalParameterEstimate
 :isTrueEpidemiologicalParameterEstimate rdf:type owl:DatatypeProperty ;
                                         rdfs:domain :EpidemiologicalParameter ;
                                         rdfs:range xsd:boolean ;
@@ -1415,7 +1423,7 @@ Examples:
 #    Classes
 #################################################################
 
-###  https://ontologies-ull.github.io/OSDi#AcuteManifestation
+###  https://w3id.org/ontologies-ULL/OSDi#AcuteManifestation
 :AcuteManifestation rdf:type owl:Class ;
                     rdfs:subClassOf :Manifestation ,
                                     [ rdf:type owl:Restriction ;
@@ -1428,7 +1436,7 @@ Examples:
                                "Manifestación aguda"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#AgentBasedModel
+###  https://w3id.org/ontologies-ULL/OSDi#AgentBasedModel
 :AgentBasedModel rdf:type owl:Class ;
                  rdfs:subClassOf :Model ;
                  rdfs:comment "An model based on using multiple agents"@en ;
@@ -1436,7 +1444,7 @@ Examples:
                             "Modelo basado en agentes"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#AlternativeDiseaseProgressionSet
+###  https://w3id.org/ontologies-ULL/OSDi#AlternativeDiseaseProgressionSet
 :AlternativeDiseaseProgressionSet rdf:type owl:Class ;
                                   rdfs:subClassOf :DiseaseProgressionSet ,
                                                   [ rdf:type owl:Restriction ;
@@ -1453,7 +1461,7 @@ Examples:
                                              "Conjunto de progresiones de enfermedad alternativas"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Attribute
+###  https://w3id.org/ontologies-ULL/OSDi#Attribute
 :Attribute rdf:type owl:Class ;
            rdfs:subClassOf :ModelItem ,
                            [ rdf:type owl:Restriction ;
@@ -1478,7 +1486,7 @@ Examples:
                       "Attribute"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#AttributeValueParameter
+###  https://w3id.org/ontologies-ULL/OSDi#AttributeValueParameter
 :AttributeValueParameter rdf:type owl:Class ;
                          owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                     [ rdf:type owl:Restriction ;
@@ -1492,7 +1500,7 @@ Examples:
                          rdfs:subClassOf :Parameter .
 
 
-###  https://ontologies-ull.github.io/OSDi#BernoulliDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#BernoulliDistributionExpression
 :BernoulliDistributionExpression rdf:type owl:Class ;
                                  rdfs:subClassOf :ProbabilityDistributionExpression ,
                                                  [ rdf:type owl:Restriction ;
@@ -1509,7 +1517,7 @@ Examples:
                                             "Expression for a Bernoulli probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#BetaDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#BetaDistributionExpression
 :BetaDistributionExpression rdf:type owl:Class ;
                             rdfs:subClassOf :ProbabilityDistributionExpression ,
                                             [ rdf:type owl:Restriction ;
@@ -1531,7 +1539,7 @@ Examples:
                                        "Expression for a Beta probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#CalculatedParameter
+###  https://w3id.org/ontologies-ULL/OSDi#CalculatedParameter
 :CalculatedParameter rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                 [ rdf:type owl:Class ;
@@ -1562,7 +1570,7 @@ Examples:
                                 "Parámetro calculado"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#ChronicManifestation
+###  https://w3id.org/ontologies-ULL/OSDi#ChronicManifestation
 :ChronicManifestation rdf:type owl:Class ;
                       rdfs:subClassOf :Manifestation ,
                                       [ rdf:type owl:Restriction ;
@@ -1581,7 +1589,7 @@ Examples:
                                  "Manifestación crónica"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#CoexistentDiseaseProgressionSet
+###  https://w3id.org/ontologies-ULL/OSDi#CoexistentDiseaseProgressionSet
 :CoexistentDiseaseProgressionSet rdf:type owl:Class ;
                                  rdfs:subClassOf :DiseaseProgressionSet ;
                                  rdfs:comment "A set of disease progressions which can coexist at the same time, e.g. seizures and skin problems." ;
@@ -1589,7 +1597,7 @@ Examples:
                                             "Conjunto de progresiones de enfermedad coexistentes"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Cost
+###  https://w3id.org/ontologies-ULL/OSDi#Cost
 :Cost rdf:type owl:Class ;
       owl:equivalentClass [ owl:intersectionOf ( :YearDependantParameter
                                                  [ rdf:type owl:Restriction ;
@@ -1611,7 +1619,7 @@ Examples:
                  "Coste"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Currency
+###  https://w3id.org/ontologies-ULL/OSDi#Currency
 :Currency rdf:type owl:Class ;
           rdfs:subClassOf :MeasuredDataItemType ,
                           [ rdf:type owl:Restriction ;
@@ -1624,7 +1632,7 @@ Examples:
                      "Moneda"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DataItemType
+###  https://w3id.org/ontologies-ULL/OSDi#DataItemType
 :DataItemType rdf:type owl:Class ;
               rdfs:subClassOf :Describable ,
                               [ rdf:type owl:Restriction ;
@@ -1637,7 +1645,7 @@ Examples:
                          "Tipo del elemento de datos"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DecisionTreeModel
+###  https://w3id.org/ontologies-ULL/OSDi#DecisionTreeModel
 :DecisionTreeModel rdf:type owl:Class ;
                    rdfs:subClassOf :Model ;
                    rdfs:comment "A model based on a decision tree"@en ;
@@ -1645,7 +1653,7 @@ Examples:
                               "Modelo de árbol de decisión"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Describable
+###  https://w3id.org/ontologies-ULL/OSDi#Describable
 :Describable rdf:type owl:Class ;
              owl:equivalentClass [ rdf:type owl:Restriction ;
                                    owl:onProperty :hasDescription ;
@@ -1654,7 +1662,7 @@ Examples:
                                  ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#DetectionIntervention
+###  https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention
 :DetectionIntervention rdf:type owl:Class ;
                        owl:equivalentClass [ rdf:type owl:Class ;
                                              owl:unionOf ( :DiagnosisIntervention
@@ -1703,7 +1711,7 @@ Examples:
                                   "Intervención de detección"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DetectionStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#DetectionStrategy
 :DetectionStrategy rdf:type owl:Class ;
                    rdfs:subClassOf :Strategy ,
                                    [ rdf:type owl:Restriction ;
@@ -1733,7 +1741,7 @@ Examples:
                               "Estrategia de detección"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DeterministicParameter
+###  https://w3id.org/ontologies-ULL/OSDi#DeterministicParameter
 :DeterministicParameter rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                    [ rdf:type owl:Restriction ;
@@ -1759,7 +1767,7 @@ Examples:
                                    "Parámetro determinista"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Development
+###  https://w3id.org/ontologies-ULL/OSDi#Development
 :Development rdf:type owl:Class ;
              rdfs:subClassOf :DiseaseProgression ,
                              [ rdf:type owl:Restriction ;
@@ -1778,7 +1786,7 @@ Examples:
                         "Development"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DiagnosisIntervention
+###  https://w3id.org/ontologies-ULL/OSDi#DiagnosisIntervention
 :DiagnosisIntervention rdf:type owl:Class ;
                        rdfs:subClassOf :DetectionIntervention ;
                        owl:disjointWith :ScreeningIntervention ;
@@ -1787,7 +1795,7 @@ Examples:
                                   "Intervención diagnóstica"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DiagnosisStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy
 :DiagnosisStrategy rdf:type owl:Class ;
                    rdfs:subClassOf :DetectionStrategy ;
                    rdfs:comment "A strategy related to the diagnosis of a disease"@es ;
@@ -1795,7 +1803,7 @@ Examples:
                               "Estrategia de diagnóstico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DiscreteEventSimulationModel
+###  https://w3id.org/ontologies-ULL/OSDi#DiscreteEventSimulationModel
 :DiscreteEventSimulationModel rdf:type owl:Class ;
                               rdfs:subClassOf :Model ;
                               rdfs:comment "A model based on discrete events and entities"@en ;
@@ -1803,7 +1811,7 @@ Examples:
                                          "Modelo de simulación de eventos discretos"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Disease
+###  https://w3id.org/ontologies-ULL/OSDi#Disease
 :Disease rdf:type owl:Class ;
          rdfs:subClassOf :ModelItem ,
                          [ rdf:type owl:Class ;
@@ -1926,7 +1934,7 @@ Examples:
                     "Enfermedad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DiseaseProgression
+###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression
 :DiseaseProgression rdf:type owl:Class ;
                     rdfs:subClassOf :ModelItem ,
                                     [ rdf:type owl:Class ;
@@ -2017,7 +2025,7 @@ Examples:
                                "Progresión de una enfermedad"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DiseaseProgressionSet
+###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet
 :DiseaseProgressionSet rdf:type owl:Class ;
                        rdfs:subClassOf :ModelItem ,
                                        [ rdf:type owl:Restriction ;
@@ -2033,7 +2041,7 @@ Examples:
                                   "Disease progression set"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DiseaseProgressionWithInitialProportion
+###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionWithInitialProportion
 :DiseaseProgressionWithInitialProportion rdf:type owl:Class ;
                                          owl:equivalentClass [ owl:intersectionOf ( :DiseaseProgression
                                                                                     [ rdf:type owl:Restriction ;
@@ -2053,7 +2061,7 @@ Examples:
                                          rdfs:subClassOf :DiseaseProgression .
 
 
-###  https://ontologies-ull.github.io/OSDi#Drug
+###  https://w3id.org/ontologies-ULL/OSDi#Drug
 :Drug rdf:type owl:Class ;
       rdfs:subClassOf :HealthTechnology ;
       rdfs:comment "A natural or synthetic remedy for a disease or manifestation"@en ;
@@ -2061,7 +2069,7 @@ Examples:
                  "Fármaco"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#EpidemiologicalParameter
+###  https://w3id.org/ontologies-ULL/OSDi#EpidemiologicalParameter
 :EpidemiologicalParameter rdf:type owl:Class ;
                           owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                      [ rdf:type owl:Restriction ;
@@ -2078,7 +2086,7 @@ Examples:
                                      "Parámetro epidemiológico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#ExponentialDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#ExponentialDistributionExpression
 :ExponentialDistributionExpression rdf:type owl:Class ;
                                    rdfs:subClassOf :ProbabilityDistributionExpression ,
                                                    [ rdf:type owl:Restriction ;
@@ -2095,7 +2103,7 @@ Examples:
                                               "Expression for an Expnential probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ExpressionLanguage
+###  https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage
 :ExpressionLanguage rdf:type owl:Class ;
                     owl:equivalentClass [ rdf:type owl:Class ;
                                           owl:oneOf ( :Exp_Excel
@@ -2109,7 +2117,7 @@ Examples:
                                "Lenguaje de expresión"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#FirstOrderUncertaintyParameter
+###  https://w3id.org/ontologies-ULL/OSDi#FirstOrderUncertaintyParameter
 :FirstOrderUncertaintyParameter rdf:type owl:Class ;
                                 owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                            [ rdf:type owl:Restriction ;
@@ -2134,7 +2142,7 @@ Examples:
                                            "Parámetro con incertidumbre de primer orden"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#FollowUpStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy
 :FollowUpStrategy rdf:type owl:Class ;
                   rdfs:subClassOf :Strategy ,
                                   [ rdf:type owl:Restriction ;
@@ -2146,7 +2154,7 @@ Examples:
                              "Follow-up strategy"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#FollowUpTest
+###  https://w3id.org/ontologies-ULL/OSDi#FollowUpTest
 :FollowUpTest rdf:type owl:Class ;
               rdfs:subClassOf :HealthTechnology ;
               rdfs:comment "Tests performed to monitor the state of a patient"@en ;
@@ -2154,7 +2162,7 @@ Examples:
                          "Prueba de seguimiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#GammaDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#GammaDistributionExpression
 :GammaDistributionExpression rdf:type owl:Class ;
                              rdfs:subClassOf :ProbabilityDistributionExpression ,
                                              [ rdf:type owl:Restriction ;
@@ -2176,7 +2184,7 @@ Examples:
                                         "Expression for a Gamma probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Group
+###  https://w3id.org/ontologies-ULL/OSDi#Group
 :Group rdf:type owl:Class ;
        owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                   [ rdf:type owl:Restriction ;
@@ -2192,7 +2200,7 @@ Examples:
                   "Grupo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#GroupableModelItem
+###  https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem
 :GroupableModelItem rdf:type owl:Class ;
                     owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                [ rdf:type owl:Restriction ;
@@ -2213,7 +2221,7 @@ Examples:
                                "Groupable model item"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Guideline
+###  https://w3id.org/ontologies-ULL/OSDi#Guideline
 :Guideline rdf:type owl:Class ;
            rdfs:subClassOf :ResourceUsageItem ,
                            [ rdf:type owl:Restriction ;
@@ -2252,7 +2260,7 @@ Examples:
                       "Pauta"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#HealthTechnology
+###  https://w3id.org/ontologies-ULL/OSDi#HealthTechnology
 :HealthTechnology rdf:type owl:Class ;
                   rdfs:subClassOf :ResourceUsageItem ,
                                   [ rdf:type owl:Restriction ;
@@ -2272,18 +2280,18 @@ Examples:
                              "Tecnología sanitaria"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#InfectiousDisease
+###  https://w3id.org/ontologies-ULL/OSDi#InfectiousDisease
 :InfectiousDisease rdf:type owl:Class ;
                    rdfs:subClassOf :Disease ;
                    owl:disjointWith :InheritedDisease .
 
 
-###  https://ontologies-ull.github.io/OSDi#InheritedDisease
+###  https://w3id.org/ontologies-ULL/OSDi#InheritedDisease
 :InheritedDisease rdf:type owl:Class ;
                   rdfs:subClassOf :Disease .
 
 
-###  https://ontologies-ull.github.io/OSDi#Intervention
+###  https://w3id.org/ontologies-ULL/OSDi#Intervention
 :Intervention rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Restriction ;
                                     owl:onProperty :isAssessedIntervention ;
@@ -2310,7 +2318,7 @@ Examples:
                          "Intervention"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#LineOfTherapy
+###  https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy
 :LineOfTherapy rdf:type owl:Class ;
                rdfs:subClassOf :Strategy ,
                                [ rdf:type owl:Class ;
@@ -2341,7 +2349,7 @@ Examples:
                           "Line-of-therapy strategy"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Manifestation
+###  https://w3id.org/ontologies-ULL/OSDi#Manifestation
 :Manifestation rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Class ;
                                      owl:unionOf ( :AcuteManifestation
@@ -2367,7 +2375,7 @@ Examples:
                           "Manifestation"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#MarkovModel
+###  https://w3id.org/ontologies-ULL/OSDi#MarkovModel
 :MarkovModel rdf:type owl:Class ;
              rdfs:subClassOf :Model ;
              rdfs:comment "Model based on Markov states and transitions"@en ;
@@ -2375,7 +2383,7 @@ Examples:
                         "Modelo de Markov"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#MeasuredDataItemType
+###  https://w3id.org/ontologies-ULL/OSDi#MeasuredDataItemType
 :MeasuredDataItemType rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( :DataItemType
                                                                  [ rdf:type owl:Restriction ;
@@ -2392,7 +2400,7 @@ Examples:
                                  "Tipo del elemento de datos medible"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Model
+###  https://w3id.org/ontologies-ULL/OSDi#Model
 :Model rdf:type owl:Class ;
        owl:equivalentClass [ rdf:type owl:Restriction ;
                              owl:onProperty :includesModelItem ;
@@ -2443,7 +2451,7 @@ Examples:
                   "Modelo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItem
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItem
 :ModelItem rdf:type owl:Class ;
            owl:equivalentClass [ rdf:type owl:Restriction ;
                                  owl:onProperty :includedByModel ;
@@ -2455,7 +2463,7 @@ Examples:
                       "Model item"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemDefiningDiseaseProgression
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemDefiningDiseaseProgression
 :ModelItemDefiningDiseaseProgression rdf:type owl:Class ;
                                      owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                                 [ rdf:type owl:Restriction ;
@@ -2473,7 +2481,7 @@ Examples:
                                                       :ResourceUsageItem .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithCost
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost
 :ModelItemWithCost rdf:type owl:Class ;
                    owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                               [ rdf:type owl:Restriction ;
@@ -2492,7 +2500,7 @@ Examples:
                               "Model item with cost"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithDetection
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithDetection
 :ModelItemWithDetection rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                    [ rdf:type owl:Class ;
@@ -2529,7 +2537,7 @@ Examples:
                                          :TherapeuticIntervention .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithEffectInLifeExpectancy
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy
 :ModelItemWithEffectInLifeExpectancy rdf:type owl:Class ;
                                      owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                                 [ rdf:type owl:Class ;
@@ -2556,7 +2564,7 @@ Examples:
                                                       :ProbabilityDistributionExpression .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithFollowUp
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp
 :ModelItemWithFollowUp rdf:type owl:Class ;
                        owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                   [ rdf:type owl:Class ;
@@ -2584,7 +2592,7 @@ Examples:
                                   "Model item with follow-up"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithRiskCharacterization
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithRiskCharacterization
 :ModelItemWithRiskCharacterization rdf:type owl:Class ;
                                    owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                               [ rdf:type owl:Restriction ;
@@ -2605,7 +2613,7 @@ Examples:
                                                     :ResourceUsageItem .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithTemporalConstraints
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTemporalConstraints
 :ModelItemWithTemporalConstraints rdf:type owl:Class ;
                                   owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                              [ rdf:type owl:Class ;
@@ -2633,7 +2641,7 @@ Examples:
                                                    :ProbabilityDistributionExpression .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithTreatment
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment
 :ModelItemWithTreatment rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                    [ rdf:type owl:Class ;
@@ -2661,7 +2669,7 @@ Examples:
                                    "Model item with treatment"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModelItemWithUtility
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility
 :ModelItemWithUtility rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                  [ rdf:type owl:Restriction ;
@@ -2679,7 +2687,7 @@ Examples:
                                  "Model item with utility"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ModifierParameter
+###  https://w3id.org/ontologies-ULL/OSDi#ModifierParameter
 :ModifierParameter rdf:type owl:Class ;
                    owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                               [ rdf:type owl:Restriction ;
@@ -2692,7 +2700,7 @@ Examples:
                    rdfs:subClassOf :Parameter .
 
 
-###  https://ontologies-ull.github.io/OSDi#NormalDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#NormalDistributionExpression
 :NormalDistributionExpression rdf:type owl:Class ;
                               rdfs:subClassOf :ProbabilityDistributionExpression ,
                                               [ rdf:type owl:Restriction ;
@@ -2704,7 +2712,7 @@ Examples:
                                          "Expression for a Normal probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Parameter
+###  https://w3id.org/ontologies-ULL/OSDi#Parameter
 :Parameter rdf:type owl:Class ;
            rdfs:subClassOf :ModelItem ,
                            [ rdf:type owl:Restriction ;
@@ -2730,7 +2738,7 @@ Examples:
                       "Parámetro"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#ParameterNature
+###  https://w3id.org/ontologies-ULL/OSDi#ParameterNature
 :ParameterNature rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
                                        owl:unionOf ( :CalculatedParameter
@@ -2750,7 +2758,7 @@ Examples:
                             "Parameter nature"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Pathway
+###  https://w3id.org/ontologies-ULL/OSDi#Pathway
 :Pathway rdf:type owl:Class ;
          rdfs:subClassOf :ModelItem ,
                          [ rdf:type owl:Restriction ;
@@ -2778,7 +2786,7 @@ Examples:
                     "Ruta"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#PoissonDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#PoissonDistributionExpression
 :PoissonDistributionExpression rdf:type owl:Class ;
                                rdfs:subClassOf :ProbabilityDistributionExpression ,
                                                [ rdf:type owl:Restriction ;
@@ -2795,7 +2803,7 @@ Examples:
                                           "Expression for a Poisson probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Population
+###  https://w3id.org/ontologies-ULL/OSDi#Population
 :Population rdf:type owl:Class ;
             rdfs:subClassOf :ModelItem ,
                             [ rdf:type owl:Restriction ;
@@ -2888,7 +2896,7 @@ Examples:
                        "Population"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ProbabilityDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression
 :ProbabilityDistributionExpression rdf:type owl:Class ;
                                    rdfs:subClassOf :ModelItem ,
                                                    [ rdf:type owl:Restriction ;
@@ -2921,7 +2929,7 @@ Examples:
                                               "Probability distribution expression"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#QoLDataItemType
+###  https://w3id.org/ontologies-ULL/OSDi#QoLDataItemType
 :QoLDataItemType rdf:type owl:Class ;
                  rdfs:subClassOf :DataItemType ,
                                  [ rdf:type owl:Restriction ;
@@ -2931,7 +2939,7 @@ Examples:
                                  ] .
 
 
-###  https://ontologies-ull.github.io/OSDi#RareDisease
+###  https://w3id.org/ontologies-ULL/OSDi#RareDisease
 :RareDisease rdf:type owl:Class ;
              rdfs:subClassOf :Disease ,
                              [ rdf:type owl:Restriction ;
@@ -2947,12 +2955,12 @@ Examples:
                         "Rare disease"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ResourceUsageItem
+###  https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem
 :ResourceUsageItem rdf:type owl:Class ;
                    rdfs:subClassOf :ModelItem .
 
 
-###  https://ontologies-ull.github.io/OSDi#ScreeningIntervention
+###  https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention
 :ScreeningIntervention rdf:type owl:Class ;
                        rdfs:subClassOf :DetectionIntervention ,
                                        [ rdf:type owl:Class ;
@@ -2977,7 +2985,7 @@ Examples:
                                   "Screening intervention"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#ScreeningStrategy
+###  https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy
 :ScreeningStrategy rdf:type owl:Class ;
                    rdfs:subClassOf :DetectionStrategy ,
                                    [ rdf:type owl:Restriction ;
@@ -2989,7 +2997,7 @@ Examples:
                               "Screening strategy"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#SecondOrderUncertaintyParameter
+###  https://w3id.org/ontologies-ULL/OSDi#SecondOrderUncertaintyParameter
 :SecondOrderUncertaintyParameter rdf:type owl:Class ;
                                  owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                             [ rdf:type owl:Restriction ;
@@ -3014,7 +3022,7 @@ Examples:
                                             "Second-order uncertainty parameter"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#SequentialDiseaseProgressionSet
+###  https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet
 :SequentialDiseaseProgressionSet rdf:type owl:Class ;
                                  rdfs:subClassOf :DiseaseProgressionSet ;
                                  rdfs:comment "A set of disease progressions that appear sequentially, e.g., the stages of a cancer" ;
@@ -3022,7 +3030,7 @@ Examples:
                                             "Sequential disease progression set"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Stage
+###  https://w3id.org/ontologies-ULL/OSDi#Stage
 :Stage rdf:type owl:Class ;
        rdfs:subClassOf :DiseaseProgression ,
                        [ rdf:type owl:Restriction ;
@@ -3049,7 +3057,7 @@ Examples:
                   "Stage"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Strategy
+###  https://w3id.org/ontologies-ULL/OSDi#Strategy
 :Strategy rdf:type owl:Class ;
           rdfs:subClassOf :ResourceUsageItem ,
                           [ rdf:type owl:Restriction ;
@@ -3084,7 +3092,7 @@ Examples:
                      "Strategy"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#TherapeuticIntervention
+###  https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention
 :TherapeuticIntervention rdf:type owl:Class ;
                          rdfs:subClassOf :Intervention ,
                                          [ rdf:type owl:Class ;
@@ -3118,7 +3126,7 @@ Examples:
                                     "Therapeutic intervention"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Treatment
+###  https://w3id.org/ontologies-ULL/OSDi#Treatment
 :Treatment rdf:type owl:Class ;
            rdfs:subClassOf :HealthTechnology ;
            rdfs:comment "Any non-drug intervention used to treat a disease or manifestation"@en ;
@@ -3126,7 +3134,7 @@ Examples:
                       "Tratamiento no farmacológico"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#UniformDistributionExpression
+###  https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression
 :UniformDistributionExpression rdf:type owl:Class ;
                                rdfs:subClassOf :ProbabilityDistributionExpression ,
                                                [ rdf:type owl:Restriction ;
@@ -3144,7 +3152,7 @@ Examples:
                                           "Expression for a Uniform probability distribution"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Utility
+###  https://w3id.org/ontologies-ULL/OSDi#Utility
 :Utility rdf:type owl:Class ;
          owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                     [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -3174,7 +3182,7 @@ Examples:
                     "Utility"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#YearDependantParameter
+###  https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter
 :YearDependantParameter rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :Parameter
                                                                    [ rdf:type owl:Restriction ;
@@ -3192,7 +3200,7 @@ Examples:
 #    Individuals
 #################################################################
 
-###  https://ontologies-ull.github.io/OSDi#Attribute_Age
+###  https://w3id.org/ontologies-ULL/OSDi#Attribute_Age
 :Attribute_Age rdf:type owl:NamedIndividual ,
                         :Attribute ;
                :hasDescription "The age of an individual (in years)" ;
@@ -3201,7 +3209,7 @@ Examples:
                           "EDAD"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Attribute_DurationOfDiabetes
+###  https://w3id.org/ontologies-ULL/OSDi#Attribute_DurationOfDiabetes
 :Attribute_DurationOfDiabetes rdf:type owl:NamedIndividual ,
                                        :Attribute ;
                               :hasDescription "Time (in years) from diagnosis of diabetes" ;
@@ -3210,7 +3218,7 @@ Examples:
                                          "DURATION"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Attribute_HbA1c
+###  https://w3id.org/ontologies-ULL/OSDi#Attribute_HbA1c
 :Attribute_HbA1c rdf:type owl:NamedIndividual ,
                           :Attribute ;
                  :hasDescription "HbA1c measurement" ;
@@ -3219,7 +3227,7 @@ Examples:
                             "HBA1C"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Attribute_LifeExpectancy
+###  https://w3id.org/ontologies-ULL/OSDi#Attribute_LifeExpectancy
 :Attribute_LifeExpectancy rdf:type owl:NamedIndividual ,
                                    :Attribute ;
                           :hasDescription "Maximum life expectacy of an individual" ;
@@ -3227,7 +3235,7 @@ Examples:
                                      "LIFE_EXPECTANCY"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Attribute_Sex
+###  https://w3id.org/ontologies-ULL/OSDi#Attribute_Sex
 :Attribute_Sex rdf:type owl:NamedIndividual ,
                         :Attribute ;
                :hasDescription "Sex (0 for male; 1 for female)" ;
@@ -3236,7 +3244,7 @@ Examples:
                           "SEXO"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Constant_Incidence1
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Incidence1
 :Constant_Incidence1 rdf:type owl:NamedIndividual ,
                               :DeterministicParameter ,
                               :EpidemiologicalParameter ;
@@ -3245,7 +3253,7 @@ Examples:
                      :isTrueEpidemiologicalParameterEstimate "true"^^xsd:boolean .
 
 
-###  https://ontologies-ull.github.io/OSDi#Constant_Prevalence1
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Prevalence1
 :Constant_Prevalence1 rdf:type owl:NamedIndividual ,
                                :DeterministicParameter ,
                                :EpidemiologicalParameter ;
@@ -3254,7 +3262,7 @@ Examples:
                       :isTrueEpidemiologicalParameterEstimate "true"^^xsd:boolean .
 
 
-###  https://ontologies-ull.github.io/OSDi#Constant_Probability0
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Probability0
 :Constant_Probability0 rdf:type owl:NamedIndividual ,
                                 :DeterministicParameter ,
                                 :Parameter ;
@@ -3262,7 +3270,7 @@ Examples:
                        :hasExpectedValue "0.0"^^xsd:double .
 
 
-###  https://ontologies-ull.github.io/OSDi#Constant_Probability1
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Probability1
 :Constant_Probability1 rdf:type owl:NamedIndividual ,
                                 :DeterministicParameter ,
                                 :Parameter ;
@@ -3270,7 +3278,7 @@ Examples:
                        :hasExpectedValue "1.0"^^xsd:double .
 
 
-###  https://ontologies-ull.github.io/OSDi#Constant_Sensitivity1
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Sensitivity1
 :Constant_Sensitivity1 rdf:type owl:NamedIndividual ,
                                 :DeterministicParameter ,
                                 :Parameter ;
@@ -3278,7 +3286,7 @@ Examples:
                        :hasExpectedValue "1.0"^^xsd:double .
 
 
-###  https://ontologies-ull.github.io/OSDi#Constant_Specificity1
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Specificity1
 :Constant_Specificity1 rdf:type owl:NamedIndividual ,
                                 :DeterministicParameter ,
                                 :Parameter ;
@@ -3286,7 +3294,7 @@ Examples:
                        :hasExpectedValue "1.0"^^xsd:double .
 
 
-###  https://ontologies-ull.github.io/OSDi#Currency_Dollar
+###  https://w3id.org/ontologies-ULL/OSDi#Currency_Dollar
 :Currency_Dollar rdf:type owl:NamedIndividual ,
                           :Currency ;
                  :hasDescription "Official currency of the USA" ;
@@ -3296,7 +3304,7 @@ Examples:
                             "Dollar"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Currency_Euro
+###  https://w3id.org/ontologies-ULL/OSDi#Currency_Euro
 :Currency_Euro rdf:type owl:NamedIndividual ,
                         :Currency ;
                :hasDescription "Official currency of the E. U." ;
@@ -3306,7 +3314,7 @@ Examples:
                           "Euro"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#Currency_Pound
+###  https://w3id.org/ontologies-ULL/OSDi#Currency_Pound
 :Currency_Pound rdf:type owl:NamedIndividual ,
                          :Currency ;
                 :hasDescription "Official currency of the United Kingdom" ;
@@ -3316,7 +3324,7 @@ Examples:
                            "Pound sterling"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_BirthPrevalence
+###  https://w3id.org/ontologies-ULL/OSDi#DI_BirthPrevalence
 :DI_BirthPrevalence rdf:type owl:NamedIndividual ,
                              :DataItemType ;
                     :hasDescription "The proportion of a birth year cohort that has certain condition" ;
@@ -3324,7 +3332,7 @@ Examples:
                                "Prevalencia al nacimiento"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Continuous_Variable
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Continuous_Variable
 :DI_Continuous_Variable rdf:type owl:NamedIndividual ,
                                  :DataItemType ;
                         :hasDescription "A data item that can take any value in a continuous range" ;
@@ -3333,7 +3341,7 @@ Examples:
                                    "Variable continua"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Count
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Count
 :DI_Count rdf:type owl:NamedIndividual ,
                    :DataItemType ;
           :hasDescription "A discrete accounting of the appearance of certain event or outcome in a population" ;
@@ -3342,20 +3350,20 @@ Examples:
                      "Cuenta"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_EQ5D_Utility
+###  https://w3id.org/ontologies-ULL/OSDi#DI_EQ5D_Utility
 :DI_EQ5D_Utility rdf:type owl:NamedIndividual ,
                           :QoLDataItemType ;
                  :hasCalculationMethod "EQ-5D" .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Factor
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Factor
 :DI_Factor rdf:type owl:NamedIndividual ,
                     :DataItemType ;
            rdfs:label "Factor"@en ,
                       "Factor"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Generic_Utility
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Generic_Utility
 :DI_Generic_Utility rdf:type owl:NamedIndividual ,
                              :QoLDataItemType ;
                     :hasCalculationMethod "Unknown" ;
@@ -3365,7 +3373,7 @@ Examples:
                                "Utility"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Incidence
 :DI_Incidence rdf:type owl:NamedIndividual ,
                        :DataItemType ;
               :hasDescription "The ratio of the number of new cases of a disease/manifestation/stage divided by the number of persons at risk for the disease/manifestation/stage" ;
@@ -3374,7 +3382,7 @@ Examples:
                          "Incidencia"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Lower95ConfidenceLimit
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Lower95ConfidenceLimit
 :DI_Lower95ConfidenceLimit rdf:type owl:NamedIndividual ,
                                     :DataItemType ;
                            :hasDescription "Lower limit for a 95% Confidence interval" ;
@@ -3383,7 +3391,7 @@ Examples:
                                       "Lower 95% CI limit"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_MeanDifference
+###  https://w3id.org/ontologies-ULL/OSDi#DI_MeanDifference
 :DI_MeanDifference rdf:type owl:NamedIndividual ,
                             :DataItemType ;
                    :hasRefToSTATO "http://purl.obolibrary.org/obo/STATO_0000457" ;
@@ -3391,7 +3399,7 @@ Examples:
                               "Mean difference"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Other
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Other
 :DI_Other rdf:type owl:NamedIndividual ,
                    :DataItemType ;
           :hasDescription "A data item type not explicitly defined in the ontology" ;
@@ -3399,7 +3407,7 @@ Examples:
                      "Otro"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Prevalence
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Prevalence
 :DI_Prevalence rdf:type owl:NamedIndividual ,
                         :DataItemType ;
                :hasDescription "The rratio formed by the number of subjects diagnosed with a disease or presenting certain disease progression divided by the total population size." ;
@@ -3408,7 +3416,7 @@ Examples:
                           "Prevalencia"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Probability
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Probability
 :DI_Probability rdf:type owl:NamedIndividual ,
                          :DataItemType ;
                 :hasDescription "Probability of certain event" ;
@@ -3416,7 +3424,7 @@ Examples:
                            "Probability"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Proportion
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Proportion
 :DI_Proportion rdf:type owl:NamedIndividual ,
                         :DataItemType ;
                :hasDescription "The fraction of population that has certain characteristic or event" ;
@@ -3425,7 +3433,7 @@ Examples:
                           "Proportion"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Ratio
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Ratio
 :DI_Ratio rdf:type owl:NamedIndividual ,
                    :DataItemType ;
           :hasDescription "A data item which is the quotient or r/s" ;
@@ -3434,7 +3442,7 @@ Examples:
                      "Razón"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_RelativeRisk
+###  https://w3id.org/ontologies-ULL/OSDi#DI_RelativeRisk
 :DI_RelativeRisk rdf:type owl:NamedIndividual ,
                           :DataItemType ;
                  :hasRefToSTATO "http://purl.obolibrary.org/obo/STATO_0000245" ;
@@ -3442,7 +3450,7 @@ Examples:
                             "Riesgo relativo"@es .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Sensitivity
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Sensitivity
 :DI_Sensitivity rdf:type owl:NamedIndividual ,
                          :DataItemType ;
                 :hasDescription "The probability of a positive test result, conditioned on the individual truly being positive" ;
@@ -3451,7 +3459,7 @@ Examples:
                            "Sensitivity"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Specificity
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Specificity
 :DI_Specificity rdf:type owl:NamedIndividual ,
                          :DataItemType ;
                 :hasDescription "The probability of a negative test result, conditioned on the individual truly being negative" ;
@@ -3460,7 +3468,7 @@ Examples:
                            "Specificity"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_StandardDeviation
+###  https://w3id.org/ontologies-ULL/OSDi#DI_StandardDeviation
 :DI_StandardDeviation rdf:type owl:NamedIndividual ,
                                :DataItemType ;
                       :hasDescription "A measure of variation which correspond to the average distance from the mean of the data set to any given point of that dataset" ;
@@ -3469,7 +3477,7 @@ Examples:
                                  "Standard deviation"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_TimeToEvent
+###  https://w3id.org/ontologies-ULL/OSDi#DI_TimeToEvent
 :DI_TimeToEvent rdf:type owl:NamedIndividual ,
                          :MeasuredDataItemType ;
                 :hasDescription "A scalar measument of the time interval until certain event happens" ;
@@ -3478,7 +3486,7 @@ Examples:
                            "Time to event"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#DI_Upper95ConfidenceLimit
+###  https://w3id.org/ontologies-ULL/OSDi#DI_Upper95ConfidenceLimit
 :DI_Upper95ConfidenceLimit rdf:type owl:NamedIndividual ,
                                     :DataItemType ;
                            :hasDescription "Upper limit for a 95% Confidence interval" ;
@@ -3487,46 +3495,46 @@ Examples:
                                       "Upper 95% CI limit"@en .
 
 
-###  https://ontologies-ull.github.io/OSDi#Exp_Excel
+###  https://w3id.org/ontologies-ULL/OSDi#Exp_Excel
 :Exp_Excel rdf:type owl:NamedIndividual ,
                     :ExpressionLanguage .
 
 
-###  https://ontologies-ull.github.io/OSDi#Exp_JEXL
+###  https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL
 :Exp_JEXL rdf:type owl:NamedIndividual ,
                    :ExpressionLanguage .
 
 
-###  https://ontologies-ull.github.io/OSDi#Exp_Java
+###  https://w3id.org/ontologies-ULL/OSDi#Exp_Java
 :Exp_Java rdf:type owl:NamedIndividual ,
                    :ExpressionLanguage .
 
 
-###  https://ontologies-ull.github.io/OSDi#Exp_Javaluator
+###  https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator
 :Exp_Javaluator rdf:type owl:NamedIndividual ,
                          :ExpressionLanguage .
 
 
-###  https://ontologies-ull.github.io/OSDi#GuidelineLifetimeAnual
+###  https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual
 :GuidelineLifetimeAnual rdf:type owl:NamedIndividual ,
                                  :Guideline ;
                         :REMOVEhasFrequency "1y" ;
                         :hasRange "0y-*" .
 
 
-###  https://ontologies-ull.github.io/OSDi#InterventionDoNothing
+###  https://w3id.org/ontologies-ULL/OSDi#InterventionDoNothing
 :InterventionDoNothing rdf:type owl:NamedIndividual ,
                                 :Intervention ;
                        :hasDescription "A null intervention that has no effect on the patient" ;
                        :isAssessedIntervention "false"^^xsd:boolean .
 
 
-_:genid670 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
-           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
+_:genid670 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
+           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.884426031710573"^^xsd:double ;
            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid671 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^xsd:double ;
+_:genid671 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
 _:genid672 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^xsd:double ;
@@ -3537,12 +3545,12 @@ _:genid673 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.6124
             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid674 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^xsd:double ;
+_:genid674 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid675 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.884426031710573"^^xsd:double ;
+_:genid675 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
 #################################################################
