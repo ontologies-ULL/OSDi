@@ -58,5 +58,5 @@ jobs:
           else
             git add docs
             git commit -m "Update Widoco documentation [skip ci]"
-            git push
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/ontologies-ULL/OSDi.git HEAD:main
           fi
