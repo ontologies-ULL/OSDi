@@ -1,14 +1,15 @@
-@prefix : <https://w3id.org/ontologies-ULL/OSDi-PBD#> .
+@prefix : <https://w3id.org/ontologies-ULL/OSDi#> .
+@prefix osdi: <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix osdi: <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/ontologies-ULL/OSDi-PBD> .
 
-<https://w3id.org/ontologies-ULL/OSDi-PBD> rdf:type owl:Ontology ;
-                                                                      owl:imports <https://w3id.org/ontologies-ULL/OSDi> .
+<https://w3id.org/ontologies-ULL/OSDi/individuals/PBD> rdf:type owl:Ontology ;
+										   rdfs:label "OSDi individuals for Profound Biotinidase Deficiency"@en ;
+										   rdfs:comment "Individuals for OSDi ontology, version 1.0"@en ;
+                                           owl:imports <https://w3id.org/ontologies-ULL/OSDi/1.0> .
 
 #################################################################
 #    Individuals
