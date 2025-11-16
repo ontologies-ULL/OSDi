@@ -2,6 +2,8 @@ name: Generate Widoco Documentation
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "OSDi.owl"   # Solo se dispara si cambia este fichero
   workflow_dispatch: # permite ejecución manual desde GitHub
