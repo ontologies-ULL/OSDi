@@ -5,49 +5,104 @@ on:
     branches:
       - main
     paths:
-      - "OSDi.owl"   # Solo se dispara si cambia este fichero
-  workflow_dispatch: # permite ejecución manual desde GitHub
+      - "OSDi.owl"   # Only trigger when the ontology file changes
+  workflow_dispatch: # allows manual execution from GitHub
   
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar el repo
+      # 1. Clone the repository
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
+          fetch-depth: 0
           token: ${{ secrets.PAT_TOKEN }}
           
-      # 2. Instalar Java (necesario para Widoco)
+      # 2. Install Java (required for Widoco)
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
 
-      # 3. Descargar Widoco (última release)
+      # 3. Download Widoco (latest release)
       - name: Download Widoco
         run: |
           wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar -O widoco.jar
 
-      # 4. Ejecutar Widoco
+      # 4. Extract version from OWL
+      - name: Extract version from OWL
+        id: version
+        run: |
+          VERSION=$(grep -oP 'owl:versionIRI\s*<[^>]+/(\K[^>/]+)' OSDi.owl | head -n 1)
+          if [ -z "$VERSION" ]; then
+            echo "❌ Version not found in owl:versionIRI in OSDi.owl"
+            exit 1
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Detected version: $VERSION"
+
+      # 5 Clean docs/latest directory
+      - name: Reset docs/latest directory
+        run: |
+          rm -rf docs/latest
+          mkdir -p docs/latest
+
+      # 6. Run Widoco
       - name: Generate documentation with Widoco
         run: |
           java -jar widoco.jar \
             -ontFile OSDi.owl \
-            -outFolder docs \
+            -outFolder docs/latest \
             -rewriteAll \
             -lang en-es \
             -uniteSections \
             -includeAnnotationProperties
 
-      # 5. Widoco no crea un index.html, así que copiamos la versión inglesa
-      - name: Copy index-en.html to index.html
+      # 7. Copy individuals folder if it has changes
+      - name: Copy individuals folder
+        if: ${{ hashFiles('individuals/**') != '' }}
         run: |
-          cp docs/index-en.html docs/index.html
-    
-      # 6. Commit y push solo si hay cambios reales
+          mkdir -p docs/latest/individuals
+          cp -R individuals/* docs/latest/individuals/
+
+      # 8. Copy versioned documentation
+      - name: Copy versioned documentation
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          mkdir -p docs/$VERSION
+          cp -R docs/latest/* docs/$VERSION/
+
+      # 9. Regenerate index.html from README.md including versions list
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Rebuild index.html
+        run: |
+          # Convert README.md into standalone HTML
+          pandoc README.md -f markdown -t html -s -o docs/index.html
+
+          # Build a temporary snippet with the versions list
+          (
+            echo "<h2>Available versions</h2>"
+            echo "<ul>"
+            for d in docs/*/ ; do
+              DIR=$(basename "$d")
+              if [[ "$DIR" != "latest" ]]; then
+                echo "<li><a href=\"${DIR}/\">${DIR}</a></li>"
+              fi
+            done
+            echo "</ul>"
+          ) > /tmp/version-list.html
+
+          # Insert the snippet before </body>
+          sed -i '/<\/body>/{
+            r /tmp/version-list.html
+          }' docs/index.html
+
+      # 10. Commit and push only if there are real changes
       - name: Commit and push only if changes exist
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
@@ -59,6 +114,6 @@ jobs:
             echo "No changes in docs/, skipping commit"
           else
             git add docs
-            git commit -m "Update Widoco documentation [skip ci]"
+            git commit -m "Auto-update documentation (version ${{ steps.version.outputs.version }} + latest)" || echo "No changes to commit"
             git push https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git HEAD:main
           fi
