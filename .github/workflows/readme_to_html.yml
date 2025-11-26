@@ -16,13 +16,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Convert README.md to docs/index.html
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Convert README.md to index.html
         run: |
           mkdir -p docs
-          pandoc README.md -f markdown -t html5 -s -o docs/index.html \
+          pandoc README.md -f markdown -t html -s -o docs/index.html \
             --metadata title="OSDi Ontology" \
             --css=https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css \
             --standalone
+
+      - name: Append version list
+        run: |
+          echo "<h2>Available versions</h2>" >> docs/index.html
+          echo "<ul>" >> docs/index.html
+          for d in docs/*/ ; do
+            DIR=$(basename "$d")
+            if [[ "$DIR" != "latest" ]]; then
+              echo "<li><a href=\"${DIR}/\">${DIR}</a></li>" >> docs/index.html
+            fi
+          done
+          echo "</ul>" >> docs/index.html
 
       - name: Commit and push updated index.html
         env:
