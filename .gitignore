@@ -1,0 +1,68 @@
+# ================================
+#   Protégé
+# ================================
+# Temporary files created by Protégé
+*.log
+*.tmp
+*.bak
+*.swp
+*.undo
+
+# Automatic XML catalogs created by Protégé
+catalog-v*.xml
+catalog.xml
+
+# User-specific configuration files
+*.prefs
+*.settings
+
+# ================================
+#   Widoco (Generated documentation)
+# ================================
+# We do not ignore docs/latest or docs/<version>
+# because they must be published on GitHub Pages
+# We only ignore temporary outputs if they exist
+widoco-*.jar
+tools/
+
+# ================================
+#   Operating system files
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+#   Dependency directories (if you use Java/OWLAPI)
+# ================================
+target/
+bin/
+*.class
+
+# Maven / Gradle (only if the project uses them)
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+build/
+.gradle/
+*.gradle
+!gradle-wrapper.jar
+
+# ================================
+#   Virtual environments (in case you use Python)
+# ================================
+venv/
+.env/
+
+# ================================
+#   Editor / IDE files
+# ================================
+.vscode/
+.idea/
+*.iml
+
+# ================================
+#   GitHub Actions cache
+# ================================
+*.cache
