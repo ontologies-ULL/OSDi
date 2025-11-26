@@ -1,0 +1,35 @@
+name: Build Landing Page from README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - ".github/workflows/readme-to-html.yml"
+  workflow_dispatch: # allows manual execution from GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Convert README.md to docs/index.html
+        run: |
+          mkdir -p docs
+          pandoc README.md -f markdown -t html5 -s -o docs/index.html \
+            --metadata title="OSDi Ontology" \
+            --css=https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css \
+            --standalone
+
+      - name: Commit and push updated index.html
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/index.html
+          git commit -m "Update landing page from README.md" || echo "No changes to commit"
+          git push https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git HEAD:main
