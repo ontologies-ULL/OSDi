@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "OSDi.owl"   # Only trigger when the ontology file changes
+      - "OSDi.ttl"   # Only trigger when the ontology file changes
   workflow_dispatch: # allows manual execution from GitHub
   
 jobs:
@@ -32,13 +32,13 @@ jobs:
         run: |
           wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar -O widoco.jar
 
-      # 4. Extract version from OWL
-      - name: Extract version from OWL
+      # 4. Extract version from TTL file
+      - name: Extract version from TTL
         id: version
         run: |
-          VERSION=$(grep -oP 'owl:versionIRI\s*<[^>]+/(\K[^>/]+)' OSDi.owl | head -n 1)
+          VERSION=$(grep -oP 'owl:versionIRI\s*<[^>]+/(\K[^>/]+)' OSDi.ttl | head -n 1)
           if [ -z "$VERSION" ]; then
-            echo "❌ Version not found in owl:versionIRI in OSDi.owl"
+            echo "❌ Version not found in owl:versionIRI in OSDi.ttl"
             exit 1
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
@@ -54,7 +54,7 @@ jobs:
       - name: Generate documentation with Widoco
         run: |
           java -jar widoco.jar \
-            -ontFile OSDi.owl \
+            -ontFile OSDi.ttl \
             -outFolder docs/latest \
             -rewriteAll \
             -lang en-es \
