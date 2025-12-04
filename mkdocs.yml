@@ -13,7 +13,7 @@ theme:
   name: material
 
 nav:
-  - Home: tutorial_index.md
+  - Home: index.md
   - Some tips before start: before_start.md
   - Explanation of the reference case: reference_case.md
   - Disease modeling:

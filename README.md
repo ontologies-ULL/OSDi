@@ -16,6 +16,7 @@ This IRI resolves to the latest published version.
 
 - 📘 **Repository:** [ontologies-ULL/OSDi](https://github.com/ontologies-ULL/OSDi)
 - 🌐 **Documentation:** [GitHub Pages](https://ontologies-ull.github.io/OSDi/)
+- 🌐 **Tutorial:** [GitHub Pages](https://ontologies-ull.github.io/OSDi/tutorial/)
 
 ---
 
