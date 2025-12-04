@@ -1,0 +1,30 @@
+site_name: OSDi Tutorial
+site_url: https://ontologies-ull.github.io/OSDi/tutorial/
+repo_url: https://github.com/ontologies-ULL/OSDi
+repo_name: ontologies-ULL/OSDi
+
+# Content is in docs-src
+docs_dir: docs-src
+
+# MkDocs will generate HTML inside docs/tutorial
+site_dir: docs/tutorial
+
+theme:
+  name: material
+
+nav:
+  - Home: tutorial_index.md
+  - Some tips before start: before_start.md
+  - Explanation of the reference case: reference_case.md
+  - Disease modeling:
+      - Disease and progression: disease_representation.md
+#      - Progression parameters: progression.md
+#  - Model inputs:
+#      - Population: population.md
+#      - Epidemiological parameters: epidemiology.md
+#      - Interventions & effects: interventions.md
+#      - Utilities: utilities.md
+  - Decision model:
+      - Model structure: model_structure.md
+      #- Full worked example (BD): full_example_bd.md
+  - Ontology reference (Widoco): https://w3id.org/ontologies-ULL/OSDi
