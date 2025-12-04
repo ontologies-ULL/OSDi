@@ -333,15 +333,8 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression">
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#AlternativeDiseaseProgressionSet"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
         <rdfs:comment>Defines the default progression within a set of disease progressions. In a decision tree, this will be the &quot;1-&lt;probability of rest of branches&gt;&quot; branch. Hence, there is no need to define an explicit pathway for this disease progression.</rdfs:comment>
         <rdfs:label xml:lang="en">has default disease progression</rdfs:label>
         <rdfs:label xml:lang="es">tiene progresión de enfermedad por defecto</rdfs:label>
@@ -431,18 +424,10 @@
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
     </owl:ObjectProperty>
     
 
@@ -1220,20 +1205,12 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -2242,14 +2219,7 @@ Examples:
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
+                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A set of disease progressions which are treated as mutually exclusive alternatives, e.g., a mild and a severe development of certain disease</rdfs:comment>
@@ -2702,6 +2672,21 @@ Examples:
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Development"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -2830,14 +2815,7 @@ Examples:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2984,15 +2962,7 @@ Examples:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Manifestation"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Stage"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3073,20 +3043,14 @@ Examples:
 
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">
-        <owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
             </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A set of disease progressions</rdfs:comment>
         <rdfs:label xml:lang="es">Conjunto de progresiones de enfermedad</rdfs:label>
         <rdfs:label xml:lang="en">Disease progression set</rdfs:label>
@@ -3558,16 +3522,7 @@ Examples:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Manifestation"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Stage"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointUnionOf rdf:parseType="Collection">
@@ -4541,13 +4496,8 @@ Examples:
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                                </owl:unionOf>
-                            </owl:Class>
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -4571,10 +4521,12 @@ Examples:
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
                 <owl:allValuesFrom>
                     <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Manifestation"/>
-                        </owl:unionOf>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Development"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
             </owl:Restriction>
@@ -5307,34 +5259,34 @@ Examples:
         <hasDescription>A null intervention that has no effect on the patient</hasDescription>
         <isAssessedIntervention rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAssessedIntervention>
     </owl:NamedIndividual>
-    <rdf:Description rdf:nodeID="genid685">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">264.53086737911997</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.59904284310582</opla-sd:entityPositionY>
+    <rdf:Description rdf:nodeID="genid660">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.67230303494442</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">257.2295616088946</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid686">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66.05568696358739</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.9815693558255685</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid687">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.61244444225647</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">133.2020154340692</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid688">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid689">
+    <rdf:Description rdf:nodeID="genid661">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.9652551238964</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.884426031710573</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid690">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.67230303494442</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">257.2295616088946</opla-sd:entityPositionY>
+    <rdf:Description rdf:nodeID="genid662">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.61244444225647</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">133.2020154340692</opla-sd:entityPositionY>
+        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid663">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
+        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid664">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">264.53086737911997</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.59904284310582</opla-sd:entityPositionY>
+        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid665">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66.05568696358739</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.9815693558255685</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
     
@@ -5385,6 +5337,7 @@ Examples:
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Development"/>
+            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Manifestation"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Stage"/>
         </owl:members>

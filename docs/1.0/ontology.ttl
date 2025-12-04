@@ -208,12 +208,8 @@
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression
 :hasDefaultDiseaseProgression rdf:type owl:ObjectProperty ;
-                              rdfs:domain :DiseaseProgressionSet ;
-                              rdfs:range [ rdf:type owl:Class ;
-                                           owl:unionOf ( :DiseaseProgression
-                                                         :DiseaseProgressionSet
-                                                       )
-                                         ] ;
+                              rdfs:domain :AlternativeDiseaseProgressionSet ;
+                              rdfs:range :DiseaseProgression ;
                               rdfs:comment "Defines the default progression within a set of disease progressions. In a decision tree, this will be the \"1-<probability of rest of branches>\" branch. Hence, there is no need to define an explicit pathway for this disease progression." ;
                               rdfs:label "has default disease progression"@en ,
                                          "tiene progresión de enfermedad por defecto"@es .
@@ -272,14 +268,9 @@
                        rdfs:domain [ rdf:type owl:Class ;
                                      owl:unionOf ( :Disease
                                                    :DiseaseProgression
-                                                   :DiseaseProgressionSet
                                                  )
                                    ] ;
-                       rdfs:range [ rdf:type owl:Class ;
-                                    owl:unionOf ( :DiseaseProgression
-                                                  :DiseaseProgressionSet
-                                                )
-                                  ] .
+                       rdfs:range :DiseaseProgression .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDose
@@ -806,15 +797,10 @@ By default = 1, for the Manifestations."""@en ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf
 :isDiseaseProgressionOf rdf:type owl:ObjectProperty ;
-                        rdfs:domain [ rdf:type owl:Class ;
-                                      owl:unionOf ( :DiseaseProgression
-                                                    :DiseaseProgressionSet
-                                                  )
-                                    ] ;
+                        rdfs:domain :DiseaseProgression ;
                         rdfs:range [ rdf:type owl:Class ;
                                      owl:unionOf ( :Disease
                                                    :DiseaseProgression
-                                                   :DiseaseProgressionSet
                                                  )
                                    ] .
 
@@ -1470,11 +1456,7 @@ Examples:
                                                   [ rdf:type owl:Restriction ;
                                                     owl:onProperty :hasDefaultDiseaseProgression ;
                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                    owl:onClass [ rdf:type owl:Class ;
-                                                                  owl:unionOf ( :DiseaseProgression
-                                                                                :DiseaseProgressionSet
-                                                                              )
-                                                                ]
+                                                    owl:onClass :DiseaseProgression
                                                   ] ;
                                   rdfs:comment "A set of disease progressions which are treated as mutually exclusive alternatives, e.g., a mild and a severe development of certain disease" ;
                                   rdfs:label "Alternative disease progression set"@en ,
@@ -1791,6 +1773,16 @@ Examples:
 :Development rdf:type owl:Class ;
              rdfs:subClassOf :DiseaseProgression ,
                              [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDiseaseProgression ;
+                               owl:allValuesFrom [ owl:intersectionOf ( :DiseaseProgression
+                                                                        [ rdf:type owl:Class ;
+                                                                          owl:complementOf :Development
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
+                                                 ]
+                             ] ,
+                             [ rdf:type owl:Restriction ;
                                owl:onProperty :hasInitialProportion ;
                                owl:allValuesFrom [ owl:intersectionOf ( :Parameter
                                                                         [ rdf:type owl:Restriction ;
@@ -1884,11 +1876,7 @@ Examples:
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :hasDiseaseProgression ;
-                           owl:allValuesFrom [ rdf:type owl:Class ;
-                                               owl:unionOf ( :DiseaseProgression
-                                                             :DiseaseProgressionSet
-                                                           )
-                                             ]
+                           owl:allValuesFrom :DiseaseProgression
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :hasEpidemiologicalParameter ;
@@ -1989,12 +1977,7 @@ Examples:
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :hasDiseaseProgression ;
-                                      owl:allValuesFrom [ rdf:type owl:Class ;
-                                                          owl:unionOf ( :DiseaseProgressionSet
-                                                                        :Manifestation
-                                                                        :Stage
-                                                                      )
-                                                        ]
+                                      owl:allValuesFrom :DiseaseProgression
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :hasDuration ;
@@ -2047,15 +2030,12 @@ Examples:
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet
 :DiseaseProgressionSet rdf:type owl:Class ;
-                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty :hasDiseaseProgression ;
-                                             owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                  owl:unionOf ( :DiseaseProgression
-                                                                                :DiseaseProgressionSet
-                                                                              )
-                                                                ]
-                                           ] ;
-                       rdfs:subClassOf :ModelItem ;
+                       rdfs:subClassOf :DiseaseProgression ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasDiseaseProgression ;
+                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :DiseaseProgression
+                                       ] ;
                        rdfs:comment "A set of disease progressions"@en ;
                        rdfs:label "Conjunto de progresiones de enfermedad"@es ,
                                   "Disease progression set"@en .
@@ -2379,13 +2359,7 @@ Examples:
                rdfs:subClassOf :DiseaseProgression ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :hasDiseaseProgression ;
-                                 owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass [ rdf:type owl:Class ;
-                                               owl:unionOf ( :DiseaseProgressionSet
-                                                             :Manifestation
-                                                             :Stage
-                                                           )
-                                             ]
+                                 owl:maxCardinality "0"^^xsd:nonNegativeInteger
                                ] ;
                owl:disjointUnionOf ( :AcuteManifestation
                                      :ChronicManifestation
@@ -3069,12 +3043,8 @@ Examples:
 :SequentialDiseaseProgressionSet rdf:type owl:Class ;
                                  owl:equivalentClass [ rdf:type owl:Restriction ;
                                                        owl:onProperty :hasDiseaseProgression ;
-                                                       owl:someValuesFrom [ owl:intersectionOf ( :OrderedModelItem
-                                                                                                 [ rdf:type owl:Class ;
-                                                                                                   owl:unionOf ( :DiseaseProgression
-                                                                                                                 :DiseaseProgressionSet
-                                                                                                               )
-                                                                                                 ]
+                                                       owl:someValuesFrom [ owl:intersectionOf ( :DiseaseProgression
+                                                                                                 :OrderedModelItem
                                                                                                ) ;
                                                                             rdf:type owl:Class
                                                                           ]
@@ -3090,10 +3060,12 @@ Examples:
        rdfs:subClassOf :DiseaseProgression ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :hasDiseaseProgression ;
-                         owl:allValuesFrom [ rdf:type owl:Class ;
-                                             owl:unionOf ( :DiseaseProgressionSet
-                                                           :Manifestation
-                                                         )
+                         owl:allValuesFrom [ owl:intersectionOf ( :DiseaseProgression
+                                                                  [ rdf:type owl:Class ;
+                                                                    owl:complementOf :Development
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
                                            ]
                        ] ,
                        [ rdf:type owl:Restriction ;
@@ -3592,28 +3564,28 @@ Examples:
                        :isAssessedIntervention "false"^^xsd:boolean .
 
 
-_:genid685 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
-           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^xsd:double ;
+_:genid660 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
+           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^xsd:double ;
            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid686 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid687 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid688 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid689 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
+_:genid661 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.884426031710573"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid690 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^xsd:double ;
+_:genid662 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^xsd:double ;
+            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+_:genid663 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
+            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+_:genid664 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^xsd:double ;
+            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+_:genid665 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
 #################################################################
@@ -3654,6 +3626,7 @@ _:genid690 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :Development
+                :DiseaseProgressionSet
                 :Manifestation
                 :Stage
               )
