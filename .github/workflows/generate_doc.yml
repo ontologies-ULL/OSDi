@@ -75,34 +75,7 @@ jobs:
           mkdir -p docs/$VERSION
           cp -R docs/latest/* docs/$VERSION/
 
-      # 9. Regenerate index.html from README.md including versions list
-      - name: Install pandoc
-        run: sudo apt-get install -y pandoc
-
-      - name: Rebuild index.html
-        run: |
-          # Convert README.md into standalone HTML
-          pandoc README.md -f markdown -t html -s -o docs/index.html
-
-          # Build a temporary snippet with the versions list
-          (
-            echo "<h2>Available versions</h2>"
-            echo "<ul>"
-            for d in docs/*/ ; do
-              DIR=$(basename "$d")
-              if [[ "$DIR" != "latest" ]]; then
-                echo "<li><a href=\"${DIR}/\">${DIR}</a></li>"
-              fi
-            done
-            echo "</ul>"
-          ) > /tmp/version-list.html
-
-          # Insert the snippet before </body>
-          sed -i '/<\/body>/{
-            r /tmp/version-list.html
-          }' docs/index.html
-
-      # 10. Commit and push only if there are real changes
+      # 9. Commit and push only if there are real changes
       - name: Commit and push only if changes exist
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}

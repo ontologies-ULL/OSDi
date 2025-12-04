@@ -1,0 +1,86 @@
+name: Update README versions section
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/update-readme-versions.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate versions block (Markdown)
+        run: |
+          # Obtener lista de directorios en docs/ (solo carpetas)
+          versions=""
+          for d in docs/*/ ; do
+            DIR=$(basename "$d")
+            # Excluir carpetas que no son "versiones"
+            if [[ "$DIR" == "latest" ]] || [[ "$DIR" == "tutorial" ]]; then
+              continue
+            fi
+            versions="$versions $DIR"
+          done
+
+          # Si no hay versiones, no generamos nada especial
+          if [[ -z "$versions" ]]; then
+            echo "No version directories found under docs/"
+          fi
+
+          {
+            echo ""
+            echo "*(this section is auto-generated from the contents of \`docs/\`)*"
+            echo ""
+            echo "| Version | Link |"
+            echo "|---------|------|"
+            for v in $versions; do
+              echo "| \`$v\` | [docs/$v](./docs/$v/) |"
+            done
+            echo ""
+          } > /tmp/version_block.md
+
+      - name: Update README.md between markers
+        run: |
+          python << 'EOF'
+          from pathlib import Path
+
+          readme_path = Path("README.md")
+          text = readme_path.read_text(encoding="utf-8")
+
+          start_marker = "<!-- BEGIN_OSDI_VERSIONS -->"
+          end_marker = "<!-- END_OSDI_VERSIONS -->"
+
+          if start_marker not in text or end_marker not in text:
+              raise SystemExit("Markers for versions not found in README.md")
+
+          before, rest = text.split(start_marker, 1)
+          middle, after = rest.split(end_marker, 1)
+
+          block = Path("/tmp/version_block.md").read_text(encoding="utf-8")
+
+          new_text = before + start_marker + "\n" + block + end_marker + after
+          readme_path.write_text(new_text, encoding="utf-8")
+          EOF
+
+      - name: Commit changes if README.md modified
+        run: |
+          if git diff --quiet README.md; then
+            echo "README.md unchanged; nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+          git commit -m "Update README versions section [skip ci]"
+          git push

@@ -16,7 +16,6 @@ This IRI resolves to the latest published version.
 
 - 📘 **Repository:** [ontologies-ULL/OSDi](https://github.com/ontologies-ULL/OSDi)
 - 🌐 **Documentation:** [GitHub Pages](https://ontologies-ull.github.io/OSDi/)
-- 🌐 **Tutorial:** [GitHub Pages](https://ontologies-ull.github.io/OSDi/tutorial/)
 
 ---
 
@@ -31,3 +30,9 @@ This IRI resolves to the latest published version.
 This repository (ontology, documentation and related files) is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 For commercial use, please contact the authors.
+
+## Available versions
+
+<!-- BEGIN_OSDI_VERSIONS -->
+*(this section is auto-generated; do not edit by hand)*
+<!-- END_OSDI_VERSIONS -->
