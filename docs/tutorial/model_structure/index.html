@@ -1,0 +1,1075 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/model_structure/">
+      
+      
+        <link rel="prev" href="../disease_representation/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Model structure - OSDi Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-the-model-itself" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSDi Tutorial" class="md-header__button md-logo" aria-label="OSDi Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSDi Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model structure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ontologies-ULL/OSDi" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ontologies-ULL/OSDi
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSDi Tutorial" class="md-nav__button md-logo" aria-label="OSDi Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSDi Tutorial
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ontologies-ULL/OSDi" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ontologies-ULL/OSDi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../before_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Some tips before start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explanation of the reference case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disease modeling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Disease modeling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disease_representation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disease and progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision model
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Decision model
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model structure
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-model-itself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The Model Itself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-population-and-epidemiology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Population and Epidemiology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Population and Epidemiology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-defining-population-subgroups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Defining Population Subgroups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-epidemiological-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Epidemiological Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-parameters-costs-and-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Parameters, Costs, and Utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Parameters, Costs, and Utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-progression-probabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Progression Probabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-utilitiesdisutilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Utilities/Disutilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-calculated-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4. Calculated Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-interventions-and-strategy-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Interventions and Strategy Implementation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Interventions and Strategy Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-defining-strategies-and-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Defining Strategies and Technologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Modeling Intervention Effects (Modifiers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://w3id.org/ontologies-ULL/OSDi" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology reference (Widoco)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-model-itself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The Model Itself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-population-and-epidemiology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Population and Epidemiology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Population and Epidemiology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-defining-population-subgroups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Defining Population Subgroups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-epidemiological-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Epidemiological Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-parameters-costs-and-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Parameters, Costs, and Utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Parameters, Costs, and Utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-progression-probabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Progression Probabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-utilitiesdisutilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Utilities/Disutilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-calculated-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4. Calculated Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-interventions-and-strategy-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Interventions and Strategy Implementation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Interventions and Strategy Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-defining-strategies-and-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Defining Strategies and Technologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Modeling Intervention Effects (Modifiers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Model structure</h1>
+
+<h2 id="3-the-model-itself">3. The Model Itself</h2>
+<p>The <strong>Model</strong> class (<code>osdi:Model</code>) is the central container for the entire HTA simulation. A user may create different models using the same individuals from the ontology. The most important property is </p>
+<p>The BD analysis is structured as a decision tree model.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">OSDi Class</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">BD Example (<code>osdi:BD_DecisionTreeModel</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>osdi:Model</code></td>
+<td style="text-align: left;">The HTA simulation container</td>
+<td style="text-align: left;"><code>a osdi:DecisionTreeModel</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>osdi:hasStrategy</code></td>
+<td style="text-align: left;">Links to the interventions being compared</td>
+<td style="text-align: left;"><code>osdi:ScreeningStrategy_BD</code>, <code>osdi:NoScreeningStrategy_BD</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>osdi:modelsDisease</code></td>
+<td style="text-align: left;">Links to the primary disease under study</td>
+<td style="text-align: left;"><code>osdi:BiotinidaseDeficiency</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>TTL Example:</strong></p>
+<pre><code class="language-turtle">osdi:BD_DecisionTreeModel
+    a osdi:DecisionTreeModel ;
+    rdfs:label &quot;Decision tree model for newborn screening of biotinidase deficiency&quot;@en ;
+    osdi:hasDescription &quot;&quot;&quot;
+A deterministic decision tree model comparing two strategies:
+(1) newborn screening for biotinidase deficiency with confirmatory testing and biotin treatment,
+and (2) no newborn screening (clinical detection only). 
+&quot;&quot;&quot;@en ;
+    osdi:hasStrategy osdi:ScreeningStrategy_BD ,
+                     osdi:NoScreeningStrategy_BD ;
+    osdi:modelsDisease osdi:BiotinidaseDeficiency .
+</code></pre>
+<hr />
+<h2 id="4-population-and-epidemiology">4. Population and Epidemiology</h2>
+<h3 id="41-defining-population-subgroups">4.1. Defining Population Subgroups</h3>
+<p>[cite_start]The <strong>Population</strong> (<code>osdi:Population</code>) class defines the target birth cohort for Spain [cite: 194] and its relevant subgroups (e.g., cases with profound BD) using the <code>osdi:isSubpopulationOf</code> property.</p>
+<p><strong>TTL Example:</strong></p>
+<pre><code class="language-turtle">osdi:BD_BirthCohortPopulation
+    a osdi:Population ;
+    rdfs:label &quot;Birth cohort targeted by BD screening model&quot;@en .
+
+osdi:BD_ProfoundCasesPopulation
+    a osdi:Population ;
+    rdfs:label &quot;Newborns with profound biotinidase deficiency&quot;@en ;
+    osdi:isSubpopulationOf osdi:BD_BirthCohortPopulation .
+</code></pre>
+<h3 id="42-epidemiological-parameters">4.2. Epidemiological Parameters</h3>
+<p>[cite_start]<strong>EpidemiologicalParameter</strong> (<code>osdi:EpidemiologicalParameter</code>) captures population-level statistics like incidence, estimated from the Galicia NBS program [cite: 113-114]. The parameter is linked to the population it describes using <code>osdi:isParameterOf</code>.</p>
+<p><strong>TTL Example (Incidence):</strong></p>
+<pre><code class="language-turtle">osdi:EPI_Incidence_ProfoundBD_Galicia
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:EpidemiologicalParameter ;
+    rdfs:label &quot;Incidence of profound BD (Galicia NBS program)&quot;@en ;
+    osdi:hasDataItemType osdi:DI_Incidence ; # Epidemiological data item type
+    osdi:hasExpectedValue 0.0000147885 ;  # [cite_start]Value: 1 in 67 620 [cite: 128]
+    osdi:hasSource &quot;Galicia NBS program data; Vallejo-Torres et al. 2015...&quot;^^xsd:string ;
+    osdi:isParameterOf osdi:BD_BirthCohortPopulation .
+</code></pre>
+<hr />
+<h2 id="5-parameters-costs-and-utilities">5. Parameters, Costs, and Utilities</h2>
+<p>All quantifiable values are modeled as <strong>Parameter</strong> (<code>osdi:Parameter</code>) instances, differentiated by their <strong>Parameter Nature</strong> (e.g., <code>osdi:DeterministicParameter</code>) and <strong>Data Item Type</strong> (<code>osdi:DataItemType</code>).</p>
+<h3 id="51-progression-probabilities">5.1. Progression Probabilities</h3>
+<p>[cite_start]These are estimates of the probability of an outcome in untreated cases, based on meta-analysis of literature[cite: 132, 134].</p>
+<p><strong>TTL Example (Probability of Seizures):</strong></p>
+<pre><code class="language-turtle">osdi:PROG_Seizures_ProfoundBD_ClinicallyDiagnosed
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+    rdfs:label &quot;Probability of seizures in clinically diagnosed profound BD&quot;@en ;
+    osdi:hasDataItemType osdi:DI_Proportion ; # Data item type: Proportion/Probability
+    [cite_start]osdi:hasExpectedValue &quot;0.564&quot;^^xsd:double ; [cite: 128]
+    osdi:isParameterOf osdi:BD_Seizures .
+</code></pre>
+<h3 id="52-costs">5.2. Costs</h3>
+<p>[cite_start]<strong>Cost</strong> (<code>osdi:Cost</code>) parameters are expressed in 2013 US dollars [cite: 55] and linked to the resource (<code>osdi:HealthTechnology</code>) or adverse event (<code>osdi:DiseaseProgression</code>) they apply to.</p>
+<p><strong>TTL Example (Unit Cost):</strong></p>
+<pre><code class="language-turtle">osdi:COST_ScreeningTest_BD_PerTest
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+    rdfs:label &quot;Unit cost per BD screening test&quot;@en ;
+    osdi:hasDataItemType osdi:DI_UnitCost ;
+    osdi:hasExpectedValue &quot;1.23&quot;^^xsd:double ; # [cite_start]Cost in 2013 US dollars [cite: 143]
+    osdi:isParameterOf osdi:InitialScreeningTest_BD .
+</code></pre>
+<h3 id="53-utilitiesdisutilities">5.3. Utilities/Disutilities</h3>
+<p>[cite_start]<strong>Utility</strong> (<code>osdi:Utility</code>) models health-related quality of life (QoL) measures (QALYs)[cite: 52, 53]. [cite_start]If it represents a decrement in QoL, the <code>osdi:isDisutility</code> property is set to <code>true</code>[cite: 181].</p>
+<p><strong>TTL Example (Disutility for Seizures):</strong></p>
+<pre><code class="language-turtle">osdi:UTIL_MildSeizureDisorder
+    a owl:NamedIndividual , osdi:Utility ;
+    rdfs:label &quot;Utility decrement for mild seizure disorder&quot;@en ;
+    osdi:hasDataItemType osdi:DI_Utility ;
+    [cite_start]osdi:hasExpectedValue &quot;0.040&quot;^^xsd:double ; [cite: 161]
+    osdi:isDisutility true ; # This is a QALY decrement (disutility)
+    osdi:isParameterOf osdi:BD_Seizures .
+</code></pre>
+<h3 id="54-calculated-parameters">5.4. Calculated Parameters</h3>
+<p><strong>CalculatedParameter</strong> (<code>osdi:CalculatedParameter</code>) models values derived from an explicit formula involving other parameters. The example illustrates an annual cost calculation for follow-up.</p>
+<p><strong>TTL Example (Annual Cost Calculation):</strong></p>
+<pre><code class="language-turtle">osdi:CALC_AnnualCost_TreatedBD_NoComplications
+    a owl:NamedIndividual , osdi:CalculatedParameter , osdi:Parameter ;
+    rdfs:label &quot;Annual cost of treated BD patient without complications&quot;@en ;
+    osdi:hasDataItemType osdi:DI_UnitCost ;
+    osdi:hasExpressionValue &quot;=COST_Biotin_Pack_5mg40Tablets*(365/30) + COST_SpecialistVisit*4 + COST_Audiometry + COST_VisualAcuityTest&quot;^^xsd:string ;
+    osdi:hasExpressionLanguage osdi:Exp_Excel .
+</code></pre>
+<hr />
+<h2 id="6-interventions-and-strategy-implementation">6. Interventions and Strategy Implementation</h2>
+<h3 id="61-defining-strategies-and-technologies">6.1. Defining Strategies and Technologies</h3>
+<p>A <strong>Strategy</strong> (<code>osdi:Strategy</code>) defines a course of action. [cite_start]<strong>ScreeningStrategy</strong> (<code>osdi:ScreeningStrategy</code>) is the intervention being assessed [cite: 6][cite_start], compared to the <strong>No Screening Strategy</strong> (clinical detection)[cite: 61]. Strategies use <strong>HealthTechnology</strong> items (e.g., <code>osdi:Test</code> or <code>osdi:Drug</code>) via <code>osdi:usesHealthTechnology</code>.</p>
+<p><strong>TTL Example (Screening Strategy):</strong></p>
+<pre><code class="language-turtle">osdi:ScreeningStrategy_BD
+    a osdi:ScreeningStrategy ;
+    rdfs:label &quot;Newborn screening for biotinidase deficiency&quot;@en ;
+    # Technologies used in the strategy: tests and treatment
+    osdi:usesTest osdi:InitialScreeningTest_BD ,
+                  osdi:ConfirmatoryTest_BD ;
+    osdi:usesTreatment osdi:BiotinTherapy .
+</code></pre>
+<h3 id="62-modeling-intervention-effects-modifiers">6.2. Modeling Intervention Effects (Modifiers)</h3>
+<p>The benefit of early detection and treatment is modeled using <strong>ModifierParameter</strong> (<code>osdi:ModifierParameter</code>). [cite_start]This parameter typically represents a <strong>Relative Risk</strong> and modifies the progression probabilities of the untreated disease under the intervention strategy [cite: 122-123]. For BD, the base case assumes a Relative Risk of 0 for all clinical symptoms if detected and treated early.</p>
+<p><strong>TTL Example (Effect of Screening/Treatment):</strong></p>
+<pre><code class="language-turtle">osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated
+    a owl:NamedIndividual , osdi:ModifierParameter , osdi:Parameter ;
+    rdfs:label &quot;Relative risk modifier for cognitive deficits in screened and treated profound BD&quot;@en ;
+    osdi:hasDataItemType osdi:DI_RelativeRisk ;
+    osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double ; # Assumed Relative Risk (RR) of 0
+    # This modifier changes the baseline probability of cognitive deficits:
+    osdi:modifiesParameter osdi:PROG_CognitiveDeficit_ProfoundBD_ClinicallyDiagnosed .
+
+osdi:ScreeningStrategy_BD
+    # The strategy involves applying the modifier
+    osdi:involvesModification osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated .
+</code></pre>
+<pre><code></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

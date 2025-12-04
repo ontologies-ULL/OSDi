@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://ontologies-ull.github.io/OSDi/tutorial/before_start/</loc>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://ontologies-ull.github.io/OSDi/tutorial/disease_representation/</loc>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://ontologies-ull.github.io/OSDi/tutorial/model_structure/</loc>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://ontologies-ull.github.io/OSDi/tutorial/reference_case/</loc>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://ontologies-ull.github.io/OSDi/tutorial/tutorial_index/</loc>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+</urlset>
