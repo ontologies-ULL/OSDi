@@ -34,5 +34,11 @@ For commercial use, please contact the authors.
 ## Documentation for available versions
 
 <!-- BEGIN_OSDI_VERSIONS -->
-*(this section is auto-generated; do not edit by hand)*
+
+*(this section is auto-generated from the contents of `docs/`)*
+
+| Version | Link |
+|---------|------|
+| `1.0` | [docs/1.0](./docs/1.0/) |
+
 <!-- END_OSDI_VERSIONS -->
