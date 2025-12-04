@@ -214,12 +214,8 @@ osdi:hasDataItemType rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression
 osdi:hasDefaultDiseaseProgression rdf:type owl:ObjectProperty ;
-                                  rdfs:domain osdi:DiseaseProgressionSet ;
-                                  rdfs:range [ rdf:type owl:Class ;
-                                               owl:unionOf ( osdi:DiseaseProgression
-                                                             osdi:DiseaseProgressionSet
-                                                           )
-                                             ] ;
+                                  rdfs:domain osdi:AlternativeDiseaseProgressionSet ;
+                                  rdfs:range osdi:DiseaseProgression ;
                                   rdfs:comment "Defines the default progression within a set of disease progressions. In a decision tree, this will be the \"1-<probability of rest of branches>\" branch. Hence, there is no need to define an explicit pathway for this disease progression." ;
                                   rdfs:label "has default disease progression"@en ,
                                              "tiene progresión de enfermedad por defecto"@es .
@@ -278,14 +274,9 @@ osdi:hasDiseaseProgression rdf:type owl:ObjectProperty ;
                            rdfs:domain [ rdf:type owl:Class ;
                                          owl:unionOf ( osdi:Disease
                                                        osdi:DiseaseProgression
-                                                       osdi:DiseaseProgressionSet
                                                      )
                                        ] ;
-                           rdfs:range [ rdf:type owl:Class ;
-                                        owl:unionOf ( osdi:DiseaseProgression
-                                                      osdi:DiseaseProgressionSet
-                                                    )
-                                      ] .
+                           rdfs:range osdi:DiseaseProgression .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDose
@@ -812,15 +803,10 @@ osdi:isDataItemTypeOf rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf
 osdi:isDiseaseProgressionOf rdf:type owl:ObjectProperty ;
-                            rdfs:domain [ rdf:type owl:Class ;
-                                          owl:unionOf ( osdi:DiseaseProgression
-                                                        osdi:DiseaseProgressionSet
-                                                      )
-                                        ] ;
+                            rdfs:domain osdi:DiseaseProgression ;
                             rdfs:range [ rdf:type owl:Class ;
                                          owl:unionOf ( osdi:Disease
                                                        osdi:DiseaseProgression
-                                                       osdi:DiseaseProgressionSet
                                                      )
                                        ] .
 
@@ -1476,11 +1462,7 @@ osdi:AlternativeDiseaseProgressionSet rdf:type owl:Class ;
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty osdi:hasDefaultDiseaseProgression ;
                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass [ rdf:type owl:Class ;
-                                                                      owl:unionOf ( osdi:DiseaseProgression
-                                                                                    osdi:DiseaseProgressionSet
-                                                                                  )
-                                                                    ]
+                                                        owl:onClass osdi:DiseaseProgression
                                                       ] ;
                                       rdfs:comment "A set of disease progressions which are treated as mutually exclusive alternatives, e.g., a mild and a severe development of certain disease" ;
                                       rdfs:label "Alternative disease progression set"@en ,
@@ -1797,6 +1779,16 @@ osdi:DeterministicParameter rdf:type owl:Class ;
 osdi:Development rdf:type owl:Class ;
                  rdfs:subClassOf osdi:DiseaseProgression ,
                                  [ rdf:type owl:Restriction ;
+                                   owl:onProperty osdi:hasDiseaseProgression ;
+                                   owl:allValuesFrom [ owl:intersectionOf ( osdi:DiseaseProgression
+                                                                            [ rdf:type owl:Class ;
+                                                                              owl:complementOf osdi:Development
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ]
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty osdi:hasInitialProportion ;
                                    owl:allValuesFrom [ owl:intersectionOf ( osdi:Parameter
                                                                             [ rdf:type owl:Restriction ;
@@ -1890,11 +1882,7 @@ osdi:Disease rdf:type owl:Class ;
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasDiseaseProgression ;
-                               owl:allValuesFrom [ rdf:type owl:Class ;
-                                                   owl:unionOf ( osdi:DiseaseProgression
-                                                                 osdi:DiseaseProgressionSet
-                                                               )
-                                                 ]
+                               owl:allValuesFrom osdi:DiseaseProgression
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasEpidemiologicalParameter ;
@@ -1995,12 +1983,7 @@ osdi:DiseaseProgression rdf:type owl:Class ;
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty osdi:hasDiseaseProgression ;
-                                          owl:allValuesFrom [ rdf:type owl:Class ;
-                                                              owl:unionOf ( osdi:DiseaseProgressionSet
-                                                                            osdi:Manifestation
-                                                                            osdi:Stage
-                                                                          )
-                                                            ]
+                                          owl:allValuesFrom osdi:DiseaseProgression
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty osdi:hasDuration ;
@@ -2053,15 +2036,12 @@ osdi:DiseaseProgression rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet
 osdi:DiseaseProgressionSet rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty osdi:hasDiseaseProgression ;
-                                                 owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                      owl:unionOf ( osdi:DiseaseProgression
-                                                                                    osdi:DiseaseProgressionSet
-                                                                                  )
-                                                                    ]
-                                               ] ;
-                           rdfs:subClassOf osdi:ModelItem ;
+                           rdfs:subClassOf osdi:DiseaseProgression ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty osdi:hasDiseaseProgression ;
+                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass osdi:DiseaseProgression
+                                           ] ;
                            rdfs:comment "A set of disease progressions"@en ;
                            rdfs:label "Conjunto de progresiones de enfermedad"@es ,
                                       "Disease progression set"@en .
@@ -2385,13 +2365,7 @@ osdi:Manifestation rdf:type owl:Class ;
                    rdfs:subClassOf osdi:DiseaseProgression ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty osdi:hasDiseaseProgression ;
-                                     owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass [ rdf:type owl:Class ;
-                                                   owl:unionOf ( osdi:DiseaseProgressionSet
-                                                                 osdi:Manifestation
-                                                                 osdi:Stage
-                                                               )
-                                                 ]
+                                     owl:maxCardinality "0"^^xsd:nonNegativeInteger
                                    ] ;
                    owl:disjointUnionOf ( osdi:AcuteManifestation
                                          osdi:ChronicManifestation
@@ -3075,12 +3049,8 @@ osdi:SecondOrderUncertaintyParameter rdf:type owl:Class ;
 osdi:SequentialDiseaseProgressionSet rdf:type owl:Class ;
                                      owl:equivalentClass [ rdf:type owl:Restriction ;
                                                            owl:onProperty osdi:hasDiseaseProgression ;
-                                                           owl:someValuesFrom [ owl:intersectionOf ( osdi:OrderedModelItem
-                                                                                                     [ rdf:type owl:Class ;
-                                                                                                       owl:unionOf ( osdi:DiseaseProgression
-                                                                                                                     osdi:DiseaseProgressionSet
-                                                                                                                   )
-                                                                                                     ]
+                                                           owl:someValuesFrom [ owl:intersectionOf ( osdi:DiseaseProgression
+                                                                                                     osdi:OrderedModelItem
                                                                                                    ) ;
                                                                                 rdf:type owl:Class
                                                                               ]
@@ -3096,10 +3066,12 @@ osdi:Stage rdf:type owl:Class ;
            rdfs:subClassOf osdi:DiseaseProgression ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty osdi:hasDiseaseProgression ;
-                             owl:allValuesFrom [ rdf:type owl:Class ;
-                                                 owl:unionOf ( osdi:DiseaseProgressionSet
-                                                               osdi:Manifestation
-                                                             )
+                             owl:allValuesFrom [ owl:intersectionOf ( osdi:DiseaseProgression
+                                                                      [ rdf:type owl:Class ;
+                                                                        owl:complementOf osdi:Development
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
                                                ]
                            ] ,
                            [ rdf:type owl:Restriction ;
@@ -3666,6 +3638,7 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( osdi:Development
+                osdi:DiseaseProgressionSet
                 osdi:Manifestation
                 osdi:Stage
               )
