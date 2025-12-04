@@ -1,30 +1,4 @@
-## 3. Disease and Progression
-
-We will start by describing how to represent a disease and its progression using **OSDi**. We will just define the elements but not the parameters that characterize the progression and risks.
-
-### 3.1. Defining the Disease
-
-![Disease classes](img/osdi_disease.png)
-
-The **Disease** (`osdi:Disease`) class is specialized using subtypes like `osdi:InheritedDisease` or `osdi:RareDisease`. The automated generation of models is expected to use this information in the future to infer the best model paradigm and structure based on this and other characteristics. 
-
-BD is modeled as an inherited and rare disease using `osdi:InheritedDisease` and `osdi:RareDisease`. 
-
-**TTL Example:**
-
-```turtle
-osdi:BiotinidaseDeficiency
-    a osdi:InheritedDisease ,
-      osdi:RareDisease ;
-    rdfs:label "Biotinidase deficiency"@en ,
-               "Deficiencia de biotinidasa"@es ;
-    osdi:hasDescription """
-Inherited metabolic disorder caused by deficiency of the biotinidase enzyme.
-The decision model distinguishes profound and partial biotinidase deficiency,
-each with its own untreated reference development.
-"""@en ;
-    osdi:hasSource "10.1542/peds.2014-3399"^^xsd:string .
-```
+We will continue this section by explaining the main classes available to represent the progression of a disease.
 
 ### 3.2. Modeling Disease Progression
 
@@ -41,24 +15,62 @@ All of these subclasses can be combined to create a detail view of the disease. 
   * **AlternativeDiseaseProgressionSet** (`osdi:AlternativeDiseaseProgressionSet`) describes a set of progressions (manifestations, stages...) that are mutually exclusive, i.e., they can not occur simultaneously (e.g. mild and severe development of a disease).
   * **SequentialDiseaseProgressionSet** (`osdi:SequentialDiseaseProgressionSet`) describes a set of progressions (manifestations, stages...) that appear sequentially. Unlike **AlternativeDiseaseProgressionSet**, where progressions may appear in any order, in this case each new progressions replaces the former.
 
+Let's start by representing the specific manifestations: seizures or skin problems are acute problems, and they are therefore, modeled as **AcuteManifestations**. Conversely, hearing loss or cognitive deficit should be treated as **ChronicManifestations**.
+
+**TTL Example (manifestations):**
+
+```turtle
+osdi:BD_Seizures
+    a osdi:AcuteManifestation ;
+    rdfs:label "Seizures due to BD"@en ,
+               "Crisis epilépticas debidas a DB"@es ;
+    osdi:hasDescription "Acute seizures occurring in untreated or late-treated profound biotinidase deficiency, usually within the first year of life."@en .
+
+osdi:BD_SkinProblems
+    a osdi:AcuteManifestation ;
+    rdfs:label "Skin problems due to BD"@en ,
+               "Problemas cutáneos debidos a DB"@es ;
+    osdi:hasDescription "Cutaneous manifestations (eg dermatitis, rash) associated with profound biotinidase deficiency in infancy."@en .
+
+osdi:BD_HearingLoss
+    a osdi:ChronicManifestation ;
+    rdfs:label "Sensorineural hearing loss due to BD"@en ,
+               "Hipoacusia neurosensorial debida a DB"@es ;
+    osdi:hasDescription "Long-term sensorineural hearing loss attributed to untreated or late-treated profound biotinidase deficiency, considered an irreversible chronic complication in the model."@en .
+
+osdi:BD_CognitiveDeficit
+    a osdi:ChronicManifestation ;
+    rdfs:label "Cognitive deficit due to BD"@en ,
+               "Déficit cognitivo debido a DB"@es ;
+    osdi:hasDescription "Long-term cognitive impairment attributed to untreated profound biotinidase deficiency."@en .
+```
+
+Since all the manifestations can occur simultaneously, they can be grouped together into a **DiseaseProgressionSet**.
+
+**TTL Example (set of disease progressions):**
+
+```turtle
+osdi:BD_ManifestationSet
+    a osdi:CoexistentDiseaseProgressionSet ;
+    rdfs:label "Set of manifestations for BD"@en ,
+               "Conjunto de manifestaciones para DB"@es ;
+    osdi:hasDescription "Set of acute and chronic manifestations for untreated profound biotinidase deficiency. Any combination (including none) is allowed in the decision model."@en ;
+    osdi:hasDiseaseProgression osdi:BD_Seizures ;
+                                    BD_SkinProblems ;
+                                    BD_HearingLoss ;
+                                    BD_CognitiveDeficit .
+```
+
+
 The two forms for BD (profound and partial) can be treated in many different ways in a model: we could define two different populations for each of the forms, and we could even consider them as different diseases. However, in this tutorial, we will consider them as **Developments**.
 
 **TTL Example (Developments for forms of DB):**
 
 ```turtle
-osdi:ProfoundBD_Development
+osdi:BD_ProfoundBD_Development
     a osdi:Development ;
     rdfs:label "Reference development of profound BD without screening"@en ;
     # Links to sets of acute and chronic manifestations, and death
-    osdi:hasDiseaseProgression osdi:BD_AcuteManifestationsSet ,
-                               osdi:BD_ChronicManifestationsSet ,
-                               osdi:BD_DiseaseRelatedDeath .
-
-osdi:BD_AcuteManifestationsSet
-    a osdi:CoexistentDiseaseProgressionSet ;
-    rdfs:label "Acute manifestations of untreated profound BD"@en ;
-    # Contains individual manifestations that may occur simultaneously
-    osdi:hasDiseaseProgression osdi:BD_Seizures ,
-                               osdi:BD_Hypotonia ,
-                               osdi:BD_SkinProblems .
+    osdi:hasDiseaseProgression osdi:BD_ManifestationsSet .
 ```
+

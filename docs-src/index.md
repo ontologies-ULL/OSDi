@@ -3,6 +3,7 @@
 The **Ontology for the Simulation of Diseases (OSDi)** provides a structured and semantic framework for health technology assessment and simulation modeling. The ontology offers classes and properties to define all the key elements required to perform a cost-effectiveness analysis, i.e., diseases and their progression, populations, interventions, costs and utilities. In this tutorial, valid for version 1.0 of the ontology, we overview its main features and provide samples of use.
 
 **OSDi** serves as an interoperability framework for a number of use cases: 
+
 1. Extract information from a data source using an LLM
 2. Automatically generate models (using [JaDES-HTA](https://github.com/JaDES-ULL/JaDES-HTA))
 3. Infer new knowledge from the available information

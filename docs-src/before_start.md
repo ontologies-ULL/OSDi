@@ -1,4 +1,3 @@
-## 2. Some tips before start
 
 In general, individuals of OSDi are expected to be defined in a separate file. All examples use Turtle (TTL) syntax and assume the following prefixes are declared:
 

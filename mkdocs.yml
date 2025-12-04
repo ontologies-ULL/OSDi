@@ -14,11 +14,13 @@ theme:
 
 nav:
   - Home: index.md
-  - Some tips before start: before_start.md
-  - Explanation of the reference case: reference_case.md
-  - Disease modeling:
-      - Disease and progression: disease_representation.md
+  - 1. Some tips before starting: before_start.md
+  - 2. Explanation of the reference case: reference_case.md
+  - 3. Disease modeling:
+      - Disease: disease.md
+      - Progression: progression.md
 #      - Progression parameters: progression.md
+  - 4. Population affected: population.md
 #  - Model inputs:
 #      - Population: population.md
 #      - Epidemiological parameters: epidemiology.md
