@@ -37,13 +37,14 @@ jobs:
           fi
 
           {
+            BASE_IRI="https://w3id.org/ontologies-ULL/OSDi/"
             echo ""
             echo "*(this section is auto-generated from the contents of \`docs/\`)*"
             echo ""
             echo "| Version | Link |"
             echo "|---------|------|"
             for v in $versions; do
-              echo "| \`$v\` | [docs/$v](./docs/$v/) |"
+              echo "| \`$v\` | [${BASE_IRI}$v](${BASE_IRI}$v) |"
             done
             echo ""
           } > /tmp/version_block.md

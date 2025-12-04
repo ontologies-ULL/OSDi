@@ -31,7 +31,7 @@ This repository (ontology, documentation and related files) is licensed under a 
 
 For commercial use, please contact the authors.
 
-## Available versions
+## Documentation for available versions
 
 <!-- BEGIN_OSDI_VERSIONS -->
 *(this section is auto-generated; do not edit by hand)*
