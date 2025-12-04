@@ -39,6 +39,6 @@ For commercial use, please contact the authors.
 
 | Version | Link |
 |---------|------|
-| `1.0` | [docs/1.0](./docs/1.0/) |
+| `1.0` | [https://w3id.org/ontologies-ULL/OSDi/1.0](https://w3id.org/ontologies-ULL/OSDi/1.0) |
 
 <!-- END_OSDI_VERSIONS -->
