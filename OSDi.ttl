@@ -1779,16 +1779,6 @@ osdi:DeterministicParameter rdf:type owl:Class ;
 osdi:Development rdf:type owl:Class ;
                  rdfs:subClassOf osdi:DiseaseProgression ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty osdi:hasDiseaseProgression ;
-                                   owl:allValuesFrom [ owl:intersectionOf ( osdi:DiseaseProgression
-                                                                            [ rdf:type owl:Class ;
-                                                                              owl:complementOf osdi:Development
-                                                                            ]
-                                                                          ) ;
-                                                       rdf:type owl:Class
-                                                     ]
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty osdi:hasInitialProportion ;
                                    owl:allValuesFrom [ owl:intersectionOf ( osdi:Parameter
                                                                             [ rdf:type owl:Restriction ;
