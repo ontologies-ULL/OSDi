@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/ontologies-ULL/OSDi","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/ontologies-ULL/OSDi","name":"https://w3id.org/ontologies-ULL/OSDi", "headline":"This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied.", "dateReleased":"Wed Dec 03 09:46:39 UTC 2025", "version":"1.0", "license":"http://creativecommons.org/licenses/by-nc-sa/4.0/", "author":[{"@type":"Person","name":"David Prieto González (https://orcid.org/0000-0003-1411-129X)"},{"@type":"Person","name":"Evelio J. González González (https://orcid.org/0000-0002-2203-3757)"},{"@type":"Person","name":"Iván Castilla Rodríguez (http://orcid.org/0000-0003-3933-2582)"}], "contributor":[{"@type":"Person","name":"María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/ontologies-ULL/OSDi","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/ontologies-ULL/OSDi","name":"https://w3id.org/ontologies-ULL/OSDi", "headline":"This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied.", "dateReleased":"Thu Dec 04 10:39:05 UTC 2025", "version":"1.0", "license":"http://creativecommons.org/licenses/by-nc-sa/4.0/", "author":[{"@type":"Person","name":"David Prieto González (https://orcid.org/0000-0003-1411-129X)"},{"@type":"Person","name":"Evelio J. González González (https://orcid.org/0000-0002-2203-3757)"},{"@type":"Person","name":"Iván Castilla Rodríguez (http://orcid.org/0000-0003-3933-2582)"}], "contributor":[{"@type":"Person","name":"María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -369,6 +369,10 @@ This ontology has the following classes and properties.</span>
       <a href="#Treatment" title="https://w3id.org/ontologies-ULL/OSDi#Treatment">Non-drug treatment</a>
    </li>
    <li>
+      <a href="#OrderedModelItem"
+         title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a>
+   </li>
+   <li>
       <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a>
    </li>
    <li>
@@ -573,11 +577,19 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a>
    </li>
    <li>
-      <a href="#hasOnsetAge" title="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">has onset age</a>
+      <a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a>
+   </li>
+   <li>
+      <a href="#hasOnsetAge"
+         title="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">has onset age</a>
    </li>
    <li>
       <a href="#hasParameter"
          title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a>
+   </li>
+   <li>
+      <a href="#hasPrevious"
+         title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a>
    </li>
    <li>
       <a href="#hasProbabilityOfDeath"
@@ -1277,6 +1289,7 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#ModelItemWithUtility" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility">Model item with utility</a></li>
   <li><a href="#ModifierParameter" title="https://w3id.org/ontologies-ULL/OSDi#ModifierParameter"> <span>Modifier Parameter</span> </a></li>
   <li><a href="#Treatment" title="https://w3id.org/ontologies-ULL/OSDi#Treatment">Non-drug treatment</a></li>
+  <li><a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a></li>
   <li><a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a></li>
   <li><a href="#ParameterNature" title="https://w3id.org/ontologies-ULL/OSDi#ParameterNature">Parameter nature</a></li>
   <li><a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a></li>
@@ -1908,6 +1921,12 @@ This section provides details for each class and property defined by OSDi.
    <span class="markdown">A set of disease progressions</span>
   </div>
   <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#hasDiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression">has Disease Progression</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#DiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#DiseaseProgressionSet" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">Disease progression set</a> <sup class="type-c" title="class">c</sup>
+   </dd>
    <dt>
     has super-classes
    </dt>
@@ -2692,7 +2711,7 @@ This section provides details for each class and property defined by OSDi.
     has sub-classes
    </dt>
    <dd>
-    <a href="#Attribute" title="https://w3id.org/ontologies-ULL/OSDi#Attribute">Attribute</a> <sup class="type-c" title="class">c</sup>, <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>, <a href="#DiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression">Disease progression</a> <sup class="type-c" title="class">c</sup>, <a href="#DiseaseProgressionSet" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">Disease progression set</a> <sup class="type-c" title="class">c</sup>, <a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup>, <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>, <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemDefiningDiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemDefiningDiseaseProgression">Model Item Defining Disease Progression</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithDetection" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithDetection">Model Item With Detection</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithEffectInLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy">Model Item With Effect In Life Expectancy</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithRiskCharacterization">Model Item With Risk Characterization</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTemporalConstraints" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTemporalConstraints">Model Item With Temporal Constraints</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithCost" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost">Model item with cost</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithFollowUp" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp">Model item with follow-up</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTreatment" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment">Model item with treatment</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithUtility" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility">Model item with utility</a> <sup class="type-c" title="class">c</sup>, <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>, <a href="#ParameterNature" title="https://w3id.org/ontologies-ULL/OSDi#ParameterNature">Parameter nature</a> <sup class="type-c" title="class">c</sup>, <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/ontologies-ULL/OSDi#Population">Population</a> <sup class="type-c" title="class">c</sup>, <a href="#ProbabilityDistributionExpression" title="https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression">Probability distribution expression</a> <sup class="type-c" title="class">c</sup>, <a href="#ResourceUsageItem" title="https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem">Resource Usage Item</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Attribute" title="https://w3id.org/ontologies-ULL/OSDi#Attribute">Attribute</a> <sup class="type-c" title="class">c</sup>, <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>, <a href="#DiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression">Disease progression</a> <sup class="type-c" title="class">c</sup>, <a href="#DiseaseProgressionSet" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">Disease progression set</a> <sup class="type-c" title="class">c</sup>, <a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup>, <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>, <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemDefiningDiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemDefiningDiseaseProgression">Model Item Defining Disease Progression</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithDetection" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithDetection">Model Item With Detection</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithEffectInLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy">Model Item With Effect In Life Expectancy</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithRiskCharacterization">Model Item With Risk Characterization</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTemporalConstraints" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTemporalConstraints">Model Item With Temporal Constraints</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithCost" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost">Model item with cost</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithFollowUp" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp">Model item with follow-up</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTreatment" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment">Model item with treatment</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithUtility" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility">Model item with utility</a> <sup class="type-c" title="class">c</sup>, <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>, <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>, <a href="#ParameterNature" title="https://w3id.org/ontologies-ULL/OSDi#ParameterNature">Parameter nature</a> <sup class="type-c" title="class">c</sup>, <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/ontologies-ULL/OSDi#Population">Population</a> <sup class="type-c" title="class">c</sup>, <a href="#ProbabilityDistributionExpression" title="https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression">Probability distribution expression</a> <sup class="type-c" title="class">c</sup>, <a href="#ResourceUsageItem" title="https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem">Resource Usage Item</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -2978,6 +2997,39 @@ This section provides details for each class and property defined by OSDi.
    </dt>
    <dd>
     <a href="#usesTreatment" title="https://w3id.org/ontologies-ULL/OSDi#usesTreatment">uses treatment</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="OrderedModelItem">
+  <h3>Ordered Model Item<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem</p>
+  <div class="comment">
+   <span class="markdown">A model item that has a specific order with respect to other model items, such as the stage of a disease</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> ((<a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasPrevious" title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>))
+   </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPrevious" title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPrevious" title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3340,6 +3392,12 @@ This section provides details for each class and property defined by OSDi.
   </div>
   <dl class="description">
    <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#hasDiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression">has Disease Progression</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#DiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#DiseaseProgressionSet" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">Disease progression set</a> <sup class="type-c" title="class">c</sup>)
+   </dd>
+   <dt>
     has super-classes
    </dt>
    <dd>
@@ -3527,8 +3585,10 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#hasLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancy">has life expectancy</a></li>
   <li><a href="#hasLifeExpectancyReduction" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">has life expectancy reduction</a></li>
   <li><a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a></li>
+  <li><a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a></li>
   <li><a href="#hasOnsetAge" title="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">has onset age</a></li>
   <li><a href="#hasParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a></li>
+  <li><a href="#hasPrevious" title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a></li>
   <li><a href="#hasProbabilityOfDeath" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath">has probability of death</a></li>
   <li><a href="#hasProbabilityOfDiagnosis" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis">has probability of diagnosis</a></li>
   <li><a href="#hasProportionWithinGroup" title="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">has proportion within group</a></li>
@@ -4462,6 +4522,35 @@ This section provides details for each class and property defined by OSDi.
    </dl>
   </div>
  </div>
+ <div class="entity" id="hasNext">
+  <h3>has next<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasNext</p>
+  <div class="comment">
+   <span class="markdown">Points to the next ordered model item</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasPrevious" title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasOnsetAge">
   <h3>has onset age<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge</p>
@@ -4516,6 +4605,35 @@ This section provides details for each class and property defined by OSDi.
     </dt>
     <dd>
      <a href="#isParameterOf" title="https://w3id.org/ontologies-ULL/OSDi#isParameterOf">is parameter of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPrevious">
+  <h3>has previous<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasPrevious</p>
+  <div class="comment">
+   <span class="markdown">Points to the previous ordered model item</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>

@@ -496,6 +496,16 @@ By default = 1, for the Manifestations."""@en ;
                              "tiene la línea de tratamiento"@es .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#hasNext
+:hasNext rdf:type owl:ObjectProperty ;
+         owl:inverseOf :hasPrevious ;
+         rdfs:domain :OrderedModelItem ;
+         rdfs:range :OrderedModelItem ;
+         rdfs:comment "Points to the next ordered model item"@en ;
+         rdfs:label "has next"@en ,
+                    "tiene siguiente"@es .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge
 :hasOnsetAge rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :hasParameter ;
@@ -520,6 +530,15 @@ By default = 1, for the Manifestations."""@en ;
               rdfs:range :Parameter ;
               rdfs:label "has parameter"@en ,
                          "tiene el parámetro"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasPrevious
+:hasPrevious rdf:type owl:ObjectProperty ;
+             rdfs:domain :OrderedModelItem ;
+             rdfs:range :OrderedModelItem ;
+             rdfs:comment "Points to the previous ordered model item"@en ;
+             rdfs:label "has previous"@en ,
+                        "tiene anterior"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath
@@ -2028,15 +2047,15 @@ Examples:
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet
 :DiseaseProgressionSet rdf:type owl:Class ;
-                       rdfs:subClassOf :ModelItem ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :hasDiseaseProgression ;
-                                         owl:someValuesFrom [ rdf:type owl:Class ;
-                                                              owl:unionOf ( :DiseaseProgression
-                                                                            :DiseaseProgressionSet
-                                                                          )
-                                                            ]
-                                       ] ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasDiseaseProgression ;
+                                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                  owl:unionOf ( :DiseaseProgression
+                                                                                :DiseaseProgressionSet
+                                                                              )
+                                                                ]
+                                           ] ;
+                       rdfs:subClassOf :ModelItem ;
                        rdfs:comment "A set of disease progressions"@en ;
                        rdfs:label "Conjunto de progresiones de enfermedad"@es ,
                                   "Disease progression set"@en .
@@ -2713,6 +2732,29 @@ Examples:
                                          "Expression for a Normal probability distribution"@en .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem
+:OrderedModelItem rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :ModelItem
+                                                             [ rdf:type owl:Class ;
+                                                               owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasNext ;
+                                                                               owl:someValuesFrom :OrderedModelItem
+                                                                             ]
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasPrevious ;
+                                                                               owl:someValuesFrom :OrderedModelItem
+                                                                             ]
+                                                                           )
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf :ModelItem ;
+                  rdfs:comment "A model item that has a specific order with respect to other model items, such as the stage of a disease"@en ;
+                  rdfs:label "Elemento del modelo ordenado"@es ,
+                             "Ordered Model Item"@en .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#Parameter
 :Parameter rdf:type owl:Class ;
            rdfs:subClassOf :ModelItem ,
@@ -3025,6 +3067,18 @@ Examples:
 
 ###  https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet
 :SequentialDiseaseProgressionSet rdf:type owl:Class ;
+                                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasDiseaseProgression ;
+                                                       owl:someValuesFrom [ owl:intersectionOf ( :OrderedModelItem
+                                                                                                 [ rdf:type owl:Class ;
+                                                                                                   owl:unionOf ( :DiseaseProgression
+                                                                                                                 :DiseaseProgressionSet
+                                                                                                               )
+                                                                                                 ]
+                                                                                               ) ;
+                                                                            rdf:type owl:Class
+                                                                          ]
+                                                     ] ;
                                  rdfs:subClassOf :DiseaseProgressionSet ;
                                  rdfs:comment "A set of disease progressions that appear sequentially, e.g., the stages of a cancer" ;
                                  rdfs:label "Conjunto de progresiones de enfermedad secuenciales"@es ,
@@ -3538,28 +3592,28 @@ Examples:
                        :isAssessedIntervention "false"^^xsd:boolean .
 
 
-_:genid670 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
+_:genid685 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^xsd:double ;
            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid671 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
+_:genid686 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid672 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^xsd:double ;
+_:genid687 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^xsd:double ;
             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid673 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
+_:genid688 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
+            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
+            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+
+_:genid689 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.884426031710573"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
-_:genid674 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
+_:genid690 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid675 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^xsd:double ;
             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 
 #################################################################

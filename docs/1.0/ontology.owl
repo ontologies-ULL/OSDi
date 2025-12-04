@@ -760,6 +760,20 @@ By default = 1, for the Manifestations.</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/ontologies-ULL/OSDi#hasNext -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasNext">
+        <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasPrevious"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+        <rdfs:comment xml:lang="en">Points to the next ordered model item</rdfs:comment>
+        <rdfs:label xml:lang="en">has next</rdfs:label>
+        <rdfs:label xml:lang="es">tiene siguiente</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge -->
 
 
@@ -793,6 +807,19 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:label xml:lang="en">has parameter</rdfs:label>
         <rdfs:label xml:lang="es">tiene el parámetro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#hasPrevious -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+        <rdfs:comment xml:lang="en">Points to the previous ordered model item</rdfs:comment>
+        <rdfs:label xml:lang="en">has previous</rdfs:label>
+        <rdfs:label xml:lang="es">tiene anterior</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -3046,8 +3073,7 @@ Examples:
 
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
                 <owl:someValuesFrom>
@@ -3059,7 +3085,8 @@ Examples:
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
         <rdfs:comment xml:lang="en">A set of disease progressions</rdfs:comment>
         <rdfs:label xml:lang="es">Conjunto de progresiones de enfermedad</rdfs:label>
         <rdfs:label xml:lang="en">Disease progression set</rdfs:label>
@@ -4020,6 +4047,37 @@ Examples:
     
 
 
+    <!-- https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasNext"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasPrevious"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
+        <rdfs:comment xml:lang="en">A model item that has a specific order with respect to other model items, such as the stage of a disease</rdfs:comment>
+        <rdfs:label xml:lang="es">Elemento del modelo ordenado</rdfs:label>
+        <rdfs:label xml:lang="en">Ordered Model Item</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/ontologies-ULL/OSDi#Parameter -->
 
 
@@ -4477,6 +4535,24 @@ Examples:
 
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
         <rdfs:comment>A set of disease progressions that appear sequentially, e.g., the stages of a cancer</rdfs:comment>
         <rdfs:label xml:lang="es">Conjunto de progresiones de enfermedad secuenciales</rdfs:label>
@@ -5231,34 +5307,34 @@ Examples:
         <hasDescription>A null intervention that has no effect on the patient</hasDescription>
         <isAssessedIntervention rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAssessedIntervention>
     </owl:NamedIndividual>
-    <rdf:Description rdf:nodeID="genid670">
+    <rdf:Description rdf:nodeID="genid685">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">264.53086737911997</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.59904284310582</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid671">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
+    <rdf:Description rdf:nodeID="genid686">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66.05568696358739</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.9815693558255685</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid672">
+    <rdf:Description rdf:nodeID="genid687">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.61244444225647</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">133.2020154340692</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid673">
+    <rdf:Description rdf:nodeID="genid688">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
+        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid689">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.9652551238964</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.884426031710573</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid674">
+    <rdf:Description rdf:nodeID="genid690">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.67230303494442</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">257.2295616088946</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid675">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66.05568696358739</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.9815693558255685</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
     

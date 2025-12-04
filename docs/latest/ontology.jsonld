@@ -2571,6 +2571,44 @@
   } ]
 }, {
   "@id" : "_:genid559",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
+    }, {
+      "@id" : "_:genid561"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid561",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid565"
+    }, {
+      "@id" : "_:genid563"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid563",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasPrevious"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
+  } ]
+}, {
+  "@id" : "_:genid565",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasNext"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
+  } ]
+}, {
+  "@id" : "_:genid567",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -2579,7 +2617,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#isModifiedBy"
   } ]
 }, {
-  "@id" : "_:genid560",
+  "@id" : "_:genid568",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DataItemType"
@@ -2592,7 +2630,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid561",
+  "@id" : "_:genid569",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
@@ -2601,7 +2639,16 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGeographicalContext"
   } ]
 }, {
-  "@id" : "_:genid562",
+  "@id" : "_:genid57",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"
+  } ]
+}, {
+  "@id" : "_:genid570",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -2614,7 +2661,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasSource"
   } ]
 }, {
-  "@id" : "_:genid563",
+  "@id" : "_:genid571",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -2628,16 +2675,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid57",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"
-  } ]
-}, {
-  "@id" : "_:genid572",
+  "@id" : "_:genid580",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
@@ -2646,7 +2684,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasCost"
   } ]
 }, {
-  "@id" : "_:genid573",
+  "@id" : "_:genid581",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -2655,7 +2693,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasParameter"
   } ]
 }, {
-  "@id" : "_:genid574",
+  "@id" : "_:genid582",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Utility"
@@ -2664,16 +2702,16 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUtility"
   } ]
 }, {
-  "@id" : "_:genid575",
+  "@id" : "_:genid583",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "_:genid576"
+    "@id" : "_:genid584"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#requires"
   } ]
 }, {
-  "@id" : "_:genid576",
+  "@id" : "_:genid584",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -2683,7 +2721,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid579",
+  "@id" : "_:genid587",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#hasValue" : [ {
     "@value" : "http://purl.obolibrary.org/obo/STATO_0000051"
@@ -2692,7 +2730,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasRefToSTATO"
   } ]
 }, {
-  "@id" : "_:genid580",
+  "@id" : "_:genid588",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -2705,16 +2743,16 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLambdaParameter"
   } ]
 }, {
-  "@id" : "_:genid581",
+  "@id" : "_:genid589",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#usesAttributeValue"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "_:genid582"
+    "@id" : "_:genid590"
   } ]
 }, {
-  "@id" : "_:genid582",
+  "@id" : "_:genid590",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Attribute"
@@ -2727,26 +2765,26 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid583",
+  "@id" : "_:genid591",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "_:genid584"
+    "@id" : "_:genid592"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasEpidemiologicalParameter"
   } ]
 }, {
-  "@id" : "_:genid584",
+  "@id" : "_:genid592",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontologies-ULL/OSDi#EpidemiologicalParameter"
     }, {
-      "@id" : "_:genid586"
+      "@id" : "_:genid594"
     } ]
   } ]
 }, {
-  "@id" : "_:genid586",
+  "@id" : "_:genid594",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#isParameterOf"
@@ -2755,7 +2793,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Disease"
   } ]
 }, {
-  "@id" : "_:genid588",
+  "@id" : "_:genid596",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -2764,7 +2802,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"
   } ]
 }, {
-  "@id" : "_:genid589",
+  "@id" : "_:genid597",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -2773,7 +2811,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasParameter"
   } ]
 }, {
-  "@id" : "_:genid590",
+  "@id" : "_:genid598",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population"
@@ -2782,105 +2820,13 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasSubpopulation"
   } ]
 }, {
-  "@id" : "_:genid591",
+  "@id" : "_:genid599",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Utility"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUtility"
-  } ]
-}, {
-  "@id" : "_:genid592",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "_:genid593"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasAge"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ]
-}, {
-  "@id" : "_:genid593",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#hasValue" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Attribute_Age"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#isValueOfAttribute"
-  } ]
-}, {
-  "@id" : "_:genid594",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "_:genid595"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasSex"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ]
-}, {
-  "@id" : "_:genid595",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#hasValue" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Attribute_Sex"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#isValueOfAttribute"
-  } ]
-}, {
-  "@id" : "_:genid596",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancy"
-  } ]
-}, {
-  "@id" : "_:genid597",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#isSubpopulationOf"
-  } ]
-}, {
-  "@id" : "_:genid598",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGeographicalContext"
-  } ]
-}, {
-  "@id" : "_:genid599",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasMaxAge"
   } ]
 }, {
   "@id" : "_:genid60",
@@ -2895,54 +2841,46 @@
 }, {
   "@id" : "_:genid600",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "_:genid601"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasMinAge"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasAge"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
   } ]
 }, {
   "@id" : "_:genid601",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  "http://www.w3.org/2002/07/owl#hasValue" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Attribute_Age"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasSize"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#isValueOfAttribute"
   } ]
 }, {
   "@id" : "_:genid602",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#short"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "_:genid603"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasYear"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasSex"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
   } ]
 }, {
   "@id" : "_:genid603",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  "http://www.w3.org/2002/07/owl#hasValue" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Attribute_Sex"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasAverageParameter"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#isValueOfAttribute"
   } ]
 }, {
   "@id" : "_:genid604",
@@ -2951,11 +2889,11 @@
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
     "@value" : "1"
   } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasOffsetParameter"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancy"
   } ]
 }, {
   "@id" : "_:genid605",
@@ -2964,24 +2902,20 @@
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
     "@value" : "1"
   } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasRefToSTATO"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#isSubpopulationOf"
   } ]
 }, {
   "@id" : "_:genid606",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasScaleParameter"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGeographicalContext"
   } ]
 }, {
   "@id" : "_:genid607",
@@ -2991,10 +2925,10 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasStandardDeviationParameter"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasMaxAge"
   } ]
 }, {
   "@id" : "_:genid608",
@@ -3007,10 +2941,114 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasCalculationMethod"
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasMinAge"
   } ]
 }, {
   "@id" : "_:genid609",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasSize"
+  } ]
+}, {
+  "@id" : "_:genid610",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#short"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasYear"
+  } ]
+}, {
+  "@id" : "_:genid611",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasAverageParameter"
+  } ]
+}, {
+  "@id" : "_:genid612",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasOffsetParameter"
+  } ]
+}, {
+  "@id" : "_:genid613",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasRefToSTATO"
+  } ]
+}, {
+  "@id" : "_:genid614",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasScaleParameter"
+  } ]
+}, {
+  "@id" : "_:genid615",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasStandardDeviationParameter"
+  } ]
+}, {
+  "@id" : "_:genid616",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasCalculationMethod"
+  } ]
+}, {
+  "@id" : "_:genid617",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
@@ -3019,7 +3057,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasRefToGARD"
   } ]
 }, {
-  "@id" : "_:genid610",
+  "@id" : "_:genid618",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
@@ -3028,17 +3066,17 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasRefToORDO"
   } ]
 }, {
-  "@id" : "_:genid611",
+  "@id" : "_:genid619",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "_:genid615"
+      "@id" : "_:genid623"
     }, {
-      "@id" : "_:genid613"
+      "@id" : "_:genid621"
     } ]
   } ]
 }, {
-  "@id" : "_:genid613",
+  "@id" : "_:genid621",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -3051,7 +3089,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy"
   } ]
 }, {
-  "@id" : "_:genid615",
+  "@id" : "_:genid623",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -3064,7 +3102,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"
   } ]
 }, {
-  "@id" : "_:genid616",
+  "@id" : "_:genid624",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -3073,7 +3111,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold"
   } ]
 }, {
-  "@id" : "_:genid617",
+  "@id" : "_:genid625",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -3082,19 +3120,19 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold"
   } ]
 }, {
-  "@id" : "_:genid618",
+  "@id" : "_:genid626",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
     }, {
-      "@id" : "_:genid622"
+      "@id" : "_:genid630"
     }, {
-      "@id" : "_:genid620"
+      "@id" : "_:genid628"
     } ]
   } ]
 }, {
-  "@id" : "_:genid620",
+  "@id" : "_:genid628",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -3107,44 +3145,6 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid622",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "_:genid623"
-  } ]
-}, {
-  "@id" : "_:genid623",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
-    }, {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid627",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "_:genid628"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"
-  } ]
-}, {
-  "@id" : "_:genid628",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"
-    }, {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Manifestation"
-    } ]
-  } ]
-}, {
   "@id" : "_:genid63",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
@@ -3155,26 +3155,93 @@
     } ]
   } ]
 }, {
+  "@id" : "_:genid630",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "_:genid631"
+  } ]
+}, {
   "@id" : "_:genid631",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid635",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "_:genid636"
+  } ]
+}, {
+  "@id" : "_:genid636",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
+    }, {
+      "@id" : "_:genid638"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid638",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid642",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "_:genid632"
+    "@id" : "_:genid643"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"
+  } ]
+}, {
+  "@id" : "_:genid643",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Manifestation"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid646",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "_:genid647"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"
   } ]
 }, {
-  "@id" : "_:genid632",
+  "@id" : "_:genid647",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
     }, {
-      "@id" : "_:genid634"
+      "@id" : "_:genid649"
     } ]
   } ]
 }, {
-  "@id" : "_:genid634",
+  "@id" : "_:genid649",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#isParameterOf"
@@ -3183,26 +3250,26 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population"
   } ]
 }, {
-  "@id" : "_:genid636",
+  "@id" : "_:genid651",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "_:genid637"
+    "@id" : "_:genid652"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#followedByStrategy"
   } ]
 }, {
-  "@id" : "_:genid637",
+  "@id" : "_:genid652",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontologies-ULL/OSDi#Strategy"
     }, {
-      "@id" : "_:genid639"
+      "@id" : "_:genid654"
     } ]
   } ]
 }, {
-  "@id" : "_:genid639",
+  "@id" : "_:genid654",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Strategy"
@@ -3211,7 +3278,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"
   } ]
 }, {
-  "@id" : "_:genid641",
+  "@id" : "_:genid656",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
@@ -3220,7 +3287,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasConditionExpression"
   } ]
 }, {
-  "@id" : "_:genid642",
+  "@id" : "_:genid657",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
@@ -3229,7 +3296,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasCost"
   } ]
 }, {
-  "@id" : "_:genid643",
+  "@id" : "_:genid658",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Guideline"
@@ -3238,131 +3305,13 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasGuideline"
   } ]
 }, {
-  "@id" : "_:genid644",
+  "@id" : "_:genid659",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Utility"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUtility"
-  } ]
-}, {
-  "@id" : "_:genid645",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "_:genid649"
-    }, {
-      "@id" : "_:genid647"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid647",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "0"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"
-  } ]
-}, {
-  "@id" : "_:genid649",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "0"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"
-  } ]
-}, {
-  "@id" : "_:genid650",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "_:genid654"
-    }, {
-      "@id" : "_:genid652"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid652",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "0"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"
-  } ]
-}, {
-  "@id" : "_:genid654",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "0"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"
-  } ]
-}, {
-  "@id" : "_:genid655",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLowerLimitParameter"
-  } ]
-}, {
-  "@id" : "_:genid656",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUpperLimitParameter"
-  } ]
-}, {
-  "@id" : "_:genid657",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
-    }, {
-      "@id" : "_:genid659"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid659",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "_:genid663"
-    }, {
-      "@id" : "_:genid661"
-    } ]
   } ]
 }, {
   "@id" : "_:genid66",
@@ -3375,7 +3324,125 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid661",
+  "@id" : "_:genid660",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid664"
+    }, {
+      "@id" : "_:genid662"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid662",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "0"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"
+  } ]
+}, {
+  "@id" : "_:genid664",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "0"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"
+  } ]
+}, {
+  "@id" : "_:genid665",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid669"
+    }, {
+      "@id" : "_:genid667"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid667",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "0"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"
+  } ]
+}, {
+  "@id" : "_:genid669",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "0"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"
+  } ]
+}, {
+  "@id" : "_:genid670",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasLowerLimitParameter"
+  } ]
+}, {
+  "@id" : "_:genid671",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasUpperLimitParameter"
+  } ]
+}, {
+  "@id" : "_:genid672",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
+    }, {
+      "@id" : "_:genid674"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid674",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid678"
+    }, {
+      "@id" : "_:genid676"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid676",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
@@ -3388,7 +3455,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid663",
+  "@id" : "_:genid678",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#QoLDataItemType"
@@ -3401,7 +3468,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid665",
+  "@id" : "_:genid680",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
@@ -3414,17 +3481,17 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid666",
+  "@id" : "_:genid681",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
     }, {
-      "@id" : "_:genid668"
+      "@id" : "_:genid683"
     } ]
   } ]
 }, {
-  "@id" : "_:genid668",
+  "@id" : "_:genid683",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#short"
@@ -3437,7 +3504,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid670",
+  "@id" : "_:genid685",
   "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#double",
     "@value" : "264.53086737911997"
@@ -3451,63 +3518,7 @@
     "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
   } ]
 }, {
-  "@id" : "_:genid671",
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "137.71094492073297"
-  } ],
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "111.01194217726372"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
-  } ]
-}, {
-  "@id" : "_:genid672",
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "100.61244444225647"
-  } ],
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "133.2020154340692"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
-  } ]
-}, {
-  "@id" : "_:genid673",
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "163.9652551238964"
-  } ],
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "13.884426031710573"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
-  } ]
-}, {
-  "@id" : "_:genid674",
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "80.67230303494442"
-  } ],
-  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#double",
-    "@value" : "257.2295616088946"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
-  } ]
-}, {
-  "@id" : "_:genid675",
+  "@id" : "_:genid686",
   "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#double",
     "@value" : "66.05568696358739"
@@ -3521,7 +3532,77 @@
     "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
   } ]
 }, {
-  "@id" : "_:genid676",
+  "@id" : "_:genid687",
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "100.61244444225647"
+  } ],
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "133.2020154340692"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
+  } ]
+}, {
+  "@id" : "_:genid688",
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "137.71094492073297"
+  } ],
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "111.01194217726372"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
+  } ]
+}, {
+  "@id" : "_:genid689",
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "163.9652551238964"
+  } ],
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "13.884426031710573"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
+  } ]
+}, {
+  "@id" : "_:genid69",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ChronicManifestation"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Development"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Stage"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid690",
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionX" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "80.67230303494442"
+  } ],
+  "http://ontologydesignpatterns.org/opla-sd#entityPositionY" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#double",
+    "@value" : "257.2295616088946"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."
+  } ]
+}, {
+  "@id" : "_:genid691",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -3545,7 +3626,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid686",
+  "@id" : "_:genid701",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -3559,21 +3640,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid69",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ChronicManifestation"
-    }, {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Development"
-    }, {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population"
-    }, {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#Stage"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid691",
+  "@id" : "_:genid706",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -3587,7 +3654,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid696",
+  "@id" : "_:genid711",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -4954,7 +5021,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
-  }, {
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
     "@id" : "_:genid390"
   } ]
 }, {
@@ -5691,6 +5759,26 @@
     "@id" : "_:genid558"
   } ]
 }, {
+  "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A model item that has a specific order with respect to other model items, such as the stage of a disease"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "es",
+    "@value" : "Elemento del modelo ordenado"
+  }, {
+    "@language" : "en",
+    "@value" : "Ordered Model Item"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid559"
+  } ]
+}, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -5707,13 +5795,13 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
   }, {
-    "@id" : "_:genid559"
+    "@id" : "_:genid567"
   }, {
-    "@id" : "_:genid560"
+    "@id" : "_:genid568"
   }, {
-    "@id" : "_:genid561"
+    "@id" : "_:genid569"
   }, {
-    "@id" : "_:genid562"
+    "@id" : "_:genid570"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#ParameterNature",
@@ -5744,7 +5832,7 @@
     } ]
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid563"
+    "@id" : "_:genid571"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Pathway",
@@ -5763,13 +5851,13 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
   }, {
-    "@id" : "_:genid572"
+    "@id" : "_:genid580"
   }, {
-    "@id" : "_:genid573"
+    "@id" : "_:genid581"
   }, {
-    "@id" : "_:genid574"
+    "@id" : "_:genid582"
   }, {
-    "@id" : "_:genid575"
+    "@id" : "_:genid583"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#PoissonDistributionExpression",
@@ -5788,9 +5876,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression"
   }, {
-    "@id" : "_:genid579"
+    "@id" : "_:genid587"
   }, {
-    "@id" : "_:genid580"
+    "@id" : "_:genid588"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Population",
@@ -5809,21 +5897,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
   }, {
-    "@id" : "_:genid581"
-  }, {
-    "@id" : "_:genid583"
-  }, {
-    "@id" : "_:genid588"
-  }, {
     "@id" : "_:genid589"
   }, {
-    "@id" : "_:genid590"
-  }, {
     "@id" : "_:genid591"
-  }, {
-    "@id" : "_:genid592"
-  }, {
-    "@id" : "_:genid594"
   }, {
     "@id" : "_:genid596"
   }, {
@@ -5835,9 +5911,21 @@
   }, {
     "@id" : "_:genid600"
   }, {
-    "@id" : "_:genid601"
-  }, {
     "@id" : "_:genid602"
+  }, {
+    "@id" : "_:genid604"
+  }, {
+    "@id" : "_:genid605"
+  }, {
+    "@id" : "_:genid606"
+  }, {
+    "@id" : "_:genid607"
+  }, {
+    "@id" : "_:genid608"
+  }, {
+    "@id" : "_:genid609"
+  }, {
+    "@id" : "_:genid610"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression",
@@ -5856,15 +5944,15 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ModelItem"
   }, {
-    "@id" : "_:genid603"
+    "@id" : "_:genid611"
   }, {
-    "@id" : "_:genid604"
+    "@id" : "_:genid612"
   }, {
-    "@id" : "_:genid605"
+    "@id" : "_:genid613"
   }, {
-    "@id" : "_:genid606"
+    "@id" : "_:genid614"
   }, {
-    "@id" : "_:genid607"
+    "@id" : "_:genid615"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#QoLDataItemType",
@@ -5872,7 +5960,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DataItemType"
   }, {
-    "@id" : "_:genid608"
+    "@id" : "_:genid616"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#REMOVEhasFrequency",
@@ -5903,9 +5991,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Disease"
   }, {
-    "@id" : "_:genid609"
+    "@id" : "_:genid617"
   }, {
-    "@id" : "_:genid610"
+    "@id" : "_:genid618"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem",
@@ -5930,9 +6018,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"
   }, {
-    "@id" : "_:genid611"
+    "@id" : "_:genid619"
   }, {
-    "@id" : "_:genid616"
+    "@id" : "_:genid624"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy",
@@ -5951,7 +6039,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DetectionStrategy"
   }, {
-    "@id" : "_:genid617"
+    "@id" : "_:genid625"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#SecondOrderUncertaintyParameter",
@@ -5971,7 +6059,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ParameterNature"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid618"
+    "@id" : "_:genid626"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet",
@@ -5988,6 +6076,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid635"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Stage",
@@ -6006,9 +6097,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"
   }, {
-    "@id" : "_:genid627"
+    "@id" : "_:genid642"
   }, {
-    "@id" : "_:genid631"
+    "@id" : "_:genid646"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Strategy",
@@ -6027,15 +6118,15 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem"
   }, {
-    "@id" : "_:genid636"
+    "@id" : "_:genid651"
   }, {
-    "@id" : "_:genid641"
+    "@id" : "_:genid656"
   }, {
-    "@id" : "_:genid642"
+    "@id" : "_:genid657"
   }, {
-    "@id" : "_:genid643"
+    "@id" : "_:genid658"
   }, {
-    "@id" : "_:genid644"
+    "@id" : "_:genid659"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#TODO",
@@ -6057,9 +6148,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Intervention"
   }, {
-    "@id" : "_:genid645"
+    "@id" : "_:genid660"
   }, {
-    "@id" : "_:genid650"
+    "@id" : "_:genid665"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Treatment",
@@ -6095,9 +6186,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression"
   }, {
-    "@id" : "_:genid655"
+    "@id" : "_:genid670"
   }, {
-    "@id" : "_:genid656"
+    "@id" : "_:genid671"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#Utility",
@@ -6116,10 +6207,10 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
   }, {
-    "@id" : "_:genid665"
+    "@id" : "_:genid680"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid657"
+    "@id" : "_:genid672"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter",
@@ -6128,7 +6219,7 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Parameter"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid666"
+    "@id" : "_:genid681"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#appliesOneTime",
@@ -7040,6 +7131,29 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
   } ]
 }, {
+  "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasNext",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Points to the next ordered model item"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has next"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene siguiente"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasPrevious"
+  } ]
+}, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasOffsetParameter",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
@@ -7095,6 +7209,26 @@
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#isParameterOf"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasPrevious",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Points to the previous ordered model item"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has previous"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene anterior"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"
   } ]
 }, {
   "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasProbabilityDistributionParameter",
