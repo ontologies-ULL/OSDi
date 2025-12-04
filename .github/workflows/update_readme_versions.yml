@@ -6,6 +6,7 @@ on:
     paths:
       - 'docs/**'
       - '.github/workflows/update-readme-versions.yml'
+  workflow_dispatch: # allows manual execution from GitHub
 
 permissions:
   contents: write
