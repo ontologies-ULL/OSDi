@@ -649,8 +649,8 @@
 <p>We will start by describing how to represent a disease and its progression using <strong>OSDi</strong>. We will just define the elements but not the parameters that characterize the progression and risks.</p>
 <h3 id="31-defining-the-disease">3.1. Defining the Disease</h3>
 <p><img alt="Disease classes" src="../img/osdi_disease.png" /></p>
-<p>The <strong>Disease</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Disease"><code>osdi:Disease</code></a>) class is specialized using subtypes like <code>osdi:InheritedDisease</code> or <code>osdi:RareDisease</code>. The automated generation of models is expected to use this information in the future to infer the best model paradigm and structure based on this and other characteristics. </p>
-<p>BD is modeled as an inherited and rare disease using <code>osdi:InheritedDisease</code> and <code>osdi:RareDisease</code>. </p>
+<p>The <strong>Disease</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Disease"><code>osdi:Disease</code></a>) class is specialized using subtypes like (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#InheritedDisease"><code>osdi:InheritedDisease</code></a>) or (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#RareDisease"><code>osdi:RareDisease</code></a>). The automated generation of models is expected to use this information in the future to infer the best model paradigm and structure based on this and other characteristics. </p>
+<p>BD is modeled as an inherited and rare disease using (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#InheritedDisease"><code>osdi:InheritedDisease</code></a>) and (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#RareDisease"><code>osdi:RareDisease</code></a>). </p>
 <p><strong>TTL Example:</strong></p>
 <pre><code class="language-turtle">osdi:BD_Disease
     a osdi:InheritedDisease ,

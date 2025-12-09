@@ -574,7 +574,7 @@
 
   <h1>5. Population affected</h1>
 
-<p>The <strong>Population</strong> (<code>osdi:Population</code>) class defines the target birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the <code>osdi:isSubpopulationOf</code> property.</p>
+<p>The <strong>Population</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Population"><code>osdi:Population</code></a>)) class defines the target birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isSubpopulationOf"><code>osdi:isSubpopulationOf</code></a>) property.</p>
 <p><strong>TTL Example:</strong></p>
 <pre><code class="language-turtle">osdi:BD_BirthCohortPopulation
     a osdi:Population ;
@@ -585,7 +585,7 @@ osdi:BD_ProfoundCasesPopulation
     rdfs:label &quot;Newborns with profound biotinidase deficiency&quot;@en ;
     osdi:isSubpopulationOf osdi:BD_BirthCohortPopulation .
 </code></pre>
-<p><strong>EpidemiologicalParameter</strong> (<code>osdi:EpidemiologicalParameter</code>) captures population-level statistics like incidence, estimated from the Galicia NBS program. The parameter is linked to the population it describes using <code>osdi:isParameterOf</code>.</p>
+<p><strong>EpidemiologicalParameter</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#EpidemiologicalParameter"><code>osdi:EpidemiologicalParameter</code></a>)) captures population-level statistics like incidence, estimated from the Galicia NBS program. The parameter is linked to the population it describes using (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isParameterOf"><code>osdi:isParameterOf</code></a>).</p>
 <p><strong>TTL Example (Incidence):</strong></p>
 <pre><code class="language-turtle">osdi:EPI_Incidence_ProfoundBD_Galicia
     a owl:NamedIndividual , osdi:DeterministicParameter , osdi:EpidemiologicalParameter ;
