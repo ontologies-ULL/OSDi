@@ -53,49 +53,61 @@ osdi:BD_Seizures_PBD_Uncertainty
     osdi:hasSource "Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399" .
 ```
 
+Uncertainty can also be expressed as a combination of parameters. For example, you could express the lower and upper values of a confidence interval or add a standard deviation. 
 
-### 5.2. Costs
+### 4.2. Costs and utilities
 
-[cite_start]**Cost** (([`osdi:Cost`]({{ config.extra.osdi }}#Cost))) parameters are expressed in 2013 US dollars [cite: 55] and linked to the resource (([`osdi:HealthTechnology`]({{ config.extra.osdi }}#HealthTechnology))) or adverse event (([`osdi:DiseaseProgression`]({{ config.extra.osdi }}#DiseaseProgression))) they apply to.
+**Cost** ([`osdi:Cost`]({{ config.extra.osdi }}#Cost)) parameters require a year and a can only use data item types that are subclass of [`osdi:Currency`]({{ config.extra.osdi }}#Currency). With this information, the applications that use the knowledge stored in an ontological repository may automatically update and/or convert costs. 
+
+**Utility** ([`osdi:Utility`]({{ config.extra.osdi }}#Utility)) models health-related quality of life (QoL) measures (QALYs). If it represents a decrement in QoL, the [`osdi:isDisutility`]({{ config.extra.osdi }}#isDisutility) property is set to `true`; `false` otherwise.
+
+Both costs and utilities can be define to be used just once ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) is set to `true`), or anually ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) is set to `false`).
+
+For example, the unit cost for the screening test is $0.13 (expressed in 2013 US dollars). 
 
 **TTL Example (Unit Cost):**
 
 ```turtle
-osdi:COST_ScreeningTest_BD_PerTest
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+osdi:BD_Cost_ScreeningTest
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Cost ;
     rdfs:label "Unit cost per BD screening test"@en ;
-    osdi:hasDataItemType osdi:DI_UnitCost ;
-    osdi:hasExpectedValue "1.23"^^xsd:double ; # [cite_start]Cost in 2013 US dollars [cite: 143]
-    osdi:isParameterOf osdi:InitialScreeningTest_BD .
+    osdi:hasDescription "Unit cost per BD screening test expressed in 2013 US dollars" ;
+    osdi:hasDataItemType osdi:Currency_Dollar ;
+    osdi:hasExpectedValue "0.13"^^xsd:double ; 
+    osdi:hasYear "2013"^^xsd:short ;
+    osdi:appliesOneTime "true"^^xsd:boolean .
 ```
 
-### 5.3. Utilities/Disutilities
-
-[cite_start]**Utility** (([`osdi:Utility`]({{ config.extra.osdi }}#Utility))) models health-related quality of life (QoL) measures (QALYs)[cite: 52, 53]. [cite_start]If it represents a decrement in QoL, the ([`osdi:isDisutility`]({{ config.extra.osdi }}#isDisutility)) property is set to `true`[cite: 181].
+The disutility for seizures is applied anually as a decrement of the base utility of the individual.
 
 **TTL Example (Disutility for Seizures):**
 
 ```turtle
-osdi:UTIL_MildSeizureDisorder
-    a owl:NamedIndividual , osdi:Utility ;
-    rdfs:label "Utility decrement for mild seizure disorder"@en ;
-    osdi:hasDataItemType osdi:DI_Utility ;
-    [cite_start]osdi:hasExpectedValue "0.040"^^xsd:double ; [cite: 161]
-    osdi:isDisutility true ; # This is a QALY decrement (disutility)
-    osdi:isParameterOf osdi:BD_Seizures .
+osdi:BD_Disutility_MildSeizureDisorder
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Utility ;
+    rdfs:label "Disutility of seizures"@en ;
+    osdi:hasDescription "Utility decrement for mild seizure disorder" ;
+    osdi:hasDataItemType osdi:DI_EQ5D_Utility ;
+    osdi:hasExpectedValue "0.040"^^xsd:double ; 
+    osdi:isDisutility "true"^^xsd:boolean ; # This is a QALY decrement (disutility)
+    osdi:appliesOneTime "false"^^xsd:boolean .
 ```
 
-### 5.4. Calculated Parameters
+### 4.3. Calculated Parameters
 
-**CalculatedParameter** (([`osdi:CalculatedParameter`]({{ config.extra.osdi }}#CalculatedParameter))) models values derived from an explicit formula involving other parameters. The example illustrates an annual cost calculation for follow-up.
+Correctly modeling the correlation among parameters is a key aspect to consider, especially when dealing with sensitivity analyses. Hence, you should explicitly state such correlations instead of using the final values of the parameters as much as you can. **Calculated Parameters** ([`osdi:CalculatedParameter`]({{ config.extra.osdi }}#CalculatedParameter)) model values derived from an explicit formula involving other parameters. The formula can be expressed in different languages (currently, Excel [`osdi:Exp_Excel`]({{ config.extra.osdi }}#Exp_Excel), Java [`osdi:Exp_Java`]({{ config.extra.osdi }}#Exp_Java), Javaluator [`osdi:Exp_Javaluator`]({{ config.extra.osdi }}#Exp_Javaluator) and Java Expression Language [`osdi:Exp_JEXL`]({{ config.extra.osdi }}#Exp_JEXL) are supported by the applications using **OSDi**). The string representing the formula literal ([`osdi:hasExpressionValue`]({{ config.extra.osdi }}#hasExpressionValue)) should use the names of the individuals defined in OSDi, which at the same time, should be linked to the formula by means of the [`osdi:dependsOn`]({{ config.extra.osdi }}#dependsOn) property.
+
+The example illustrates an annual cost calculation for follow-up. 
 
 **TTL Example (Annual Cost Calculation):**
 
 ```turtle
-osdi:CALC_AnnualCost_TreatedBD_NoComplications
-    a owl:NamedIndividual , osdi:CalculatedParameter , osdi:Parameter ;
+osdi:BD_Cost_TreatedBD_NoComplications
+    a owl:NamedIndividual , osdi:CalculatedParameter , osdi:Cost ;
     rdfs:label "Annual cost of treated BD patient without complications"@en ;
-    osdi:hasDataItemType osdi:DI_UnitCost ;
-    osdi:hasExpressionValue "=COST_Biotin_Pack_5mg40Tablets*(365/30) + COST_SpecialistVisit*4 + COST_Audiometry + COST_VisualAcuityTest"^^xsd:string ;
+    osdi:hasDataItemType osdi:Currency_Dollar ;
+    osdi:hasYear "2013"^^xsd:short ;
+    osdi:hasExpressionValue "BD_Cost_Biotin_Pack_5mg40Tablets*(365/30) + BD_Cost_SpecialistVisit*4 + BD_Cost_Audiometry + BD_Cost_VisualAcuityTest"^^xsd:string ;
+    osdi:dependsOn BD_Cost_Biotin_Pack_5mg40Tablets , BD_Cost_SpecialistVisit , BD_Cost_Audiometry , BD_Cost_VisualAcuityTest ;
     osdi:hasExpressionLanguage osdi:Exp_Excel .
 ```

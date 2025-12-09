@@ -26,7 +26,7 @@ nav:
   - 3. Disease modeling:
       - Disease: disease.md
       - Progression: progression.md
-  - 4. Parameters: parameters.md
+  - 4. Parameters: parameter.md
   - 5. Population affected: population.md
 #  - Model inputs:
 #      - Population: population.md
