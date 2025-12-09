@@ -14,7 +14,7 @@ The file with the individuals should import **OSDi** and the namespace should be
 <https://w3id.org/ontologies-ULL/OSDi/individuals/BD> rdf:type owl:Ontology ;
     rdfs:label "OSDi BD individuals"@en ;
     rdfs:comment "OSDi individuals for newborn screening of Biotinidase Deficiency, version 1.0. "@en ;
-    owl:imports <https://w3id.org/ontologies-ULL/OSDi/1.0> .
+    owl:imports <https://w3id.org/ontologies-ULL/OSDi/{{ config.extra.version }}> .
 ```
 
 Remember that all the components of **OSDi**  (classes, properties and common named individuals) are [documented online](https://w3id.org/ontologies-ULL/OSDi/1.0).

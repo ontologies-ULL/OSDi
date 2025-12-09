@@ -9,6 +9,9 @@ docs_dir: docs-src
 # MkDocs will generate HTML inside docs/tutorial
 site_dir: docs/tutorial
 
+plugins:
+  - macros
+  
 theme:
   name: material
 
