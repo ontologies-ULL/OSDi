@@ -73,6 +73,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
@@ -411,6 +415,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parameters.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../population/" class="md-nav__link">
         
   
@@ -418,7 +449,7 @@
   <span class="md-ellipsis">
     
   
-    4. Population affected
+    5. Population affected
   
 
     
@@ -448,10 +479,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -469,8 +500,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -550,67 +581,6 @@
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-parameters-costs-and-utilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Parameters, Costs, and Utilities
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Parameters, Costs, and Utilities">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-progression-probabilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1. Progression Probabilities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-costs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2. Costs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-utilitiesdisutilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3. Utilities/Disutilities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-calculated-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4. Calculated Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -732,67 +702,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-parameters-costs-and-utilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Parameters, Costs, and Utilities
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Parameters, Costs, and Utilities">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-progression-probabilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1. Progression Probabilities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-costs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2. Costs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-utilitiesdisutilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3. Utilities/Disutilities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-calculated-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4. Calculated Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#6-interventions-and-strategy-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -897,49 +806,6 @@ and (2) no newborn screening (clinical detection only).
 </code></pre>
 <hr />
 <hr />
-<h2 id="5-parameters-costs-and-utilities">5. Parameters, Costs, and Utilities</h2>
-<p>All quantifiable values are modeled as <strong>Parameter</strong> (<code>osdi:Parameter</code>) instances, differentiated by their <strong>Parameter Nature</strong> (e.g., <code>osdi:DeterministicParameter</code>) and <strong>Data Item Type</strong> (<code>osdi:DataItemType</code>).</p>
-<h3 id="51-progression-probabilities">5.1. Progression Probabilities</h3>
-<p>[cite_start]These are estimates of the probability of an outcome in untreated cases, based on meta-analysis of literature[cite: 132, 134].</p>
-<p><strong>TTL Example (Probability of Seizures):</strong></p>
-<pre><code class="language-turtle">osdi:PROG_Seizures_ProfoundBD_ClinicallyDiagnosed
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
-    rdfs:label &quot;Probability of seizures in clinically diagnosed profound BD&quot;@en ;
-    osdi:hasDataItemType osdi:DI_Proportion ; # Data item type: Proportion/Probability
-    [cite_start]osdi:hasExpectedValue &quot;0.564&quot;^^xsd:double ; [cite: 128]
-    osdi:isParameterOf osdi:BD_Seizures .
-</code></pre>
-<h3 id="52-costs">5.2. Costs</h3>
-<p>[cite_start]<strong>Cost</strong> (<code>osdi:Cost</code>) parameters are expressed in 2013 US dollars [cite: 55] and linked to the resource (<code>osdi:HealthTechnology</code>) or adverse event (<code>osdi:DiseaseProgression</code>) they apply to.</p>
-<p><strong>TTL Example (Unit Cost):</strong></p>
-<pre><code class="language-turtle">osdi:COST_ScreeningTest_BD_PerTest
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
-    rdfs:label &quot;Unit cost per BD screening test&quot;@en ;
-    osdi:hasDataItemType osdi:DI_UnitCost ;
-    osdi:hasExpectedValue &quot;1.23&quot;^^xsd:double ; # [cite_start]Cost in 2013 US dollars [cite: 143]
-    osdi:isParameterOf osdi:InitialScreeningTest_BD .
-</code></pre>
-<h3 id="53-utilitiesdisutilities">5.3. Utilities/Disutilities</h3>
-<p>[cite_start]<strong>Utility</strong> (<code>osdi:Utility</code>) models health-related quality of life (QoL) measures (QALYs)[cite: 52, 53]. [cite_start]If it represents a decrement in QoL, the <code>osdi:isDisutility</code> property is set to <code>true</code>[cite: 181].</p>
-<p><strong>TTL Example (Disutility for Seizures):</strong></p>
-<pre><code class="language-turtle">osdi:UTIL_MildSeizureDisorder
-    a owl:NamedIndividual , osdi:Utility ;
-    rdfs:label &quot;Utility decrement for mild seizure disorder&quot;@en ;
-    osdi:hasDataItemType osdi:DI_Utility ;
-    [cite_start]osdi:hasExpectedValue &quot;0.040&quot;^^xsd:double ; [cite: 161]
-    osdi:isDisutility true ; # This is a QALY decrement (disutility)
-    osdi:isParameterOf osdi:BD_Seizures .
-</code></pre>
-<h3 id="54-calculated-parameters">5.4. Calculated Parameters</h3>
-<p><strong>CalculatedParameter</strong> (<code>osdi:CalculatedParameter</code>) models values derived from an explicit formula involving other parameters. The example illustrates an annual cost calculation for follow-up.</p>
-<p><strong>TTL Example (Annual Cost Calculation):</strong></p>
-<pre><code class="language-turtle">osdi:CALC_AnnualCost_TreatedBD_NoComplications
-    a owl:NamedIndividual , osdi:CalculatedParameter , osdi:Parameter ;
-    rdfs:label &quot;Annual cost of treated BD patient without complications&quot;@en ;
-    osdi:hasDataItemType osdi:DI_UnitCost ;
-    osdi:hasExpressionValue &quot;=COST_Biotin_Pack_5mg40Tablets*(365/30) + COST_SpecialistVisit*4 + COST_Audiometry + COST_VisualAcuityTest&quot;^^xsd:string ;
-    osdi:hasExpressionLanguage osdi:Exp_Excel .
-</code></pre>
 <hr />
 <h2 id="6-interventions-and-strategy-implementation">6. Interventions and Strategy Implementation</h2>
 <h3 id="61-defining-strategies-and-technologies">6.1. Defining Strategies and Technologies</h3>
@@ -1018,7 +884,7 @@ osdi:ScreeningStrategy_BD
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
     
     
       <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>

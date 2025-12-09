@@ -75,6 +75,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
@@ -469,6 +473,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parameters.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../population/" class="md-nav__link">
         
   
@@ -476,7 +507,7 @@
   <span class="md-ellipsis">
     
   
-    4. Population affected
+    5. Population affected
   
 
     
@@ -504,10 +535,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -525,8 +556,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -658,7 +689,7 @@
 <p>We will start by describing how to represent a disease and its progression using <strong>OSDi</strong>. We will just define the elements but not the parameters that characterize the progression and risks.</p>
 <h3 id="31-defining-the-disease">3.1. Defining the Disease</h3>
 <p><img alt="Disease classes" src="../img/osdi_disease.png" /></p>
-<p>The <strong>Disease</strong> (<code>osdi:Disease</code>) class is specialized using subtypes like <code>osdi:InheritedDisease</code> or <code>osdi:RareDisease</code>. The automated generation of models is expected to use this information in the future to infer the best model paradigm and structure based on this and other characteristics. </p>
+<p>The <strong>Disease</strong> (<a href="{{ config.extra.osdi }}#Disease"><code>osdi:Disease</code></a>) class is specialized using subtypes like <code>osdi:InheritedDisease</code> or <code>osdi:RareDisease</code>. The automated generation of models is expected to use this information in the future to infer the best model paradigm and structure based on this and other characteristics. </p>
 <p>BD is modeled as an inherited and rare disease using <code>osdi:InheritedDisease</code> and <code>osdi:RareDisease</code>. </p>
 <p><strong>TTL Example:</strong></p>
 <pre><code class="language-turtle">osdi:BD_Disease
@@ -717,7 +748,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
     
     
       <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
