@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/parameter/">
       
       
+        <link rel="prev" href="../progression/">
+      
+      
+        <link rel="next" href="../population/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Parameter - OSDi Tutorial</title>
+        <title>4. Parameters - OSDi Tutorial</title>
       
     
     
@@ -102,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Parameter
+              4. Parameters
             
           </span>
         </div>
@@ -370,10 +374,35 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../parameters.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Parameters
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -389,6 +418,85 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#4-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-defining-a-simple-deterministic-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Defining a simple deterministic value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-adding-uncertainty-to-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Adding uncertainty to parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-costs-and-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Costs and utilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-calculated-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Calculated Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -588,10 +696,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-costs" class="md-nav__link">
+  <a href="#42-costs-and-utilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2. Costs
+        4.2. Costs and utilities
       
     </span>
   </a>
@@ -599,21 +707,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#53-utilitiesdisutilities" class="md-nav__link">
+  <a href="#43-calculated-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.3. Utilities/Disutilities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-calculated-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4. Calculated Parameters
+        4.3. Calculated Parameters
       
     </span>
   </a>
@@ -645,7 +742,7 @@
   
 
 
-  <h1>Parameter</h1>
+  <h1>4. Parameters</h1>
 
 <h2 id="4-parameters">4. Parameters</h2>
 <p>Models require several types of parameters: probabilities, costs, utilities... Apart from the numeric value, parameters require the definition of many other properties to be appropriately used or to allow for inference. For example, the risk of suffering some kind of manifestation could be 0.3, but the utilization of this value in a model would be completely different depending on whether it is a probability, a ratio, a proportion, an odd... Besides, parameters have some kind of uncertainty associated to their values. Such uncertainty would represent variability among individuals (first-order uncertainty) or the degree of confidence on your estimates (second-order uncertainty).</p>
@@ -684,35 +781,44 @@
     osdi:hasBetaParameter &quot;50.0&quot;^^xsd:double .
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
 </code></pre>
-<h3 id="52-costs">5.2. Costs</h3>
-<p>[cite_start]<strong>Cost</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Cost"><code>osdi:Cost</code></a>)) parameters are expressed in 2013 US dollars [cite: 55] and linked to the resource ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#HealthTechnology"><code>osdi:HealthTechnology</code></a>)) or adverse event ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DiseaseProgression"><code>osdi:DiseaseProgression</code></a>)) they apply to.</p>
+<p>Uncertainty can also be expressed as a combination of parameters. For example, you could express the lower and upper values of a confidence interval or add a standard deviation. </p>
+<h3 id="42-costs-and-utilities">4.2. Costs and utilities</h3>
+<p><strong>Cost</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Cost"><code>osdi:Cost</code></a>) parameters require a year and a can only use data item types that are subclass of <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Currency"><code>osdi:Currency</code></a>. With this information, the applications that use the knowledge stored in an ontological repository may automatically update and/or convert costs. </p>
+<p><strong>Utility</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Utility"><code>osdi:Utility</code></a>) models health-related quality of life (QoL) measures (QALYs). If it represents a decrement in QoL, the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isDisutility"><code>osdi:isDisutility</code></a> property is set to <code>true</code>; <code>false</code> otherwise.</p>
+<p>Both costs and utilities can be define to be used just once (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#appliesOneTime"><code>osdi:appliesOneTime</code></a> is set to <code>true</code>), or anually (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#appliesOneTime"><code>osdi:appliesOneTime</code></a> is set to <code>false</code>).</p>
+<p>For example, the unit cost for the screening test is $0.13 (expressed in 2013 US dollars). </p>
 <p><strong>TTL Example (Unit Cost):</strong></p>
-<pre><code class="language-turtle">osdi:COST_ScreeningTest_BD_PerTest
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+<pre><code class="language-turtle">osdi:BD_Cost_ScreeningTest
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Cost ;
     rdfs:label &quot;Unit cost per BD screening test&quot;@en ;
-    osdi:hasDataItemType osdi:DI_UnitCost ;
-    osdi:hasExpectedValue &quot;1.23&quot;^^xsd:double ; # [cite_start]Cost in 2013 US dollars [cite: 143]
-    osdi:isParameterOf osdi:InitialScreeningTest_BD .
+    osdi:hasDescription &quot;Unit cost per BD screening test expressed in 2013 US dollars&quot; ;
+    osdi:hasDataItemType osdi:Currency_Dollar ;
+    osdi:hasExpectedValue &quot;0.13&quot;^^xsd:double ; 
+    osdi:hasYear &quot;2013&quot;^^xsd:short ;
+    osdi:appliesOneTime &quot;true&quot;^^xsd:boolean .
 </code></pre>
-<h3 id="53-utilitiesdisutilities">5.3. Utilities/Disutilities</h3>
-<p>[cite_start]<strong>Utility</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Utility"><code>osdi:Utility</code></a>)) models health-related quality of life (QoL) measures (QALYs)[cite: 52, 53]. [cite_start]If it represents a decrement in QoL, the (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isDisutility"><code>osdi:isDisutility</code></a>) property is set to <code>true</code>[cite: 181].</p>
+<p>The disutility for seizures is applied anually as a decrement of the base utility of the individual.</p>
 <p><strong>TTL Example (Disutility for Seizures):</strong></p>
-<pre><code class="language-turtle">osdi:UTIL_MildSeizureDisorder
-    a owl:NamedIndividual , osdi:Utility ;
-    rdfs:label &quot;Utility decrement for mild seizure disorder&quot;@en ;
-    osdi:hasDataItemType osdi:DI_Utility ;
-    [cite_start]osdi:hasExpectedValue &quot;0.040&quot;^^xsd:double ; [cite: 161]
-    osdi:isDisutility true ; # This is a QALY decrement (disutility)
-    osdi:isParameterOf osdi:BD_Seizures .
+<pre><code class="language-turtle">osdi:BD_Disutility_MildSeizureDisorder
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Utility ;
+    rdfs:label &quot;Disutility of seizures&quot;@en ;
+    osdi:hasDescription &quot;Utility decrement for mild seizure disorder&quot; ;
+    osdi:hasDataItemType osdi:DI_EQ5D_Utility ;
+    osdi:hasExpectedValue &quot;0.040&quot;^^xsd:double ; 
+    osdi:isDisutility &quot;true&quot;^^xsd:boolean ; # This is a QALY decrement (disutility)
+    osdi:appliesOneTime &quot;false&quot;^^xsd:boolean .
 </code></pre>
-<h3 id="54-calculated-parameters">5.4. Calculated Parameters</h3>
-<p><strong>CalculatedParameter</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#CalculatedParameter"><code>osdi:CalculatedParameter</code></a>)) models values derived from an explicit formula involving other parameters. The example illustrates an annual cost calculation for follow-up.</p>
+<h3 id="43-calculated-parameters">4.3. Calculated Parameters</h3>
+<p>Correctly modeling the correlation among parameters is a key aspect to consider, especially when dealing with sensitivity analyses. Hence, you should explicitly state such correlations instead of using the final values of the parameters as much as you can. <strong>Calculated Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#CalculatedParameter"><code>osdi:CalculatedParameter</code></a>) model values derived from an explicit formula involving other parameters. The formula can be expressed in different languages (currently, Excel <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_Excel"><code>osdi:Exp_Excel</code></a>, Java <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_Java"><code>osdi:Exp_Java</code></a>, Javaluator <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_Javaluator"><code>osdi:Exp_Javaluator</code></a> and Java Expression Language <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_JEXL"><code>osdi:Exp_JEXL</code></a> are supported by the applications using <strong>OSDi</strong>). The string representing the formula literal (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasExpressionValue"><code>osdi:hasExpressionValue</code></a>) should use the names of the individuals defined in OSDi, which at the same time, should be linked to the formula by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#dependsOn"><code>osdi:dependsOn</code></a> property.</p>
+<p>The example illustrates an annual cost calculation for follow-up. </p>
 <p><strong>TTL Example (Annual Cost Calculation):</strong></p>
-<pre><code class="language-turtle">osdi:CALC_AnnualCost_TreatedBD_NoComplications
-    a owl:NamedIndividual , osdi:CalculatedParameter , osdi:Parameter ;
+<pre><code class="language-turtle">osdi:BD_Cost_TreatedBD_NoComplications
+    a owl:NamedIndividual , osdi:CalculatedParameter , osdi:Cost ;
     rdfs:label &quot;Annual cost of treated BD patient without complications&quot;@en ;
-    osdi:hasDataItemType osdi:DI_UnitCost ;
-    osdi:hasExpressionValue &quot;=COST_Biotin_Pack_5mg40Tablets*(365/30) + COST_SpecialistVisit*4 + COST_Audiometry + COST_VisualAcuityTest&quot;^^xsd:string ;
+    osdi:hasDataItemType osdi:Currency_Dollar ;
+    osdi:hasYear &quot;2013&quot;^^xsd:short ;
+    osdi:hasExpressionValue &quot;BD_Cost_Biotin_Pack_5mg40Tablets*(365/30) + BD_Cost_SpecialistVisit*4 + BD_Cost_Audiometry + BD_Cost_VisualAcuityTest&quot;^^xsd:string ;
+    osdi:dependsOn BD_Cost_Biotin_Pack_5mg40Tablets , BD_Cost_SpecialistVisit , BD_Cost_Audiometry , BD_Cost_VisualAcuityTest ;
     osdi:hasExpressionLanguage osdi:Exp_Excel .
 </code></pre>
 
