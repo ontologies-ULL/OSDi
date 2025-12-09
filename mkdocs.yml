@@ -27,7 +27,8 @@ nav:
       - Disease: disease.md
       - Progression: progression.md
   - 4. Parameters: parameter.md
-  - 5. Population affected: population.md
+  - 5. Characterizing the risk using pathways: pathway.md
+  - 6. Population affected: population.md
 #  - Model inputs:
 #      - Population: population.md
 #      - Epidemiological parameters: epidemiology.md

@@ -1,5 +1,6 @@
 
-The **Population** ([`osdi:Population`]({{ config.extra.osdi }}#Population)) class defines the target birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the [`osdi:isSubpopulationOf`]({{ config.extra.osdi }}#isSubpopulationOf) property.
+The **Population** ([`osdi:Population`]({{ config.extra.osdi }}#Population)) class defines the target cohort for the interventions under assessment. 
+birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the [`osdi:isSubpopulationOf`]({{ config.extra.osdi }}#isSubpopulationOf) property.
 
 **TTL Example:**
 
