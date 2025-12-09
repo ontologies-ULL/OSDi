@@ -14,7 +14,7 @@
         <link rel="prev" href="../progression/">
       
       
-        <link rel="next" href="../population/">
+        <link rel="next" href="../pathway/">
       
       
         
@@ -508,6 +508,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../pathway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Characterizing the risk using pathways
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../population/" class="md-nav__link">
         
   
@@ -515,7 +542,7 @@
   <span class="md-ellipsis">
     
   
-    5. Population affected
+    6. Population affected
   
 
     
@@ -543,10 +570,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -564,8 +591,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -746,11 +773,11 @@
 
 <h2 id="4-parameters">4. Parameters</h2>
 <p>Models require several types of parameters: probabilities, costs, utilities... Apart from the numeric value, parameters require the definition of many other properties to be appropriately used or to allow for inference. For example, the risk of suffering some kind of manifestation could be 0.3, but the utilization of this value in a model would be completely different depending on whether it is a probability, a ratio, a proportion, an odd... Besides, parameters have some kind of uncertainty associated to their values. Such uncertainty would represent variability among individuals (first-order uncertainty) or the degree of confidence on your estimates (second-order uncertainty).</p>
-<p>Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters must inherit from two different classes at the same time: <strong>Parameter</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>)) and <strong>Parameter Nature</strong> (e.g., (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DeterministicParameter"><code>osdi:DeterministicParameter</code></a>)), and define a <strong>Data Item Type</strong> ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DataItemType"><code>osdi:DataItemType</code></a>)) by means of the (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasDataItemType"><code>osdi:hasDataItemType</code></a>) property.</p>
+<p>Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters must inherit from two different classes at the same time: <strong>Parameter</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>) and <strong>Parameter Nature</strong> (e.g., <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DeterministicParameter"><code>osdi:DeterministicParameter</code></a>), and define a <strong>Data Item Type</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DataItemType"><code>osdi:DataItemType</code></a>) by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasDataItemType"><code>osdi:hasDataItemType</code></a> property.</p>
 <p><img alt="Parameters" src="../img/osdi_parameter.png" /></p>
 <p>We will use a number of simple examples to illustrate how to properly define parameters.</p>
 <h3 id="41-defining-a-simple-deterministic-value">4.1. Defining a simple deterministic value</h3>
-<p>In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is both a <strong>Parameter</strong> and a <strong>Deterministic Parameter</strong>. There is a specific <strong>Data Item Type</strong> for sensitivity ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Sensitivity"><code>osdi:DI_Sensitivity</code></a>)); otherwise, a more generic type might be used ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Probability"><code>osdi:DI_Probability</code></a>)). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasYear"><code>osdi:hasYear</code></a>)) or the geographical context ((<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasGeographicalContext"><code>osdi:hasGeographicalContext</code></a>)) may be added.</p>
+<p>In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is both a <strong>Parameter</strong> and a <strong>Deterministic Parameter</strong>. There is a specific <strong>Data Item Type</strong> for sensitivity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Sensitivity"><code>osdi:DI_Sensitivity</code></a>); otherwise, a more generic type might be used (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Probability"><code>osdi:DI_Probability</code></a>). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasYear"><code>osdi:hasYear</code></a>) or the geographical context (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasGeographicalContext"><code>osdi:hasGeographicalContext</code></a>) may be added.</p>
 <p><strong>TTL Example (Constant sensitivity):</strong></p>
 <pre><code class="language-turtle">osdi:BD_ScreeningSensitivity
     a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
@@ -763,23 +790,31 @@
 <h3 id="42-adding-uncertainty-to-parameters">4.2. Adding uncertainty to parameters</h3>
 <p>Deterministic parameters are treated as constants but, in general, we can add uncertainty by changing the nature of the parameter to first- or second- order uncertainty, ie.e. by inheriting  <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#FirstOrderUncertaintyParameter"><code>osdi:FirstOrderUncertaintyParameter</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#SecondOrderUncertaintyParameter"><code>osdi:SecondOrderUncertaintyParameter</code></a>, respectively. Both natures define a <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasUncertaintyCharacterization"><code>osdi:hasUncertaintyCharacterization</code></a> property to describe the uncertainty itself. The most straightforward approach is creating an individual based on the predefined <strong>Probability Distribution Expressions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ProbabilityDistributionExpression"><code>osdi:ProbabilityDistributionExpression</code></a>).</p>
 <p>Let's suppose the proportion of individuals with profound BD who present seizures, as described in the reference study. Since its expected value comes from a meta-analysis of several studies, we should include second-order uncertainty when modeling this parameter. We would start by creating the individual for the parameter, that includes the expected value obtained from the meta-analysis (0.564).</p>
-<pre><code class="language-turtle">osdi:BD_Seizures_PBD
+<pre><code class="language-turtle">osdi:BD_Proportion_Seizures_PBD
     a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter , osdi:Parameter ;
     rdfs:label &quot;Proportion of seizures PBD&quot;@en ;
     osdi:hasDescription &quot;Proportion of seizures in clinically diagnosed profound BD&quot; ;
     osdi:hasDataItemType osdi:DI_Proportion ;
     osdi:hasExpectedValue &quot;0.564&quot;^^xsd:double ; 
-    osdi:hasUncertaintyCharacterization BD_Seizures_PBD_Uncertainty
+    osdi:hasUncertaintyCharacterization osdi:BD_Seizures_PBD_Uncertainty
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
 </code></pre>
 <p>The uncertainty on the expected value of the proportion of seizures can be characterized by means of a beta distribution with parameters alfa = 65 and beta = 50.</p>
-<pre><code class="language-turtle">osdi:BD_Seizures_PBD_Uncertainty
+<pre><code class="language-turtle">osdi:BD_Proportion_Seizures_PBD_Uncertainty
     a owl:NamedIndividual , osdi:BetaDistributionExpression ;
     rdfs:label &quot;Uncertainty on proportion of seizures PBD&quot;@en ;
     osdi:hasDescription &quot;Characterization of the uncertainty on the proportion of seizures in clinically diagnosed profound BD&quot; ;
     osdi:hasAlfaParameter &quot;65.0&quot;^^xsd:double ;
     osdi:hasBetaParameter &quot;50.0&quot;^^xsd:double .
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
+</code></pre>
+<p>Once defined, you can link the parameter with the manifestation already defined by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasRiskCharacterization"><code>osdi:hasRiskCharacterization</code></a> property, to numerically characterize the progression.</p>
+<pre><code class="language-turtle">osdi:BD_Seizures
+    a osdi:AcuteManifestation ;
+    rdfs:label &quot;Seizures due to BD&quot;@en ,
+               &quot;Crisis epilépticas debidas a DB&quot;@es ;
+    osdi:hasDescription &quot;Acute seizures occurring in untreated or late-treated profound biotinidase deficiency, usually within the first year of life.&quot;@en ;
+    osdi:hasRiskCharacterization osdi:BD_Proportion_Seizures_PBD .
 </code></pre>
 <p>Uncertainty can also be expressed as a combination of parameters. For example, you could express the lower and upper values of a confidence interval or add a standard deviation. </p>
 <h3 id="42-costs-and-utilities">4.2. Costs and utilities</h3>

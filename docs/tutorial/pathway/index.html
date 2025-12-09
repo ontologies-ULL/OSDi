@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/disease/">
+        <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/pathway/">
       
       
-        <link rel="prev" href="../reference_case/">
+        <link rel="prev" href="../parameter/">
       
       
-        <link rel="next" href="../progression/">
+        <link rel="next" href="../population/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Disease - OSDi Tutorial</title>
+        <title>5. Characterizing the risk using pathways - OSDi Tutorial</title>
       
     
     
@@ -65,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#31-defining-the-disease" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -106,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Disease
+              5. Characterizing the risk using pathways
             
           </span>
         </div>
@@ -264,20 +259,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -298,7 +291,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -313,35 +306,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Disease
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../disease/" class="md-nav__link">
         
   
   
@@ -357,35 +325,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#31-defining-the-disease" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1. Defining the Disease
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -457,10 +396,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../pathway/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -476,6 +422,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -634,25 +581,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#31-defining-the-disease" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1. Defining the Disease
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -671,21 +599,11 @@
   
 
 
-  <h1>Disease</h1>
+  <h1>5. Characterizing the risk using pathways</h1>
 
-<p>We will start by describing how to represent a disease and its progression using <strong>OSDi</strong>. We will just define the elements but not the parameters that characterize the progression and risks.</p>
-<h3 id="31-defining-the-disease">3.1. Defining the Disease</h3>
-<p><img alt="Disease classes" src="../img/osdi_disease.png" /></p>
-<p>The <strong>Disease</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Disease"><code>osdi:Disease</code></a>) class is specialized using subtypes like (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#InheritedDisease"><code>osdi:InheritedDisease</code></a>) or (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#RareDisease"><code>osdi:RareDisease</code></a>). The automated generation of models is expected to use this information in the future to infer the best model paradigm and structure based on this and other characteristics. </p>
-<p>BD is modeled as an inherited and rare disease using (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#InheritedDisease"><code>osdi:InheritedDisease</code></a>) and (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#RareDisease"><code>osdi:RareDisease</code></a>). </p>
-<p><strong>TTL Example:</strong></p>
-<pre><code class="language-turtle">osdi:BD_Disease
-    a osdi:InheritedDisease ,
-      osdi:RareDisease ;
-    rdfs:label &quot;Biotinidase deficiency&quot;@en ,
-               &quot;Deficiencia de biotinidasa&quot;@es ;
-    osdi:hasDescription &quot;Inherited metabolic disorder caused by deficiency of the biotinidase enzyme. The decision model distinguishes profound and partial biotinidase deficiency, each with its own untreated reference development.&quot;@en .
-</code></pre>
+<p>When the risk of a disease progression (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasRiskCharacterization"><code>osdi:hasRiskCharacterization</code></a>) can be characterized as a deterministic or probabilistic value (a probability, proportion, rate...) it is straightforward to use a <strong>Parameter</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>). A simple example on how to do so was depicted in the <a href="../parameter/#42-adding-uncertainty-to-parameters">parameters section</a>.</p>
+<p>However, some times the risk is not only a number.</p>
+<p><img alt="Pathways" src="../img/osdi_pathway.png" /></p>
 
 
 
