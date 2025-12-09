@@ -12,6 +12,10 @@ site_dir: docs/tutorial
 theme:
   name: material
 
+extra:
+  version: "1.0"
+  osdi: "https://w3id.org/ontologies-ULL/OSDi/1.0"
+
 nav:
   - Home: index.md
   - 1. Some tips before starting: before_start.md
@@ -19,8 +23,8 @@ nav:
   - 3. Disease modeling:
       - Disease: disease.md
       - Progression: progression.md
-#  - 4. Parameters
-  - 4. Population affected: population.md
+  - 4. Parameters: parameters.md
+  - 5. Population affected: population.md
 #  - Model inputs:
 #      - Population: population.md
 #      - Epidemiological parameters: epidemiology.md
