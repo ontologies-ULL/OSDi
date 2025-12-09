@@ -1,5 +1,5 @@
 
-The **Population** (`osdi:Population`) class defines the target birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the `osdi:isSubpopulationOf` property.
+The **Population** (([`osdi:Population`]({{ config.extra.osdi }}#Population))) class defines the target birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the ([`osdi:isSubpopulationOf`]({{ config.extra.osdi }}#isSubpopulationOf)) property.
 
 **TTL Example:**
 
@@ -14,7 +14,7 @@ osdi:BD_ProfoundCasesPopulation
     osdi:isSubpopulationOf osdi:BD_BirthCohortPopulation .
 ```
 
-**EpidemiologicalParameter** (`osdi:EpidemiologicalParameter`) captures population-level statistics like incidence, estimated from the Galicia NBS program. The parameter is linked to the population it describes using `osdi:isParameterOf`.
+**EpidemiologicalParameter** (([`osdi:EpidemiologicalParameter`]({{ config.extra.osdi }}#EpidemiologicalParameter))) captures population-level statistics like incidence, estimated from the Galicia NBS program. The parameter is linked to the population it describes using ([`osdi:isParameterOf`]({{ config.extra.osdi }}#isParameterOf)).
 
 **TTL Example (Incidence):**
 
