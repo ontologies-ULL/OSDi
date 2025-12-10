@@ -605,6 +605,7 @@
 <p><img alt="Pathways" src="../img/osdi_pathway.png" /></p>
 <p><strong>Pathways</strong> can define the risk itself (by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasParameter"><code>osdi:hasParameter</code></a> property), but also extra <em>requirements</em> by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#requires"><code>osdi:requires</code></a> property.</p>
 <p>For example, if you consider the <code>BD_Proportion_Seizures_PBD</code> defined in the <a href="../parameter/#42-adding-uncertainty-to-parameters">parameters section</a>, you may add an extra restriction</p>
+<p><strong>TTL Example (Pathway to seizures):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Pathway_Seizures_PBD
     a owl:NamedIndividual , osdi:Pathway ;
     rdfs:label &quot;Pathway to seizures PBD&quot;@en ;
@@ -613,6 +614,7 @@
     osdi:requires osdi:BD_ProfoundBD_Development .  # only individuals with the profound development may suffer seizures
 </code></pre>
 <p>Hence, instead of directly using the parameter, the manifestation would make reference to this pathway:</p>
+<p><strong>TTL Example (Modification of the manifestation to use the pathway):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Seizures
     a osdi:AcuteManifestation ;
     rdfs:label &quot;Seizures due to BD&quot;@en ,
