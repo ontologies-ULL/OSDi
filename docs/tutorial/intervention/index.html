@@ -65,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#62-modeling-intervention-effects-modifiers" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -465,24 +460,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Interventions and their effects
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -499,34 +476,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2. Modeling Intervention Effects (Modifiers)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -631,25 +580,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2. Modeling Intervention Effects (Modifiers)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -670,20 +600,32 @@
 
   <h1>7. Interventions and their effects</h1>
 
-<h3 id="62-modeling-intervention-effects-modifiers">6.2. Modeling Intervention Effects (Modifiers)</h3>
-<p>The benefit of early detection and treatment is modeled using <strong>ModifierParameter</strong> (<code>osdi:ModifierParameter</code>). [cite_start]This parameter typically represents a <strong>Relative Risk</strong> and modifies the progression probabilities of the untreated disease under the intervention strategy [cite: 122-123]. For BD, the base case assumes a Relative Risk of 0 for all clinical symptoms if detected and treated early.</p>
-<p><strong>TTL Example (Effect of Screening/Treatment):</strong></p>
-<pre><code class="language-turtle">osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated
-    a owl:NamedIndividual , osdi:ModifierParameter , osdi:Parameter ;
-    rdfs:label &quot;Relative risk modifier for cognitive deficits in screened and treated profound BD&quot;@en ;
-    osdi:hasDataItemType osdi:DI_RelativeRisk ;
-    osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double ; # Assumed Relative Risk (RR) of 0
-    # This modifier changes the baseline probability of cognitive deficits:
-    osdi:modifiesParameter osdi:PROG_CognitiveDeficit_ProfoundBD_ClinicallyDiagnosed .
+<p>Within each model, you must define one or more <strong>Interventions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Intervention"><code>osdi:Intervention</code></a>) to be assessed for cost-effectiveness. In the typical scenario for one intervention versus a comparator, the assessed intervention will be identified by setting <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isAssessedIntervention"><code>osdi:isAssessedIntervention</code></a> to <code>true</code>.</p>
+<p><img alt="Intervention" src="../img/osdi_intervention.png" /></p>
+<p><strong>TTL Example (Interventions for comparing NBS versus clinical detection):</strong></p>
+<pre><code class="language-turtle">osdi:BD_InterventionNoScreening 
+    a owl:NamedIndividual , osdi:DiagnosisIntervention ;
+    osdi:hasDescription &quot;No screening, i.e., clinical detection, of BD&quot; ;
+    osdi:isAssessedIntervention &quot;false&quot;^^xsd:boolean .
 
-osdi:ScreeningStrategy_BD
-    # The strategy involves applying the modifier
-    osdi:involvesModification osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated .
+osdi:BD_InterventionScreening 
+    a owl:NamedIndividual ,  osdi:ScreeningIntervention ;
+    osdi:hasCost osdi:BD_CostScreening ;
+    osdi:hasSensitivity osdi:BD_ScreeningSensitivity ;
+    osdi:hasSpecificity osdi:BD_ScreeningSpecificity ;
+    osdi:involvesModification osdi:BD_InterventionScreeningEffect ;
+    osdi:hasDescription &quot;Basic screening intervention for BD&quot; ;
+    osdi:isAssessedIntervention &quot;true&quot;^^xsd:boolean .
+</code></pre>
+<p><strong>Interventions</strong> may involve costs and disutilities, but they should have some kind of effect on the progression of the disease or the use of resources. Hence, <strong>Interventions</strong> involve modifications (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#involvesModification"><code>osdi:involvesModification</code></a>) that are defined as <strong>Modifier Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ModifierParameter"><code>osdi:ModifierParameter</code></a>). A <strong>Modifier Parameter</strong> is a special type of parameter that includes a property to indicate the parameter (or parameters) whose value is modifying (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#modifies"><code>osdi:modifies</code></a>).</p>
+<p>For example, according to the reference case, the effect of the screening should be to prevent the appearance of the manifestations related to profound BD. You can also use relative risks or mean differences to model such effects. </p>
+<p><strong>TTL Example (Effect of the screening):</strong></p>
+<pre><code class="language-turtle">osdi:BD_InterventionScreeningEffect 
+    a owl:NamedIndividual ,  osdi:ModifierParameter , osdi:DeterministicParameter ;
+    osdi:hasDataItemType osdi:DI_Continuous_Variable ;
+    osdi:modifies osdi:BD_Proportion_Seizures_PBD , ... ;
+    osdi:hasDescription &quot;Sets the probabilities of all the manifestations to 0&quot; ;
+    osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double .
 </code></pre>
 
 

@@ -65,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#3-the-model-itself" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -492,24 +487,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    8. Decision model
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -526,34 +503,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-model-itself" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Model Itself
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -631,25 +580,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-model-itself" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Model Itself
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -670,47 +600,16 @@
 
   <h1>8. Decision model</h1>
 
-<h2 id="3-the-model-itself">3. The Model Itself</h2>
-<p>The <strong>Model</strong> class (<code>osdi:Model</code>) is the central container for the entire HTA simulation. A user may create different models using the same individuals from the ontology. The most important property is </p>
+<p>The <strong>Model</strong> class (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Model"><code>osdi:Model</code></a>) is the central container for the entire HTA simulation. A user may create different models using the same individuals from the ontology. Individuals are then linked to the model by using the property <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#includesModelItem"><code>osdi:includesModelItem</code></a>.</p>
+<p><img alt="Models" src="img/osdi_models.png" /></p>
+<p>Currently, <strong>OSDi</strong> includes four modeling paradigms: decision trees (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DecisionTreeModel"><code>osdi:DecisionTreeModel</code></a>), Markov (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#MarkovModel"><code>osdi:MarkovModel</code></a>), discrete event simulation (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DiscreteEventSimulationModel"><code>osdi:DiscreteEventSimulationModel</code></a>) and agent-based (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#AgentBasedModel"><code>osdi:AgentBasedModel</code></a>).</p>
 <p>The BD analysis is structured as a decision tree model.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">OSDi Class</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">BD Example (<code>osdi:BD_DecisionTreeModel</code>)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>osdi:Model</code></td>
-<td style="text-align: left;">The HTA simulation container</td>
-<td style="text-align: left;"><code>a osdi:DecisionTreeModel</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>osdi:hasStrategy</code></td>
-<td style="text-align: left;">Links to the interventions being compared</td>
-<td style="text-align: left;"><code>osdi:ScreeningStrategy_BD</code>, <code>osdi:NoScreeningStrategy_BD</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>osdi:modelsDisease</code></td>
-<td style="text-align: left;">Links to the primary disease under study</td>
-<td style="text-align: left;"><code>osdi:BiotinidaseDeficiency</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>TTL Example:</strong></p>
+<p><strong>TTL Example (A decision tree model for the screening of BD):</strong></p>
 <pre><code class="language-turtle">osdi:BD_DecisionTreeModel
     a osdi:DecisionTreeModel ;
-    rdfs:label &quot;Decision tree model for newborn screening of biotinidase deficiency&quot;@en ;
-    osdi:hasDescription &quot;&quot;&quot;
-A deterministic decision tree model comparing two strategies:
-(1) newborn screening for biotinidase deficiency with confirmatory testing and biotin treatment,
-and (2) no newborn screening (clinical detection only). 
-&quot;&quot;&quot;@en ;
-    osdi:hasStrategy osdi:ScreeningStrategy_BD ,
-                     osdi:NoScreeningStrategy_BD ;
-    osdi:modelsDisease osdi:BiotinidaseDeficiency .
+    rdfs:label &quot;Decision tree model for BD&quot;@en ;
+    osdi:hasDescription &quot;Decision tree model for newborn screening of biotinidase deficiency. It compares two strategies: (1) newborn screening for biotinidase deficiency with confirmatory testing and biotin treatment, and (2) no newborn screening (clinical detection only). &quot; ;
+    osdi:includesModelItem osdi:BD_Disease , osdi:BD_Seizures , ... , osdi:BD_ManifestationSet , osdi:BD_InterventionNoScreening , ... .
 </code></pre>
 
 

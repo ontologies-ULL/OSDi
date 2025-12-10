@@ -789,6 +789,7 @@
 <h3 id="42-adding-uncertainty-to-parameters">4.2. Adding uncertainty to parameters</h3>
 <p>Deterministic parameters are treated as constants but, in general, we can add uncertainty by changing the nature of the parameter to first- or second- order uncertainty, ie.e. by inheriting  <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#FirstOrderUncertaintyParameter"><code>osdi:FirstOrderUncertaintyParameter</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#SecondOrderUncertaintyParameter"><code>osdi:SecondOrderUncertaintyParameter</code></a>, respectively. Both natures define a <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasUncertaintyCharacterization"><code>osdi:hasUncertaintyCharacterization</code></a> property to describe the uncertainty itself. The most straightforward approach is creating an individual based on the predefined <strong>Probability Distribution Expressions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ProbabilityDistributionExpression"><code>osdi:ProbabilityDistributionExpression</code></a>).</p>
 <p>Let's suppose the proportion of individuals with profound BD who present seizures, as described in the reference study. Since its expected value comes from a meta-analysis of several studies, we should include second-order uncertainty when modeling this parameter. We would start by creating the individual for the parameter, that includes the expected value obtained from the meta-analysis (0.564).</p>
+<p><strong>TTL Example (Base proportion of seizures):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Proportion_Seizures_PBD
     a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter , osdi:Parameter ;
     rdfs:label &quot;Proportion of seizures PBD&quot;@en ;
@@ -799,6 +800,7 @@
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
 </code></pre>
 <p>The uncertainty on the expected value of the proportion of seizures can be characterized by means of a beta distribution with parameters alfa = 65 and beta = 50.</p>
+<p><strong>TTL Example (Modeling of uncertainty in the proportion of seizures):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Proportion_Seizures_PBD_Uncertainty
     a owl:NamedIndividual , osdi:BetaDistributionExpression ;
     rdfs:label &quot;Uncertainty on proportion of seizures PBD&quot;@en ;
@@ -808,6 +810,7 @@
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
 </code></pre>
 <p>Once defined, you can link the parameter with the manifestation already defined by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasRiskCharacterization"><code>osdi:hasRiskCharacterization</code></a> property, to numerically characterize the progression.</p>
+<p><strong>TTL Example (Including the parameter in the manifestation):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Seizures
     a osdi:AcuteManifestation ;
     rdfs:label &quot;Seizures due to BD&quot;@en ,
