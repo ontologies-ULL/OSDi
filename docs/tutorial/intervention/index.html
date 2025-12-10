@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/before_start/">
+        <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/intervention/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../population/">
       
       
-        <link rel="next" href="../reference_case/">
+        <link rel="next" href="../model_structure/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>1. Some tips before starting - OSDi Tutorial</title>
+        <title>7. Interventions and their effects - OSDi Tutorial</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#62-modeling-intervention-effects-modifiers" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -101,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1. Some tips before starting
+              7. Interventions and their effects
             
           </span>
         </div>
@@ -205,17 +210,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../before_start/" class="md-nav__link">
         
   
   
@@ -231,7 +229,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -458,10 +455,35 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../intervention/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Interventions and their effects
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -477,6 +499,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Modeling Intervention Effects (Modifiers)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -580,6 +631,25 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Modeling Intervention Effects (Modifiers)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -598,21 +668,23 @@
   
 
 
-  <h1>1. Some tips before starting</h1>
+  <h1>7. Interventions and their effects</h1>
 
-<p>In general, individuals of OSDi are expected to be defined in a separate file. All examples use Turtle (TTL) syntax and assume the following prefixes are declared:</p>
-<pre><code class="language-turtle">@prefix osdi: https://w3id.org/ontologies-ULL/OSDi# .
-@prefix owl: http://www.w3.org/2002/07/owl# .
-@prefix rdfs: http://www.w3.org/2000/01/rdf-schema# .
-@prefix xsd: http://www.w3.org/2001/XMLSchema# .
+<h3 id="62-modeling-intervention-effects-modifiers">6.2. Modeling Intervention Effects (Modifiers)</h3>
+<p>The benefit of early detection and treatment is modeled using <strong>ModifierParameter</strong> (<code>osdi:ModifierParameter</code>). [cite_start]This parameter typically represents a <strong>Relative Risk</strong> and modifies the progression probabilities of the untreated disease under the intervention strategy [cite: 122-123]. For BD, the base case assumes a Relative Risk of 0 for all clinical symptoms if detected and treated early.</p>
+<p><strong>TTL Example (Effect of Screening/Treatment):</strong></p>
+<pre><code class="language-turtle">osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated
+    a owl:NamedIndividual , osdi:ModifierParameter , osdi:Parameter ;
+    rdfs:label &quot;Relative risk modifier for cognitive deficits in screened and treated profound BD&quot;@en ;
+    osdi:hasDataItemType osdi:DI_RelativeRisk ;
+    osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double ; # Assumed Relative Risk (RR) of 0
+    # This modifier changes the baseline probability of cognitive deficits:
+    osdi:modifiesParameter osdi:PROG_CognitiveDeficit_ProfoundBD_ClinicallyDiagnosed .
+
+osdi:ScreeningStrategy_BD
+    # The strategy involves applying the modifier
+    osdi:involvesModification osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated .
 </code></pre>
-<p>The file with the individuals should import <strong>OSDi</strong> and the namespace should be something like <code>https://w3id.org/ontologies-ULL/OSDi/individuals/&lt;name&gt;</code>.</p>
-<pre><code class="language-turtle">&lt;https://w3id.org/ontologies-ULL/OSDi/individuals/BD&gt; rdf:type owl:Ontology ;
-    rdfs:label &quot;OSDi BD individuals&quot;@en ;
-    rdfs:comment &quot;OSDi individuals for newborn screening of Biotinidase Deficiency, version 1.0. &quot;@en ;
-    owl:imports &lt;https://w3id.org/ontologies-ULL/OSDi/1.0&gt; .
-</code></pre>
-<p>Remember that all the components of <strong>OSDi</strong>  (classes, properties and common named individuals) are <a href="https://w3id.org/ontologies-ULL/OSDi/1.0">documented online</a>.</p>
 
 
 
