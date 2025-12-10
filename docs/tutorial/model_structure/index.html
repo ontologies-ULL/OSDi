@@ -11,8 +11,10 @@
         <link rel="canonical" href="https://ontologies-ull.github.io/OSDi/tutorial/model_structure/">
       
       
-        <link rel="prev" href="../population/">
+        <link rel="prev" href="../intervention/">
       
+      
+        <link rel="next" href="../resource_usage/">
       
       
         
@@ -23,7 +25,7 @@
     
     
       
-        <title>Model structure - OSDi Tutorial</title>
+        <title>8. Decision model - OSDi Tutorial</title>
       
     
     
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model structure
+              8. Decision model
             
           </span>
         </div>
@@ -453,30 +455,17 @@
       
   
   
-    
   
   
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../intervention/" class="md-nav__link">
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
     
   
-    Decision model
+    7. Interventions and their effects
   
 
     
@@ -484,22 +473,13 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Decision model
+      </a>
+    </li>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
     
@@ -519,7 +499,7 @@
   <span class="md-ellipsis">
     
   
-    Model structure
+    8. Decision model
   
 
     
@@ -537,7 +517,7 @@
   <span class="md-ellipsis">
     
   
-    Model structure
+    8. Decision model
   
 
     
@@ -571,45 +551,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#6-interventions-and-strategy-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Interventions and Strategy Implementation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Interventions and Strategy Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-defining-strategies-and-technologies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1. Defining Strategies and Technologies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2. Modeling Intervention Effects (Modifiers)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -617,11 +558,30 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
+    
       
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource_usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Modeling costs in detail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -688,45 +648,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#6-interventions-and-strategy-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Interventions and Strategy Implementation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Interventions and Strategy Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-defining-strategies-and-technologies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1. Defining Strategies and Technologies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-modeling-intervention-effects-modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2. Modeling Intervention Effects (Modifiers)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -747,7 +668,7 @@
   
 
 
-  <h1>Model structure</h1>
+  <h1>8. Decision model</h1>
 
 <h2 id="3-the-model-itself">3. The Model Itself</h2>
 <p>The <strong>Model</strong> class (<code>osdi:Model</code>) is the central container for the entire HTA simulation. A user may create different models using the same individuals from the ontology. The most important property is </p>
@@ -791,37 +712,6 @@ and (2) no newborn screening (clinical detection only).
                      osdi:NoScreeningStrategy_BD ;
     osdi:modelsDisease osdi:BiotinidaseDeficiency .
 </code></pre>
-<hr />
-<hr />
-<hr />
-<h2 id="6-interventions-and-strategy-implementation">6. Interventions and Strategy Implementation</h2>
-<h3 id="61-defining-strategies-and-technologies">6.1. Defining Strategies and Technologies</h3>
-<p>A <strong>Strategy</strong> (<code>osdi:Strategy</code>) defines a course of action. [cite_start]<strong>ScreeningStrategy</strong> (<code>osdi:ScreeningStrategy</code>) is the intervention being assessed [cite: 6][cite_start], compared to the <strong>No Screening Strategy</strong> (clinical detection)[cite: 61]. Strategies use <strong>HealthTechnology</strong> items (e.g., <code>osdi:Test</code> or <code>osdi:Drug</code>) via <code>osdi:usesHealthTechnology</code>.</p>
-<p><strong>TTL Example (Screening Strategy):</strong></p>
-<pre><code class="language-turtle">osdi:ScreeningStrategy_BD
-    a osdi:ScreeningStrategy ;
-    rdfs:label &quot;Newborn screening for biotinidase deficiency&quot;@en ;
-    # Technologies used in the strategy: tests and treatment
-    osdi:usesTest osdi:InitialScreeningTest_BD ,
-                  osdi:ConfirmatoryTest_BD ;
-    osdi:usesTreatment osdi:BiotinTherapy .
-</code></pre>
-<h3 id="62-modeling-intervention-effects-modifiers">6.2. Modeling Intervention Effects (Modifiers)</h3>
-<p>The benefit of early detection and treatment is modeled using <strong>ModifierParameter</strong> (<code>osdi:ModifierParameter</code>). [cite_start]This parameter typically represents a <strong>Relative Risk</strong> and modifies the progression probabilities of the untreated disease under the intervention strategy [cite: 122-123]. For BD, the base case assumes a Relative Risk of 0 for all clinical symptoms if detected and treated early.</p>
-<p><strong>TTL Example (Effect of Screening/Treatment):</strong></p>
-<pre><code class="language-turtle">osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated
-    a owl:NamedIndividual , osdi:ModifierParameter , osdi:Parameter ;
-    rdfs:label &quot;Relative risk modifier for cognitive deficits in screened and treated profound BD&quot;@en ;
-    osdi:hasDataItemType osdi:DI_RelativeRisk ;
-    osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double ; # Assumed Relative Risk (RR) of 0
-    # This modifier changes the baseline probability of cognitive deficits:
-    osdi:modifiesParameter osdi:PROG_CognitiveDeficit_ProfoundBD_ClinicallyDiagnosed .
-
-osdi:ScreeningStrategy_BD
-    # The strategy involves applying the modifier
-    osdi:involvesModification osdi:MOD_CognitiveDeficit_ProfoundBD_ScreenedTreated .
-</code></pre>
-<pre><code></code></pre>
 
 
 

@@ -460,26 +460,15 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../intervention/" class="md-nav__link">
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
     
   
-    Decision model
+    7. Interventions and their effects
   
 
     
@@ -487,22 +476,13 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Decision model
+      </a>
+    </li>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -515,7 +495,7 @@
   <span class="md-ellipsis">
     
   
-    Model structure
+    8. Decision model
   
 
     
@@ -527,11 +507,30 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
+    
       
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource_usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Modeling costs in detail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -602,8 +601,26 @@
   <h1>5. Characterizing the risk using pathways</h1>
 
 <p>When the risk of a disease progression (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasRiskCharacterization"><code>osdi:hasRiskCharacterization</code></a>) can be characterized as a deterministic or probabilistic value (a probability, proportion, rate...) it is straightforward to use a <strong>Parameter</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>). A simple example on how to do so was depicted in the <a href="../parameter/#42-adding-uncertainty-to-parameters">parameters section</a>.</p>
-<p>However, some times the risk is not only a number.</p>
+<p>However, some times, the risk is not only a number. There can be other restrictions that prevent the appearance of a disease progression. For example, most clinical manifestations of BD only appear in patients with the profound development. Not only this, there may be competitive risks that lead to the emergence of a health problem. <strong>Pathways</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Pathway"><code>osdi:Pathway</code></a>) allows for the modeling of such more complex "triggers" for a progression.</p>
 <p><img alt="Pathways" src="../img/osdi_pathway.png" /></p>
+<p><strong>Pathways</strong> can define the risk itself (by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasParameter"><code>osdi:hasParameter</code></a> property), but also extra <em>requirements</em> by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#requires"><code>osdi:requires</code></a> property.</p>
+<p>For example, if you consider the <code>BD_Proportion_Seizures_PBD</code> defined in the <a href="../parameter/#42-adding-uncertainty-to-parameters">parameters section</a>, you may add an extra restriction</p>
+<pre><code class="language-turtle">osdi:BD_Pathway_Seizures_PBD
+    a owl:NamedIndividual , osdi:Pathway ;
+    rdfs:label &quot;Pathway to seizures PBD&quot;@en ;
+    osdi:hasDescription &quot;A pathway to seizures in clinically diagnosed profound BD&quot; ;
+    osdi:hasParameter osdi:BD_Proportion_Seizures_PBD ;
+    osdi:requires osdi:BD_ProfoundBD_Development .  # only individuals with the profound development may suffer seizures
+</code></pre>
+<p>Hence, instead of directly using the parameter, the manifestation would make reference to this pathway:</p>
+<pre><code class="language-turtle">osdi:BD_Seizures
+    a osdi:AcuteManifestation ;
+    rdfs:label &quot;Seizures due to BD&quot;@en ,
+               &quot;Crisis epilépticas debidas a DB&quot;@es ;
+    osdi:hasDescription &quot;Acute seizures occurring in untreated or late-treated profound biotinidase deficiency, usually within the first year of life.&quot;@en ;
+    osdi:hasRiskCharacterization osdi:BD_Pathway_Seizures_PBD .
+</code></pre>
+<p>Another useful feature to create more complex characterizations of the progression of a disease is the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#excludesDiseaseProgression"><code>osdi:excludesDiseaseProgression</code></a> property, that can be used from any <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DiseaseProgression"><code>osdi:DiseaseProgression</code></a> individual. In the <a href="../progression/">disease progression section</a>, we presented an structured way of creating mutually exclusive disease progressions (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#AlternativeDiseaseProgressionSet"><code>osdi:AlternativeDiseaseProgressionSet</code></a>). The <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#excludesDiseaseProgression"><code>osdi:excludesDiseaseProgression</code></a> property is a more specific tool that allows for the creation of more sophisticated relationships.</p>
 
 
 

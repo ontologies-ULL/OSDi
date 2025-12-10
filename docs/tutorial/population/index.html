@@ -14,7 +14,7 @@
         <link rel="prev" href="../pathway/">
       
       
-        <link rel="next" href="../model_structure/">
+        <link rel="next" href="../intervention/">
       
       
         
@@ -460,26 +460,15 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../intervention/" class="md-nav__link">
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
     
   
-    Decision model
+    7. Interventions and their effects
   
 
     
@@ -487,22 +476,13 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Decision model
+      </a>
+    </li>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -515,7 +495,7 @@
   <span class="md-ellipsis">
     
   
-    Model structure
+    8. Decision model
   
 
     
@@ -527,11 +507,30 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
+    
       
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource_usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Modeling costs in detail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -601,27 +600,49 @@
 
   <h1>6. Population affected</h1>
 
-<p>The <strong>Population</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Population"><code>osdi:Population</code></a>) class defines the target cohort for the interventions under assessment. 
-birth cohort for Spain and its relevant subgroups (e.g., cases with profound BD) using the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isSubpopulationOf"><code>osdi:isSubpopulationOf</code></a> property.</p>
-<p><strong>TTL Example:</strong></p>
-<pre><code class="language-turtle">osdi:BD_BirthCohortPopulation
-    a osdi:Population ;
-    rdfs:label &quot;Birth cohort targeted by BD screening model&quot;@en .
-
-osdi:BD_ProfoundCasesPopulation
-    a osdi:Population ;
-    rdfs:label &quot;Newborns with profound biotinidase deficiency&quot;@en ;
-    osdi:isSubpopulationOf osdi:BD_BirthCohortPopulation .
+<p>The <strong>Population</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Population"><code>osdi:Population</code></a>) class defines the target cohort for the interventions under assessment. All the relevant characteristics of the individuals must be defined here, such as the distribution by sex and age, but also clinical characteristics (or patient <strong>Atributes</strong>) that may influence the progression of the disease or the effect of the intervention.</p>
+<p><img alt="Population classes" src="../img/osdi_population.png" /></p>
+<p><strong>OSDi</strong> defines some default attributes: <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute_Age"><code>osdi:Attribute_Age</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute_Sex"><code>osdi:Attribute_Sex</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute_LifeExpectancy"><code>osdi:Attribute_LifeExpectancy</code></a>. <strong>Populations</strong> expect values for these <strong>Atributes</strong> by means of specific properties (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasAge"><code>osdi:hasAge</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasSex"><code>osdi:hasSex</code></a>). Such values must be defined as <strong>Parameters</strong>.</p>
+<p>For example, the base age for the population of newborns in the reference problem should be 0.</p>
+<p><strong>TTL Example: Definition of the age of the base population</strong></p>
+<pre><code class="language-turtle">osdi:BD_BasePopulationAge 
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+    osdi:hasDescription &quot;Age of the base population of the screening. Assumed to be 0&quot; ;
+    osdi:isValueOfAttribute osdi:Attribute_Age ;
+    osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double .
 </code></pre>
-<p><strong>EpidemiologicalParameter</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#EpidemiologicalParameter"><code>osdi:EpidemiologicalParameter</code></a>) captures population-level statistics like incidence, estimated from the Galicia NBS program. The parameter is linked to the population it describes using <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isParameterOf"><code>osdi:isParameterOf</code></a>.</p>
-<p><strong>TTL Example (Incidence):</strong></p>
-<pre><code class="language-turtle">osdi:EPI_Incidence_ProfoundBD_Galicia
+<p>The population itself would make use of these attribute values:</p>
+<p><strong>TTL Example: Definition of a base population</strong></p>
+<pre><code class="language-turtle">osdi:BD_BasePopulation 
+    a owl:NamedIndividual , osdi:Population ;
+    osdi:hasDescription &quot;Birth cohort targeted by BD screening&quot; ;
+    osdi:hasAge osdi:BD_BasePopulationAge ;
+    osdi:hasEpidemiologicalParameter osdi:BD_BirthPrevalence_ProfoundBD_Spain , osdi:BD_BirthPrevalence_PartialBD_Spain ;
+    osdi:hasLifeExpectancy osdi:BD_BasePopulationLifeExpectancy ;
+    osdi:hasSex osdi:BD_BasePopulationFemaleProportion ;
+    osdi:hasGeographicalContext &quot;Spain @https://www.wikidata.org/wiki/q29&quot; ;
+    osdi:hasMinAge &quot;0.0&quot;^^xsd:double ;
+    osdi:hasSize 540963 .
+</code></pre>
+<p>If required, we can define subgroups of population (e.g., cases with profound BD) using the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isSubpopulationOf"><code>osdi:isSubpopulationOf</code></a> property.</p>
+<p>Having different <strong>Populations</strong> allows for testing the same interventions on multiple cohorts. You may characterize different populations in terms of <strong>Attributes</strong> or <strong>EpidemiologicalParameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#EpidemiologicalParameter"><code>osdi:EpidemiologicalParameter</code></a>), which capture population-level statistics like incidence or birth-prevalence. For example, you may define a population using the birth prevalence from Galicia, but also a different population with the birth prevalence from a worldwide survey (<a href="https://doi.org/10.1007/BF01800475">Wolf, 1991</a>).</p>
+<p><strong>TTL Example (Birth Prevalence from Galicia):</strong></p>
+<pre><code class="language-turtle">osdi:BD_BirthPrevalence_ProfoundBD_Spain
     a owl:NamedIndividual , osdi:DeterministicParameter , osdi:EpidemiologicalParameter ;
-    rdfs:label &quot;Incidence of profound BD (Galicia NBS program)&quot;@en ;
-    osdi:hasDataItemType osdi:DI_Incidence ; # Epidemiological data item type
-    osdi:hasExpectedValue 0.0000147885 ;  # [cite_start]Value: 1 in 67 620 [cite: 128]
+    rdfs:label &quot;Birth Prevalence of profound BD (Galicia NBS program)&quot;@en ;
+    osdi:hasDataItemType osdi:DI_BirthPrevalence ; # Epidemiological data item type
+    osdi:hasExpectedValue 0.0000147885 ;  # Value: 1 in 67 620
     osdi:hasSource &quot;Galicia NBS program data; Vallejo-Torres et al. 2015...&quot;^^xsd:string ;
-    osdi:isParameterOf osdi:BD_BirthCohortPopulation .
+    osdi:isParameterOf osdi:BD_BasePopulation .
+</code></pre>
+<p><strong>TTL Example (Birth Prevalence from Worldwide survey):</strong></p>
+<pre><code class="language-turtle">osdi:BD_BirthPrevalence_ProfoundBD_Worldwide
+    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:EpidemiologicalParameter ;
+    rdfs:label &quot;Birth Prevalence of profound BD (worldwide survey)&quot;@en ;
+    osdi:hasDataItemType osdi:DI_BirthPrevalence ; # Epidemiological data item type
+    osdi:hasExpectedValue 0.00000890702 ;  # Value: 1 in 112 271
+    osdi:hasSource &quot;Wolf 1991, DOI: 10.1007/BF01800475&quot;^^xsd:string ;
+    osdi:isParameterOf osdi:BD_WorldwidePopulation .
 </code></pre>
 
 
