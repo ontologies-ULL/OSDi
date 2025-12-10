@@ -29,12 +29,7 @@ nav:
   - 4. Parameters: parameter.md
   - 5. Characterizing the risk using pathways: pathway.md
   - 6. Population affected: population.md
-#  - Model inputs:
-#      - Population: population.md
-#      - Epidemiological parameters: epidemiology.md
-#      - Interventions & effects: interventions.md
-#      - Utilities: utilities.md
-  - Decision model:
-      - Model structure: model_structure.md
-      #- Full worked example (BD): full_example_bd.md
+  - 7. Interventions and their effects: intervention.md
+  - 8. Decision model: model_structure.md
+  - 9. Modeling costs in detail: resource_usage.md
   - Ontology reference (Widoco): https://w3id.org/ontologies-ULL/OSDi

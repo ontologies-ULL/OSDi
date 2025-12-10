@@ -74,4 +74,6 @@ osdi:BD_ProfoundBD_Development
     osdi:hasDiseaseProgression osdi:BD_ManifestationsSet .
 ```
 
-To see how to numerically characterize the risk of a manifestation or any other disease progression, please refer to the [parameters section](parameter.md#42-adding-uncertainty-to-parameters).
+To see how to numerically characterize the risk of a manifestation or any other disease progression, please refer to the [parameters section](parameter.md#42-adding-uncertainty-to-parameters). 
+
+To see how to create more complex patterns to characterize the disease progression, please refer to the [pathways section](pathway.md).

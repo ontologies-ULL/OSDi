@@ -37,7 +37,7 @@ osdi:BD_Proportion_Seizures_PBD
     osdi:hasDescription "Proportion of seizures in clinically diagnosed profound BD" ;
     osdi:hasDataItemType osdi:DI_Proportion ;
     osdi:hasExpectedValue "0.564"^^xsd:double ; 
-    osdi:hasUncertaintyCharacterization osdi:BD_Seizures_PBD_Uncertainty
+    osdi:hasUncertaintyCharacterization osdi:BD_Proportion_Seizures_PBD_Uncertainty
     osdi:hasSource "Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399" .
 ```
 
