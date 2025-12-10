@@ -12,13 +12,15 @@ The tutorial is intended for users familiar with ontologies and health economic 
 
 After giving some details on the reference case, we will walk through:
 
-1. The **disease** and its **progression**
-2. The **population**
-3. **Epidemiological parameters** (incidence, screening characteristics)
-4. **Progression parameters** (probability of complications)
-5. **Interventions and their effects** (screening vs no screening)
-6. **Utilities and calculated parameters**
-7. The **decision model** that ties everything together
-
-
+1. [Some tips before starting](before_start.md)
+2. [Explanation of the reference case](reference_case.md)
+3. Disease modeling:
+    - [Disease](disease.md)
+    - [Progression](progression.md)
+4. [Parameters](parameter.md)
+5. [Characterizing the risk using pathways](pathway.md)
+6. [Population affected](population.md)
+7. [Interventions and their effects](intervention.md)
+8. [Decision model](model_structure.md)
+9. [Modeling costs in detail](resource_usage.md)
 

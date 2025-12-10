@@ -8,6 +8,8 @@ However, some times, the risk is not only a number. There can be other restricti
 
 For example, if you consider the `BD_Proportion_Seizures_PBD` defined in the [parameters section](parameter.md#42-adding-uncertainty-to-parameters), you may add an extra restriction
 
+**TTL Example (Pathway to seizures):**
+
 ```turtle
 osdi:BD_Pathway_Seizures_PBD
     a owl:NamedIndividual , osdi:Pathway ;
@@ -18,6 +20,8 @@ osdi:BD_Pathway_Seizures_PBD
 ```
 
 Hence, instead of directly using the parameter, the manifestation would make reference to this pathway:
+
+**TTL Example (Modification of the manifestation to use the pathway):**
 
 ```turtle
 osdi:BD_Seizures

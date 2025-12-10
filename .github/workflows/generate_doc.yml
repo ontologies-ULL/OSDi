@@ -88,5 +88,6 @@ jobs:
           else
             git add docs
             git commit -m "Auto-update documentation (version ${{ steps.version.outputs.version }} + latest)" || echo "No changes to commit"
+            git pull --rebase origin main
             git push https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git HEAD:main
           fi

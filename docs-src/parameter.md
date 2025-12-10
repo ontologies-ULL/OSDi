@@ -30,6 +30,8 @@ Deterministic parameters are treated as constants but, in general, we can add un
 
 Let's suppose the proportion of individuals with profound BD who present seizures, as described in the reference study. Since its expected value comes from a meta-analysis of several studies, we should include second-order uncertainty when modeling this parameter. We would start by creating the individual for the parameter, that includes the expected value obtained from the meta-analysis (0.564).
 
+**TTL Example (Base proportion of seizures):**
+
 ```turtle
 osdi:BD_Proportion_Seizures_PBD
     a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter , osdi:Parameter ;
@@ -43,6 +45,8 @@ osdi:BD_Proportion_Seizures_PBD
 
 The uncertainty on the expected value of the proportion of seizures can be characterized by means of a beta distribution with parameters alfa = 65 and beta = 50.
 
+**TTL Example (Modeling of uncertainty in the proportion of seizures):**
+
 ```turtle
 osdi:BD_Proportion_Seizures_PBD_Uncertainty
     a owl:NamedIndividual , osdi:BetaDistributionExpression ;
@@ -54,6 +58,8 @@ osdi:BD_Proportion_Seizures_PBD_Uncertainty
 ```
 
 Once defined, you can link the parameter with the manifestation already defined by means of the [`osdi:hasRiskCharacterization`]({{ config.extra.osdi }}#hasRiskCharacterization) property, to numerically characterize the progression.
+
+**TTL Example (Including the parameter in the manifestation):**
 
 ```turtle
 osdi:BD_Seizures
