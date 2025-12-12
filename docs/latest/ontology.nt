@@ -337,6 +337,14 @@ _:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <https://w3id.org/ontologies-ULL/OSDi#hasExpressionLanguage> <http://www.w3.org/2000/01/rdf-schema#label> "has expression language"@en .
 <https://w3id.org/ontologies-ULL/OSDi#hasExpressionLanguage> <http://www.w3.org/2000/01/rdf-schema#label> "tiene el lenguage de expresión"@es .
 # 
+# https://w3id.org/ontologies-ULL/OSDi#hasFirst
+<https://w3id.org/ontologies-ULL/OSDi#hasFirst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/ontologies-ULL/OSDi#hasFirst> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet> .
+<https://w3id.org/ontologies-ULL/OSDi#hasFirst> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem> .
+<https://w3id.org/ontologies-ULL/OSDi#hasFirst> <http://www.w3.org/2000/01/rdf-schema#comment> "Points to the first of a set of ordered items"@en .
+<https://w3id.org/ontologies-ULL/OSDi#hasFirst> <http://www.w3.org/2000/01/rdf-schema#label> "has first"@en .
+<https://w3id.org/ontologies-ULL/OSDi#hasFirst> <http://www.w3.org/2000/01/rdf-schema#label> "tiene primero"@es .
+# 
 # https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost
 <https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/ontologies-ULL/OSDi#hasCost> .
@@ -3252,12 +3260,12 @@ _:genid578 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2001
 _:genid578 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasGeographicalContext> .
 _:genid578 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Population> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid579 .
-_:genid579 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid579 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
 _:genid579 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 _:genid579 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasMaxAge> .
 _:genid579 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Population> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid580 .
-_:genid580 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid580 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
 _:genid580 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 _:genid580 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasMinAge> .
 _:genid580 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
@@ -3423,6 +3431,11 @@ _:genid610 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 _:genid607 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression> .
 _:genid607 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet> .
+<https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid611 .
+_:genid611 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression> .
+_:genid611 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid611 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasFirst> .
+_:genid611 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet> <http://www.w3.org/2000/01/rdf-schema#comment> "A set of disease progressions that appear sequentially, e.g., the stages of a cancer" .
 <https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet> <http://www.w3.org/2000/01/rdf-schema#label> "Conjunto de progresiones de enfermedad secuenciales"@es .
 <https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet> <http://www.w3.org/2000/01/rdf-schema#label> "Sequential disease progression set"@en .
@@ -3430,35 +3443,35 @@ _:genid607 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontologies-ULL/OSDi#Stage
 <https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression> .
-<https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid611 .
-_:genid611 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid612 .
-_:genid612 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid612 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid615 .
-_:genid615 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid613 .
-_:genid613 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid613 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid614 .
-_:genid614 <http://www.w3.org/2002/07/owl#complementOf> <https://w3id.org/ontologies-ULL/OSDi#Development> .
-_:genid614 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid613 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid615 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression> .
-_:genid615 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid611 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression> .
-_:genid611 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid616 .
-_:genid616 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid617 .
-_:genid617 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid617 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid620 .
-_:genid620 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid618 .
-_:genid618 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid618 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid619 .
-_:genid619 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Population> .
-_:genid619 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#isParameterOf> .
-_:genid619 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid618 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid620 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
-_:genid620 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid616 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion> .
-_:genid616 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid612 .
+_:genid612 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid613 .
+_:genid613 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid613 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid616 .
+_:genid616 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid614 .
+_:genid614 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid614 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid615 .
+_:genid615 <http://www.w3.org/2002/07/owl#complementOf> <https://w3id.org/ontologies-ULL/OSDi#Development> .
+_:genid615 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid614 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid616 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression> .
+_:genid616 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid612 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression> .
+_:genid612 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid617 .
+_:genid617 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid618 .
+_:genid618 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid618 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid621 .
+_:genid621 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid619 .
+_:genid619 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid619 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid620 .
+_:genid620 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Population> .
+_:genid620 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#isParameterOf> .
+_:genid620 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid619 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid621 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
+_:genid621 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid617 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion> .
+_:genid617 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#comment> "A phase or step in the progression of a disease"@en .
 <https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#label> "Estadio"@es .
 <https://w3id.org/ontologies-ULL/OSDi#Stage> <http://www.w3.org/2000/01/rdf-schema#label> "Stage"@en .
@@ -3466,37 +3479,37 @@ _:genid616 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontologies-ULL/OSDi#Strategy
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem> .
-<https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid621 .
-_:genid621 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid622 .
-_:genid622 <http://www.w3.org/2002/07/owl#unionOf> _:genid625 .
-_:genid625 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid623 .
-_:genid623 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid623 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid624 .
-_:genid624 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Strategy> .
-_:genid624 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasGroupItem> .
-_:genid624 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid623 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid625 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Strategy> .
-_:genid625 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid622 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid621 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#followedByStrategy> .
-_:genid621 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid626 .
-_:genid626 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
-_:genid626 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasConditionExpression> .
-_:genid626 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid622 .
+_:genid622 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid623 .
+_:genid623 <http://www.w3.org/2002/07/owl#unionOf> _:genid626 .
+_:genid626 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid624 .
+_:genid624 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid624 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid625 .
+_:genid625 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Strategy> .
+_:genid625 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasGroupItem> .
+_:genid625 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid624 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid626 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Strategy> .
+_:genid626 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid623 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid622 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#followedByStrategy> .
+_:genid622 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid627 .
-_:genid627 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Cost> .
-_:genid627 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasCost> .
+_:genid627 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
+_:genid627 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasConditionExpression> .
 _:genid627 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid628 .
-_:genid628 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Guideline> .
-_:genid628 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasGuideline> .
+_:genid628 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Cost> .
+_:genid628 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasCost> .
 _:genid628 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid629 .
-_:genid629 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Utility> .
-_:genid629 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasUtility> .
+_:genid629 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Guideline> .
+_:genid629 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasGuideline> .
 _:genid629 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid630 .
+_:genid630 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontologies-ULL/OSDi#Utility> .
+_:genid630 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasUtility> .
+_:genid630 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#comment> "A way of defining a series of steps required to treat, detect or follow-up a disease or condition"@es .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#label> "Estrategia"@es .
 <https://w3id.org/ontologies-ULL/OSDi#Strategy> <http://www.w3.org/2000/01/rdf-schema#label> "Strategy"@en .
@@ -3504,40 +3517,40 @@ _:genid629 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention
 <https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#Intervention> .
-<https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid630 .
-_:genid630 <http://www.w3.org/2002/07/owl#unionOf> _:genid633 .
-_:genid633 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid631 .
-_:genid631 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid631 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid632 .
-_:genid632 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy> .
-_:genid632 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid632 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy> .
-_:genid632 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid631 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid633 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid634 .
-_:genid634 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#Cost> .
-_:genid634 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid634 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost> .
-_:genid634 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid633 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid630 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid635 .
-_:genid635 <http://www.w3.org/2002/07/owl#unionOf> _:genid638 .
-_:genid638 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid636 .
-_:genid636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid637 .
-_:genid637 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#Cost> .
-_:genid637 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid637 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost> .
-_:genid637 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid638 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid639 .
-_:genid639 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy> .
-_:genid639 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid639 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy> .
-_:genid639 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid638 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid635 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid631 .
+_:genid631 <http://www.w3.org/2002/07/owl#unionOf> _:genid634 .
+_:genid634 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid632 .
+_:genid632 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid632 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid633 .
+_:genid633 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy> .
+_:genid633 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid633 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy> .
+_:genid633 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid632 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid634 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid635 .
+_:genid635 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#Cost> .
+_:genid635 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid635 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost> .
+_:genid635 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid634 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid631 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid636 .
+_:genid636 <http://www.w3.org/2002/07/owl#unionOf> _:genid639 .
+_:genid639 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid637 .
+_:genid637 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid637 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid638 .
+_:genid638 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#Cost> .
+_:genid638 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid638 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost> .
+_:genid638 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid637 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid639 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid640 .
+_:genid640 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy> .
+_:genid640 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid640 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy> .
+_:genid640 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid639 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#comment> "An intervention driven by a set of drugs and/or treatments"@en .
 <https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#label> "Intervención terapéutica"@es .
 <https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> <http://www.w3.org/2000/01/rdf-schema#label> "Therapeutic intervention"@en .
@@ -3552,72 +3565,72 @@ _:genid635 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression
 <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression> .
-<https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid640 .
-_:genid640 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
-_:genid640 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid640 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasLowerLimitParameter> .
-_:genid640 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid641 .
 _:genid641 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
 _:genid641 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid641 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasUpperLimitParameter> .
+_:genid641 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasLowerLimitParameter> .
 _:genid641 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid642 .
+_:genid642 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+_:genid642 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid642 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasUpperLimitParameter> .
+_:genid642 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#comment> "A bounded continuous probability distribution, where the ocurrence of an event is equally probable inside the defined limits"@en .
 <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#label> "Expresión para distribución de probabilidad Uniforme"@es .
 <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> <http://www.w3.org/2000/01/rdf-schema#label> "Expression for a Uniform probability distribution"@en .
 # 
 # https://w3id.org/ontologies-ULL/OSDi#Utility
 <https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid642 .
-_:genid642 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid642 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid649 .
-_:genid649 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid643 .
-_:genid643 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid643 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid644 .
-_:genid644 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid644 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid647 .
-_:genid647 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid645 .
-_:genid645 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid645 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid646 .
-_:genid646 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#boolean> .
-_:genid646 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid646 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#isDisutility> .
-_:genid646 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid645 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid647 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid648 .
-_:genid648 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#QoLDataItemType> .
-_:genid648 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid648 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasDataItemType> .
-_:genid648 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid647 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid643 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid649 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
-_:genid649 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid643 .
+_:genid643 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid643 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid650 .
+_:genid650 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid644 .
+_:genid644 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid644 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid645 .
+_:genid645 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid645 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid648 .
+_:genid648 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid646 .
+_:genid646 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid646 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid647 .
+_:genid647 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid647 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid647 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#isDisutility> .
+_:genid647 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid646 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid648 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid649 .
+_:genid649 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontologies-ULL/OSDi#QoLDataItemType> .
+_:genid649 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid649 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasDataItemType> .
+_:genid649 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid648 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid644 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid650 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
+_:genid650 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
-<https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid650 .
-_:genid650 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#boolean> .
-_:genid650 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid650 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#appliesOneTime> .
-_:genid650 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid651 .
+_:genid651 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid651 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid651 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#appliesOneTime> .
+_:genid651 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2000/01/rdf-schema#comment> "The self-perceived utility (or disutility) of a health state, used to compute quality-adjusted life years"@en .
 <https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2000/01/rdf-schema#label> "Utilidad"@es .
 <https://w3id.org/ontologies-ULL/OSDi#Utility> <http://www.w3.org/2000/01/rdf-schema#label> "Utility"@en .
 # 
 # https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter
 <https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid651 .
-_:genid651 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid651 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid654 .
-_:genid654 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid652 .
-_:genid652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid653 .
-_:genid653 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#short> .
-_:genid653 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid653 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasYear> .
-_:genid653 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid654 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
-_:genid654 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid652 .
+_:genid652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid652 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid655 .
+_:genid655 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid653 .
+_:genid653 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid653 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid654 .
+_:genid654 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#short> .
+_:genid654 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid654 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontologies-ULL/OSDi#hasYear> .
+_:genid654 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid653 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid655 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
+_:genid655 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontologies-ULL/OSDi#YearDependantParameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
 # 
 # 
@@ -3925,24 +3938,24 @@ _:genid654 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 <https://w3id.org/ontologies-ULL/OSDi#InterventionDoNothing> <https://w3id.org/ontologies-ULL/OSDi#hasDescription> "A null intervention that has no effect on the patient" .
 <https://w3id.org/ontologies-ULL/OSDi#InterventionDoNothing> <https://w3id.org/ontologies-ULL/OSDi#isAssessedIntervention> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 # 
-_:genid655 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^<http://www.w3.org/2001/XMLSchema#double> .
-_:genid655 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^<http://www.w3.org/2001/XMLSchema#double> .
-_:genid655 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-_:genid656 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^<http://www.w3.org/2001/XMLSchema#double> .
-_:genid656 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid656 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid656 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^<http://www.w3.org/2001/XMLSchema#double> .
 _:genid656 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-_:genid657 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^<http://www.w3.org/2001/XMLSchema#double> .
-_:genid657 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid657 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid657 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^<http://www.w3.org/2001/XMLSchema#double> .
 _:genid657 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-_:genid658 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^<http://www.w3.org/2001/XMLSchema#double> .
-_:genid658 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid658 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid658 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^<http://www.w3.org/2001/XMLSchema#double> .
 _:genid658 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 _:genid659 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^<http://www.w3.org/2001/XMLSchema#double> .
 _:genid659 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.884426031710573"^^<http://www.w3.org/2001/XMLSchema#double> .
 _:genid659 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-_:genid660 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^<http://www.w3.org/2001/XMLSchema#double> .
-_:genid660 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid660 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid660 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^<http://www.w3.org/2001/XMLSchema#double> .
 _:genid660 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
+_:genid661 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid661 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:genid661 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
 # 
 # 
 # #################################################################
@@ -3952,8 +3965,9 @@ _:genid660 <http://www.w3.org/2000/01/rdf-schema#comment> "This is an entity pos
 # #################################################################
 # 
 # 
-_:genid661 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid661 <http://www.w3.org/2002/07/owl#members> _:genid670 .
+_:genid662 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid662 <http://www.w3.org/2002/07/owl#members> _:genid671 .
+_:genid671 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid670 .
 _:genid670 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid669 .
 _:genid669 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid668 .
 _:genid668 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid667 .
@@ -3961,70 +3975,69 @@ _:genid667 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid666 .
 _:genid666 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid665 .
 _:genid665 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid664 .
 _:genid664 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid663 .
-_:genid663 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid662 .
-_:genid662 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid662 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem> .
-_:genid662 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid663 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression> .
+_:genid663 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid663 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem> .
 _:genid663 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid664 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Population> .
+_:genid664 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression> .
 _:genid664 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid665 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Pathway> .
+_:genid665 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Population> .
 _:genid665 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid666 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
+_:genid666 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Pathway> .
 _:genid666 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid667 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Intervention> .
+_:genid667 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
 _:genid667 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid668 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression> .
+_:genid668 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Intervention> .
 _:genid668 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid669 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Disease> .
+_:genid669 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression> .
 _:genid669 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid670 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Attribute> .
+_:genid670 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Disease> .
 _:genid670 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid671 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Attribute> .
+_:genid671 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid671 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid671 <http://www.w3.org/2002/07/owl#members> _:genid675 .
+_:genid672 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid672 <http://www.w3.org/2002/07/owl#members> _:genid676 .
+_:genid676 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid675 .
 _:genid675 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid674 .
 _:genid674 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid673 .
-_:genid673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid672 .
-_:genid672 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid672 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#SecondOrderUncertaintyParameter> .
-_:genid672 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#FirstOrderUncertaintyParameter> .
+_:genid673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#SecondOrderUncertaintyParameter> .
 _:genid673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid674 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DeterministicParameter> .
+_:genid674 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#FirstOrderUncertaintyParameter> .
 _:genid674 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid675 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#CalculatedParameter> .
+_:genid675 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DeterministicParameter> .
 _:genid675 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid676 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#CalculatedParameter> .
+_:genid676 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid676 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid676 <http://www.w3.org/2002/07/owl#members> _:genid680 .
+_:genid677 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid677 <http://www.w3.org/2002/07/owl#members> _:genid681 .
+_:genid681 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid680 .
 _:genid680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid679 .
 _:genid679 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid678 .
-_:genid678 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid677 .
-_:genid677 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid677 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ModelItem> .
-_:genid677 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid678 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Model> .
+_:genid678 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid678 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ModelItem> .
 _:genid678 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid679 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage> .
+_:genid679 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Model> .
 _:genid679 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DataItemType> .
+_:genid680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage> .
 _:genid680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid681 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DataItemType> .
+_:genid681 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid681 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid681 <http://www.w3.org/2002/07/owl#members> _:genid685 .
+_:genid682 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid682 <http://www.w3.org/2002/07/owl#members> _:genid686 .
+_:genid686 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid685 .
 _:genid685 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid684 .
 _:genid684 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid683 .
-_:genid683 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid682 .
-_:genid682 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid682 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Stage> .
-_:genid682 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid683 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Manifestation> .
+_:genid683 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid683 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Stage> .
 _:genid683 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid684 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet> .
+_:genid684 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Manifestation> .
 _:genid684 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid685 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Development> .
+_:genid685 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet> .
 _:genid685 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid686 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontologies-ULL/OSDi#Development> .
+_:genid686 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
