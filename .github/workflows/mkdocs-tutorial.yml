@@ -6,6 +6,7 @@ on:
     paths:
       - 'mkdocs.yml'
       - 'docs-src/**'
+  workflow_dispatch: # allows manual execution from GitHub
 
 permissions:
   contents: write   # necesario para poder hacer git push
