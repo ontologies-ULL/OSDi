@@ -145,6 +145,19 @@
     
 
 
+    <!-- https://w3id.org/ontologies-ULL/OSDi#affectsProgressionElement -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#affectsProgressionElement">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+        <rdfs:comment xml:lang="en">A combination rule that affects certain progression element</rdfs:comment>
+        <rdfs:label xml:lang="es">afecta al elemento de progresión</rdfs:label>
+        <rdfs:label xml:lang="en">affects progression element</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/ontologies-ULL/OSDi#belongsToGroup -->
 
 
@@ -190,15 +203,23 @@
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#excludesDiseaseProgression -->
+    <!-- https://w3id.org/ontologies-ULL/OSDi#detects -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#excludesDiseaseProgression">
-        <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isExcludedByDiseaseProgression"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-        <rdfs:label xml:lang="en">excludes disease progression</rdfs:label>
-        <rdfs:label xml:lang="es">excluye la progresión de enfermedad</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#detects">
+        <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isDetectedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DetectionStrategy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+        <rdfs:comment xml:lang="en">Indicates the disease detected by a detection intervention</rdfs:comment>
+        <rdfs:label xml:lang="es">detecta</rdfs:label>
+        <rdfs:label xml:lang="en">detects</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -300,8 +321,8 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
@@ -325,19 +346,6 @@
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DataItemType"/>
         <rdfs:label xml:lang="en">has data item type</rdfs:label>
         <rdfs:label xml:lang="es">tiene el tipo de datos</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression">
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#AlternativeDiseaseProgressionSet"/>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-        <rdfs:comment>Defines the default progression within a set of disease progressions. In a decision tree, this will be the &quot;1-&lt;probability of rest of branches&gt;&quot; branch. Hence, there is no need to define an explicit pathway for this disease progression.</rdfs:comment>
-        <rdfs:label xml:lang="en">has default disease progression</rdfs:label>
-        <rdfs:label xml:lang="es">tiene progresión de enfermedad por defecto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -414,24 +422,6 @@
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression">
-        <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/ontologies-ULL/OSDi#hasDose -->
 
 
@@ -451,7 +441,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasDuration">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:label xml:lang="en">has duration</rdfs:label>
         <rdfs:label xml:lang="es">tiene la duración</rdfs:label>
@@ -464,7 +454,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasEndAge">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:label xml:lang="en">has end age</rdfs:label>
         <rdfs:label xml:lang="es">tiene la edad de finalización</rdfs:label>
@@ -509,7 +499,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasFirst">
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#SequentialCombinationRule"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
         <rdfs:comment xml:lang="en">Points to the first of a set of ordered items</rdfs:comment>
         <rdfs:label xml:lang="en">has first</rdfs:label>
@@ -526,8 +516,8 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
                 </owl:unionOf>
             </owl:Class>
@@ -547,8 +537,8 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
                 </owl:unionOf>
@@ -640,8 +630,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -710,8 +700,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -730,8 +720,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
                 </owl:unionOf>
             </owl:Class>
@@ -777,7 +767,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:label xml:lang="en">has onset age</rdfs:label>
         <rdfs:label xml:lang="es">tiene la edad de inicio</rdfs:label>
@@ -793,8 +783,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Population"/>
@@ -830,8 +820,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -848,11 +838,29 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:comment xml:lang="en">Probability that the onset of certain disease progression leads to the clinical diagnosis of the disease.</rdfs:comment>
         <rdfs:label xml:lang="en">has probability of diagnosis</rdfs:label>
         <rdfs:label xml:lang="es">tiene la probabilidad de diagnóstico</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement">
+        <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isProgressionElementOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement"/>
     </owl:ObjectProperty>
     
 
@@ -875,7 +883,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization">
         <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isRiskCharacterizationOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1013,8 +1021,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Strategy"/>
                 </owl:unionOf>
@@ -1038,6 +1046,16 @@ By default = 1, for the Manifestations.</rdfs:comment>
         </rdfs:range>
         <rdfs:label xml:lang="en">has strategy</rdfs:label>
         <rdfs:label xml:lang="es">tiene la estrategia</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#hasSubProgression -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
     </owl:ObjectProperty>
     
 
@@ -1084,8 +1102,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
                 </owl:unionOf>
             </owl:Class>
@@ -1132,8 +1150,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
@@ -1214,29 +1232,19 @@ By default = 1, for the Manifestations.</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf -->
+    <!-- https://w3id.org/ontologies-ULL/OSDi#isDetectedBy -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#isDiseaseProgressionOf">
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#isDetectedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DetectionStrategy"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#isExcludedByDiseaseProgression -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#isExcludedByDiseaseProgression">
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
     </owl:ObjectProperty>
     
 
@@ -1309,8 +1317,8 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Population"/>
@@ -1324,6 +1332,23 @@ By default = 1, for the Manifestations.</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/ontologies-ULL/OSDi#isProgressionElementOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#isProgressionElementOf">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/ontologies-ULL/OSDi#isRequiredBy -->
 
 
@@ -1332,7 +1357,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                 </owl:unionOf>
             </owl:Class>
@@ -1354,7 +1379,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
     </owl:ObjectProperty>
     
 
@@ -1376,6 +1401,17 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Population"/>
         <rdfs:label xml:lang="es">es subpoblación de</rdfs:label>
         <rdfs:label xml:lang="en">is subpopulation of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#isSupersededByClinicalProgression -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#isSupersededByClinicalProgression">
+        <owl:inverseOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
     </owl:ObjectProperty>
     
 
@@ -1465,13 +1501,25 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
         <rdfs:label xml:lang="es">requiere</rdfs:label>
         <rdfs:label xml:lang="en">requires</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+        <rdfs:label xml:lang="es">reemplaza la progresión clínica</rdfs:label>
+        <rdfs:label xml:lang="en">supersedes clinical progression</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1838,6 +1886,19 @@ By default = 1, for the Manifestations.</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/ontologies-ULL/OSDi#hasNullProgression -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasNullProgression">
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#AlternativeCombinationRule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">Indicates that an alternative rule combination defines an option for &quot;none of the above&quot;</rdfs:comment>
+        <rdfs:label xml:lang="en">has null progression</rdfs:label>
+        <rdfs:label xml:lang="es">tiene progresión nula</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/ontologies-ULL/OSDi#hasOffsetParameter -->
 
 
@@ -1945,8 +2006,8 @@ Examples:
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -2203,7 +2264,7 @@ Examples:
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionWithInitialProportion"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionWithInitialProportion"/>
         <rdfs:comment xml:lang="en">Sudden or rapid appearance of clinical signs or symtoms, in general with a short and intense course</rdfs:comment>
         <rdfs:label xml:lang="en">Acute manifestation</rdfs:label>
         <rdfs:label xml:lang="es">Manifestación aguda</rdfs:label>
@@ -2223,16 +2284,16 @@ Examples:
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#AlternativeDiseaseProgressionSet -->
+    <!-- https://w3id.org/ontologies-ULL/OSDi#AlternativeCombinationRule -->
 
 
-    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#AlternativeDiseaseProgressionSet">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#AlternativeCombinationRule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDefaultDiseaseProgression"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasNullProgression"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A set of disease progressions which are treated as mutually exclusive alternatives, e.g., a mild and a severe development of certain disease</rdfs:comment>
@@ -2422,11 +2483,166 @@ Examples:
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#CoexistentDiseaseProgressionSet -->
+    <!-- https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement -->
 
 
-    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#CoexistentDiseaseProgressionSet">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDuration"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasEndAge"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasUtility"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Utility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasRefToICD"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any way in which a disease can progress: manifestations, symptoms, stages...</rdfs:comment>
+        <rdfs:label xml:lang="en">Disease progression</rdfs:label>
+        <rdfs:label xml:lang="es">Progresión de una enfermedad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionWithInitialProportion -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionWithInitialProportion">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isParameterOf"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Population"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#CoexistentCombinationRule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#CoexistentCombinationRule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
         <rdfs:comment>A set of disease progressions which can coexist at the same time, e.g. seizures and skin problems.</rdfs:comment>
         <rdfs:label xml:lang="en">Coexistent disease progression set</rdfs:label>
         <rdfs:label xml:lang="es">Conjunto de progresiones de enfermedad coexistentes</rdfs:label>
@@ -2559,6 +2775,12 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#detects"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSensitivity"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -2605,6 +2827,12 @@ Examples:
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DetectionStrategy">
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Strategy"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#detects"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSensitivity"/>
@@ -2684,7 +2912,7 @@ Examples:
 
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#Development">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"/>
@@ -2814,12 +3042,6 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasEpidemiologicalParameter"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -2856,6 +3078,12 @@ Examples:
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2914,176 +3142,11 @@ Examples:
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression -->
+    <!-- https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement -->
 
 
-    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression">
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement">
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#excludesDiseaseProgression"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDuration"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasEndAge"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasUtility"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Utility"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasRefToICD"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Any way in which a disease can progress: manifestations, symptoms, stages...</rdfs:comment>
-        <rdfs:label xml:lang="en">Disease progression</rdfs:label>
-        <rdfs:label xml:lang="es">Progresión de una enfermedad</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet -->
-
-
-    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A set of disease progressions</rdfs:comment>
-        <rdfs:label xml:lang="es">Conjunto de progresiones de enfermedad</rdfs:label>
-        <rdfs:label xml:lang="en">Disease progression set</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionWithInitialProportion -->
-
-
-    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionWithInitialProportion">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isParameterOf"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Population"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
     </owl:Class>
     
 
@@ -3518,10 +3581,10 @@ Examples:
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression"/>
                 <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -3678,8 +3741,8 @@ Examples:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -4128,7 +4191,7 @@ Examples:
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -4350,6 +4413,25 @@ Examples:
     
 
 
+    <!-- https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#affectsProgressionElement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A rule that defines how to combine a set of disease progressions (exclusions, coexistence...)</rdfs:comment>
+        <rdfs:label xml:lang="en">Pogression combination rule</rdfs:label>
+        <rdfs:label xml:lang="es">Regla de combinación de progresiones</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/ontologies-ULL/OSDi#QoLDataItemType -->
 
 
@@ -4486,29 +4568,29 @@ Examples:
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet -->
+    <!-- https://w3id.org/ontologies-ULL/OSDi#SequentialCombinationRule -->
 
 
-    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#SequentialDiseaseProgressionSet">
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#SequentialCombinationRule">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
                             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem"/>
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFirst"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
+                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A set of disease progressions that appear sequentially, e.g., the stages of a cancer</rdfs:comment>
@@ -4522,22 +4604,7 @@ Examples:
 
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#Stage">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiseaseProgression"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
-                            <owl:Class>
-                                <owl:complementOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Development"/>
-                            </owl:Class>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion"/>
@@ -4549,6 +4616,21 @@ Examples:
                                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#isParameterOf"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Population"/>
                             </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Development"/>
+                            </owl:Class>
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
@@ -5266,34 +5348,34 @@ Examples:
         <hasDescription>A null intervention that has no effect on the patient</hasDescription>
         <isAssessedIntervention rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAssessedIntervention>
     </owl:NamedIndividual>
-    <rdf:Description rdf:nodeID="genid656">
+    <rdf:Description rdf:nodeID="genid664">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66.05568696358739</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.9815693558255685</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid657">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
+    <rdf:Description rdf:nodeID="genid665">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.61244444225647</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">133.2020154340692</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid658">
+    <rdf:Description rdf:nodeID="genid666">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.67230303494442</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">257.2295616088946</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid659">
+    <rdf:Description rdf:nodeID="genid667">
+        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
+        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
+        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid668">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.9652551238964</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.884426031710573</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid660">
+    <rdf:Description rdf:nodeID="genid669">
         <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">264.53086737911997</opla-sd:entityPositionX>
         <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.59904284310582</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid661">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.61244444225647</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">133.2020154340692</opla-sd:entityPositionY>
         <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
     </rdf:Description>
     
@@ -5312,8 +5394,8 @@ Examples:
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Attribute"/>
+            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgression"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
@@ -5344,8 +5426,8 @@ Examples:
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Development"/>
-            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionSet"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Manifestation"/>
+            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ProgressionCombinationRule"/>
             <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Stage"/>
         </owl:members>
     </rdf:Description>
