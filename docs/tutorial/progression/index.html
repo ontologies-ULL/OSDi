@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -675,16 +675,16 @@
 <p>We will continue this section by explaining the main classes available to represent the progression of a disease.</p>
 <h3 id="32-modeling-disease-progression">3.2. Modeling Disease Progression</h3>
 <p><img alt="Disease classes" src="../img/osdi_disease_progression.png" /></p>
-<p><strong>DiseaseProgression</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DiseaseProgression"><code>osdi:DiseaseProgression</code></a>) models how the disease develops. Its subclasses allow for different level of detail and characterize the different ways in which the disease signs and symptoms occur:</p>
-<ul>
-<li><strong>Development</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Development"><code>osdi:Development</code></a>): A specific progression pathway, such as the natural history without screening. This is also useful when little detail is provided on the specific manifestations of a disease (e.g. you just need to model mild and severe <em>developments</em>)</li>
-<li><strong>Manifestation</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Manifestation"><code>osdi:Manifestation</code></a>): Specific symptoms categorized as <strong>Acute</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#AcuteManifestation"><code>osdi:AcuteManifestation</code></a>) (e.g., seizures, hypotonia, skin problems) or <strong>Chronic</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ChronicManifestation"><code>osdi:ChronicManifestation</code></a>) (e.g., cognitive deficits, optic atrophy, hearing loss).</li>
-<li><strong>Stage</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Stage"><code>osdi:Stage</code></a>): Phases in the progression of a disease, such as those used to describe an oncological condition.</li>
-</ul>
-<p>All of these subclasses can be combined to create a detail view of the disease. Hence, you may define <strong>Stages</strong> or <strong>Manifestations</strong> specific to certain <strong>Development</strong>, and also <strong>Manifestations</strong> specific to certain <strong>Stage</strong>. For more complex structures, <strong>OSDi</strong> defines <strong>Disease Progression Sets</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DiseaseProgressionSet"><code>osdi:DiseaseProgressionSet</code></a>). These sets include: 
-  * <strong>CoexistentDiseaseProgressionSet</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#CoexistentDiseaseProgressionSet"><code>osdi:CoexistentDiseaseProgressionSet</code></a>) describes a set of progressions (manifestations, stages...) that may occur simultaneously (e.g. retinopathy and nephropathy in diabetes).
-  * <strong>AlternativeDiseaseProgressionSet</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#AlternativeDiseaseProgressionSet"><code>osdi:AlternativeDiseaseProgressionSet</code></a>) describes a set of progressions (manifestations, stages...) that are mutually exclusive, i.e., they can not occur simultaneously (e.g. mild and severe development of a disease).
-  * <strong>SequentialDiseaseProgressionSet</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#SequentialDiseaseProgressionSet"><code>osdi:SequentialDiseaseProgressionSet</code></a>) describes a set of progressions (manifestations, stages...) that appear sequentially. Unlike <strong>AlternativeDiseaseProgressionSet</strong>, where progressions may appear in any order, in this case each new progressions replaces the former.</p>
+<p><strong>DiseaseProgressionElement</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DiseaseProgressionElement"><code>osdi:DiseaseProgressionElement</code></a>) models how the disease develops. It includes two main subclasses: <strong>ClinicalProgressionElement</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ClinicalProgressionElement"><code>osdi:ClinicalProgressionElement</code></a>) and <strong>ProgressionCombinationRule</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ProgressionCombinationRule"><code>osdi:ProgressionCombinationRule</code></a>)</p>
+<p><strong>ClinicalProgressionElement</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ClinicalProgressionElement"><code>osdi:ClinicalProgressionElement</code></a>) allow for different level of detail and characterize the different ways in which the disease signs and symptoms occur:
+  * <strong>Development</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Development"><code>osdi:Development</code></a>): A specific progression pathway, such as the natural history without screening. This is also useful when little detail is provided on the specific manifestations of a disease (e.g. you just need to model mild and severe <em>developments</em>)
+  * <strong>Manifestation</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Manifestation"><code>osdi:Manifestation</code></a>): Specific symptoms categorized as <strong>Acute</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#AcuteManifestation"><code>osdi:AcuteManifestation</code></a>) (e.g., seizures, hypotonia, skin problems) or <strong>Chronic</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ChronicManifestation"><code>osdi:ChronicManifestation</code></a>) (e.g., cognitive deficits, optic atrophy, hearing loss).
+  * <strong>Stage</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Stage"><code>osdi:Stage</code></a>): Phases in the progression of a disease, such as those used to describe an oncological condition.</p>
+<p>All of these subclasses can be combined to create a detail view of the disease. Hence, you may define <strong>Stages</strong> or <strong>Manifestations</strong> specific to certain <strong>Development</strong>, and also <strong>Manifestations</strong> specific to certain <strong>Stage</strong> by using <strong>hasSubProgression</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasSubProgression"><code>osdi:hasSubProgression</code></a>). </p>
+<p>For more complex structures, <strong>OSDi</strong> defines <strong>Progression Combination Rules</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ProgressionCombinationRule"><code>osdi:ProgressionCombinationRule</code></a>). Each rule may affect several <strong>Clinical Progression Elements</strong> by means of <strong>affectsProgressionElement</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#affectsProgressionElement"><code>osdi:affectsProgressionElement</code></a>). These rules include: 
+  * <strong>CoexistenCombinationRule</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#CoexistenCombinationRule"><code>osdi:CoexistenCombinationRule</code></a>) describes a set of progressions (manifestations, stages...) that may occur simultaneously (e.g. retinopathy and nephropathy in diabetes).
+  * <strong>AlternativeCombinationRule</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#AlternativeCombinationRule"><code>osdi:AlternativeCombinationRule</code></a>) describes a set of progressions (manifestations, stages...) that are mutually exclusive, i.e., they can not occur simultaneously (e.g. mild and severe development of a disease). This set of progressions may also include a default (i.e., "none of the above") branch by setting the <strong>hasNullProgression</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasNullProgression"><code>osdi:hasNullProgression</code></a>) property to true.
+  * <strong>SequentialCombinationRule</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#SequentialCombinationRule"><code>osdi:SequentialCombinationRule</code></a>) describes a set of progressions (manifestations, stages...) that appear sequentially. Unlike <strong>AlternativeCombinationRule</strong>, where progressions may appear in any order, in this case each new progressions replaces the former. The clinical progressions affected by this rule must be <strong>Ordered Model Items</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#OrderedModelItem"><code>osdi:OrderedModelItem</code></a>), which allows for the creation of a linked list of model items. The <strong>SequentialCombinationRule</strong> points to the first item by means of the <strong>hasFirst</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasFirst"><code>osdi:hasFirst</code></a>) property.</p>
 <p>Let's start by representing the specific manifestations: seizures or skin problems are acute problems, and they are therefore, modeled as <strong>AcuteManifestations</strong>. Conversely, hearing loss or cognitive deficit should be treated as <strong>ChronicManifestations</strong>.</p>
 <p><strong>TTL Example (manifestations):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Seizures
@@ -712,13 +712,13 @@ osdi:BD_CognitiveDeficit
     osdi:hasDescription &quot;Long-term cognitive impairment attributed to untreated profound biotinidase deficiency.&quot;@en .
 </code></pre>
 <p>Since all the manifestations can occur simultaneously, they can be grouped together into a <strong>DiseaseProgressionSet</strong>.</p>
-<p><strong>TTL Example (set of disease progressions):</strong></p>
-<pre><code class="language-turtle">osdi:BD_ManifestationSet
-    a osdi:CoexistentDiseaseProgressionSet ;
+<p><strong>TTL Example (rule for coexistent disease progressions):</strong></p>
+<pre><code class="language-turtle">osdi:BD_ManifestationRule
+    a osdi:CoexistenCombinationRule ;
     rdfs:label &quot;Set of manifestations for BD&quot;@en ,
                &quot;Conjunto de manifestaciones para DB&quot;@es ;
     osdi:hasDescription &quot;Set of acute and chronic manifestations for untreated profound biotinidase deficiency. Any combination (including none) is allowed in the decision model.&quot;@en ;
-    osdi:hasDiseaseProgression osdi:BD_Seizures ;
+    osdi:affectsDiseaseProgression osdi:BD_Seizures ;
                                     BD_SkinProblems ;
                                     BD_HearingLoss ;
                                     BD_CognitiveDeficit .
@@ -729,7 +729,22 @@ osdi:BD_CognitiveDeficit
     a osdi:Development ;
     rdfs:label &quot;Reference development of profound BD without screening&quot;@en ;
     # Links to sets of acute and chronic manifestations, and death
-    osdi:hasDiseaseProgression osdi:BD_ManifestationsSet .
+    osdi:hasProgressionElement osdi:BD_ManifestationRule .
+</code></pre>
+<p>In general, it is also recommended to link the disease with all the progression elements.</p>
+<p><strong>TTL Example (adding the progressions to the disease):</strong></p>
+<pre><code class="language-turtle">osdi:BD_Disease
+    a osdi:InheritedDisease ,
+      osdi:RareDisease ;
+    rdfs:label &quot;Biotinidase deficiency&quot;@en ,
+               &quot;Deficiencia de biotinidasa&quot;@es ;
+    osdi:hasDescription &quot;Inherited metabolic disorder caused by deficiency of the biotinidase enzyme. The decision model distinguishes profound and partial biotinidase deficiency, each with its own untreated reference development.&quot;@en ,
+    osdi:hasProgressionElement  osdi:BD_ProfoundBD_Development ;
+                                osdi:BD_ManifestationRule ;
+                                osdi:BD_Seizures ;
+                                osdi:BD_SkinProblems ;
+                                osdi:BD_HearingLoss ;
+                                osdi:BD_CognitiveDeficit .    
 </code></pre>
 <p>To see how to numerically characterize the risk of a manifestation or any other disease progression, please refer to the <a href="../parameter/#42-adding-uncertainty-to-parameters">parameters section</a>. </p>
 <p>To see how to create more complex patterns to characterize the disease progression, please refer to the <a href="../pathway/">pathways section</a>.</p>
@@ -782,10 +797,10 @@ osdi:BD_CognitiveDeficit
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
