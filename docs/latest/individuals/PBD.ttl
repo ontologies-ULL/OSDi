@@ -810,7 +810,7 @@ osdi:PBD_ModelTreeFake rdf:type owl:NamedIndividual ,
 osdi:PBD_ProfoundBiotinidaseDeficiency rdf:type owl:NamedIndividual ,
                                                osdi:RareDisease ;
                                       osdi:hasDiagnosisStrategy osdi:PBD_ClinicalDiagnosis ;
-                                      osdi:hasDiseaseProgression osdi:PBD_ManifestationHearingProblems ,
+                                      osdi:hasProgressionElement osdi:PBD_ManifestationHearingProblems ,
                                                                  osdi:PBD_ManifestationHypotonia ,
                                                                  osdi:PBD_ManifestationMentalDelay ,
                                                                  osdi:PBD_ManifestationSeizure ,

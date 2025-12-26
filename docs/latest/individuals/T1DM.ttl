@@ -92,7 +92,7 @@ osdi:T1DM_DCCT1_ComplicationsFree_U_U95CI rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Disease
 osdi:T1DM_Disease rdf:type owl:NamedIndividual ,
                            osdi:Disease ;
-                  osdi:hasDiseaseProgression osdi:T1DM_Manif_ALB1 ,
+                  osdi:hasProgressionElement osdi:T1DM_Manif_ALB1 ,
                                              osdi:T1DM_Manif_ALB2 ,
                                              osdi:T1DM_Manif_ANGINA ,
                                              osdi:T1DM_Manif_ESRD ,
@@ -268,7 +268,7 @@ osdi:T1DM_Manif_ALB1_U rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2
 osdi:T1DM_Manif_ALB2 rdf:type owl:NamedIndividual ,
                               osdi:ChronicManifestation ;
-                     osdi:excludesDiseaseProgression osdi:T1DM_Manif_ALB1 ;
+                     osdi:supersedesClinicalProgression osdi:T1DM_Manif_ALB1 ;
                      osdi:hasCost osdi:T1DM_Manif_ALB2_AC ;
                      osdi:hasIncreasedMortalityRate osdi:T1DM_Manif_ALB2_IMR ;
                      osdi:hasRiskCharacterization osdi:T1DM_Manif_ALB2_Incidence ,
@@ -425,7 +425,7 @@ osdi:T1DM_Manif_ALB2_U_U95CI rdf:type owl:NamedIndividual ,
 osdi:T1DM_Manif_ANGINA rdf:type owl:NamedIndividual ,
                                 osdi:ChronicManifestation ;
                        osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                       osdi:excludesDiseaseProgression osdi:T1DM_Manif_HF ,
+                       osdi:supersedesClinicalProgression osdi:T1DM_Manif_HF ,
                                                        osdi:T1DM_Manif_MI ,
                                                        osdi:T1DM_Manif_STROKE ;
                        osdi:hasCost osdi:T1DM_Manif_ANGINA_AC ,
@@ -526,7 +526,7 @@ osdi:T1DM_Manif_ANGINA_U_U95CI rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD
 osdi:T1DM_Manif_ESRD rdf:type owl:NamedIndividual ,
                               osdi:ChronicManifestation ;
-                     osdi:excludesDiseaseProgression osdi:T1DM_Manif_ALB1 ,
+                     osdi:supersedesClinicalProgression osdi:T1DM_Manif_ALB1 ,
                                                      osdi:T1DM_Manif_ALB2 ;
                      osdi:hasCost osdi:T1DM_Manif_ESRD_AC ,
                                   osdi:T1DM_Manif_ESRD_TC ;
@@ -647,7 +647,7 @@ osdi:T1DM_Manif_ESRD_U_U95CI rdf:type owl:NamedIndividual ,
 osdi:T1DM_Manif_HF rdf:type owl:NamedIndividual ,
                             osdi:ChronicManifestation ;
                    osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                   osdi:excludesDiseaseProgression osdi:T1DM_Manif_ANGINA ,
+                   osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
                                                    osdi:T1DM_Manif_MI ,
                                                    osdi:T1DM_Manif_STROKE ;
                    osdi:hasCost osdi:T1DM_Manif_HF_AC ,
@@ -749,7 +749,7 @@ osdi:T1DM_Manif_HF_U_U95CI rdf:type owl:NamedIndividual ,
 osdi:T1DM_Manif_LEA rdf:type owl:NamedIndividual ,
                              osdi:ChronicManifestation ;
                     osdi:belongsToGroup osdi:T1DM_Group_Manif_NEU ;
-                    osdi:excludesDiseaseProgression osdi:T1DM_Manif_NEU ;
+                    osdi:supersedesClinicalProgression osdi:T1DM_Manif_NEU ;
                     osdi:hasCost osdi:T1DM_Manif_LEA_AC ,
                                  osdi:T1DM_Manif_LEA_TC ;
                     osdi:hasIncreasedMortalityRate osdi:T1DM_Manif_LEA_IMR ;
@@ -901,7 +901,7 @@ osdi:T1DM_Manif_LEA_U_U95CI rdf:type owl:NamedIndividual ,
 osdi:T1DM_Manif_MI rdf:type owl:NamedIndividual ,
                             osdi:ChronicManifestation ;
                    osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                   osdi:excludesDiseaseProgression osdi:T1DM_Manif_ANGINA ,
+                   osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
                                                    osdi:T1DM_Manif_HF ,
                                                    osdi:T1DM_Manif_STROKE ;
                    osdi:hasCost osdi:T1DM_Manif_MI_AC ,
@@ -1397,7 +1397,7 @@ osdi:T1DM_Manif_Pathway_STROKE rdf:type owl:NamedIndividual ,
 osdi:T1DM_Manif_STROKE rdf:type owl:NamedIndividual ,
                                 osdi:ChronicManifestation ;
                        osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                       osdi:excludesDiseaseProgression osdi:T1DM_Manif_ANGINA ,
+                       osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
                                                        osdi:T1DM_Manif_HF ,
                                                        osdi:T1DM_Manif_MI ;
                        osdi:hasCost osdi:T1DM_Manif_STROKE_AC ,
