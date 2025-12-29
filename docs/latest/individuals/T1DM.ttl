@@ -103,7 +103,7 @@ osdi:T1DM_Disease rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Manif_STROKE ,
                                              osdi:T1DM_Stage_CHD ;
                   osdi:hasEpidemiologicalParameter osdi:Constant_Prevalence1 ;
-                  osdi:hasFollowUpCost osdi:T1DM_Disease_AC ;
+                  osdi:hasCost osdi:T1DM_Disease_AC ;
                   osdi:hasIntervention osdi:T1DM_Intervention_DCCTIntensive ;
                   osdi:includedByModel osdi:T1DM_StdModelDES ;
                   osdi:hasDescription "Type I Diabetes Mellitus" ;

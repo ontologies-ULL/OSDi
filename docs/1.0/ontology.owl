@@ -321,8 +321,7 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
@@ -381,41 +380,6 @@
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-        <rdfs:label xml:lang="en">has diagnosis cost</rdfs:label>
-        <rdfs:label xml:lang="es">tiene el coste de diagnóstico</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"/>
-                                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:label xml:lang="en">has diagnosis cost</rdfs:label>
         <rdfs:label xml:lang="es">tiene el coste de diagnóstico</rdfs:label>
     </owl:ObjectProperty>
@@ -504,64 +468,6 @@
         <rdfs:comment xml:lang="en">Points to the first of a set of ordered items</rdfs:comment>
         <rdfs:label xml:lang="en">has first</rdfs:label>
         <rdfs:label xml:lang="es">tiene primero</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-        <rdfs:label xml:lang="en">has follow-up cost</rdfs:label>
-        <rdfs:label xml:lang="es">tiene el coste de seguimiento</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"/>
-                                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:label xml:lang="en">has follow-up strategy</rdfs:label>
-        <rdfs:label xml:lang="es">tiene la estrategia de seguimiento</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -697,53 +603,10 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:label xml:lang="en">has life expectancy reduction</rdfs:label>
         <rdfs:label xml:lang="es">tiene la reducción de la esperanza de vida</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"/>
-                                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:label xml:lang="en">has line of therapy</rdfs:label>
-        <rdfs:label xml:lang="es">tiene la línea de tratamiento</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -817,14 +680,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:comment xml:lang="en">Defines an &apos;instantaneous&apos; death risk, i.e., a probability of dying upon the onset of the condition</rdfs:comment>
         <rdfs:label xml:lang="en">has probability of death</rdfs:label>
@@ -870,7 +726,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasParameter"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion"/>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
         <rdfs:label xml:lang="en">has proportion within group</rdfs:label>
         <rdfs:label xml:lang="es">tiene la proporción dentro del grupo</rdfs:label>
@@ -913,41 +769,6 @@ By default = 1, for the Manifestations.</rdfs:comment>
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"/>
-                                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:label xml:lang="en">has screening strategy</rdfs:label>
-        <rdfs:label xml:lang="es">tiene la estrategia de cribado</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1021,8 +842,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Strategy"/>
                 </owl:unionOf>
@@ -1094,27 +914,6 @@ By default = 1, for the Manifestations.</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-        <rdfs:label xml:lang="en">has treatment cost</rdfs:label>
-        <rdfs:label xml:lang="es">tiene el costo del tratamiento</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization -->
 
 
@@ -1150,8 +949,7 @@ By default = 1, for the Manifestations.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
-                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Pathway"/>
@@ -2488,40 +2286,7 @@ Examples:
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDuration"/>
@@ -2536,25 +2301,7 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2579,14 +2326,21 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasUtility"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Utility"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2760,23 +2514,15 @@ Examples:
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#detects"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Disease"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2977,66 +2723,10 @@ Examples:
 
 
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#Disease">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#HealthCondition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -3058,26 +2748,8 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIntervention"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3101,8 +2773,8 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasUtility"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Utility"/>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3226,6 +2898,7 @@ Examples:
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Describable"/>
         <rdfs:comment xml:lang="en">Language used to define an expression in a string. Generally used to compute something from other items of the model. Only the predefined languages are allowed, but future versions of the ontology may include more.</rdfs:comment>
         <rdfs:label xml:lang="en">Expression language</rdfs:label>
         <rdfs:label xml:lang="es">Lenguaje de expresión</rdfs:label>
@@ -3365,6 +3038,22 @@ Examples:
                         <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#belongsToGroup"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Group"/>
                     </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup"/>
                         <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
@@ -3373,7 +3062,7 @@ Examples:
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem"/>
         <rdfs:comment xml:lang="en">A model item that can be put in a group</rdfs:comment>
         <rdfs:label xml:lang="es">Elemento del modelo agrupable</rdfs:label>
         <rdfs:label xml:lang="en">Groupable model item</rdfs:label>
@@ -3432,6 +3121,54 @@ Examples:
         <rdfs:comment>The way a treatment, drug, test... is applied. It defines a period of time (range), dose, frequency, etc.</rdfs:comment>
         <rdfs:label xml:lang="en">Guideline</rdfs:label>
         <rdfs:label xml:lang="es">Pauta</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#HealthCondition -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasCost"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Strategy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasUtility"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Utility"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any disease, symptom or clinical sign that affects the health of an individual</rdfs:comment>
+        <rdfs:label xml:lang="es">Condición de salud</rdfs:label>
+        <rdfs:label xml:lang="en">Health condition</rdfs:label>
     </owl:Class>
     
 
@@ -3505,6 +3242,12 @@ Examples:
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Strategy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasUtility"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Utility"/>
             </owl:Restriction>
@@ -3530,23 +3273,15 @@ Examples:
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Strategy"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#failsIf"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3793,13 +3528,18 @@ Examples:
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
+                                    </owl:Restriction>
+                                </owl:unionOf>
+                            </owl:Class>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasIntervention"/>
@@ -3808,10 +3548,6 @@ Examples:
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
                             </owl:Restriction>
                         </owl:unionOf>
                     </owl:Class>
@@ -3871,18 +3607,14 @@ Examples:
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                            </owl:Restriction>
-                        </owl:unionOf>
-                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -3974,18 +3706,14 @@ Examples:
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                            </owl:Restriction>
-                        </owl:unionOf>
-                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -4487,25 +4215,16 @@ Examples:
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention">
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An intervention to identifiy the subset of population who may have certain disease or condition and require further testing to obtain a final diagnosis</rdfs:comment>
@@ -4701,36 +4420,17 @@ Examples:
     <owl:Class rdf:about="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention">
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Intervention"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy"/>
+                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An intervention driven by a set of drugs and/or treatments</rdfs:comment>
         <rdfs:label xml:lang="es">Intervención terapéutica</rdfs:label>
@@ -5298,6 +4998,7 @@ Examples:
 
     <owl:NamedIndividual rdf:about="https://w3id.org/ontologies-ULL/OSDi#Exp_Excel">
         <rdf:type rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage"/>
+        <hasDescription>Expression language for Excel</hasDescription>
     </owl:NamedIndividual>
     
 
@@ -5307,6 +5008,7 @@ Examples:
 
     <owl:NamedIndividual rdf:about="https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL">
         <rdf:type rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage"/>
+        <hasDescription>Expression language for Java Expression Language</hasDescription>
     </owl:NamedIndividual>
     
 
@@ -5316,6 +5018,7 @@ Examples:
 
     <owl:NamedIndividual rdf:about="https://w3id.org/ontologies-ULL/OSDi#Exp_Java">
         <rdf:type rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage"/>
+        <hasDescription>Expression language for Java</hasDescription>
     </owl:NamedIndividual>
     
 
@@ -5325,6 +5028,47 @@ Examples:
 
     <owl:NamedIndividual rdf:about="https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator">
         <rdf:type rdf:resource="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage"/>
+        <hasDescription>Expression language for Javaluator</hasDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp">
+        <rdf:type>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdf:type>
+        <hasDescription>Group of costs for follow-up items</hasDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment">
+        <rdf:type>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#Group"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdf:type>
+        <hasDescription>Group of costs for treatment items</hasDescription>
     </owl:NamedIndividual>
     
 
@@ -5348,36 +5092,6 @@ Examples:
         <hasDescription>A null intervention that has no effect on the patient</hasDescription>
         <isAssessedIntervention rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAssessedIntervention>
     </owl:NamedIndividual>
-    <rdf:Description rdf:nodeID="genid664">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66.05568696358739</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.9815693558255685</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid665">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.61244444225647</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">133.2020154340692</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid666">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.67230303494442</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">257.2295616088946</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid667">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137.71094492073297</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111.01194217726372</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid668">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.9652551238964</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.884426031710573</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid669">
-        <opla-sd:entityPositionX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">264.53086737911997</opla-sd:entityPositionX>
-        <opla-sd:entityPositionY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.59904284310582</opla-sd:entityPositionY>
-        <rdfs:comment xml:lang="en">This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view.</rdfs:comment>
-    </rdf:Description>
     
 
 

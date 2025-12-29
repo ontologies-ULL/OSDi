@@ -198,8 +198,7 @@
 :hasCost rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf :hasParameter ;
          rdfs:domain [ rdf:type owl:Class ;
-                       owl:unionOf ( :ClinicalProgressionElement
-                                     :Disease
+                       owl:unionOf ( :HealthCondition
                                      :HealthTechnology
                                      :Intervention
                                      :Pathway
@@ -241,30 +240,6 @@
                   rdfs:range :Cost ;
                   rdfs:label "has diagnosis cost"@en ,
                              "tiene el coste de diagnóstico"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy
-:hasDiagnosisStrategy rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf :hasStrategy ;
-                      rdfs:domain [ rdf:type owl:Class ;
-                                    owl:unionOf ( :DetectionIntervention
-                                                  :Disease
-                                                )
-                                  ] ;
-                      rdfs:range [ rdf:type owl:Class ;
-                                   owl:unionOf ( :DiagnosisStrategy
-                                                 [ owl:intersectionOf ( :Group
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :hasGroupItem ;
-                                                                          owl:allValuesFrom :DiagnosisStrategy
-                                                                        ]
-                                                                      ) ;
-                                                   rdf:type owl:Class
-                                                 ]
-                                               )
-                                 ] ;
-                      rdfs:label "has diagnosis cost"@en ,
-                                 "tiene el coste de diagnóstico"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDose
@@ -324,46 +299,6 @@
           rdfs:comment "Points to the first of a set of ordered items"@en ;
           rdfs:label "has first"@en ,
                      "tiene primero"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost
-:hasFollowUpCost rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :hasCost ;
-                 rdfs:domain [ rdf:type owl:Class ;
-                               owl:unionOf ( :ClinicalProgressionElement
-                                             :Disease
-                                             :TherapeuticIntervention
-                                           )
-                             ] ;
-                 rdfs:range :Cost ;
-                 rdfs:label "has follow-up cost"@en ,
-                            "tiene el coste de seguimiento"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy
-:hasFollowUpStrategy rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf :hasStrategy ;
-                     rdfs:domain [ rdf:type owl:Class ;
-                                   owl:unionOf ( :ClinicalProgressionElement
-                                                 :Disease
-                                                 :LineOfTherapy
-                                                 :TherapeuticIntervention
-                                               )
-                                 ] ;
-                     rdfs:range [ rdf:type owl:Class ;
-                                  owl:unionOf ( :FollowUpStrategy
-                                                [ owl:intersectionOf ( :Group
-                                                                       [ rdf:type owl:Restriction ;
-                                                                         owl:onProperty :hasGroupItem ;
-                                                                         owl:allValuesFrom :FollowUpStrategy
-                                                                       ]
-                                                                     ) ;
-                                                  rdf:type owl:Class
-                                                ]
-                                              )
-                                ] ;
-                     rdfs:label "has follow-up strategy"@en ,
-                                "tiene la estrategia de seguimiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasFrequency
@@ -455,39 +390,10 @@ By default = 1, for the Manifestations."""@en ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction
 :hasLifeExpectancyReduction rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf :hasParameter ;
-                            rdfs:domain [ rdf:type owl:Class ;
-                                          owl:unionOf ( :ClinicalProgressionElement
-                                                        :Disease
-                                                      )
-                                        ] ;
+                            rdfs:domain :HealthCondition ;
                             rdfs:range :Parameter ;
                             rdfs:label "has life expectancy reduction"@en ,
                                        "tiene la reducción de la esperanza de vida"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy
-:hasLineOfTherapy rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :hasStrategy ;
-                  rdfs:domain [ rdf:type owl:Class ;
-                                owl:unionOf ( :ClinicalProgressionElement
-                                              :Disease
-                                              :TherapeuticIntervention
-                                            )
-                              ] ;
-                  rdfs:range [ rdf:type owl:Class ;
-                               owl:unionOf ( :LineOfTherapy
-                                             [ owl:intersectionOf ( :Group
-                                                                    [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :hasGroupItem ;
-                                                                      owl:allValuesFrom :LineOfTherapy
-                                                                    ]
-                                                                  ) ;
-                                               rdf:type owl:Class
-                                             ]
-                                           )
-                             ] ;
-                  rdfs:label "has line of therapy"@en ,
-                             "tiene la línea de tratamiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasNext
@@ -538,11 +444,7 @@ By default = 1, for the Manifestations."""@en ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath
 :hasProbabilityOfDeath rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :hasParameter ;
-                       rdfs:domain [ rdf:type owl:Class ;
-                                     owl:unionOf ( :ClinicalProgressionElement
-                                                   :Disease
-                                                 )
-                                   ] ;
+                       rdfs:domain :HealthCondition ;
                        rdfs:range :Parameter ;
                        rdfs:comment "Defines an 'instantaneous' death risk, i.e., a probability of dying upon the onset of the condition"@en ;
                        rdfs:label "has probability of death"@en ,
@@ -573,7 +475,7 @@ By default = 1, for the Manifestations."""@en ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup
 :hasProportionWithinGroup rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :hasParameter ;
-                          rdfs:domain :GroupableModelItem ;
+                          rdfs:domain :GroupableModelItemWithProportion ;
                           rdfs:range :Parameter ;
                           rdfs:label "has proportion within group"@en ,
                                      "tiene la proporción dentro del grupo"@es .
@@ -602,30 +504,6 @@ By default = 1, for the Manifestations."""@en ;
                                             )
                               ] ;
                   rdfs:range :Cost .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy
-:hasScreeningStrategy rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf :hasStrategy ;
-                      rdfs:domain [ rdf:type owl:Class ;
-                                    owl:unionOf ( :Disease
-                                                  :ScreeningIntervention
-                                                )
-                                  ] ;
-                      rdfs:range [ rdf:type owl:Class ;
-                                   owl:unionOf ( :ScreeningStrategy
-                                                 [ owl:intersectionOf ( :Group
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :hasGroupItem ;
-                                                                          owl:allValuesFrom :ScreeningStrategy
-                                                                        ]
-                                                                      ) ;
-                                                   rdf:type owl:Class
-                                                 ]
-                                               )
-                                 ] ;
-                      rdfs:label "has screening strategy"@en ,
-                                 "tiene la estrategia de cribado"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasSensitivity
@@ -673,8 +551,7 @@ By default = 1, for the Manifestations."""@en ;
 :hasStrategy rdf:type owl:ObjectProperty ;
              owl:inverseOf :isStrategyOf ;
              rdfs:domain [ rdf:type owl:Class ;
-                           owl:unionOf ( :ClinicalProgressionElement
-                                         :Disease
+                           owl:unionOf ( :HealthCondition
                                          :Intervention
                                          :Strategy
                                        )
@@ -724,20 +601,6 @@ By default = 1, for the Manifestations."""@en ;
                                   "tiene el umbral temporal"@es .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost
-:hasTreatmentCost rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :hasCost ;
-                  rdfs:domain [ rdf:type owl:Class ;
-                                owl:unionOf ( :ClinicalProgressionElement
-                                              :Disease
-                                              :TherapeuticIntervention
-                                            )
-                              ] ;
-                  rdfs:range :Cost ;
-                  rdfs:label "has treatment cost"@en ,
-                             "tiene el costo del tratamiento"@es .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization
 :hasUncertaintyCharacterization rdf:type owl:ObjectProperty ;
                                 owl:inverseOf :isUncertaintyCharacterizationOf ;
@@ -759,8 +622,7 @@ By default = 1, for the Manifestations."""@en ;
 :hasUtility rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf :hasParameter ;
             rdfs:domain [ rdf:type owl:Class ;
-                          owl:unionOf ( :ClinicalProgressionElement
-                                        :Disease
+                          owl:unionOf ( :HealthCondition
                                         :HealthTechnology
                                         :Intervention
                                         :Pathway
@@ -1642,32 +1504,7 @@ Examples:
 ###  https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement
 :ClinicalProgressionElement rdf:type owl:Class ;
                             rdfs:subClassOf :DiseaseProgressionElement ,
-                                            [ rdf:type owl:Class ;
-                                              owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                              owl:onProperty :hasFollowUpCost ;
-                                                              owl:allValuesFrom :Cost
-                                                            ]
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty :hasFollowUpStrategy ;
-                                                              owl:allValuesFrom :FollowUpStrategy
-                                                            ]
-                                                          )
-                                            ] ,
-                                            [ rdf:type owl:Class ;
-                                              owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                              owl:onProperty :hasLineOfTherapy ;
-                                                              owl:allValuesFrom :LineOfTherapy
-                                                            ]
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty :hasTreatmentCost ;
-                                                              owl:allValuesFrom :Cost
-                                                            ]
-                                                          )
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasCost ;
-                                              owl:allValuesFrom :Cost
-                                            ] ,
+                                            :HealthCondition ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty :hasDuration ;
                                               owl:allValuesFrom :Parameter
@@ -1677,19 +1514,7 @@ Examples:
                                               owl:allValuesFrom :Parameter
                                             ] ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasIncreasedMortalityRate ;
-                                              owl:allValuesFrom :Parameter
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasLifeExpectancyReduction ;
-                                              owl:allValuesFrom :Parameter
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
                                               owl:onProperty :hasOnsetAge ;
-                                              owl:allValuesFrom :Parameter
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasProbabilityOfDeath ;
                                               owl:allValuesFrom :Parameter
                                             ] ,
                                             [ rdf:type owl:Restriction ;
@@ -1705,12 +1530,16 @@ Examples:
                                                                 ]
                                             ] ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasSubProgression ;
-                                              owl:allValuesFrom :ClinicalProgressionElement
+                                              owl:onProperty :hasStrategy ;
+                                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                  owl:unionOf ( :FollowUpStrategy
+                                                                                :LineOfTherapy
+                                                                              )
+                                                                ]
                                             ] ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasUtility ;
-                                              owl:allValuesFrom :Utility
+                                              owl:onProperty :hasSubProgression ;
+                                              owl:allValuesFrom :ClinicalProgressionElement
                                             ] ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty :supersedesClinicalProgression ;
@@ -1826,20 +1655,13 @@ Examples:
                                                          )
                                            ] ;
                        rdfs:subClassOf :Intervention ,
-                                       [ rdf:type owl:Class ;
-                                         owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                         owl:onProperty :hasDiagnosisCost ;
-                                                         owl:allValuesFrom :Cost
-                                                       ]
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty :hasDiagnosisStrategy ;
-                                                         owl:allValuesFrom :DiagnosisStrategy
-                                                       ]
-                                                     )
-                                       ] ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty :detects ;
                                          owl:allValuesFrom :Disease
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasDiagnosisCost ;
+                                         owl:allValuesFrom :Cost
                                        ] ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty :hasSensitivity ;
@@ -1977,53 +1799,9 @@ Examples:
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Disease
 :Disease rdf:type owl:Class ;
-         rdfs:subClassOf :ModelItem ,
-                         [ rdf:type owl:Class ;
-                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasDiagnosisCost ;
-                                           owl:allValuesFrom :Cost
-                                         ]
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasDiagnosisStrategy ;
-                                           owl:allValuesFrom :DiagnosisStrategy
-                                         ]
-                                       )
-                         ] ,
-                         [ rdf:type owl:Class ;
-                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasFollowUpCost ;
-                                           owl:allValuesFrom :Cost
-                                         ]
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasFollowUpStrategy ;
-                                           owl:allValuesFrom :FollowUpStrategy
-                                         ]
-                                       )
-                         ] ,
-                         [ rdf:type owl:Class ;
-                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasLineOfTherapy ;
-                                           owl:allValuesFrom :LineOfTherapy
-                                         ]
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasTreatmentCost ;
-                                           owl:allValuesFrom :Cost
-                                         ]
-                                       )
-                         ] ,
-                         [ rdf:type owl:Class ;
-                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasScreeningCost ;
-                                           owl:allValuesFrom :Cost
-                                         ]
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasScreeningStrategy ;
-                                           owl:allValuesFrom :ScreeningStrategy
-                                         ]
-                                       )
-                         ] ,
+         rdfs:subClassOf :HealthCondition ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasCost ;
+                           owl:onProperty :hasDiagnosisCost ;
                            owl:allValuesFrom :Cost
                          ] ,
                          [ rdf:type owl:Restriction ;
@@ -2038,20 +1816,8 @@ Examples:
                                              ]
                          ] ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasIncreasedMortalityRate ;
-                           owl:allValuesFrom :Parameter
-                         ] ,
-                         [ rdf:type owl:Restriction ;
                            owl:onProperty :hasIntervention ;
                            owl:allValuesFrom :Intervention
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasLifeExpectancyReduction ;
-                           owl:allValuesFrom :Parameter
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasProbabilityOfDeath ;
-                           owl:allValuesFrom :Parameter
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :hasProgressionElement ;
@@ -2066,8 +1832,8 @@ Examples:
                                              ]
                          ] ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasUtility ;
-                           owl:allValuesFrom :Utility
+                           owl:onProperty :hasScreeningCost ;
+                           owl:allValuesFrom :Cost
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :usesAttributeValue ;
@@ -2150,6 +1916,7 @@ Examples:
                                                       :Exp_Javaluator
                                                     )
                                         ] ;
+                    rdfs:subClassOf :Describable ;
                     rdfs:comment "Language used to define an expression in a string. Generally used to compute something from other items of the model. Only the predefined languages are allowed, but future versions of the ontology may include more."@en ;
                     rdfs:label "Expression language"@en ,
                                "Lenguaje de expresión"@es .
@@ -2245,18 +2012,27 @@ Examples:
                                                                  owl:onProperty :belongsToGroup ;
                                                                  owl:someValuesFrom :Group
                                                                ]
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :hasProportionWithinGroup ;
-                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                 owl:onClass :Parameter
-                                                               ]
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:subClassOf :ModelItem ;
-                    rdfs:comment "A model item that can be put in a group"@en ;
-                    rdfs:label "Elemento del modelo agrupable"@es ,
-                               "Groupable model item"@en .
+                    rdfs:subClassOf :ModelItem .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion
+:GroupableModelItemWithProportion rdf:type owl:Class ;
+                                  owl:equivalentClass [ owl:intersectionOf ( :GroupableModelItem
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasProportionWithinGroup ;
+                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                               owl:onClass :Parameter
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ] ;
+                                  rdfs:subClassOf :GroupableModelItem ;
+                                  rdfs:comment "A model item that can be put in a group"@en ;
+                                  rdfs:label "Elemento del modelo agrupable"@es ,
+                                             "Groupable model item"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Guideline
@@ -2296,6 +2072,38 @@ Examples:
            rdfs:comment "The way a treatment, drug, test... is applied. It defines a period of time (range), dose, frequency, etc." ;
            rdfs:label "Guideline"@en ,
                       "Pauta"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#HealthCondition
+:HealthCondition rdf:type owl:Class ;
+                 rdfs:subClassOf :ModelItem ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasCost ;
+                                   owl:allValuesFrom :Cost
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasIncreasedMortalityRate ;
+                                   owl:allValuesFrom :Parameter
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasLifeExpectancyReduction ;
+                                   owl:allValuesFrom :Parameter
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasProbabilityOfDeath ;
+                                   owl:allValuesFrom :Parameter
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStrategy ;
+                                   owl:allValuesFrom :Strategy
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasUtility ;
+                                   owl:allValuesFrom :Utility
+                                 ] ;
+                 rdfs:comment "Any disease, symptom or clinical sign that affects the health of an individual"@en ;
+                 rdfs:label "Condición de salud"@es ,
+                            "Health condition"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#HealthTechnology
@@ -2342,6 +2150,10 @@ Examples:
                                 owl:allValuesFrom :Cost
                               ] ,
                               [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasStrategy ;
+                                owl:allValuesFrom :Strategy
+                              ] ,
+                              [ rdf:type owl:Restriction ;
                                 owl:onProperty :hasUtility ;
                                 owl:allValuesFrom :Utility
                               ] ,
@@ -2359,20 +2171,13 @@ Examples:
 ###  https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy
 :LineOfTherapy rdf:type owl:Class ;
                rdfs:subClassOf :Strategy ,
-                               [ rdf:type owl:Class ;
-                                 owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                 owl:onProperty :hasFollowUpCost ;
-                                                 owl:allValuesFrom :Cost
-                                               ]
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty :hasFollowUpStrategy ;
-                                                 owl:allValuesFrom :FollowUpStrategy
-                                               ]
-                                             )
-                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :failsIf ;
                                  owl:allValuesFrom :Parameter
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasStrategy ;
+                                 owl:allValuesFrom :FollowUpStrategy
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :usesHealthTechnology ;
@@ -2536,13 +2341,17 @@ Examples:
 :ModelItemWithDetection rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                    [ rdf:type owl:Class ;
-                                                                     owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :hasDiagnosisCost ;
-                                                                                     owl:someValuesFrom :Cost
+                                                                     owl:unionOf ( [ rdf:type owl:Class ;
+                                                                                     owl:unionOf ( :ScreeningStrategy
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :hasStrategy ;
+                                                                                                     owl:someValuesFrom :DiagnosisStrategy
+                                                                                                   ]
+                                                                                                 )
                                                                                    ]
                                                                                    [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :hasDiagnosisStrategy ;
-                                                                                     owl:someValuesFrom :DiagnosisStrategy
+                                                                                     owl:onProperty :hasDiagnosisCost ;
+                                                                                     owl:someValuesFrom :Cost
                                                                                    ]
                                                                                    [ rdf:type owl:Restriction ;
                                                                                      owl:onProperty :hasIntervention ;
@@ -2551,10 +2360,6 @@ Examples:
                                                                                    [ rdf:type owl:Restriction ;
                                                                                      owl:onProperty :hasScreeningCost ;
                                                                                      owl:someValuesFrom :Cost
-                                                                                   ]
-                                                                                   [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :hasScreeningStrategy ;
-                                                                                     owl:someValuesFrom :ScreeningStrategy
                                                                                    ]
                                                                                  )
                                                                    ]
@@ -2599,16 +2404,13 @@ Examples:
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp
 :ModelItemWithFollowUp rdf:type owl:Class ;
                        owl:equivalentClass [ owl:intersectionOf ( :ModelItem
-                                                                  [ rdf:type owl:Class ;
-                                                                    owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :hasFollowUpCost ;
-                                                                                    owl:someValuesFrom :Cost
-                                                                                  ]
-                                                                                  [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :hasFollowUpStrategy ;
-                                                                                    owl:someValuesFrom :FollowUpStrategy
-                                                                                  ]
-                                                                                )
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasStrategy ;
+                                                                    owl:someValuesFrom :FollowUpStrategy
+                                                                  ]
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasStrategy ;
+                                                                    owl:allValuesFrom :FollowUpStrategy
                                                                   ]
                                                                 ) ;
                                              rdf:type owl:Class
@@ -2676,16 +2478,13 @@ Examples:
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment
 :ModelItemWithTreatment rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :ModelItem
-                                                                   [ rdf:type owl:Class ;
-                                                                     owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :hasLineOfTherapy ;
-                                                                                     owl:someValuesFrom :LineOfTherapy
-                                                                                   ]
-                                                                                   [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :hasTreatmentCost ;
-                                                                                     owl:someValuesFrom :Cost
-                                                                                   ]
-                                                                                 )
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :hasStrategy ;
+                                                                     owl:someValuesFrom :LineOfTherapy
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :hasStrategy ;
+                                                                     owl:allValuesFrom :LineOfTherapy
                                                                    ]
                                                                  ) ;
                                               rdf:type owl:Class
@@ -3031,22 +2830,14 @@ Examples:
 ###  https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention
 :ScreeningIntervention rdf:type owl:Class ;
                        rdfs:subClassOf :DetectionIntervention ,
-                                       [ rdf:type owl:Class ;
-                                         owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                         owl:onProperty :hasScreeningCost ;
-                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass :Cost
-                                                       ]
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty :hasScreeningStrategy ;
-                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass :ScreeningStrategy
-                                                       ]
-                                                     )
-                                       ] ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty :hasTemporaryThreshold ;
                                          owl:allValuesFrom :Parameter
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasScreeningCost ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Cost
                                        ] ;
                        rdfs:comment "An intervention to identifiy the subset of population who may have certain disease or condition and require further testing to obtain a final diagnosis"@en ;
                        rdfs:label "Intervención de cribado"@es ,
@@ -3178,31 +2969,13 @@ Examples:
 ###  https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention
 :TherapeuticIntervention rdf:type owl:Class ;
                          rdfs:subClassOf :Intervention ,
-                                         [ rdf:type owl:Class ;
-                                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :hasFollowUpCost ;
-                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass :Cost
-                                                         ]
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :hasFollowUpStrategy ;
-                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass :FollowUpStrategy
-                                                         ]
-                                                       )
-                                         ] ,
-                                         [ rdf:type owl:Class ;
-                                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :hasLineOfTherapy ;
-                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass :LineOfTherapy
-                                                         ]
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :hasTreatmentCost ;
-                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                           owl:onClass :Cost
-                                                         ]
-                                                       )
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasStrategy ;
+                                           owl:allValuesFrom [ rdf:type owl:Class ;
+                                                               owl:unionOf ( :FollowUpStrategy
+                                                                             :LineOfTherapy
+                                                                           )
+                                                             ]
                                          ] ;
                          rdfs:comment "An intervention driven by a set of drugs and/or treatments"@en ;
                          rdfs:label "Intervención terapéutica"@es ,
@@ -3588,22 +3361,52 @@ Examples:
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Excel
 :Exp_Excel rdf:type owl:NamedIndividual ,
-                    :ExpressionLanguage .
+                    :ExpressionLanguage ;
+           :hasDescription "Expression language for Excel" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL
 :Exp_JEXL rdf:type owl:NamedIndividual ,
-                   :ExpressionLanguage .
+                   :ExpressionLanguage ;
+          :hasDescription "Expression language for Java Expression Language" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Java
 :Exp_Java rdf:type owl:NamedIndividual ,
-                   :ExpressionLanguage .
+                   :ExpressionLanguage ;
+          :hasDescription "Expression language for Java" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator
 :Exp_Javaluator rdf:type owl:NamedIndividual ,
-                         :ExpressionLanguage .
+                         :ExpressionLanguage ;
+                :hasDescription "Expression language for Javaluator" .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp
+:Group_Cost_FollowUp rdf:type owl:NamedIndividual ,
+                              [ owl:intersectionOf ( :Group
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasGroupItem ;
+                                                       owl:allValuesFrom :Cost
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+                     :hasDescription "Group of costs for follow-up items" .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment
+:Group_Cost_Treatment rdf:type owl:NamedIndividual ,
+                               [ owl:intersectionOf ( :Group
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasGroupItem ;
+                                                        owl:allValuesFrom :Cost
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+                      :hasDescription "Group of costs for treatment items" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual
@@ -3620,46 +3423,22 @@ Examples:
                        :isAssessedIntervention "false"^^xsd:boolean .
 
 
-_:genid664 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "66.05568696358739"^^xsd:double ;
-           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.9815693558255685"^^xsd:double ;
-           rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid665 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "100.61244444225647"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "133.2020154340692"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid666 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "257.2295616088946"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid667 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.71094492073297"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.01194217726372"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid668 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "163.9652551238964"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.884426031710573"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
-_:genid669 <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "264.53086737911997"^^xsd:double ;
-            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "35.59904284310582"^^xsd:double ;
-            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en .
-
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-   owl:members ( :Attribute
-                 :ClinicalProgressionElement
-                 :Disease
-                 :Intervention
-                 :Parameter
-                 :Pathway
-                 :Population
-                 :ProbabilityDistributionExpression
-                 :ResourceUsageItem
-               )
- ] .
+  owl:members ( :Attribute
+                :ClinicalProgressionElement
+                :Disease
+                :Intervention
+                :Parameter
+                :Pathway
+                :Population
+                :ProbabilityDistributionExpression
+                :ResourceUsageItem
+              )
+] .
 
 
 [ rdf:type owl:AllDisjointClasses ;

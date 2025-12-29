@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/ontologies-ULL/OSDi","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/ontologies-ULL/OSDi","name":"https://w3id.org/ontologies-ULL/OSDi", "headline":"This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied.", "dateReleased":"Fri Dec 26 13:07:36 UTC 2025", "version":"1.0", "license":"http://creativecommons.org/licenses/by-nc-sa/4.0/", "author":[{"@type":"Person","name":"David Prieto González (https://orcid.org/0000-0003-1411-129X)"},{"@type":"Person","name":"Evelio J. González González (https://orcid.org/0000-0002-2203-3757)"},{"@type":"Person","name":"Iván Castilla Rodríguez (http://orcid.org/0000-0003-3933-2582)"}], "contributor":[{"@type":"Person","name":"María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/ontologies-ULL/OSDi","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/ontologies-ULL/OSDi","name":"https://w3id.org/ontologies-ULL/OSDi", "headline":"This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied.", "dateReleased":"Mon Dec 29 19:40:47 UTC 2025", "version":"1.0", "license":"http://creativecommons.org/licenses/by-nc-sa/4.0/", "author":[{"@type":"Person","name":"David Prieto González (https://orcid.org/0000-0003-1411-129X)"},{"@type":"Person","name":"Evelio J. González González (https://orcid.org/0000-0002-2203-3757)"},{"@type":"Person","name":"Iván Castilla Rodríguez (http://orcid.org/0000-0003-3933-2582)"}], "contributor":[{"@type":"Person","name":"María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -268,10 +268,20 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#GroupableModelItem"
-         title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a>
+         title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">
+         <span>Groupable Model Item</span>
+      </a>
+   </li>
+   <li>
+      <a href="#GroupableModelItemWithProportion"
+         title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion">Groupable model item</a>
    </li>
    <li>
       <a href="#Guideline" title="https://w3id.org/ontologies-ULL/OSDi#Guideline">Guideline</a>
+   </li>
+   <li>
+      <a href="#HealthCondition"
+         title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a>
    </li>
    <li>
       <a href="#HealthTechnology"
@@ -511,10 +521,6 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a>
    </li>
    <li>
-      <a href="#hasDiagnosisStrategy"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a>
-   </li>
-   <li>
       <a href="#hasDose" title="https://w3id.org/ontologies-ULL/OSDi#hasDose">has dose</a>
    </li>
    <li>
@@ -533,14 +539,6 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#hasFirst" title="https://w3id.org/ontologies-ULL/OSDi#hasFirst">has first</a>
-   </li>
-   <li>
-      <a href="#hasFollowUpCost"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a>
-   </li>
-   <li>
-      <a href="#hasFollowUpStrategy"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a>
    </li>
    <li>
       <a href="#hasFrequency"
@@ -575,10 +573,6 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">has life expectancy reduction</a>
    </li>
    <li>
-      <a href="#hasLineOfTherapy"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a>
-   </li>
-   <li>
       <a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a>
    </li>
    <li>
@@ -589,8 +583,7 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a>
    </li>
    <li>
-      <a href="#hasPrevious"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a>
+      <a href="#hasPrevious" title="https://w3id.org/ontologies-ULL/OSDi#hasPrevious">has previous</a>
    </li>
    <li>
       <a href="#hasProbabilityOfDeath"
@@ -621,10 +614,6 @@ This ontology has the following classes and properties.</span>
       </a>
    </li>
    <li>
-      <a href="#hasScreeningStrategy"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a>
-   </li>
-   <li>
       <a href="#hasSensitivity"
          title="https://w3id.org/ontologies-ULL/OSDi#hasSensitivity">has sensitivity</a>
    </li>
@@ -652,10 +641,6 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#hasTemporaryThreshold"
          title="https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold">has temporary threshold</a>
-   </li>
-   <li>
-      <a href="#hasTreatmentCost"
-         title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a>
    </li>
    <li>
       <a href="#hasUncertaintyCharacterization"
@@ -1150,6 +1135,18 @@ This ontology has the following classes and properties.</span>
       <a href="#DI_Factor" title="https://w3id.org/ontologies-ULL/OSDi#DI_Factor">Factor</a>
    </li>
    <li>
+      <a href="#Group_Cost_FollowUp"
+         title="https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp">
+         <span>Group Cost Follow Up</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Group_Cost_Treatment"
+         title="https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment">
+         <span>Group Cost Treatment</span>
+      </a>
+   </li>
+   <li>
       <a href="#GuidelineLifetimeAnual"
          title="https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual">
          <span>Guideline Lifetime Anual</span>
@@ -1293,8 +1290,10 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#FollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy">Follow-up strategy</a></li>
   <li><a href="#FollowUpTest" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpTest">Follow-up test</a></li>
   <li><a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a></li>
-  <li><a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a></li>
+  <li><a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem"> <span>Groupable Model Item</span> </a></li>
+  <li><a href="#GroupableModelItemWithProportion" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion">Groupable model item</a></li>
   <li><a href="#Guideline" title="https://w3id.org/ontologies-ULL/OSDi#Guideline">Guideline</a></li>
+  <li><a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a></li>
   <li><a href="#HealthTechnology" title="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology">Health technology</a></li>
   <li><a href="#InfectiousDisease" title="https://w3id.org/ontologies-ULL/OSDi#InfectiousDisease"> <span>Infectious Disease</span> </a></li>
   <li><a href="#InheritedDisease" title="https://w3id.org/ontologies-ULL/OSDi#InheritedDisease"> <span>Inherited Disease</span> </a></li>
@@ -1596,7 +1595,7 @@ This section provides details for each class and property defined by OSDi.
     is in range of
    </dt>
    <dd>
-    <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -1701,7 +1700,7 @@ This section provides details for each class and property defined by OSDi.
     has sub-classes
    </dt>
    <dd>
-    <a href="#DataItemType" title="https://w3id.org/ontologies-ULL/OSDi#DataItemType">Data item type</a> <sup class="type-c" title="class">c</sup>, <a href="#Model" title="https://w3id.org/ontologies-ULL/OSDi#Model">Model</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup>
+    <a href="#DataItemType" title="https://w3id.org/ontologies-ULL/OSDi#DataItemType">Data item type</a> <sup class="type-c" title="class">c</sup>, <a href="#ExpressionLanguage" title="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage">Expression language</a> <sup class="type-c" title="class">c</sup>, <a href="#Model" title="https://w3id.org/ontologies-ULL/OSDi#Model">Model</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -1740,7 +1739,7 @@ This section provides details for each class and property defined by OSDi.
     is in domain of
    </dt>
    <dd>
-    <a href="#detects" title="https://w3id.org/ontologies-ULL/OSDi#detects">detects</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSensitivity" title="https://w3id.org/ontologies-ULL/OSDi#hasSensitivity">has sensitivity</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSpecificity" title="https://w3id.org/ontologies-ULL/OSDi#hasSpecificity">has specificity</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#detects" title="https://w3id.org/ontologies-ULL/OSDi#detects">detects</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSensitivity" title="https://w3id.org/ontologies-ULL/OSDi#hasSensitivity">has sensitivity</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSpecificity" title="https://w3id.org/ontologies-ULL/OSDi#hasSpecificity">has specificity</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -1883,12 +1882,6 @@ This section provides details for each class and property defined by OSDi.
    <dd>
     <a href="#DetectionStrategy" title="https://w3id.org/ontologies-ULL/OSDi#DetectionStrategy">Detection strategy</a> <sup class="type-c" title="class">c</sup>
    </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasDiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
   </dl>
  </div>
  <div class="entity" id="DiscreteEventSimulationModel">
@@ -1917,7 +1910,7 @@ This section provides details for each class and property defined by OSDi.
     has super-classes
    </dt>
    <dd>
-    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup>
+    <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -1929,7 +1922,7 @@ This section provides details for each class and property defined by OSDi.
     is in domain of
    </dt>
    <dd>
-    <a href="#hasProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement">has Progression Element</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasEpidemiologicalParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasEpidemiologicalParameter">has epidemiological parameter</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIncreasedMortalityRate" title="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate">has increased mortality rate</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIntervention" title="https://w3id.org/ontologies-ULL/OSDi#hasIntervention">has intervention</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLifeExpectancyReduction" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">has life expectancy reduction</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProbabilityOfDeath" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath">has probability of death</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRefToDO" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToDO">has reference to DO</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRefToICD" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToICD">has reference to ICD</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRefToOMIM" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToOMIM">has reference to OMIM</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRefToSNOMED" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToSNOMED">has reference to SNOMED</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasUtility" title="https://w3id.org/ontologies-ULL/OSDi#hasUtility">has utility</a> <sup class="type-op" title="object property">op</sup>, <a href="#isDetectedBy" title="https://w3id.org/ontologies-ULL/OSDi#isDetectedBy">is Detected By</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesAttributeValue" title="https://w3id.org/ontologies-ULL/OSDi#usesAttributeValue">uses attribute value</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement">has Progression Element</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasEpidemiologicalParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasEpidemiologicalParameter">has epidemiological parameter</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIncreasedMortalityRate" title="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate">has increased mortality rate</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIntervention" title="https://w3id.org/ontologies-ULL/OSDi#hasIntervention">has intervention</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRefToDO" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToDO">has reference to DO</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRefToICD" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToICD">has reference to ICD</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRefToOMIM" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToOMIM">has reference to OMIM</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRefToSNOMED" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToSNOMED">has reference to SNOMED</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isDetectedBy" title="https://w3id.org/ontologies-ULL/OSDi#isDetectedBy">is Detected By</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesAttributeValue" title="https://w3id.org/ontologies-ULL/OSDi#usesAttributeValue">uses attribute value</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -1956,7 +1949,7 @@ This section provides details for each class and property defined by OSDi.
     has super-classes
    </dt>
    <dd>
-    <a href="#DiseaseProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement">Disease Progression Element</a> <sup class="type-c" title="class">c</sup>
+    <a href="#DiseaseProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement">Disease Progression Element</a> <sup class="type-c" title="class">c</sup>, <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -1968,7 +1961,7 @@ This section provides details for each class and property defined by OSDi.
     is in domain of
    </dt>
    <dd>
-    <a href="#hasSubProgression" title="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression">has Sub Progression</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDuration" title="https://w3id.org/ontologies-ULL/OSDi#hasDuration">has duration</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasEndAge" title="https://w3id.org/ontologies-ULL/OSDi#hasEndAge">has end age</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIncreasedMortalityRate" title="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate">has increased mortality rate</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLifeExpectancyReduction" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">has life expectancy reduction</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasOnsetAge" title="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">has onset age</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProbabilityOfDeath" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath">has probability of death</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProbabilityOfDiagnosis" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis">has probability of diagnosis</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRefToICD" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToICD">has reference to ICD</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization">has risk characterization</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasUtility" title="https://w3id.org/ontologies-ULL/OSDi#hasUtility">has utility</a> <sup class="type-op" title="object property">op</sup>, <a href="#isRequiredBy" title="https://w3id.org/ontologies-ULL/OSDi#isRequiredBy">is Required By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isSupersededByClinicalProgression" title="https://w3id.org/ontologies-ULL/OSDi#isSupersededByClinicalProgression">is Superseded By Clinical Progression</a> <sup class="type-op" title="object property">op</sup>, <a href="#supersedesClinicalProgression" title="https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression">supersedes clinical progression</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasSubProgression" title="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression">has Sub Progression</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDuration" title="https://w3id.org/ontologies-ULL/OSDi#hasDuration">has duration</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasEndAge" title="https://w3id.org/ontologies-ULL/OSDi#hasEndAge">has end age</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIncreasedMortalityRate" title="https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate">has increased mortality rate</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasOnsetAge" title="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">has onset age</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProbabilityOfDiagnosis" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis">has probability of diagnosis</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRefToICD" title="https://w3id.org/ontologies-ULL/OSDi#hasRefToICD">has reference to ICD</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization">has risk characterization</a> <sup class="type-op" title="object property">op</sup>, <a href="#isRequiredBy" title="https://w3id.org/ontologies-ULL/OSDi#isRequiredBy">is Required By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isSupersededByClinicalProgression" title="https://w3id.org/ontologies-ULL/OSDi#isSupersededByClinicalProgression">is Superseded By Clinical Progression</a> <sup class="type-op" title="object property">op</sup>, <a href="#supersedesClinicalProgression" title="https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression">supersedes clinical progression</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -2229,6 +2222,12 @@ This section provides details for each class and property defined by OSDi.
     { <a href="#Exp_Excel" title="https://w3id.org/ontologies-ULL/OSDi#Exp_Excel">Exp Excel</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#Exp_JEXL" title="https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL">Exp J E X L</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#Exp_Java" title="https://w3id.org/ontologies-ULL/OSDi#Exp_Java">Exp Java</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#Exp_Javaluator" title="https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator">Exp Javaluator</a> <sup class="type-ni" title="named individual">ni</sup> }
    </dd>
    <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Describable" title="https://w3id.org/ontologies-ULL/OSDi#Describable">Describable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
     is in domain of
    </dt>
    <dd>
@@ -2312,12 +2311,6 @@ This section provides details for each class and property defined by OSDi.
    <dd>
     <a href="#usesFollowUpTest" title="https://w3id.org/ontologies-ULL/OSDi#usesFollowUpTest">uses follow-up test</a> <sup class="type-op" title="object property">op</sup>
    </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
   </dl>
  </div>
  <div class="entity" id="FollowUpTest">
@@ -2352,7 +2345,7 @@ This section provides details for each class and property defined by OSDi.
     is equivalent to
    </dt>
    <dd>
-    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>)
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable Model Item</a> <sup class="type-c" title="class">c</sup>)
    </dd>
    <dt>
     has super-classes
@@ -2375,17 +2368,14 @@ This section provides details for each class and property defined by OSDi.
   </dl>
  </div>
  <div class="entity" id="GroupableModelItem">
-  <h3>Groupable model item<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Groupable Model Item<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem</p>
-  <div class="comment">
-   <span class="markdown">A model item that can be put in a group</span>
-  </div>
   <dl class="description">
    <dt>
     is equivalent to
    </dt>
    <dd>
-    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#belongsToGroup" title="https://w3id.org/ontologies-ULL/OSDi#belongsToGroup">belongs to group</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasProportionWithinGroup" title="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">has proportion within group</a> <sup class="type-op" title="object property">op</sup> <span class="logic">min</span> 0 <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>)
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#belongsToGroup" title="https://w3id.org/ontologies-ULL/OSDi#belongsToGroup">belongs to group</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup>)
    </dd>
    <dt>
     has super-classes
@@ -2394,16 +2384,49 @@ This section provides details for each class and property defined by OSDi.
     <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#GroupableModelItemWithProportion" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion">Groupable model item</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
     is in domain of
    </dt>
    <dd>
-    <a href="#belongsToGroup" title="https://w3id.org/ontologies-ULL/OSDi#belongsToGroup">belongs to group</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProportionWithinGroup" title="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">has proportion within group</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#belongsToGroup" title="https://w3id.org/ontologies-ULL/OSDi#belongsToGroup">belongs to group</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
     <a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GroupableModelItemWithProportion">
+  <h3>Groupable model item<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion</p>
+  <div class="comment">
+   <span class="markdown">A model item that can be put in a group</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable Model Item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasProportionWithinGroup" title="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">has proportion within group</a> <sup class="type-op" title="object property">op</sup> <span class="logic">min</span> 0 <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>)
+   </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable Model Item</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasProportionWithinGroup" title="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">has proportion within group</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -2443,6 +2466,33 @@ This section provides details for each class and property defined by OSDi.
    </dt>
    <dd>
     <a href="#ModelItemWithCost" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost">Model item with cost</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithEffectInLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy">Model Item With Effect In Life Expectancy</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithUtility" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility">Model item with utility</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="HealthCondition">
+  <h3>Health condition<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#HealthCondition</p>
+  <div class="comment">
+   <span class="markdown">Any disease, symptom or clinical sign that affects the health of an individual</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>, <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLifeExpectancyReduction" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">has life expectancy reduction</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProbabilityOfDeath" title="https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath">has probability of death</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasUtility" title="https://w3id.org/ontologies-ULL/OSDi#hasUtility">has utility</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -2583,13 +2633,13 @@ This section provides details for each class and property defined by OSDi.
     is in domain of
    </dt>
    <dd>
-    <a href="#failsIf" title="https://w3id.org/ontologies-ULL/OSDi#failsIf">fails if</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesDrug" title="https://w3id.org/ontologies-ULL/OSDi#usesDrug">uses drug</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesTreatment" title="https://w3id.org/ontologies-ULL/OSDi#usesTreatment">uses treatment</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#failsIf" title="https://w3id.org/ontologies-ULL/OSDi#failsIf">fails if</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesDrug" title="https://w3id.org/ontologies-ULL/OSDi#usesDrug">uses drug</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesTreatment" title="https://w3id.org/ontologies-ULL/OSDi#usesTreatment">uses treatment</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#causesFailOf" title="https://w3id.org/ontologies-ULL/OSDi#causesFailOf">causes Fail Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#causesFailOf" title="https://w3id.org/ontologies-ULL/OSDi#causesFailOf">causes Fail Of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -2748,7 +2798,7 @@ This section provides details for each class and property defined by OSDi.
     has sub-classes
    </dt>
    <dd>
-    <a href="#Attribute" title="https://w3id.org/ontologies-ULL/OSDi#Attribute">Attribute</a> <sup class="type-c" title="class">c</sup>, <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>, <a href="#DiseaseProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement">Disease Progression Element</a> <sup class="type-c" title="class">c</sup>, <a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup>, <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>, <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemDefiningDiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemDefiningDiseaseProgression">Model Item Defining Disease Progression</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithDetection" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithDetection">Model Item With Detection</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithEffectInLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy">Model Item With Effect In Life Expectancy</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithRiskCharacterization">Model Item With Risk Characterization</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTemporalConstraints" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTemporalConstraints">Model Item With Temporal Constraints</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithCost" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost">Model item with cost</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithFollowUp" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp">Model item with follow-up</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTreatment" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment">Model item with treatment</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithUtility" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility">Model item with utility</a> <sup class="type-c" title="class">c</sup>, <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>, <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>, <a href="#ParameterNature" title="https://w3id.org/ontologies-ULL/OSDi#ParameterNature">Parameter nature</a> <sup class="type-c" title="class">c</sup>, <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/ontologies-ULL/OSDi#Population">Population</a> <sup class="type-c" title="class">c</sup>, <a href="#ProbabilityDistributionExpression" title="https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression">Probability distribution expression</a> <sup class="type-c" title="class">c</sup>, <a href="#ResourceUsageItem" title="https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem">Resource Usage Item</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Attribute" title="https://w3id.org/ontologies-ULL/OSDi#Attribute">Attribute</a> <sup class="type-c" title="class">c</sup>, <a href="#DiseaseProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement">Disease Progression Element</a> <sup class="type-c" title="class">c</sup>, <a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup>, <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable Model Item</a> <sup class="type-c" title="class">c</sup>, <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup>, <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemDefiningDiseaseProgression" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemDefiningDiseaseProgression">Model Item Defining Disease Progression</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithDetection" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithDetection">Model Item With Detection</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithEffectInLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy">Model Item With Effect In Life Expectancy</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithRiskCharacterization">Model Item With Risk Characterization</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTemporalConstraints" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTemporalConstraints">Model Item With Temporal Constraints</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithCost" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost">Model item with cost</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithFollowUp" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp">Model item with follow-up</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithTreatment" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment">Model item with treatment</a> <sup class="type-c" title="class">c</sup>, <a href="#ModelItemWithUtility" title="https://w3id.org/ontologies-ULL/OSDi#ModelItemWithUtility">Model item with utility</a> <sup class="type-c" title="class">c</sup>, <a href="#OrderedModelItem" title="https://w3id.org/ontologies-ULL/OSDi#OrderedModelItem">Ordered Model Item</a> <sup class="type-c" title="class">c</sup>, <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>, <a href="#ParameterNature" title="https://w3id.org/ontologies-ULL/OSDi#ParameterNature">Parameter nature</a> <sup class="type-c" title="class">c</sup>, <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/ontologies-ULL/OSDi#Population">Population</a> <sup class="type-c" title="class">c</sup>, <a href="#ProbabilityDistributionExpression" title="https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression">Probability distribution expression</a> <sup class="type-c" title="class">c</sup>, <a href="#ResourceUsageItem" title="https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem">Resource Usage Item</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -2829,7 +2879,7 @@ This section provides details for each class and property defined by OSDi.
     is equivalent to
    </dt>
    <dd>
-    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> ((<a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasDiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#DiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy">Diagnosis strategy</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasIntervention" title="https://w3id.org/ontologies-ULL/OSDi#hasIntervention">has intervention</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#DetectionIntervention" title="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention">Detection intervention</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#ScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy">Screening strategy</a> <sup class="type-c" title="class">c</sup>))
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> ((<a href="#ScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy">Screening strategy</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> (<a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#DiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy">Diagnosis strategy</a> <sup class="type-c" title="class">c</sup>)) <span class="logic">or</span> (<a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasIntervention" title="https://w3id.org/ontologies-ULL/OSDi#hasIntervention">has intervention</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#DetectionIntervention" title="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention">Detection intervention</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>))
    </dd>
    <dt>
     has super-classes
@@ -2880,7 +2930,7 @@ This section provides details for each class and property defined by OSDi.
     is equivalent to
    </dt>
    <dd>
-    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> ((<a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#FollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy">Follow-up strategy</a> <sup class="type-c" title="class">c</sup>))
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#FollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy">Follow-up strategy</a> <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">only</span> <a href="#FollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy">Follow-up strategy</a> <sup class="type-c" title="class">c</sup>)
    </dd>
    <dt>
     has super-classes
@@ -2955,7 +3005,7 @@ This section provides details for each class and property defined by OSDi.
     is equivalent to
    </dt>
    <dd>
-    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> ((<a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#LineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">Line-of-therapy strategy</a> <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>))
+    <a href="#ModelItem" title="https://w3id.org/ontologies-ULL/OSDi#ModelItem">Model item</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#LineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">Line-of-therapy strategy</a> <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup> <span class="logic">only</span> <a href="#LineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">Line-of-therapy strategy</a> <sup class="type-c" title="class">c</sup>)
    </dd>
    <dt>
     has super-classes
@@ -3384,7 +3434,7 @@ This section provides details for each class and property defined by OSDi.
     is in domain of
    </dt>
    <dd>
-    <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTemporaryThreshold" title="https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold">has temporary threshold</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTemporaryThreshold" title="https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold">has temporary threshold</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is disjoint with
@@ -3412,12 +3462,6 @@ This section provides details for each class and property defined by OSDi.
    </dt>
    <dd>
     <a href="#hasTemporaryThreshold" title="https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold">has temporary threshold</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3561,12 +3605,6 @@ This section provides details for each class and property defined by OSDi.
     <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
     is disjoint with
    </dt>
    <dd>
@@ -3649,15 +3687,12 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#hasDataItemType" title="https://w3id.org/ontologies-ULL/OSDi#hasDataItemType">has data item type</a></li>
   <li><a href="#hasDependantCalculatedParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasDependantCalculatedParameter"> <span>has Dependant Calculated Parameter</span> </a></li>
   <li><a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a></li>
-  <li><a href="#hasDiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a></li>
   <li><a href="#hasDose" title="https://w3id.org/ontologies-ULL/OSDi#hasDose">has dose</a></li>
   <li><a href="#hasDuration" title="https://w3id.org/ontologies-ULL/OSDi#hasDuration">has duration</a></li>
   <li><a href="#hasEndAge" title="https://w3id.org/ontologies-ULL/OSDi#hasEndAge">has end age</a></li>
   <li><a href="#hasEpidemiologicalParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasEpidemiologicalParameter">has epidemiological parameter</a></li>
   <li><a href="#hasExpressionLanguage" title="https://w3id.org/ontologies-ULL/OSDi#hasExpressionLanguage">has expression language</a></li>
   <li><a href="#hasFirst" title="https://w3id.org/ontologies-ULL/OSDi#hasFirst">has first</a></li>
-  <li><a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a></li>
-  <li><a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a></li>
   <li><a href="#hasFrequency" title="https://w3id.org/ontologies-ULL/OSDi#hasFrequency">has frequency</a></li>
   <li><a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a></li>
   <li><a href="#hasGuideline" title="https://w3id.org/ontologies-ULL/OSDi#hasGuideline">has guideline</a></li>
@@ -3666,7 +3701,6 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#hasIntervention" title="https://w3id.org/ontologies-ULL/OSDi#hasIntervention">has intervention</a></li>
   <li><a href="#hasLifeExpectancy" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancy">has life expectancy</a></li>
   <li><a href="#hasLifeExpectancyReduction" title="https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction">has life expectancy reduction</a></li>
-  <li><a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a></li>
   <li><a href="#hasNext" title="https://w3id.org/ontologies-ULL/OSDi#hasNext">has next</a></li>
   <li><a href="#hasOnsetAge" title="https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge">has onset age</a></li>
   <li><a href="#hasParameter" title="https://w3id.org/ontologies-ULL/OSDi#hasParameter">has parameter</a></li>
@@ -3677,7 +3711,6 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#hasProportionWithinGroup" title="https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup">has proportion within group</a></li>
   <li><a href="#hasRiskCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization">has risk characterization</a></li>
   <li><a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"> <span>has Screening Cost</span> </a></li>
-  <li><a href="#hasScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a></li>
   <li><a href="#hasSensitivity" title="https://w3id.org/ontologies-ULL/OSDi#hasSensitivity">has sensitivity</a></li>
   <li><a href="#hasSex" title="https://w3id.org/ontologies-ULL/OSDi#hasSex">has sex</a></li>
   <li><a href="#hasSpecificity" title="https://w3id.org/ontologies-ULL/OSDi#hasSpecificity">has specificity</a></li>
@@ -3685,7 +3718,6 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#hasSubProgression" title="https://w3id.org/ontologies-ULL/OSDi#hasSubProgression"> <span>has Sub Progression</span> </a></li>
   <li><a href="#hasSubpopulation" title="https://w3id.org/ontologies-ULL/OSDi#hasSubpopulation">has subpopulation</a></li>
   <li><a href="#hasTemporaryThreshold" title="https://w3id.org/ontologies-ULL/OSDi#hasTemporaryThreshold">has temporary threshold</a></li>
-  <li><a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a></li>
   <li><a href="#hasUncertaintyCharacterization" title="https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization">has uncertainty characterization</a></li>
   <li><a href="#hasUtility" title="https://w3id.org/ontologies-ULL/OSDi#hasUtility">has utility</a></li>
   <li><a href="#includedByModel" title="https://w3id.org/ontologies-ULL/OSDi#includedByModel">included by model</a></li>
@@ -3752,7 +3784,7 @@ This section provides details for each class and property defined by OSDi.
      has domain
     </dt>
     <dd>
-     <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>
+     <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable Model Item</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -4033,13 +4065,13 @@ This section provides details for each class and property defined by OSDi.
      has sub-properties
     </dt>
     <dd>
-     <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpCost" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost">has follow-up cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTreatmentCost" title="https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost">has treatment cost</a> <sup class="type-op" title="object property">op</sup>
+     <a href="#hasScreeningCost" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost">has Screening Cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDiagnosisCost" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>
     </dd>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#HealthTechnology" title="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology">Health technology</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Strategy" title="https://w3id.org/ontologies-ULL/OSDi#Strategy">Strategy</a> <sup class="type-c" title="class">c</sup>
+     <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#HealthTechnology" title="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology">Health technology</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Strategy" title="https://w3id.org/ontologies-ULL/OSDi#Strategy">Strategy</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -4124,32 +4156,6 @@ This section provides details for each class and property defined by OSDi.
     </dt>
     <dd>
      <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasDiagnosisStrategy">
-  <h3>has diagnosis cost<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#DetectionIntervention" title="https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention">Detection intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#DiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy">Diagnosis strategy</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> (<a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup> <span class="logic">only</span> <a href="#DiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy">Diagnosis strategy</a> <sup class="type-c" title="class">c</sup>))
     </dd>
    </dl>
   </div>
@@ -4310,58 +4316,6 @@ This section provides details for each class and property defined by OSDi.
    </dl>
   </div>
  </div>
- <div class="entity" id="hasFollowUpCost">
-  <h3>has follow-up cost<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#TherapeuticIntervention" title="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention">Therapeutic intervention</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasFollowUpStrategy">
-  <h3>has follow-up strategy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#LineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">Line-of-therapy strategy</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#TherapeuticIntervention" title="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention">Therapeutic intervention</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#FollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy">Follow-up strategy</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> (<a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup> <span class="logic">only</span> <a href="#FollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy">Follow-up strategy</a> <sup class="type-c" title="class">c</sup>))
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="hasFrequency">
   <h3>has frequency<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasFrequency</p>
@@ -4409,7 +4363,7 @@ This section provides details for each class and property defined by OSDi.
      has range
     </dt>
     <dd>
-     <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>
+     <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable Model Item</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      is inverse of
@@ -4571,39 +4525,13 @@ This section provides details for each class and property defined by OSDi.
      has domain
     </dt>
     <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>
+     <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
      <a href="#Parameter" title="https://w3id.org/ontologies-ULL/OSDi#Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasLineOfTherapy">
-  <h3>has line of therapy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#TherapeuticIntervention" title="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention">Therapeutic intervention</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#LineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">Line-of-therapy strategy</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> (<a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup> <span class="logic">only</span> <a href="#LineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy">Line-of-therapy strategy</a> <sup class="type-c" title="class">c</sup>))
     </dd>
    </dl>
   </div>
@@ -4742,7 +4670,7 @@ This section provides details for each class and property defined by OSDi.
      has domain
     </dt>
     <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup>
+     <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -4823,7 +4751,7 @@ This section provides details for each class and property defined by OSDi.
      has domain
     </dt>
     <dd>
-     <a href="#GroupableModelItem" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItem">Groupable model item</a> <sup class="type-c" title="class">c</sup>
+     <a href="#GroupableModelItemWithProportion" title="https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion">Groupable model item</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -4882,32 +4810,6 @@ This section provides details for each class and property defined by OSDi.
     </dt>
     <dd>
      <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasScreeningStrategy">
-  <h3>has screening strategy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasStrategy">has strategy</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ScreeningIntervention" title="https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention">Screening intervention</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#ScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy">Screening strategy</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> (<a href="#Group" title="https://w3id.org/ontologies-ULL/OSDi#Group">Group</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="#hasGroupItem" title="https://w3id.org/ontologies-ULL/OSDi#hasGroupItem">has group item</a> <sup class="type-op" title="object property">op</sup> <span class="logic">only</span> <a href="#ScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy">Screening strategy</a> <sup class="type-c" title="class">c</sup>))
     </dd>
    </dl>
   </div>
@@ -5002,16 +4904,10 @@ This section provides details for each class and property defined by OSDi.
   <div class="description">
    <dl>
     <dt>
-     has sub-properties
-    </dt>
-    <dd>
-     <a href="#hasDiagnosisStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy">has diagnosis cost</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFollowUpStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy">has follow-up strategy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLineOfTherapy" title="https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy">has line of therapy</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasScreeningStrategy" title="https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy">has screening strategy</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
      has domain
     </dt>
     <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Strategy" title="https://w3id.org/ontologies-ULL/OSDi#Strategy">Strategy</a> <sup class="type-c" title="class">c</sup>
+     <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Strategy" title="https://w3id.org/ontologies-ULL/OSDi#Strategy">Strategy</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -5103,32 +4999,6 @@ This section provides details for each class and property defined by OSDi.
    </dl>
   </div>
  </div>
- <div class="entity" id="hasTreatmentCost">
-  <h3>has treatment cost<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasCost" title="https://w3id.org/ontologies-ULL/OSDi#hasCost">has cost</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#TherapeuticIntervention" title="https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention">Therapeutic intervention</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#Cost" title="https://w3id.org/ontologies-ULL/OSDi#Cost">Cost</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="hasUncertaintyCharacterization">
   <h3>has uncertainty characterization<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization</p>
@@ -5170,7 +5040,7 @@ This section provides details for each class and property defined by OSDi.
      has domain
     </dt>
     <dd>
-     <a href="#ClinicalProgressionElement" title="https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement">Disease progression</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Disease" title="https://w3id.org/ontologies-ULL/OSDi#Disease">Disease</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#HealthTechnology" title="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology">Health technology</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Population" title="https://w3id.org/ontologies-ULL/OSDi#Population">Population</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Strategy" title="https://w3id.org/ontologies-ULL/OSDi#Strategy">Strategy</a> <sup class="type-c" title="class">c</sup>
+     <a href="#HealthCondition" title="https://w3id.org/ontologies-ULL/OSDi#HealthCondition">Health condition</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#HealthTechnology" title="https://w3id.org/ontologies-ULL/OSDi#HealthTechnology">Health technology</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Intervention" title="https://w3id.org/ontologies-ULL/OSDi#Intervention">Intervention</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Pathway" title="https://w3id.org/ontologies-ULL/OSDi#Pathway">Pathway</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Population" title="https://w3id.org/ontologies-ULL/OSDi#Population">Population</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Strategy" title="https://w3id.org/ontologies-ULL/OSDi#Strategy">Strategy</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -7117,6 +6987,8 @@ This section provides details for each class and property defined by OSDi.
   <li><a href="#Exp_Java" title="https://w3id.org/ontologies-ULL/OSDi#Exp_Java"> <span>Exp Java</span> </a></li>
   <li><a href="#Exp_Javaluator" title="https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator"> <span>Exp Javaluator</span> </a></li>
   <li><a href="#DI_Factor" title="https://w3id.org/ontologies-ULL/OSDi#DI_Factor">Factor</a></li>
+  <li><a href="#Group_Cost_FollowUp" title="https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp"> <span>Group Cost Follow Up</span> </a></li>
+  <li><a href="#Group_Cost_Treatment" title="https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment"> <span>Group Cost Treatment</span> </a></li>
   <li><a href="#GuidelineLifetimeAnual" title="https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual"> <span>Guideline Lifetime Anual</span> </a></li>
   <li><a href="#Attribute_HbA1c" title="https://w3id.org/ontologies-ULL/OSDi#Attribute_HbA1c">HBA1C</a></li>
   <li><a href="#DI_Incidence" title="https://w3id.org/ontologies-ULL/OSDi#DI_Incidence">Incidence</a></li>
@@ -7468,6 +7340,12 @@ This section provides details for each class and property defined by OSDi.
    <dd>
     <a href="#ExpressionLanguage" title="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage">Expression language</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDescription" title="https://w3id.org/ontologies-ULL/OSDi#hasDescription">has description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Expression language for Excel"</span>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="Exp_JEXL">
@@ -7479,6 +7357,12 @@ This section provides details for each class and property defined by OSDi.
    </dt>
    <dd>
     <a href="#ExpressionLanguage" title="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage">Expression language</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDescription" title="https://w3id.org/ontologies-ULL/OSDi#hasDescription">has description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Expression language for Java Expression Language"</span>
    </dd>
   </dl>
  </div>
@@ -7492,6 +7376,12 @@ This section provides details for each class and property defined by OSDi.
    <dd>
     <a href="#ExpressionLanguage" title="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage">Expression language</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDescription" title="https://w3id.org/ontologies-ULL/OSDi#hasDescription">has description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Expression language for Java"</span>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="Exp_Javaluator">
@@ -7504,6 +7394,12 @@ This section provides details for each class and property defined by OSDi.
    <dd>
     <a href="#ExpressionLanguage" title="https://w3id.org/ontologies-ULL/OSDi#ExpressionLanguage">Expression language</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDescription" title="https://w3id.org/ontologies-ULL/OSDi#hasDescription">has description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Expression language for Javaluator"</span>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="DI_Factor">
@@ -7515,6 +7411,38 @@ This section provides details for each class and property defined by OSDi.
    </dt>
    <dd>
     <a href="#DataItemType" title="https://w3id.org/ontologies-ULL/OSDi#DataItemType">Data item type</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Group_Cost_FollowUp">
+  <h3>Group Cost Follow Up<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd></dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDescription" title="https://w3id.org/ontologies-ULL/OSDi#hasDescription">has description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Group of costs for follow-up items"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Group_Cost_Treatment">
+  <h3>Group Cost Treatment<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd></dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDescription" title="https://w3id.org/ontologies-ULL/OSDi#hasDescription">has description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Group of costs for treatment items"</span>
    </dd>
   </dl>
  </div>
