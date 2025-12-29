@@ -809,17 +809,17 @@ osdi:PBD_ModelTreeFake rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontologies-ULL/OSDi-PBD#PBD_ProfoundBiotinidaseDeficiency
 osdi:PBD_ProfoundBiotinidaseDeficiency rdf:type owl:NamedIndividual ,
                                                osdi:RareDisease ;
-                                      osdi:hasDiagnosisStrategy osdi:PBD_ClinicalDiagnosis ;
+                                      osdi:hasStrategy  osdi:PBD_ClinicalDiagnosis ,
+                                                        osdi:PBD_FollowUpStrategy ,
+                                                        osdi:PBD_TreatmentStrategy ;
                                       osdi:hasProgressionElement osdi:PBD_ManifestationHearingProblems ,
                                                                  osdi:PBD_ManifestationHypotonia ,
                                                                  osdi:PBD_ManifestationMentalDelay ,
                                                                  osdi:PBD_ManifestationSeizure ,
                                                                  osdi:PBD_ManifestationSkinProblems ,
                                                                  osdi:PBD_ManifestationVisionLoss ;
-                                      osdi:hasFollowUpStrategy osdi:PBD_FollowUpStrategy ;
                                       osdi:hasIntervention osdi:PBD_InterventionNoScreening ,
                                                            osdi:PBD_InterventionScreening ;
-                                      osdi:hasLineOfTherapy osdi:PBD_TreatmentStrategy ;
                                       osdi:includedByModel osdi:PBD_ModelTree ,
                                                            osdi:PBD_ModelTreeDebug ,
                                                            osdi:PBD_ModelTreeFake ;

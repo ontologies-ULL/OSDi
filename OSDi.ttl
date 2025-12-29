@@ -204,8 +204,7 @@ osdi:hasConditionExpression rdf:type owl:ObjectProperty ;
 osdi:hasCost rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf osdi:hasParameter ;
              rdfs:domain [ rdf:type owl:Class ;
-                           owl:unionOf ( osdi:ClinicalProgressionElement
-                                         osdi:Disease
+                           owl:unionOf ( osdi:HealthCondition
                                          osdi:HealthTechnology
                                          osdi:Intervention
                                          osdi:Pathway
@@ -247,30 +246,6 @@ osdi:hasDiagnosisCost rdf:type owl:ObjectProperty ;
                       rdfs:range osdi:Cost ;
                       rdfs:label "has diagnosis cost"@en ,
                                  "tiene el coste de diagnóstico"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisStrategy
-osdi:hasDiagnosisStrategy rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf osdi:hasStrategy ;
-                          rdfs:domain [ rdf:type owl:Class ;
-                                        owl:unionOf ( osdi:DetectionIntervention
-                                                      osdi:Disease
-                                                    )
-                                      ] ;
-                          rdfs:range [ rdf:type owl:Class ;
-                                       owl:unionOf ( osdi:DiagnosisStrategy
-                                                     [ owl:intersectionOf ( osdi:Group
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty osdi:hasGroupItem ;
-                                                                              owl:allValuesFrom osdi:DiagnosisStrategy
-                                                                            ]
-                                                                          ) ;
-                                                       rdf:type owl:Class
-                                                     ]
-                                                   )
-                                     ] ;
-                          rdfs:label "has diagnosis cost"@en ,
-                                     "tiene el coste de diagnóstico"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDose
@@ -330,46 +305,6 @@ osdi:hasFirst rdf:type owl:ObjectProperty ;
               rdfs:comment "Points to the first of a set of ordered items"@en ;
               rdfs:label "has first"@en ,
                          "tiene primero"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasFollowUpCost
-osdi:hasFollowUpCost rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf osdi:hasCost ;
-                     rdfs:domain [ rdf:type owl:Class ;
-                                   owl:unionOf ( osdi:ClinicalProgressionElement
-                                                 osdi:Disease
-                                                 osdi:TherapeuticIntervention
-                                               )
-                                 ] ;
-                     rdfs:range osdi:Cost ;
-                     rdfs:label "has follow-up cost"@en ,
-                                "tiene el coste de seguimiento"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasFollowUpStrategy
-osdi:hasFollowUpStrategy rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf osdi:hasStrategy ;
-                         rdfs:domain [ rdf:type owl:Class ;
-                                       owl:unionOf ( osdi:ClinicalProgressionElement
-                                                     osdi:Disease
-                                                     osdi:LineOfTherapy
-                                                     osdi:TherapeuticIntervention
-                                                   )
-                                     ] ;
-                         rdfs:range [ rdf:type owl:Class ;
-                                      owl:unionOf ( osdi:FollowUpStrategy
-                                                    [ owl:intersectionOf ( osdi:Group
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty osdi:hasGroupItem ;
-                                                                             owl:allValuesFrom osdi:FollowUpStrategy
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
-                                                  )
-                                    ] ;
-                         rdfs:label "has follow-up strategy"@en ,
-                                    "tiene la estrategia de seguimiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasFrequency
@@ -461,39 +396,10 @@ osdi:hasLifeExpectancy rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction
 osdi:hasLifeExpectancyReduction rdf:type owl:ObjectProperty ;
                                 rdfs:subPropertyOf osdi:hasParameter ;
-                                rdfs:domain [ rdf:type owl:Class ;
-                                              owl:unionOf ( osdi:ClinicalProgressionElement
-                                                            osdi:Disease
-                                                          )
-                                            ] ;
+                                rdfs:domain osdi:HealthCondition ;
                                 rdfs:range osdi:Parameter ;
                                 rdfs:label "has life expectancy reduction"@en ,
                                            "tiene la reducción de la esperanza de vida"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasLineOfTherapy
-osdi:hasLineOfTherapy rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf osdi:hasStrategy ;
-                      rdfs:domain [ rdf:type owl:Class ;
-                                    owl:unionOf ( osdi:ClinicalProgressionElement
-                                                  osdi:Disease
-                                                  osdi:TherapeuticIntervention
-                                                )
-                                  ] ;
-                      rdfs:range [ rdf:type owl:Class ;
-                                   owl:unionOf ( osdi:LineOfTherapy
-                                                 [ owl:intersectionOf ( osdi:Group
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty osdi:hasGroupItem ;
-                                                                          owl:allValuesFrom osdi:LineOfTherapy
-                                                                        ]
-                                                                      ) ;
-                                                   rdf:type owl:Class
-                                                 ]
-                                               )
-                                 ] ;
-                      rdfs:label "has line of therapy"@en ,
-                                 "tiene la línea de tratamiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasNext
@@ -544,11 +450,7 @@ osdi:hasPrevious rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath
 osdi:hasProbabilityOfDeath rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf osdi:hasParameter ;
-                           rdfs:domain [ rdf:type owl:Class ;
-                                         owl:unionOf ( osdi:ClinicalProgressionElement
-                                                       osdi:Disease
-                                                     )
-                                       ] ;
+                           rdfs:domain osdi:HealthCondition ;
                            rdfs:range osdi:Parameter ;
                            rdfs:comment "Defines an 'instantaneous' death risk, i.e., a probability of dying upon the onset of the condition"@en ;
                            rdfs:label "has probability of death"@en ,
@@ -579,7 +481,7 @@ osdi:hasProgressionElement rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup
 osdi:hasProportionWithinGroup rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf osdi:hasParameter ;
-                              rdfs:domain osdi:GroupableModelItem ;
+                              rdfs:domain osdi:GroupableModelItemWithProportion ;
                               rdfs:range osdi:Parameter ;
                               rdfs:label "has proportion within group"@en ,
                                          "tiene la proporción dentro del grupo"@es .
@@ -608,30 +510,6 @@ osdi:hasScreeningCost rdf:type owl:ObjectProperty ;
                                                 )
                                   ] ;
                       rdfs:range osdi:Cost .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasScreeningStrategy
-osdi:hasScreeningStrategy rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf osdi:hasStrategy ;
-                          rdfs:domain [ rdf:type owl:Class ;
-                                        owl:unionOf ( osdi:Disease
-                                                      osdi:ScreeningIntervention
-                                                    )
-                                      ] ;
-                          rdfs:range [ rdf:type owl:Class ;
-                                       owl:unionOf ( osdi:ScreeningStrategy
-                                                     [ owl:intersectionOf ( osdi:Group
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty osdi:hasGroupItem ;
-                                                                              owl:allValuesFrom osdi:ScreeningStrategy
-                                                                            ]
-                                                                          ) ;
-                                                       rdf:type owl:Class
-                                                     ]
-                                                   )
-                                     ] ;
-                          rdfs:label "has screening strategy"@en ,
-                                     "tiene la estrategia de cribado"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasSensitivity
@@ -679,8 +557,7 @@ osdi:hasSpecificity rdf:type owl:ObjectProperty ;
 osdi:hasStrategy rdf:type owl:ObjectProperty ;
                  owl:inverseOf osdi:isStrategyOf ;
                  rdfs:domain [ rdf:type owl:Class ;
-                               owl:unionOf ( osdi:ClinicalProgressionElement
-                                             osdi:Disease
+                               owl:unionOf ( osdi:HealthCondition
                                              osdi:Intervention
                                              osdi:Strategy
                                            )
@@ -730,20 +607,6 @@ osdi:hasTemporaryThreshold rdf:type owl:ObjectProperty ;
                                       "tiene el umbral temporal"@es .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#hasTreatmentCost
-osdi:hasTreatmentCost rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf osdi:hasCost ;
-                      rdfs:domain [ rdf:type owl:Class ;
-                                    owl:unionOf ( osdi:ClinicalProgressionElement
-                                                  osdi:Disease
-                                                  osdi:TherapeuticIntervention
-                                                )
-                                  ] ;
-                      rdfs:range osdi:Cost ;
-                      rdfs:label "has treatment cost"@en ,
-                                 "tiene el costo del tratamiento"@es .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization
 osdi:hasUncertaintyCharacterization rdf:type owl:ObjectProperty ;
                                     owl:inverseOf osdi:isUncertaintyCharacterizationOf ;
@@ -765,8 +628,7 @@ osdi:hasUncertaintyCharacterization rdf:type owl:ObjectProperty ;
 osdi:hasUtility rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf osdi:hasParameter ;
                 rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( osdi:ClinicalProgressionElement
-                                            osdi:Disease
+                              owl:unionOf ( osdi:HealthCondition
                                             osdi:HealthTechnology
                                             osdi:Intervention
                                             osdi:Pathway
@@ -1648,32 +1510,7 @@ osdi:ChronicManifestation rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement
 osdi:ClinicalProgressionElement rdf:type owl:Class ;
                                 rdfs:subClassOf osdi:DiseaseProgressionElement ,
-                                                [ rdf:type owl:Class ;
-                                                  owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty osdi:hasFollowUpCost ;
-                                                                  owl:allValuesFrom osdi:Cost
-                                                                ]
-                                                                [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty osdi:hasFollowUpStrategy ;
-                                                                  owl:allValuesFrom osdi:FollowUpStrategy
-                                                                ]
-                                                              )
-                                                ] ,
-                                                [ rdf:type owl:Class ;
-                                                  owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty osdi:hasLineOfTherapy ;
-                                                                  owl:allValuesFrom osdi:LineOfTherapy
-                                                                ]
-                                                                [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty osdi:hasTreatmentCost ;
-                                                                  owl:allValuesFrom osdi:Cost
-                                                                ]
-                                                              )
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasCost ;
-                                                  owl:allValuesFrom osdi:Cost
-                                                ] ,
+                                                osdi:HealthCondition ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty osdi:hasDuration ;
                                                   owl:allValuesFrom osdi:Parameter
@@ -1683,19 +1520,7 @@ osdi:ClinicalProgressionElement rdf:type owl:Class ;
                                                   owl:allValuesFrom osdi:Parameter
                                                 ] ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasIncreasedMortalityRate ;
-                                                  owl:allValuesFrom osdi:Parameter
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasLifeExpectancyReduction ;
-                                                  owl:allValuesFrom osdi:Parameter
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
                                                   owl:onProperty osdi:hasOnsetAge ;
-                                                  owl:allValuesFrom osdi:Parameter
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasProbabilityOfDeath ;
                                                   owl:allValuesFrom osdi:Parameter
                                                 ] ,
                                                 [ rdf:type owl:Restriction ;
@@ -1711,12 +1536,16 @@ osdi:ClinicalProgressionElement rdf:type owl:Class ;
                                                                     ]
                                                 ] ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasSubProgression ;
-                                                  owl:allValuesFrom osdi:ClinicalProgressionElement
+                                                  owl:onProperty osdi:hasStrategy ;
+                                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                      owl:unionOf ( osdi:FollowUpStrategy
+                                                                                    osdi:LineOfTherapy
+                                                                                  )
+                                                                    ]
                                                 ] ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasUtility ;
-                                                  owl:allValuesFrom osdi:Utility
+                                                  owl:onProperty osdi:hasSubProgression ;
+                                                  owl:allValuesFrom osdi:ClinicalProgressionElement
                                                 ] ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty osdi:supersedesClinicalProgression ;
@@ -1832,20 +1661,13 @@ osdi:DetectionIntervention rdf:type owl:Class ;
                                                              )
                                                ] ;
                            rdfs:subClassOf osdi:Intervention ,
-                                           [ rdf:type owl:Class ;
-                                             owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                             owl:onProperty osdi:hasDiagnosisCost ;
-                                                             owl:allValuesFrom osdi:Cost
-                                                           ]
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty osdi:hasDiagnosisStrategy ;
-                                                             owl:allValuesFrom osdi:DiagnosisStrategy
-                                                           ]
-                                                         )
-                                           ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty osdi:detects ;
                                              owl:allValuesFrom osdi:Disease
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty osdi:hasDiagnosisCost ;
+                                             owl:allValuesFrom osdi:Cost
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty osdi:hasSensitivity ;
@@ -1983,53 +1805,9 @@ osdi:DiscreteEventSimulationModel rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Disease
 osdi:Disease rdf:type owl:Class ;
-             rdfs:subClassOf osdi:ModelItem ,
-                             [ rdf:type owl:Class ;
-                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasDiagnosisCost ;
-                                               owl:allValuesFrom osdi:Cost
-                                             ]
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasDiagnosisStrategy ;
-                                               owl:allValuesFrom osdi:DiagnosisStrategy
-                                             ]
-                                           )
-                             ] ,
-                             [ rdf:type owl:Class ;
-                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasFollowUpCost ;
-                                               owl:allValuesFrom osdi:Cost
-                                             ]
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasFollowUpStrategy ;
-                                               owl:allValuesFrom osdi:FollowUpStrategy
-                                             ]
-                                           )
-                             ] ,
-                             [ rdf:type owl:Class ;
-                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasLineOfTherapy ;
-                                               owl:allValuesFrom osdi:LineOfTherapy
-                                             ]
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasTreatmentCost ;
-                                               owl:allValuesFrom osdi:Cost
-                                             ]
-                                           )
-                             ] ,
-                             [ rdf:type owl:Class ;
-                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasScreeningCost ;
-                                               owl:allValuesFrom osdi:Cost
-                                             ]
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty osdi:hasScreeningStrategy ;
-                                               owl:allValuesFrom osdi:ScreeningStrategy
-                                             ]
-                                           )
-                             ] ,
+             rdfs:subClassOf osdi:HealthCondition ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasCost ;
+                               owl:onProperty osdi:hasDiagnosisCost ;
                                owl:allValuesFrom osdi:Cost
                              ] ,
                              [ rdf:type owl:Restriction ;
@@ -2044,20 +1822,8 @@ osdi:Disease rdf:type owl:Class ;
                                                  ]
                              ] ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasIncreasedMortalityRate ;
-                               owl:allValuesFrom osdi:Parameter
-                             ] ,
-                             [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasIntervention ;
                                owl:allValuesFrom osdi:Intervention
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasLifeExpectancyReduction ;
-                               owl:allValuesFrom osdi:Parameter
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasProbabilityOfDeath ;
-                               owl:allValuesFrom osdi:Parameter
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasProgressionElement ;
@@ -2072,8 +1838,8 @@ osdi:Disease rdf:type owl:Class ;
                                                  ]
                              ] ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasUtility ;
-                               owl:allValuesFrom osdi:Utility
+                               owl:onProperty osdi:hasScreeningCost ;
+                               owl:allValuesFrom osdi:Cost
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:usesAttributeValue ;
@@ -2156,6 +1922,7 @@ osdi:ExpressionLanguage rdf:type owl:Class ;
                                                           osdi:Exp_Javaluator
                                                         )
                                             ] ;
+                        rdfs:subClassOf osdi:Describable ;
                         rdfs:comment "Language used to define an expression in a string. Generally used to compute something from other items of the model. Only the predefined languages are allowed, but future versions of the ontology may include more."@en ;
                         rdfs:label "Expression language"@en ,
                                    "Lenguaje de expresión"@es .
@@ -2251,18 +2018,27 @@ osdi:GroupableModelItem rdf:type owl:Class ;
                                                                      owl:onProperty osdi:belongsToGroup ;
                                                                      owl:someValuesFrom osdi:Group
                                                                    ]
-                                                                   [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty osdi:hasProportionWithinGroup ;
-                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                     owl:onClass osdi:Parameter
-                                                                   ]
                                                                  ) ;
                                               rdf:type owl:Class
                                             ] ;
-                        rdfs:subClassOf osdi:ModelItem ;
-                        rdfs:comment "A model item that can be put in a group"@en ;
-                        rdfs:label "Elemento del modelo agrupable"@es ,
-                                   "Groupable model item"@en .
+                        rdfs:subClassOf osdi:ModelItem .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion
+osdi:GroupableModelItemWithProportion rdf:type owl:Class ;
+                                      owl:equivalentClass [ owl:intersectionOf ( osdi:GroupableModelItem
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty osdi:hasProportionWithinGroup ;
+                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                   owl:onClass osdi:Parameter
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ] ;
+                                      rdfs:subClassOf osdi:GroupableModelItem ;
+                                      rdfs:comment "A model item that can be put in a group"@en ;
+                                      rdfs:label "Elemento del modelo agrupable"@es ,
+                                                 "Groupable model item"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Guideline
@@ -2302,6 +2078,38 @@ osdi:Guideline rdf:type owl:Class ;
                rdfs:comment "The way a treatment, drug, test... is applied. It defines a period of time (range), dose, frequency, etc." ;
                rdfs:label "Guideline"@en ,
                           "Pauta"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#HealthCondition
+osdi:HealthCondition rdf:type owl:Class ;
+                     rdfs:subClassOf osdi:ModelItem ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty osdi:hasCost ;
+                                       owl:allValuesFrom osdi:Cost
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty osdi:hasIncreasedMortalityRate ;
+                                       owl:allValuesFrom osdi:Parameter
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty osdi:hasLifeExpectancyReduction ;
+                                       owl:allValuesFrom osdi:Parameter
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty osdi:hasProbabilityOfDeath ;
+                                       owl:allValuesFrom osdi:Parameter
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty osdi:hasStrategy ;
+                                       owl:allValuesFrom osdi:Strategy
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty osdi:hasUtility ;
+                                       owl:allValuesFrom osdi:Utility
+                                     ] ;
+                     rdfs:comment "Any disease, symptom or clinical sign that affects the health of an individual"@en ;
+                     rdfs:label "Condición de salud"@es ,
+                                "Health condition"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#HealthTechnology
@@ -2348,6 +2156,10 @@ osdi:Intervention rdf:type owl:Class ;
                                     owl:allValuesFrom osdi:Cost
                                   ] ,
                                   [ rdf:type owl:Restriction ;
+                                    owl:onProperty osdi:hasStrategy ;
+                                    owl:allValuesFrom osdi:Strategy
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
                                     owl:onProperty osdi:hasUtility ;
                                     owl:allValuesFrom osdi:Utility
                                   ] ,
@@ -2365,20 +2177,13 @@ osdi:Intervention rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy
 osdi:LineOfTherapy rdf:type owl:Class ;
                    rdfs:subClassOf osdi:Strategy ,
-                                   [ rdf:type owl:Class ;
-                                     owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                     owl:onProperty osdi:hasFollowUpCost ;
-                                                     owl:allValuesFrom osdi:Cost
-                                                   ]
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty osdi:hasFollowUpStrategy ;
-                                                     owl:allValuesFrom osdi:FollowUpStrategy
-                                                   ]
-                                                 )
-                                   ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty osdi:failsIf ;
                                      owl:allValuesFrom osdi:Parameter
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty osdi:hasStrategy ;
+                                     owl:allValuesFrom osdi:FollowUpStrategy
                                    ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty osdi:usesHealthTechnology ;
@@ -2542,13 +2347,17 @@ osdi:ModelItemWithCost rdf:type owl:Class ;
 osdi:ModelItemWithDetection rdf:type owl:Class ;
                             owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
                                                                        [ rdf:type owl:Class ;
-                                                                         owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasDiagnosisCost ;
-                                                                                         owl:someValuesFrom osdi:Cost
+                                                                         owl:unionOf ( [ rdf:type owl:Class ;
+                                                                                         owl:unionOf ( osdi:ScreeningStrategy
+                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty osdi:hasStrategy ;
+                                                                                                         owl:someValuesFrom osdi:DiagnosisStrategy
+                                                                                                       ]
+                                                                                                     )
                                                                                        ]
                                                                                        [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasDiagnosisStrategy ;
-                                                                                         owl:someValuesFrom osdi:DiagnosisStrategy
+                                                                                         owl:onProperty osdi:hasDiagnosisCost ;
+                                                                                         owl:someValuesFrom osdi:Cost
                                                                                        ]
                                                                                        [ rdf:type owl:Restriction ;
                                                                                          owl:onProperty osdi:hasIntervention ;
@@ -2557,10 +2366,6 @@ osdi:ModelItemWithDetection rdf:type owl:Class ;
                                                                                        [ rdf:type owl:Restriction ;
                                                                                          owl:onProperty osdi:hasScreeningCost ;
                                                                                          owl:someValuesFrom osdi:Cost
-                                                                                       ]
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasScreeningStrategy ;
-                                                                                         owl:someValuesFrom osdi:ScreeningStrategy
                                                                                        ]
                                                                                      )
                                                                        ]
@@ -2605,16 +2410,13 @@ osdi:ModelItemWithEffectInLifeExpectancy rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp
 osdi:ModelItemWithFollowUp rdf:type owl:Class ;
                            owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
-                                                                      [ rdf:type owl:Class ;
-                                                                        owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                        owl:onProperty osdi:hasFollowUpCost ;
-                                                                                        owl:someValuesFrom osdi:Cost
-                                                                                      ]
-                                                                                      [ rdf:type owl:Restriction ;
-                                                                                        owl:onProperty osdi:hasFollowUpStrategy ;
-                                                                                        owl:someValuesFrom osdi:FollowUpStrategy
-                                                                                      ]
-                                                                                    )
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty osdi:hasStrategy ;
+                                                                        owl:someValuesFrom osdi:FollowUpStrategy
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty osdi:hasStrategy ;
+                                                                        owl:allValuesFrom osdi:FollowUpStrategy
                                                                       ]
                                                                     ) ;
                                                  rdf:type owl:Class
@@ -2682,16 +2484,13 @@ osdi:ModelItemWithTemporalConstraints rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment
 osdi:ModelItemWithTreatment rdf:type owl:Class ;
                             owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
-                                                                       [ rdf:type owl:Class ;
-                                                                         owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasLineOfTherapy ;
-                                                                                         owl:someValuesFrom osdi:LineOfTherapy
-                                                                                       ]
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasTreatmentCost ;
-                                                                                         owl:someValuesFrom osdi:Cost
-                                                                                       ]
-                                                                                     )
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty osdi:hasStrategy ;
+                                                                         owl:someValuesFrom osdi:LineOfTherapy
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty osdi:hasStrategy ;
+                                                                         owl:allValuesFrom osdi:LineOfTherapy
                                                                        ]
                                                                      ) ;
                                                   rdf:type owl:Class
@@ -3037,22 +2836,14 @@ osdi:ResourceUsageItem rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention
 osdi:ScreeningIntervention rdf:type owl:Class ;
                            rdfs:subClassOf osdi:DetectionIntervention ,
-                                           [ rdf:type owl:Class ;
-                                             owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                             owl:onProperty osdi:hasScreeningCost ;
-                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass osdi:Cost
-                                                           ]
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty osdi:hasScreeningStrategy ;
-                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass osdi:ScreeningStrategy
-                                                           ]
-                                                         )
-                                           ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty osdi:hasTemporaryThreshold ;
                                              owl:allValuesFrom osdi:Parameter
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty osdi:hasScreeningCost ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass osdi:Cost
                                            ] ;
                            rdfs:comment "An intervention to identifiy the subset of population who may have certain disease or condition and require further testing to obtain a final diagnosis"@en ;
                            rdfs:label "Intervención de cribado"@es ,
@@ -3184,31 +2975,13 @@ osdi:Strategy rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention
 osdi:TherapeuticIntervention rdf:type owl:Class ;
                              rdfs:subClassOf osdi:Intervention ,
-                                             [ rdf:type owl:Class ;
-                                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                               owl:onProperty osdi:hasFollowUpCost ;
-                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                               owl:onClass osdi:Cost
-                                                             ]
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty osdi:hasFollowUpStrategy ;
-                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                               owl:onClass osdi:FollowUpStrategy
-                                                             ]
-                                                           )
-                                             ] ,
-                                             [ rdf:type owl:Class ;
-                                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                               owl:onProperty osdi:hasLineOfTherapy ;
-                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                               owl:onClass osdi:LineOfTherapy
-                                                             ]
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty osdi:hasTreatmentCost ;
-                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                               owl:onClass osdi:Cost
-                                                             ]
-                                                           )
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty osdi:hasStrategy ;
+                                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( osdi:FollowUpStrategy
+                                                                                 osdi:LineOfTherapy
+                                                                               )
+                                                                 ]
                                              ] ;
                              rdfs:comment "An intervention driven by a set of drugs and/or treatments"@en ;
                              rdfs:label "Intervención terapéutica"@es ,
@@ -3594,22 +3367,52 @@ osdi:DI_Upper95ConfidenceLimit rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Excel
 osdi:Exp_Excel rdf:type owl:NamedIndividual ,
-                        osdi:ExpressionLanguage .
+                        osdi:ExpressionLanguage ;
+               osdi:hasDescription "Expression language for Excel"^^xsd:string .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL
 osdi:Exp_JEXL rdf:type owl:NamedIndividual ,
-                       osdi:ExpressionLanguage .
+                       osdi:ExpressionLanguage ;
+              osdi:hasDescription "Expression language for Java Expression Language"^^xsd:string .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Java
 osdi:Exp_Java rdf:type owl:NamedIndividual ,
-                       osdi:ExpressionLanguage .
+                       osdi:ExpressionLanguage ;
+              osdi:hasDescription "Expression language for Java"^^xsd:string .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator
 osdi:Exp_Javaluator rdf:type owl:NamedIndividual ,
-                             osdi:ExpressionLanguage .
+                             osdi:ExpressionLanguage ;
+                    osdi:hasDescription "Expression language for Javaluator"^^xsd:string .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp
+osdi:Group_Cost_FollowUp rdf:type owl:NamedIndividual ,
+                                  [ owl:intersectionOf ( osdi:Group
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty osdi:hasGroupItem ;
+                                                           owl:allValuesFrom osdi:Cost
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                         osdi:hasDescription "Group of costs for follow-up items"^^xsd:string .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment
+osdi:Group_Cost_Treatment rdf:type owl:NamedIndividual ,
+                                   [ owl:intersectionOf ( osdi:Group
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty osdi:hasGroupItem ;
+                                                            owl:allValuesFrom osdi:Cost
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+                          osdi:hasDescription "Group of costs for treatment items"^^xsd:string .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual
@@ -3626,52 +3429,22 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
                            osdi:isAssessedIntervention "false"^^xsd:boolean .
 
 
-[ opla-sd:entityPositionX "163.9652551238964"^^xsd:double ;
-  opla-sd:entityPositionY "13.884426031710573"^^xsd:double ;
-  rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
-] .
-
-[ opla-sd:entityPositionX "264.53086737911997"^^xsd:double ;
-   opla-sd:entityPositionY "35.59904284310582"^^xsd:double ;
-   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
- ] .
-
-[ opla-sd:entityPositionX "80.67230303494442"^^xsd:double ;
-   opla-sd:entityPositionY "257.2295616088946"^^xsd:double ;
-   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
- ] .
-
-[ opla-sd:entityPositionX "137.71094492073297"^^xsd:double ;
-   opla-sd:entityPositionY "111.01194217726372"^^xsd:double ;
-   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
- ] .
-
-[ opla-sd:entityPositionX "66.05568696358739"^^xsd:double ;
-   opla-sd:entityPositionY "4.9815693558255685"^^xsd:double ;
-   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
- ] .
-
-[ opla-sd:entityPositionX "100.61244444225647"^^xsd:double ;
-   opla-sd:entityPositionY "133.2020154340692"^^xsd:double ;
-   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
- ] .
-
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-   owl:members ( osdi:Attribute
-                 osdi:ClinicalProgressionElement
-                 osdi:Disease
-                 osdi:Intervention
-                 osdi:Parameter
-                 osdi:Pathway
-                 osdi:Population
-                 osdi:ProbabilityDistributionExpression
-                 osdi:ResourceUsageItem
-               )
- ] .
+  owl:members ( osdi:Attribute
+                osdi:ClinicalProgressionElement
+                osdi:Disease
+                osdi:Intervention
+                osdi:Parameter
+                osdi:Pathway
+                osdi:Population
+                osdi:ProbabilityDistributionExpression
+                osdi:ResourceUsageItem
+              )
+] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
