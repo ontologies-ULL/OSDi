@@ -2347,15 +2347,7 @@ osdi:ModelItemWithCost rdf:type owl:Class ;
 osdi:ModelItemWithDetection rdf:type owl:Class ;
                             owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
                                                                        [ rdf:type owl:Class ;
-                                                                         owl:unionOf ( [ rdf:type owl:Class ;
-                                                                                         owl:unionOf ( osdi:ScreeningStrategy
-                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty osdi:hasStrategy ;
-                                                                                                         owl:someValuesFrom osdi:DiagnosisStrategy
-                                                                                                       ]
-                                                                                                     )
-                                                                                       ]
-                                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:unionOf ( [ rdf:type owl:Restriction ;
                                                                                          owl:onProperty osdi:hasDiagnosisCost ;
                                                                                          owl:someValuesFrom osdi:Cost
                                                                                        ]
@@ -2366,6 +2358,14 @@ osdi:ModelItemWithDetection rdf:type owl:Class ;
                                                                                        [ rdf:type owl:Restriction ;
                                                                                          owl:onProperty osdi:hasScreeningCost ;
                                                                                          owl:someValuesFrom osdi:Cost
+                                                                                       ]
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty osdi:hasStrategy ;
+                                                                                         owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                                              owl:unionOf ( osdi:DiagnosisStrategy
+                                                                                                                            osdi:ScreeningStrategy
+                                                                                                                          )
+                                                                                                            ]
                                                                                        ]
                                                                                      )
                                                                        ]
