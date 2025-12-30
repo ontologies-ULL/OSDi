@@ -1718,11 +1718,11 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "_:genid389"
+      "@id" : "_:genid392"
     }, {
-      "@id" : "_:genid387"
+      "@id" : "_:genid390"
     }, {
-      "@id" : "_:genid385"
+      "@id" : "_:genid388"
     }, {
       "@id" : "_:genid383"
     } ]
@@ -1731,13 +1731,32 @@
   "@id" : "_:genid383",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasStrategy"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "_:genid384"
+  } ]
+}, {
+  "@id" : "_:genid384",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"
+    }, {
+      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid388",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
   } ]
 }, {
-  "@id" : "_:genid385",
+  "@id" : "_:genid390",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasIntervention"
@@ -1746,32 +1765,13 @@
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"
   } ]
 }, {
-  "@id" : "_:genid387",
+  "@id" : "_:genid392",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Cost"
-  } ]
-}, {
-  "@id" : "_:genid389",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"
-    }, {
-      "@id" : "_:genid391"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid391",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#hasStrategy"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"
   } ]
 }, {
   "@id" : "_:genid394",

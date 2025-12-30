@@ -2341,15 +2341,7 @@ Examples:
 :ModelItemWithDetection rdf:type owl:Class ;
                         owl:equivalentClass [ owl:intersectionOf ( :ModelItem
                                                                    [ rdf:type owl:Class ;
-                                                                     owl:unionOf ( [ rdf:type owl:Class ;
-                                                                                     owl:unionOf ( :ScreeningStrategy
-                                                                                                   [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty :hasStrategy ;
-                                                                                                     owl:someValuesFrom :DiagnosisStrategy
-                                                                                                   ]
-                                                                                                 )
-                                                                                   ]
-                                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:unionOf ( [ rdf:type owl:Restriction ;
                                                                                      owl:onProperty :hasDiagnosisCost ;
                                                                                      owl:someValuesFrom :Cost
                                                                                    ]
@@ -2360,6 +2352,14 @@ Examples:
                                                                                    [ rdf:type owl:Restriction ;
                                                                                      owl:onProperty :hasScreeningCost ;
                                                                                      owl:someValuesFrom :Cost
+                                                                                   ]
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty :hasStrategy ;
+                                                                                     owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                                          owl:unionOf ( :DiagnosisStrategy
+                                                                                                                        :ScreeningStrategy
+                                                                                                                      )
+                                                                                                        ]
                                                                                    ]
                                                                                  )
                                                                    ]

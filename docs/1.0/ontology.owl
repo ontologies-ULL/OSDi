@@ -3528,15 +3528,6 @@ Examples:
                     <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ModelItem"/>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
-                                    </owl:Restriction>
-                                </owl:unionOf>
-                            </owl:Class>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
@@ -3548,6 +3539,17 @@ Examples:
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/ontologies-ULL/OSDi#Cost"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/ontologies-ULL/OSDi#hasStrategy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy"/>
+                                            <rdf:Description rdf:about="https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
                             </owl:Restriction>
                         </owl:unionOf>
                     </owl:Class>
