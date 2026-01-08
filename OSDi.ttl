@@ -7,10 +7,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix osdi: <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix opla-sd: <http://ontologydesignpatterns.org/opla-sd#> .
 @prefix ontodebug: <http://ainf.aau.at/ontodebug#> .
-@base <https://w3id.org/ontologies-ULL/OSDi> .
+@base <https://w3id.org/ontologies-ULL/OSDi#> .
 
 <https://w3id.org/ontologies-ULL/OSDi> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://w3id.org/ontologies-ULL/OSDi/1.0> ;
@@ -71,6 +72,14 @@ dc:source rdf:type owl:AnnotationProperty .
 dcterms:abstract rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#TODO
 osdi:TODO rdf:type owl:AnnotationProperty .
 
@@ -86,6 +95,18 @@ osdi:creator rdf:type owl:AnnotationProperty .
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#topConceptOf
+skos:topConceptOf rdf:type owl:ObjectProperty .
+
 
 ###  https://w3id.org/ontologies-ULL/OSDi#affects
 osdi:affects rdf:type owl:ObjectProperty ;
@@ -197,6 +218,20 @@ osdi:hasAttributeValue rdf:type owl:ObjectProperty ;
                        rdfs:comment "Defines a value for an attribute, which should be used by a population and/or disease"@en ;
                        rdfs:label "has attribute value"@en ,
                                   "tiene el valor del atributo"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasCategory
+osdi:hasCategory rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( osdi:Cost
+                                             osdi:ResourceUsageItem
+                                           )
+                             ] ;
+                 rdfs:range skos:Concept ;
+                 rdfs:comment "Asocia un coste o una estrategia con un concepto SKOS usado con fines de clasificación y análisis."@es ,
+                              "Associates a cost or a strategy with a SKOS concept used for classification and analysis purposes."@en ;
+                 rdfs:label "has category"@en ,
+                            "tiene categoría"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasConditionExpression
@@ -833,24 +868,6 @@ osdi:usesAttributeValue rdf:type owl:ObjectProperty ;
                                    "uses attribute value"@en .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#usesDrug
-osdi:usesDrug rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf osdi:usesHealthTechnology ;
-              rdfs:domain osdi:LineOfTherapy ;
-              rdfs:range osdi:Drug ;
-              rdfs:label "uses drug"@en ,
-                         "utiliza el fármaco"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#usesFollowUpTest
-osdi:usesFollowUpTest rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf osdi:usesHealthTechnology ;
-                      rdfs:domain osdi:FollowUpStrategy ;
-                      rdfs:range osdi:FollowUpTest ;
-                      rdfs:label "uses follow-up test"@en ,
-                                 "utiliza la prueba de seguimiento"@es .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#usesHealthTechnology
 osdi:usesHealthTechnology rdf:type owl:ObjectProperty ;
                           rdfs:domain osdi:Strategy ;
@@ -866,15 +883,6 @@ osdi:usesSameModelItemsAs rdf:type owl:ObjectProperty ;
                           rdfs:comment "Defines that a model uses the same data items as another model. Useful for avoiding \"recreating\" that relationship for all the model items in models which are very similar and simply difer in some characteristics." ;
                           rdfs:label "uses same model items as"@en ,
                                      "utiliza los mismos elementos del modelo que"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#usesTreatment
-osdi:usesTreatment rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf osdi:usesHealthTechnology ;
-                   rdfs:domain osdi:LineOfTherapy ;
-                   rdfs:range osdi:Treatment ;
-                   rdfs:label "uses treatment"@en ,
-                              "utiliza tratamiento"@es .
 
 
 #################################################################
@@ -1291,6 +1299,14 @@ osdi:isTrueEpidemiologicalParameterEstimate rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#AcuteManifestation
 osdi:AcuteManifestation rdf:type owl:Class ;
                         rdfs:subClassOf osdi:Manifestation ,
@@ -1546,6 +1562,10 @@ osdi:Cost rdf:type owl:Class ;
                                 rdf:type owl:Class
                               ] ;
           rdfs:subClassOf osdi:YearDependantParameter ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty osdi:hasCategory ;
+                            owl:allValuesFrom skos:Concept
+                          ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty osdi:appliesOneTime ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1805,14 +1825,6 @@ osdi:DiseaseProgressionElement rdf:type owl:Class ;
                                rdfs:subClassOf osdi:ModelItem .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#Drug
-osdi:Drug rdf:type owl:Class ;
-          rdfs:subClassOf osdi:HealthTechnology ;
-          rdfs:comment "A natural or synthetic remedy for a disease or manifestation"@en ;
-          rdfs:label "Drug"@en ,
-                     "Fármaco"@es .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#Effect
 osdi:Effect rdf:type owl:Class ;
             rdfs:subClassOf osdi:ModelItem ,
@@ -1906,22 +1918,10 @@ osdi:FirstOrderUncertaintyParameter rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy
 osdi:FollowUpStrategy rdf:type owl:Class ;
-                      rdfs:subClassOf osdi:Strategy ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty osdi:usesHealthTechnology ;
-                                        owl:allValuesFrom osdi:FollowUpTest
-                                      ] ;
+                      rdfs:subClassOf osdi:Strategy ;
                       rdfs:comment "A strategy related to the follow-up of a disease or condition"@es ;
                       rdfs:label "Estrategia de seguimiento"@es ,
                                  "Follow-up strategy"@en .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#FollowUpTest
-osdi:FollowUpTest rdf:type owl:Class ;
-                  rdfs:subClassOf osdi:HealthTechnology ;
-                  rdfs:comment "Tests performed to monitor the state of a patient"@en ;
-                  rdfs:label "Follow-up test"@en ,
-                             "Prueba de seguimiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#GammaDistributionExpression
@@ -2148,14 +2148,6 @@ osdi:LineOfTherapy rdf:type owl:Class ;
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty osdi:hasStrategy ;
                                      owl:allValuesFrom osdi:FollowUpStrategy
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty osdi:usesHealthTechnology ;
-                                     owl:allValuesFrom [ rdf:type owl:Class ;
-                                                         owl:unionOf ( osdi:Drug
-                                                                       osdi:Treatment
-                                                                     )
-                                                       ]
                                    ] ;
                    rdfs:comment "A strategy related to the treatment of a disease or condition"@es ;
                    rdfs:label "Estrategia de tratamiento"@es ,
@@ -2766,6 +2758,10 @@ osdi:RareDisease rdf:type owl:Class ;
 osdi:ResourceUsageItem rdf:type owl:Class ;
                        rdfs:subClassOf osdi:ModelItem ,
                                        [ rdf:type owl:Restriction ;
+                                         owl:onProperty osdi:hasCategory ;
+                                         owl:allValuesFrom skos:Concept
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
                                          owl:onProperty osdi:hasCost ;
                                          owl:allValuesFrom osdi:Cost
                                        ] ,
@@ -2899,6 +2895,10 @@ osdi:Strategy rdf:type owl:Class ;
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty osdi:hasConditionExpression ;
                                 owl:allValuesFrom osdi:Parameter
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty osdi:usesHealthTechnology ;
+                                owl:allValuesFrom osdi:HealthTechnology
                               ] ;
               rdfs:comment "A way of defining a series of steps required to treat, detect or follow-up a disease or condition"@es ;
               rdfs:label "Estrategia"@es ,
@@ -2919,14 +2919,6 @@ osdi:TherapeuticIntervention rdf:type owl:Class ;
                              rdfs:comment "An intervention driven by a set of drugs and/or treatments"@en ;
                              rdfs:label "Intervención terapéutica"@es ,
                                         "Therapeutic intervention"@en .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#Treatment
-osdi:Treatment rdf:type owl:Class ;
-               rdfs:subClassOf osdi:HealthTechnology ;
-               rdfs:comment "Any non-drug intervention used to treat a disease or manifestation"@en ;
-               rdfs:label "Non-drug treatment"@en ,
-                          "Tratamiento no farmacológico"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression
@@ -3298,60 +3290,66 @@ osdi:DI_Upper95ConfidenceLimit rdf:type owl:NamedIndividual ,
                                           "Upper 95% CI limit"@en .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#DetectionCat
+osdi:DetectionCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:topConceptOf osdi:ResourceUsageCategoryScheme ;
+                  skos:prefLabel "Detección"@es ,
+                                 "Detection"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#DiagnosticCat
+osdi:DiagnosticCat rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader osdi:DetectionCat ;
+                   skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                   skos:prefLabel "Diagnostic"@en ,
+                                  "Diagnóstico"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#DrugCat
+osdi:DrugCat rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader osdi:TreatmentCat ;
+             skos:inScheme osdi:ResourceUsageCategoryScheme ;
+             skos:definition "Tratamiento basado en la administración de medicamentos o fármacos."@es ,
+                             "Treatment based on the administration of medicinal products or drugs."@en ;
+             skos:prefLabel "Drug-based treatment"@en ,
+                            "Tratamiento farmacológico"@es .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Excel
 osdi:Exp_Excel rdf:type owl:NamedIndividual ,
                         osdi:ExpressionLanguage ;
-               osdi:hasDescription "Expression language for Excel"^^xsd:string .
+               osdi:hasDescription "Expression language for Excel" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL
 osdi:Exp_JEXL rdf:type owl:NamedIndividual ,
                        osdi:ExpressionLanguage ;
-              osdi:hasDescription "Expression language for Java Expression Language"^^xsd:string .
+              osdi:hasDescription "Expression language for Java Expression Language" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Java
 osdi:Exp_Java rdf:type owl:NamedIndividual ,
                        osdi:ExpressionLanguage ;
-              osdi:hasDescription "Expression language for Java"^^xsd:string .
+              osdi:hasDescription "Expression language for Java" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator
 osdi:Exp_Javaluator rdf:type owl:NamedIndividual ,
                              osdi:ExpressionLanguage ;
-                    osdi:hasDescription "Expression language for Javaluator"^^xsd:string .
+                    osdi:hasDescription "Expression language for Javaluator" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp
-osdi:Group_Cost_FollowUp rdf:type owl:NamedIndividual ,
-                                  [ owl:intersectionOf ( osdi:Group
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty osdi:hasGroupItem ;
-                                                           owl:allValuesFrom osdi:Cost
-                                                         ]
-                                                       ) ;
-                                    rdf:type owl:Class
-                                  ] ;
-                         osdi:hasDescription "Group of costs for follow-up items"^^xsd:string .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment
-osdi:Group_Cost_Treatment rdf:type owl:NamedIndividual ,
-                                   [ owl:intersectionOf ( osdi:Group
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty osdi:hasGroupItem ;
-                                                            owl:allValuesFrom osdi:Cost
-                                                          ]
-                                                        ) ;
-                                     rdf:type owl:Class
-                                   ] ;
-                          osdi:hasDescription "Group of costs for treatment items"^^xsd:string .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual
-osdi:GuidelineLifetimeAnual rdf:type owl:NamedIndividual ,
-                                     osdi:Guideline ;
-                            osdi:hasRange "0y-*" .
+###  https://w3id.org/ontologies-ULL/OSDi#FollowUpCat
+osdi:FollowUpCat rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                 skos:topConceptOf osdi:ResourceUsageCategoryScheme ;
+                 skos:prefLabel "Follow-up"@en ,
+                                "Seguimiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#InterventionDoNothing
@@ -3359,6 +3357,31 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
                                     osdi:Intervention ;
                            osdi:hasDescription "A null intervention that has no effect on the patient" ;
                            osdi:isAssessedIntervention "false"^^xsd:boolean .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#ResourceUsageCategoryScheme
+osdi:ResourceUsageCategoryScheme rdf:type owl:NamedIndividual ,
+                                          skos:ConceptScheme ;
+                                 skos:prefLabel "Categorías relacionadas con uso de recursos"@es ,
+                                                "Resource usage-related categories"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#ScreeningCat
+osdi:ScreeningCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader osdi:DetectionCat ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:prefLabel "Cribado"@es ,
+                                 "Screening"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#TreatmentCat
+osdi:TreatmentCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:topConceptOf osdi:ResourceUsageCategoryScheme ;
+                  skos:prefLabel "Tratamiento"@es ,
+                                 "Treatment"@en .
 
 
 #################################################################
@@ -3406,4 +3429,4 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
 ] .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
