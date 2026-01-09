@@ -958,6 +958,17 @@ osdi:hasDescription rdf:type owl:DatatypeProperty ;
                                "tiene la descripción"@es .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiscountForCosts
+osdi:hasDiscountForCosts rdf:type owl:DatatypeProperty ;
+                         rdfs:domain osdi:Model ;
+                         rdfs:range xsd:double .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiscountForEffects
+osdi:hasDiscountForEffects rdf:type owl:DatatypeProperty ;
+                           rdfs:domain osdi:Model ;
+                           rdfs:range xsd:double .
+
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDisutilityCombinationMethod
 osdi:hasDisutilityCombinationMethod rdf:type owl:DatatypeProperty ;
                                     rdfs:domain osdi:Model ;
@@ -2239,6 +2250,16 @@ osdi:Model rdf:type owl:Class ;
                              owl:onProperty osdi:hasYear ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onDataRange xsd:short
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty osdi:hasDiscountForCosts ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty osdi:hasDiscountForEffects ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty osdi:hasTimeHorizon ;
