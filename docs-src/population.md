@@ -11,7 +11,7 @@ For example, the base age for the population of newborns in the reference proble
 
 ```turtle
 osdi:BD_BasePopulationAge 
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+    a owl:NamedIndividual , osdi:DeterministicParameter ;
     osdi:hasDescription "Age of the base population of the screening. Assumed to be 0" ;
     osdi:isValueOfAttribute osdi:Attribute_Age ;
     osdi:hasExpectedValue "0.0"^^xsd:double .

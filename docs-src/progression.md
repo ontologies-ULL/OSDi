@@ -48,7 +48,7 @@ osdi:BD_CognitiveDeficit
     osdi:hasDescription "Long-term cognitive impairment attributed to untreated profound biotinidase deficiency."@en .
 ```
 
-Since all the manifestations can occur simultaneously, they can be grouped together into a **DiseaseProgressionSet**.
+Since all the manifestations can occur simultaneously, they can be grouped together by using a **ProgressionCombinationRule**.
 
 **TTL Example (rule for coexistent disease progressions):**
 

@@ -2,7 +2,7 @@
 
 Models require several types of parameters: probabilities, costs, utilities... Apart from the numeric value, parameters require the definition of many other properties to be appropriately used or to allow for inference. For example, the risk of suffering some kind of manifestation could be 0.3, but the utilization of this value in a model would be completely different depending on whether it is a probability, a ratio, a proportion, an odd... Besides, parameters have some kind of uncertainty associated to their values. Such uncertainty would represent variability among individuals (first-order uncertainty) or the degree of confidence on your estimates (second-order uncertainty).
 
-Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters must inherit from two different classes at the same time: **Parameter** ([`osdi:Parameter`]({{ config.extra.osdi }}#Parameter)) and **Parameter Nature** (e.g., [`osdi:DeterministicParameter`]({{ config.extra.osdi }}#DeterministicParameter)), and define a **Data Item Type** ([`osdi:DataItemType`]({{ config.extra.osdi }}#DataItemType)) by means of the [`osdi:hasDataItemType`]({{ config.extra.osdi }}#hasDataItemType) property.
+Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters have to be able to represent, at the same time, specific types (costs, utilities...) and nature of the parameter ([`osdi:ParameterNature`]({{ config.extra.osdi }}#ParameterNature)), i.e., whether it is deterministic, calculated or involves uncertainty. Hence, multiple inheritance is expected to model some specific individuals. **Parameters** ([`osdi:Parameter`]({{ config.extra.osdi }}#Parameter)) also define a **Data Item Type** ([`osdi:DataItemType`]({{ config.extra.osdi }}#DataItemType)) by means of the [`osdi:hasDataItemType`]({{ config.extra.osdi }}#hasDataItemType) property.
 
 ![Parameters](img/osdi_parameter.png)
 
@@ -10,13 +10,13 @@ We will use a number of simple examples to illustrate how to properly define par
 
 ### 4.1. Defining a simple deterministic value
 
-In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is both a **Parameter** and a **Deterministic Parameter**. There is a specific **Data Item Type** for sensitivity ([`osdi:DI_Sensitivity`]({{ config.extra.osdi }}#DI_Sensitivity)); otherwise, a more generic type might be used ([`osdi:DI_Probability`]({{ config.extra.osdi }}#DI_Probability)). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to ([`osdi:hasYear`]({{ config.extra.osdi }}#hasYear)) or the geographical context ([`osdi:hasGeographicalContext`]({{ config.extra.osdi }}#hasGeographicalContext)) may be added.
+In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is a **Deterministic Parameter**. There is a specific **Data Item Type** for sensitivity ([`osdi:DI_Sensitivity`]({{ config.extra.osdi }}#DI_Sensitivity)); otherwise, a more generic type might be used ([`osdi:DI_Probability`]({{ config.extra.osdi }}#DI_Probability)). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to ([`osdi:hasYear`]({{ config.extra.osdi }}#hasYear)) or the geographical context ([`osdi:hasGeographicalContext`]({{ config.extra.osdi }}#hasGeographicalContext)) may be added.
 
 **TTL Example (Constant sensitivity):**
 
 ```turtle
 osdi:BD_ScreeningSensitivity
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+    a owl:NamedIndividual , osdi:DeterministicParameter ;
     rdfs:label "Sensitivity of the screening test"@en ;
     osdi:hasDescription "Sensitivity of the screening test for BD" ;
     osdi:hasDataItemType osdi:DI_Sensitivity ;
@@ -34,7 +34,7 @@ Let's suppose the proportion of individuals with profound BD who present seizure
 
 ```turtle
 osdi:BD_Proportion_Seizures_PBD
-    a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter , osdi:Parameter ;
+    a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter ;
     rdfs:label "Proportion of seizures PBD"@en ;
     osdi:hasDescription "Proportion of seizures in clinically diagnosed profound BD" ;
     osdi:hasDataItemType osdi:DI_Proportion ;
