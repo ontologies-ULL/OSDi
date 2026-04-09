@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -772,14 +772,14 @@
 
 <h2 id="4-parameters">4. Parameters</h2>
 <p>Models require several types of parameters: probabilities, costs, utilities... Apart from the numeric value, parameters require the definition of many other properties to be appropriately used or to allow for inference. For example, the risk of suffering some kind of manifestation could be 0.3, but the utilization of this value in a model would be completely different depending on whether it is a probability, a ratio, a proportion, an odd... Besides, parameters have some kind of uncertainty associated to their values. Such uncertainty would represent variability among individuals (first-order uncertainty) or the degree of confidence on your estimates (second-order uncertainty).</p>
-<p>Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters must inherit from two different classes at the same time: <strong>Parameter</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>) and <strong>Parameter Nature</strong> (e.g., <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DeterministicParameter"><code>osdi:DeterministicParameter</code></a>), and define a <strong>Data Item Type</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DataItemType"><code>osdi:DataItemType</code></a>) by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasDataItemType"><code>osdi:hasDataItemType</code></a> property.</p>
+<p>Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters have to be able to represent, at the same time, specific types (costs, utilities...) and nature of the parameter (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ParameterNature"><code>osdi:ParameterNature</code></a>), i.e., whether it is deterministic, calculated or involves uncertainty. Hence, multiple inheritance is expected to model some specific individuals. <strong>Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>) also define a <strong>Data Item Type</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DataItemType"><code>osdi:DataItemType</code></a>) by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasDataItemType"><code>osdi:hasDataItemType</code></a> property.</p>
 <p><img alt="Parameters" src="../img/osdi_parameter.png" /></p>
 <p>We will use a number of simple examples to illustrate how to properly define parameters.</p>
 <h3 id="41-defining-a-simple-deterministic-value">4.1. Defining a simple deterministic value</h3>
-<p>In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is both a <strong>Parameter</strong> and a <strong>Deterministic Parameter</strong>. There is a specific <strong>Data Item Type</strong> for sensitivity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Sensitivity"><code>osdi:DI_Sensitivity</code></a>); otherwise, a more generic type might be used (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Probability"><code>osdi:DI_Probability</code></a>). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasYear"><code>osdi:hasYear</code></a>) or the geographical context (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasGeographicalContext"><code>osdi:hasGeographicalContext</code></a>) may be added.</p>
+<p>In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is a <strong>Deterministic Parameter</strong>. There is a specific <strong>Data Item Type</strong> for sensitivity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Sensitivity"><code>osdi:DI_Sensitivity</code></a>); otherwise, a more generic type might be used (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Probability"><code>osdi:DI_Probability</code></a>). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasYear"><code>osdi:hasYear</code></a>) or the geographical context (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasGeographicalContext"><code>osdi:hasGeographicalContext</code></a>) may be added.</p>
 <p><strong>TTL Example (Constant sensitivity):</strong></p>
 <pre><code class="language-turtle">osdi:BD_ScreeningSensitivity
-    a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Parameter ;
+    a owl:NamedIndividual , osdi:DeterministicParameter ;
     rdfs:label &quot;Sensitivity of the screening test&quot;@en ;
     osdi:hasDescription &quot;Sensitivity of the screening test for BD&quot; ;
     osdi:hasDataItemType osdi:DI_Sensitivity ;
@@ -791,7 +791,7 @@
 <p>Let's suppose the proportion of individuals with profound BD who present seizures, as described in the reference study. Since its expected value comes from a meta-analysis of several studies, we should include second-order uncertainty when modeling this parameter. We would start by creating the individual for the parameter, that includes the expected value obtained from the meta-analysis (0.564).</p>
 <p><strong>TTL Example (Base proportion of seizures):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Proportion_Seizures_PBD
-    a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter , osdi:Parameter ;
+    a owl:NamedIndividual , osdi:SecondOrderUncertaintyParameter ;
     rdfs:label &quot;Proportion of seizures PBD&quot;@en ;
     osdi:hasDescription &quot;Proportion of seizures in clinically diagnosed profound BD&quot; ;
     osdi:hasDataItemType osdi:DI_Proportion ;

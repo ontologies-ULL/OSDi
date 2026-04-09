@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -613,20 +613,27 @@ osdi:BD_InterventionScreening
     osdi:hasCost osdi:BD_CostScreening ;
     osdi:hasSensitivity osdi:BD_ScreeningSensitivity ;
     osdi:hasSpecificity osdi:BD_ScreeningSpecificity ;
-    osdi:involvesModification osdi:BD_InterventionScreeningEffect ;
+    osdi:hasEffect osdi:BD_InterventionScreeningEffect ;
     osdi:hasDescription &quot;Basic screening intervention for BD&quot; ;
     osdi:isAssessedIntervention &quot;true&quot;^^xsd:boolean .
 </code></pre>
-<p><strong>Interventions</strong> may involve costs and disutilities, but they should have some kind of effect on the progression of the disease or the use of resources. Hence, <strong>Interventions</strong> involve modifications (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#involvesModification"><code>osdi:involvesModification</code></a>) that are defined as <strong>Modifier Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ModifierParameter"><code>osdi:ModifierParameter</code></a>). A <strong>Modifier Parameter</strong> is a special type of parameter that includes a property to indicate the parameter (or parameters) whose value is modifying (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#modifies"><code>osdi:modifies</code></a>).</p>
+<p><strong>Interventions</strong> may involve costs and disutilities, but they should have some kind of effect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasEffect"><code>osdi:hasEffect</code></a>) on the progression of the disease or the use of resources. <strong>Effects</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Effect"><code>osdi:Effect</code></a>) are defined by the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute"><code>osdi:Attribute</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a> they affect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#affect"><code>osdi:affect</code></a>), and a Parameter that characterize the magnitude of the effect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasEffectMagnitude"><code>osdi:hasEffectMagnitude</code></a>).</p>
 <p>For example, according to the reference case, the effect of the screening should be to prevent the appearance of the manifestations related to profound BD. You can also use relative risks or mean differences to model such effects. </p>
 <p><strong>TTL Example (Effect of the screening):</strong></p>
 <pre><code class="language-turtle">osdi:BD_InterventionScreeningEffect 
-    a owl:NamedIndividual ,  osdi:ModifierParameter , osdi:DeterministicParameter ;
+    a owl:NamedIndividual ,  osdi:Effect ;
     osdi:hasDataItemType osdi:DI_Continuous_Variable ;
-    osdi:modifies osdi:BD_Proportion_Seizures_PBD , ... ;
+    osdi:affects osdi:BD_Proportion_Seizures_PBD , ... ;
     osdi:hasDescription &quot;Sets the probabilities of all the manifestations to 0&quot; ;
+    osdi:hasEffectMagnitude osdi:BD_InterventionScreeningEffectMagnitude .
+
+osdi:BD_InterventionScreeningEffectMagnitude 
+    a owl:NamedIndividual ,  osdi:DeterministicParameter ;
+    osdi:hasDataItemType osdi:DI_Continuous_Variable ;
     osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double .
+
 </code></pre>
+<p>Effects can be also triggered by health conditions (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#HealthCondition"><code>osdi:HealthCondition</code></a>), pathways (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Pathway"><code>osdi:Pathway</code></a>), and even populations (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Population"><code>osdi:Population</code></a>). Currently, <strong>OSDi</strong> includes a number of specific effects of particular interest, such as sudden death (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#InstantDeathEffect"><code>osdi:InstantDeathEffect</code></a>), whose magnitude is the probability of the death event; life expectancy reduction (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#LifeExpectancyReductionEffect"><code>osdi:LifeExpectancyReductionEffect</code></a>) or increased mortality rate (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#IncreasedMortalityRateEffect"><code>osdi:IncreasedMortalityRateEffect</code></a>).</p>
 
 
 
