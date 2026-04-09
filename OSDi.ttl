@@ -7,13 +7,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix osdi: <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix opla-sd: <http://ontologydesignpatterns.org/opla-sd#> .
 @prefix ontodebug: <http://ainf.aau.at/ontodebug#> .
-@base <https://w3id.org/ontologies-ULL/OSDi> .
+@base <https://w3id.org/ontologies-ULL/OSDi#> .
 
 <https://w3id.org/ontologies-ULL/OSDi> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://w3id.org/ontologies-ULL/OSDi/1.0> ;
+                                        owl:versionIRI <https://w3id.org/ontologies-ULL/OSDi/1.1> ;
                                         cc:license <http://creativecommons.org/licenses/by-nc-sa/4.0/> ;
                                         dc:contributor "María Luz Couce Pico (https://orcid.org/0000-0003-4861-9905)" ;
                                         dc:creator "David Prieto González (https://orcid.org/0000-0003-1411-129X)" ,
@@ -25,7 +26,7 @@
                                         dcterms:abstract "This ontology provides a structured framework for the interoperability of health economics data used to create models. The ontology represents all the concepts and relationships involved in health technology assessment, including the characterization of the disease and its development, the population affected, and the interventions applied."@en ;
                                         rdfs:label "OSDi"@en ,
                                                    "OSDi"@es ;
-                                        owl:versionInfo "1.0" .
+                                        owl:versionInfo "1.1" .
 
 #################################################################
 #    Annotation properties
@@ -71,6 +72,14 @@ dc:source rdf:type owl:AnnotationProperty .
 dcterms:abstract rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#TODO
 osdi:TODO rdf:type owl:AnnotationProperty .
 
@@ -87,11 +96,38 @@ osdi:creator rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader rdf:type owl:ObjectProperty ,
+                      owl:TransitiveProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#topConceptOf
+skos:topConceptOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#affects
+osdi:affects rdf:type owl:ObjectProperty ;
+             owl:inverseOf osdi:isAffectedBy ;
+             rdfs:domain osdi:Effect ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( osdi:Attribute
+                                        osdi:Parameter
+                                      )
+                        ] ;
+              rdfs:comment "Defines a relationship between an effect and an attribute or parameter, indicating that the effect affects the attribute or parameter."@en ;
+             rdfs:label "afecta"@es ,
+                        "affects"@en .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#affectsProgressionElement
 osdi:affectsProgressionElement rdf:type owl:ObjectProperty ;
                                rdfs:domain osdi:ProgressionCombinationRule ;
                                rdfs:range osdi:ClinicalProgressionElement ;
-                               rdfs:comment "A combination rule that affects certain progression element"@en ;
+                               rdfs:comment "Defines the combination rule that affects certain progression element"@en ;
                                rdfs:label "afecta al elemento de progresión"@es ,
                                           "affects progression element"@en .
 
@@ -101,6 +137,7 @@ osdi:belongsToGroup rdf:type owl:ObjectProperty ;
                     owl:inverseOf osdi:hasGroupItem ;
                     rdfs:domain osdi:GroupableModelItem ;
                     rdfs:range osdi:Group ;
+                    rdfs:comment "Indicates that a model item belongs to a group, which can be used to define the strategies that are applied to a health condition, intervention or strategy, as well as the strategies that are part of a group of strategies."@en ;
                     rdfs:label "belongs to group"@en ,
                                "pertenece al grupo"@es .
 
@@ -109,7 +146,10 @@ osdi:belongsToGroup rdf:type owl:ObjectProperty ;
 osdi:causesFailOf rdf:type owl:ObjectProperty ;
                   owl:inverseOf osdi:failsIf ;
                   rdfs:domain osdi:Parameter ;
-                  rdfs:range osdi:LineOfTherapy .
+                  rdfs:range osdi:LineOfTherapy ;
+             rdfs:comment "Defines the condition (expressed as any type of parameter) upon which certain strategy fails and must progress to the next step"@en ;
+             rdfs:label "causes fail of"@en ,
+                        "causa el fallo de"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#dependsOn
@@ -154,6 +194,7 @@ osdi:followedByStrategy rdf:type owl:ObjectProperty ;
                         owl:inverseOf osdi:followsStrategy ;
                         rdfs:domain osdi:Strategy ;
                         rdfs:range osdi:Strategy ;
+                        rdfs:comment "Defines the relationship between two strategies, where one is followed by the other."@en ;
                         rdfs:label "followed by strategy"@en ,
                                    "seguido por la estrategia"@es .
 
@@ -161,7 +202,10 @@ osdi:followedByStrategy rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#followsStrategy
 osdi:followsStrategy rdf:type owl:ObjectProperty ;
                      rdfs:domain osdi:Strategy ;
-                     rdfs:range osdi:Strategy .
+                     rdfs:range osdi:Strategy ;
+             rdfs:comment "Defines the relationship between two strategies, where one follows the other."@en ;
+             rdfs:label "follows strategy"@en ,
+                        "sigue la estrategia"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasAge
@@ -172,6 +216,7 @@ osdi:hasAge rdf:type owl:ObjectProperty ;
                          owl:onProperty osdi:isValueOfAttribute ;
                          owl:hasValue osdi:Attribute_Age
                        ] ;
+              rdfs:comment "Defines the age of the population, which can be used to define the characteristics of the disease and the interventions. The value is the average age of the individuals in the population."@en ;
             rdfs:label "has age"@en ,
                        "tiene edad"@es .
 
@@ -184,6 +229,21 @@ osdi:hasAttributeValue rdf:type owl:ObjectProperty ;
                        rdfs:comment "Defines a value for an attribute, which should be used by a population and/or disease"@en ;
                        rdfs:label "has attribute value"@en ,
                                   "tiene el valor del atributo"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasCategory
+osdi:hasCategory rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( osdi:Cost
+                                             osdi:Intervention
+                                             osdi:ResourceUsageItem
+                                           )
+                             ] ;
+                 rdfs:range skos:Concept ;
+                 rdfs:comment "Asocia un coste o una estrategia con un concepto SKOS usado con fines de clasificación y análisis."@es ,
+                              "Associates a cost or a strategy with a SKOS concept used for classification and analysis purposes."@en ;
+                 rdfs:label "has category"@en ,
+                            "tiene categoría"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasConditionExpression
@@ -212,6 +272,7 @@ osdi:hasCost rdf:type owl:ObjectProperty ;
                                        )
                          ] ;
              rdfs:range osdi:Cost ;
+              rdfs:comment "Defines the cost of a health condition, health technology, intervention, pathway or strategy."@en ;
              rdfs:label "has cost"@en ,
                         "tiene el coste"@es .
 
@@ -221,6 +282,7 @@ osdi:hasDataItemType rdf:type owl:ObjectProperty ;
                      owl:inverseOf osdi:isDataItemTypeOf ;
                      rdfs:domain osdi:Parameter ;
                      rdfs:range osdi:DataItemType ;
+                      rdfs:comment "Defines the type of data item that represents the parameter, which can be used to determine how to use the parameter in the model and how to obtain its value."@en ;
                      rdfs:label "has data item type"@en ,
                                 "tiene el tipo de datos"@es .
 
@@ -232,20 +294,10 @@ osdi:hasDependantCalculatedParameter rdf:type owl:ObjectProperty ;
                                                                  osdi:Parameter
                                                                )
                                                  ] ;
-                                     rdfs:range osdi:CalculatedParameter .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasDiagnosisCost
-osdi:hasDiagnosisCost rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf osdi:hasCost ;
-                      rdfs:domain [ rdf:type owl:Class ;
-                                    owl:unionOf ( osdi:DetectionIntervention
-                                                  osdi:Disease
-                                                )
-                                  ] ;
-                      rdfs:range osdi:Cost ;
-                      rdfs:label "has diagnosis cost"@en ,
-                                 "tiene el coste de diagnóstico"@es .
+                                     rdfs:range osdi:CalculatedParameter ;
+             rdfs:comment "Defines a calculated parameter that depends on other parameters."@en ;
+             rdfs:label "has dependant calculated parameter"@en ,
+                        "tiene el parámetro calculado dependiente"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDose
@@ -253,7 +305,7 @@ osdi:hasDose rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf osdi:hasParameter ;
              rdfs:domain osdi:Guideline ;
              rdfs:range osdi:Parameter ;
-             rdfs:comment "Dosage of the indicated drug"@en ;
+             rdfs:comment "Defines the dosage of the indicated drug"@en ;
              rdfs:label "has dose"@en ,
                         "tiene la dosis"@es .
 
@@ -263,8 +315,35 @@ osdi:hasDuration rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf osdi:hasParameter ;
                  rdfs:domain osdi:ClinicalProgressionElement ;
                  rdfs:range osdi:Parameter ;
+                  rdfs:comment "Defines the duration of a certain manifestation of the disease, or the duration of an intervention, etc. This value must be expressed in number of years."@en ;
                  rdfs:label "has duration"@en ,
                             "tiene la duración"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasEffect
+osdi:hasEffect rdf:type owl:ObjectProperty ;
+               owl:inverseOf osdi:isEffectOf ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( osdi:HealthCondition
+                                           osdi:Intervention
+                                           osdi:Pathway
+                                           osdi:Population
+                                           osdi:ResourceUsageItem
+                                         )
+                           ] ;
+               rdfs:range osdi:Effect ;
+                rdfs:comment "Defines a relationship between a health condition, intervention, pathway, population or resource usage item and an effect, indicating that the health condition, intervention, pathway, population or resource usage item has a certain effect on the disease progression or on the patients."@en ;
+               rdfs:label "has effect"@en ,
+                          "tiene el efecto"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasEffectMagnitude
+osdi:hasEffectMagnitude rdf:type owl:ObjectProperty ;
+                        rdfs:domain osdi:Effect ;
+                        rdfs:range osdi:Parameter ;
+                        rdfs:comment "Defines the parameter that defines the magnitude of the effect"@en ;
+                        rdfs:label "has magnitude effect"@en ,
+                                   "tiene magnitud del efecto"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasEndAge
@@ -272,6 +351,7 @@ osdi:hasEndAge rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf osdi:hasParameter ;
                rdfs:domain osdi:ClinicalProgressionElement ;
                rdfs:range osdi:Parameter ;
+               rdfs:comment "Defines the age at which a certain condition or disease ends."@en ;
                rdfs:label "has end age"@en ,
                           "tiene la edad de finalización"@es .
 
@@ -285,6 +365,7 @@ osdi:hasEpidemiologicalParameter rdf:type owl:ObjectProperty ;
                                                            )
                                              ] ;
                                  rdfs:range osdi:EpidemiologicalParameter ;
+                                  rdfs:comment "Defines an epidemiological parameter of a disease or a population, such as the incidence, prevalence, mortality, etc."@en ;
                                  rdfs:label "has epidemiological parameter"@en ,
                                             "tiene el parámetro epidemiológico"@es .
 
@@ -294,6 +375,7 @@ osdi:hasExpressionLanguage rdf:type owl:ObjectProperty ;
                            owl:inverseOf osdi:isExpressionLanguageOf ;
                            rdfs:domain osdi:CalculatedParameter ;
                            rdfs:range osdi:ExpressionLanguage ;
+                            rdfs:comment "Defines the expression language used in a calculated parameter, which can be any formal language that allows us to express mathematical formulas, such as MathML or OpenMath."@en ;
                            rdfs:label "has expression language"@en ,
                                       "tiene el lenguage de expresión"@es .
 
@@ -316,9 +398,7 @@ osdi:hasFrequency rdf:type owl:ObjectProperty ;
                                             )
                               ] ;
                   rdfs:range osdi:Parameter ;
-                  rdfs:comment """Indicates the time cycle of how often the treatment, the follow-up test or their respective strategies have to be applied. In the case of a manifestation of the disease, it will indicate how many times a year the symptom manifests itself. 
-
-By default = 1, for the Manifestations."""@en ;
+                  rdfs:comment "Indicates the time cycle of how often the treatment, the follow-up test or their respective strategies have to be applied. In the case of a manifestation of the disease, it will indicate how many times a year the symptom manifests itself."@en ;
                   rdfs:label "has frequency"@en ,
                              "tiene la frecuencia"@es .
 
@@ -341,22 +421,9 @@ osdi:hasGuideline rdf:type owl:ObjectProperty ;
                                             )
                               ] ;
                   rdfs:range osdi:Guideline ;
+                  rdfs:comment "Defines a relationship between a health technology or a strategy and a guideline, indicating that the guideline is applied to the health technology or strategy."@en ;
                   rdfs:label "has guideline"@en ,
                              "tiene la pauta"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasIncreasedMortalityRate
-osdi:hasIncreasedMortalityRate rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf osdi:hasParameter ;
-                               rdfs:domain [ rdf:type owl:Class ;
-                                             owl:unionOf ( osdi:ClinicalProgressionElement
-                                                           osdi:Disease
-                                                         )
-                                           ] ;
-                               rdfs:range osdi:Parameter ;
-                               rdfs:comment "A rate that denotes an increment in the mortality. By default = 1" ;
-                               rdfs:label "has increased mortality rate"@en ,
-                                          "tiene la tasa de mortalidad aumentada"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasInitialProportion
@@ -370,7 +437,7 @@ osdi:hasInitialProportion rdf:type owl:ObjectProperty ;
                                                     )
                                       ] ;
                           rdfs:range osdi:Parameter ;
-                          rdfs:comment "The initial proportion of patients of a population that already present certain manifestation"@en ;
+                          rdfs:comment "Defines the initial proportion of patients of a population that already present certain manifestation"@en ;
                           rdfs:label "has initial proportion"@en ,
                                      "tiene la proporción inicial"@es .
 
@@ -380,6 +447,7 @@ osdi:hasIntervention rdf:type owl:ObjectProperty ;
                      owl:inverseOf osdi:isInterventionOf ;
                      rdfs:domain osdi:Disease ;
                      rdfs:range osdi:Intervention ;
+                     rdfs:comment "Defines a relationship between a disease and an intervention, indicating that the intervention is applied to the disease."@en ;
                      rdfs:label "has intervention"@en ,
                                 "tiene la intervención"@es .
 
@@ -389,17 +457,9 @@ osdi:hasLifeExpectancy rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf osdi:hasParameter ;
                        rdfs:domain osdi:Population ;
                        rdfs:range osdi:Parameter ;
+                        rdfs:comment "Defines the life expectancy of the population, which is the average number of years that an individual of the population is expected to live. This value must be expressed in number of years."@en ;
                        rdfs:label "has life expectancy"@en ,
                                   "tiene la esperanza de vida"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasLifeExpectancyReduction
-osdi:hasLifeExpectancyReduction rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf osdi:hasParameter ;
-                                rdfs:domain osdi:HealthCondition ;
-                                rdfs:range osdi:Parameter ;
-                                rdfs:label "has life expectancy reduction"@en ,
-                                           "tiene la reducción de la esperanza de vida"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasNext
@@ -417,6 +477,7 @@ osdi:hasOnsetAge rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf osdi:hasParameter ;
                  rdfs:domain osdi:ClinicalProgressionElement ;
                  rdfs:range osdi:Parameter ;
+                  rdfs:comment "Defines the age at which a certain manifestation of the disease appears. This value must be expressed in number of years."@en ;
                  rdfs:label "has onset age"@en ,
                             "tiene la edad de inicio"@es .
 
@@ -434,6 +495,7 @@ osdi:hasParameter rdf:type owl:ObjectProperty ;
                                             )
                               ] ;
                   rdfs:range osdi:Parameter ;
+                  rdfs:comment "Defines a relationship between a disease, intervention, pathway, population or resource usage item and a parameter, indicating that the parameter is used to characterize the disease, intervention, pathway, population or resource usage item."@en ;
                   rdfs:label "has parameter"@en ,
                              "tiene el parámetro"@es .
 
@@ -447,26 +509,6 @@ osdi:hasPrevious rdf:type owl:ObjectProperty ;
                             "tiene anterior"@es .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDeath
-osdi:hasProbabilityOfDeath rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf osdi:hasParameter ;
-                           rdfs:domain osdi:HealthCondition ;
-                           rdfs:range osdi:Parameter ;
-                           rdfs:comment "Defines an 'instantaneous' death risk, i.e., a probability of dying upon the onset of the condition"@en ;
-                           rdfs:label "has probability of death"@en ,
-                                      "tiene la probabilidad de muerte"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasProbabilityOfDiagnosis
-osdi:hasProbabilityOfDiagnosis rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf osdi:hasParameter ;
-                               rdfs:domain osdi:ClinicalProgressionElement ;
-                               rdfs:range osdi:Parameter ;
-                               rdfs:comment "Probability that the onset of certain disease progression leads to the clinical diagnosis of the disease."@en ;
-                               rdfs:label "has probability of diagnosis"@en ,
-                                          "tiene la probabilidad de diagnóstico"@es .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProgressionElement
 osdi:hasProgressionElement rdf:type owl:ObjectProperty ;
                            owl:inverseOf osdi:isProgressionElementOf ;
@@ -475,7 +517,10 @@ osdi:hasProgressionElement rdf:type owl:ObjectProperty ;
                                                        osdi:ProgressionCombinationRule
                                                      )
                                        ] ;
-                           rdfs:range osdi:DiseaseProgressionElement .
+                           rdfs:range osdi:DiseaseProgressionElement ;
+             rdfs:comment "Defines a relationship between a disease and its progression element, indicating that an individual affected by the disease can have the progression element."@en ;
+             rdfs:label "has progression element"@es ,
+                        "has progression element"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasProportionWithinGroup
@@ -483,6 +528,7 @@ osdi:hasProportionWithinGroup rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf osdi:hasParameter ;
                               rdfs:domain osdi:GroupableModelItemWithProportion ;
                               rdfs:range osdi:Parameter ;
+                              rdfs:comment "Defines the proportion of patients that present a certain characteristic within a group. For example, the proportion of patients that present a certain manifestation within a stage of the disease, or the proportion of patients that receive a certain intervention within a strategy."@en ;
                               rdfs:label "has proportion within group"@en ,
                                          "tiene la proporción dentro del grupo"@es .
 
@@ -496,20 +542,10 @@ osdi:hasRiskCharacterization rdf:type owl:ObjectProperty ;
                                                         osdi:Pathway
                                                       )
                                         ] ;
+                              rdfs:comment "Defines the risk characterization of a clinical progression element, which can be expressed as a parameter (e.g., relative risk) or as a pathway (e.g., a pathway that defines the events that lead to the occurrence of a certain manifestation)."@en ;
                              rdfs:label "has risk characterization"@en ,
                                         "tiene la caracterización de riesgo"@es ;
                              osdi:TODO "Check if this is the best name for the property" .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#hasScreeningCost
-osdi:hasScreeningCost rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf osdi:hasCost ;
-                      rdfs:domain [ rdf:type owl:Class ;
-                                    owl:unionOf ( osdi:Disease
-                                                  osdi:ScreeningIntervention
-                                                )
-                                  ] ;
-                      rdfs:range osdi:Cost .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasSensitivity
@@ -534,6 +570,7 @@ osdi:hasSex rdf:type owl:ObjectProperty ;
                          owl:onProperty osdi:isValueOfAttribute ;
                          owl:hasValue osdi:Attribute_Sex
                        ] ;
+            rdfs:comment "Defines the sex of the population, which can be used to define the characteristics of the disease and the interventions. The value is the proportion of female individuals in the population."@en ;
             rdfs:label "has sex"@en ,
                        "tiene sexo"@es .
 
@@ -547,8 +584,7 @@ osdi:hasSpecificity rdf:type owl:ObjectProperty ;
                                               )
                                 ] ;
                     rdfs:range osdi:Parameter ;
-                    rdfs:comment "Start Age" ,
-                                 "The Specificity of a test is the Probability that a healthy subject will have a negative test result. Specificity is the percentage of true negatives or the Probability that the test will be negative if the disease is not present. False positives are healthy subjects diagnosed as sick." ;
+                    rdfs:comment "The Specificity of a test is the Probability that a healthy subject will have a negative test result. Specificity is the percentage of true negatives or the Probability that the test will be negative if the disease is not present. False positives are healthy subjects diagnosed as sick." ;
                     rdfs:label "has specificity"@en ,
                                "tiene la especificidad"@es .
 
@@ -574,6 +610,7 @@ osdi:hasStrategy rdf:type owl:ObjectProperty ;
                                             ]
                                           )
                             ] ;
+                  rdfs:comment "Defines a relationship between a health condition, intervention or strategy and a strategy, which can be either a simple strategy or a group of strategies. This property allows us to define the strategies that are applied to a health condition, intervention or strategy, as well as the strategies that are part of a group of strategies."@en ;
                  rdfs:label "has strategy"@en ,
                             "tiene la estrategia"@es .
 
@@ -581,7 +618,10 @@ osdi:hasStrategy rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasSubProgression
 osdi:hasSubProgression rdf:type owl:ObjectProperty ;
                        rdfs:domain osdi:ClinicalProgressionElement ;
-                       rdfs:range osdi:ClinicalProgressionElement .
+                       rdfs:range osdi:ClinicalProgressionElement ;
+             rdfs:comment "Defines a relationship between a clinical progression element and its sub-element, indicating that the sub-element only appear as a part of the clinical progression."@en ;
+             rdfs:label "has sub-progression"@es ,
+                        "has sub-progression"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasSubpopulation
@@ -589,6 +629,7 @@ osdi:hasSubpopulation rdf:type owl:ObjectProperty ;
                       owl:inverseOf osdi:isSubpopulationOf ;
                       rdfs:domain osdi:Population ;
                       rdfs:range osdi:Population ;
+                      rdfs:comment "Defines a relationship between a population and a subpopulation, indicating that the subpopulation is a subset of the population."@en ;
                       rdfs:label "has subpopulation"@en ,
                                  "tiene la subpoblación"@es .
 
@@ -620,6 +661,7 @@ osdi:hasUncertaintyCharacterization rdf:type owl:ObjectProperty ;
                                                                osdi:ProbabilityDistributionExpression
                                                              )
                                                ] ;
+                                    rdfs:comment "Defines the uncertainty characterization of a parameter, which can be expressed as another parameter (e.g., confidence interval) or as a probability distribution expression."@en ;
                                     rdfs:label "has uncertainty characterization"@en ,
                                                "tiene la caracterización de incertidumbre"@es .
 
@@ -629,14 +671,14 @@ osdi:hasUtility rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf osdi:hasParameter ;
                 rdfs:domain [ rdf:type owl:Class ;
                               owl:unionOf ( osdi:HealthCondition
-                                            osdi:HealthTechnology
                                             osdi:Intervention
                                             osdi:Pathway
                                             osdi:Population
-                                            osdi:Strategy
+                                            osdi:ResourceUsageItem
                                           )
                             ] ;
                 rdfs:range osdi:Utility ;
+                rdfs:comment "Defines the utility associated with a health condition, intervention, pathway, population or resource usage item. The utility is a measure of the preference or value that individuals or society assign to a particular health state or outcome. It is often used in health economics and decision analysis to evaluate the desirability of different health outcomes and to inform healthcare decision-making."@en ;
                 rdfs:label "has utility"@en ,
                            "tiene la utilidad"@es .
 
@@ -646,6 +688,7 @@ osdi:includedByModel rdf:type owl:ObjectProperty ;
                      owl:inverseOf osdi:includesModelItem ;
                      rdfs:domain osdi:ModelItem ;
                      rdfs:range osdi:Model ;
+                      rdfs:comment "Defines a relationship between a model item and a model, indicating that the model item is included as part of the structure or content of the model."@en ;
                      rdfs:label "included by model"@en ,
                                 "incluido por el modelo"@es .
 
@@ -654,17 +697,22 @@ osdi:includedByModel rdf:type owl:ObjectProperty ;
 osdi:includesModelItem rdf:type owl:ObjectProperty ;
                        rdfs:domain osdi:Model ;
                        rdfs:range osdi:ModelItem ;
+                       rdfs:comment "Defines a relationship between a model and a model item, indicating that the model includes that item as part of its structure or content."@en ;
                        rdfs:label "includes model item"@en ,
                                   "incluye el elemento del modelo"@es .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#involvesModification
-osdi:involvesModification rdf:type owl:ObjectProperty ;
-                          owl:inverseOf osdi:isModificationOf ;
-                          rdfs:domain osdi:Intervention ;
-                          rdfs:range osdi:Parameter ;
-                          rdfs:label "involucra la modificación"@es ,
-                                     "involves modification"@en .
+###  https://w3id.org/ontologies-ULL/OSDi#isAffectedBy
+osdi:isAffectedBy rdf:type owl:ObjectProperty ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( osdi:Attribute
+                                              osdi:Parameter
+                                            )
+                              ] ;
+                  rdfs:range osdi:Effect ;
+                  rdfs:comment "Defines a relationship between an attribute or parameter and an effect, indicating that the attribute or parameter is affected by that effect."@en ;
+                  rdfs:label "es modificado por"@es ,
+                             "is modified by"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isConditionExpressionOf
@@ -674,13 +722,19 @@ osdi:isConditionExpressionOf rdf:type owl:ObjectProperty ;
                                           owl:unionOf ( osdi:Guideline
                                                         osdi:Strategy
                                                       )
-                                        ] .
+                                        ] ;
+             rdfs:comment "Defines a relationship between a condition expression and a guideline or strategy, indicating that the condition expression is used within the guideline or strategy."@en ;
+             rdfs:label "es expresión de condición de"@es ,
+                        "is condition expression of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isDataItemTypeOf
 osdi:isDataItemTypeOf rdf:type owl:ObjectProperty ;
                       rdfs:domain osdi:DataItemType ;
-                      rdfs:range osdi:Parameter .
+                      rdfs:range osdi:Parameter ;
+             rdfs:comment "Defines a relationship between a data item type and a parameter, indicating that the data item type is used to define the parameter."@en ;
+             rdfs:label "es tipo de elemento de datos de"@es ,
+                        "is data item type of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isDetectedBy
@@ -690,13 +744,35 @@ osdi:isDetectedBy rdf:type owl:ObjectProperty ;
                                owl:unionOf ( osdi:DetectionIntervention
                                              osdi:DetectionStrategy
                                            )
-                             ] .
+                             ] ;
+             rdfs:comment "Defines a relationship between a detection strategy or intervention and a disease, indicating that such estrategy or intervention is used to identify the disease."@en ;
+             rdfs:label "es detectado por"@es ,
+                        "is detected by"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#isEffectOf
+osdi:isEffectOf rdf:type owl:ObjectProperty ;
+                rdfs:domain osdi:Effect ;
+                rdfs:range [ rdf:type owl:Class ;
+                             owl:unionOf ( osdi:HealthCondition
+                                           osdi:Intervention
+                                           osdi:Pathway
+                                           osdi:Population
+                                           osdi:ResourceUsageItem
+                                         )
+                           ] ;
+             rdfs:comment "Defines a relationship between an effect and a health condition, intervention, pathway, population or resource usage item, indicating that the effect is associated with that element."@en ;
+             rdfs:label "es efecto de"@es ,
+                        "is effect of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isExpressionLanguageOf
 osdi:isExpressionLanguageOf rdf:type owl:ObjectProperty ;
                             rdfs:domain osdi:ExpressionLanguage ;
-                            rdfs:range osdi:CalculatedParameter .
+                            rdfs:range osdi:CalculatedParameter ;
+             rdfs:comment "Defines a relationship between an expression language and a calculated parameter, indicating that the expression language is used to define the calculated parameter."@en ;
+             rdfs:label "es lenguaje de expresión de"@es ,
+                        "is expression language of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isGuidelineOf
@@ -706,28 +782,19 @@ osdi:isGuidelineOf rdf:type owl:ObjectProperty ;
                                 owl:unionOf ( osdi:HealthTechnology
                                               osdi:Strategy
                                             )
-                              ] .
+                              ] ;
+             rdfs:comment "Defines a relationship between a guideline and a health technology or strategy, indicating that the guideline is associated with that technology or strategy."@en ;
+             rdfs:label "es guía o pauta de"@es ,
+                        "is guideline of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isInterventionOf
 osdi:isInterventionOf rdf:type owl:ObjectProperty ;
                       rdfs:domain osdi:Intervention ;
-                      rdfs:range osdi:Disease .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#isModificationOf
-osdi:isModificationOf rdf:type owl:ObjectProperty ;
-                      rdfs:domain osdi:Parameter ;
-                      rdfs:range osdi:Intervention .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#isModifiedBy
-osdi:isModifiedBy rdf:type owl:ObjectProperty ;
-                  owl:inverseOf osdi:modifies ;
-                  rdfs:domain osdi:Parameter ;
-                  rdfs:range osdi:Parameter ;
-                  rdfs:label "es modificado por"@es ,
-                             "is modified by"@en .
+                      rdfs:range osdi:Disease ;
+             rdfs:comment "Defines a relationship between an intervention and a disease, indicating that the intervention is used to treat the disease."@en ;
+             rdfs:label "es intervención de"@es ,
+                        "is intervention of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isParameterOf
@@ -742,6 +809,7 @@ osdi:isParameterOf rdf:type owl:ObjectProperty ;
                                               osdi:ResourceUsageItem
                                             )
                               ] ;
+                    rdfs:comment "Defines a relationship between a parameter and a clinical progression element, disease, intervention, pathway, population or resource usage item, indicating that the parameter is associated with that element."@en ;
                    rdfs:label "es parámetro de"@es ,
                               "is parameter of"@en .
 
@@ -753,7 +821,10 @@ osdi:isProgressionElementOf rdf:type owl:ObjectProperty ;
                                          owl:unionOf ( osdi:Disease
                                                        osdi:ProgressionCombinationRule
                                                      )
-                                       ] .
+                                       ] ;
+             rdfs:comment "Defines a relationship between a disease progression element and a disease or progression combination rule."@en ;
+             rdfs:label "es elemento de progresión de"@es ,
+                        "is progression element of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isRequiredBy
@@ -764,7 +835,10 @@ osdi:isRequiredBy rdf:type owl:ObjectProperty ;
                                               osdi:Intervention
                                             )
                               ] ;
-                  rdfs:range osdi:Pathway .
+                  rdfs:range osdi:Pathway ;
+             rdfs:comment "Defines a relationship between a clinical progression element and a pathway, indicating that the element is required by the pathway."@en ;
+             rdfs:label "es requerido por"@es ,
+                        "is required by"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isRiskCharacterizationOf
@@ -774,18 +848,25 @@ osdi:isRiskCharacterizationOf rdf:type owl:ObjectProperty ;
                                                           osdi:Pathway
                                                         )
                                           ] ;
-                              rdfs:range osdi:ClinicalProgressionElement .
+                              rdfs:range osdi:ClinicalProgressionElement ;
+             rdfs:comment "Defines a relationship between a risk characterization and a clinical progression element, indicating that the characterization applies to that element."@en ;
+             rdfs:label "es caracterización de riesgo de"@es ,
+                        "is risk characterization of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isStrategyOf
 osdi:isStrategyOf rdf:type owl:ObjectProperty ;
-                  rdfs:domain osdi:Strategy .
+                  rdfs:domain osdi:Strategy ;
+             rdfs:comment "Defines a relationship between a strategy and a pathway, indicating that the strategy is used in the pathway."@en ;
+             rdfs:label "es estrategia de"@es ,
+                        "is strategy of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isSubpopulationOf
 osdi:isSubpopulationOf rdf:type owl:ObjectProperty ;
                        rdfs:domain osdi:Population ;
                        rdfs:range osdi:Population ;
+                       rdfs:comment "Defines a relationship between two populations, indicating that the domain population is a subpopulation of the range population."@en ;
                        rdfs:label "es subpoblación de"@es ,
                                   "is subpopulation of"@en .
 
@@ -794,7 +875,10 @@ osdi:isSubpopulationOf rdf:type owl:ObjectProperty ;
 osdi:isSupersededByClinicalProgression rdf:type owl:ObjectProperty ;
                                        owl:inverseOf osdi:supersedesClinicalProgression ;
                                        rdfs:domain osdi:ClinicalProgressionElement ;
-                                       rdfs:range osdi:ClinicalProgressionElement .
+                                       rdfs:range osdi:ClinicalProgressionElement ;
+             rdfs:comment "Defines a relationship between two clinical progression elements, indicating that the domain element is superseded by the range element."@en ;
+             rdfs:label "es reemplazado por"@es ,
+                        "is superseded by"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isUncertaintyCharacterizationOf
@@ -808,7 +892,10 @@ osdi:isUncertaintyCharacterizationOf rdf:type owl:ObjectProperty ;
                                                   owl:unionOf ( osdi:FirstOrderUncertaintyParameter
                                                                 osdi:SecondOrderUncertaintyParameter
                                                               )
-                                                ] .
+                                                ] ;
+             rdfs:comment "Defines a relationship between an uncertainty characterization and a parameter or probability distribution expression, indicating that the characterization applies to that element."@en ;
+             rdfs:label "es caracterización de incertidumbre de"@es ,
+                        "is uncertainty characterization of"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isUsedAsAttributeValueBy
@@ -819,30 +906,29 @@ osdi:isUsedAsAttributeValueBy rdf:type owl:ObjectProperty ;
                                            owl:unionOf ( osdi:Disease
                                                          osdi:Population
                                                        )
-                                         ] .
+                                         ] ;
+             rdfs:comment "Defines a relationship between an attribute value parameter and a disease or population, indicating that the parameter is used as an attribute value for that disease or population."@en ;
+             rdfs:label "es utilizado como valor de atributo por"@es ,
+                        "is used as attribute value by"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isUsedByStrategy
 osdi:isUsedByStrategy rdf:type owl:ObjectProperty ;
                       owl:inverseOf osdi:usesHealthTechnology ;
                       rdfs:domain osdi:HealthTechnology ;
-                      rdfs:range osdi:Strategy .
+                      rdfs:range osdi:Strategy ;
+             rdfs:comment "Defines a relationship between a health technology and a strategy, indicating that the health technology is used in that strategy."@en ;
+             rdfs:label "es utilizado por la estrategia"@es ,
+                        "is used by strategy"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isValueOfAttribute
 osdi:isValueOfAttribute rdf:type owl:ObjectProperty ;
                         rdfs:domain osdi:Parameter ;
                         rdfs:range osdi:Attribute ;
+                        rdfs:comment "Defines a relationship between a parameter and an attribute, indicating that the parameter is a value of that attribute."@en ;
                         rdfs:label "es valor del atributo"@es ,
                                    "is value of attribute"@en .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#modifies
-osdi:modifies rdf:type owl:ObjectProperty ;
-              rdfs:domain osdi:Parameter ;
-              rdfs:range osdi:Parameter ;
-              rdfs:label "modifica"@es ,
-                         "modifies"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#requires
@@ -853,6 +939,7 @@ osdi:requires rdf:type owl:ObjectProperty ;
                                          osdi:Intervention
                                        )
                          ] ;
+              rdfs:comment "Defines that a pathway requires a certain clinical progression element or intervention. This can be useful for defining that a certain pathway requires the presence of a certain symptom or only appears when a certain intervention is applied."@en ;
               rdfs:label "requiere"@es ,
                          "requires"@en .
 
@@ -861,6 +948,7 @@ osdi:requires rdf:type owl:ObjectProperty ;
 osdi:supersedesClinicalProgression rdf:type owl:ObjectProperty ;
                                    rdfs:domain osdi:ClinicalProgressionElement ;
                                    rdfs:range osdi:ClinicalProgressionElement ;
+                                   rdfs:comment "Defines that a clinical progression element replaces another one. This can be useful for defining that a certain manifestation replaces another one in the progression of the disease, for example, to define that a certain symptom appears after the disappearance of another symptom."@en ;
                                    rdfs:label "reemplaza la progresión clínica"@es ,
                                               "supersedes clinical progression"@en .
 
@@ -878,62 +966,36 @@ osdi:usesAttributeValue rdf:type owl:ObjectProperty ;
                                    "uses attribute value"@en .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#usesDrug
-osdi:usesDrug rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf osdi:usesHealthTechnology ;
-              rdfs:domain osdi:LineOfTherapy ;
-              rdfs:range osdi:Drug ;
-              rdfs:label "uses drug"@en ,
-                         "utiliza el fármaco"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#usesFollowUpTest
-osdi:usesFollowUpTest rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf osdi:usesHealthTechnology ;
-                      rdfs:domain osdi:FollowUpStrategy ;
-                      rdfs:range osdi:FollowUpTest ;
-                      rdfs:label "uses follow-up test"@en ,
-                                 "utiliza la prueba de seguimiento"@es .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#usesHealthTechnology
 osdi:usesHealthTechnology rdf:type owl:ObjectProperty ;
                           rdfs:domain osdi:Strategy ;
                           rdfs:range osdi:HealthTechnology ;
+                          rdfs:comment "Defines a relationship between a strategy and a health technology used in that strategy. This is useful for defining the health technologies used in a strategy, for example, to define that a certain drug is used in a treatment strategy or that a certain screening test is used in a screening strategy."@en ;
                           rdfs:label "uses health technology"@en ,
                                      "utiliza tecnología sanitaria"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#usesModel
+osdi:usesModel rdf:type owl:ObjectProperty ;
+               rdfs:domain osdi:Experiment ;
+               rdfs:range osdi:Model ;
+               rdfs:comment "An experiment uses certain model"@en ;
+               rdfs:label "usa el modelo"@es ,
+                          "uses model"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#usesSameModelItemsAs
 osdi:usesSameModelItemsAs rdf:type owl:ObjectProperty ;
                           rdfs:domain osdi:Model ;
                           rdfs:range osdi:Model ;
-                          rdfs:comment "Defines that a model uses the same data items as another model. Useful for avoiding \"recreating\" that relationship for all the model items in models which are very similar and simply difer in some characteristics." ;
+                          rdfs:comment "Defines that a model uses the same data items as another model. Useful for avoiding \"recreating\" that relationship for all the model items in models which are very similar and simply difer in some characteristics."@en ;
                           rdfs:label "uses same model items as"@en ,
                                      "utiliza los mismos elementos del modelo que"@es .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#usesTreatment
-osdi:usesTreatment rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf osdi:usesHealthTechnology ;
-                   rdfs:domain osdi:LineOfTherapy ;
-                   rdfs:range osdi:Treatment ;
-                   rdfs:label "uses treatment"@en ,
-                              "utiliza tratamiento"@es .
 
 
 #################################################################
 #    Data properties
 #################################################################
-
-###  https://w3id.org/ontologies-ULL/OSDi#REMOVEhasFrequency
-osdi:REMOVEhasFrequency rdf:type owl:DatatypeProperty ;
-                        rdfs:domain osdi:Guideline ;
-                        rdfs:range xsd:string ;
-                        rdfs:comment """Indicates the time cycle of how often the treatment, the follow-up test or their respective strategies have to be applied. In the case of a manifestation of the disease, it will indicate how many times a year the symptom manifests itself. 
-
-By default = 1, for the Manifestations.""" .
-
 
 ###  https://w3id.org/ontologies-ULL/OSDi#appliesOneTime
 osdi:appliesOneTime rdf:type owl:DatatypeProperty ;
@@ -957,6 +1019,7 @@ osdi:hasAlfaParameter rdf:type owl:DatatypeProperty ;
                                                 )
                                   ] ;
                       rdfs:range xsd:double ;
+                      rdfs:comment "Defines the alpha parameter of a probability distribution, which is the shape parameter that determines the skewness of the distribution"@en ;
                       rdfs:label "has alfa parameter"@en ,
                                  "tiene el parámetro alfa"@es .
 
@@ -965,6 +1028,7 @@ osdi:hasAlfaParameter rdf:type owl:DatatypeProperty ;
 osdi:hasAuthor rdf:type owl:DatatypeProperty ;
                rdfs:domain osdi:Model ;
                rdfs:range xsd:string ;
+                rdfs:comment "Defines the author of a model. This can be useful for defining the author of a model, for example, to give credit to the creator of the model or to provide contact information for questions about the model."@en ;
                rdfs:label "has author"@en ,
                           "tiene el autor"@es .
 
@@ -974,6 +1038,7 @@ osdi:hasAverageParameter rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                          rdfs:domain osdi:ProbabilityDistributionExpression ;
                          rdfs:range xsd:double ;
+                          rdfs:comment "Defines the average parameter of a probability distribution, which is the mean of the distribution. This is useful for probability distributions which are defined by their mean and another parameter, such as the normal distribution (defined by its mean and standard deviation) or the Poisson distribution (defined by its mean, which is also its lambda parameter)."@en ;
                          rdfs:label "has average parameter"@en ,
                                     "tiene el parámetro promedio"@es .
 
@@ -983,6 +1048,7 @@ osdi:hasBetaParameter rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                       rdfs:domain osdi:BetaDistributionExpression ;
                       rdfs:range xsd:double ;
+                      rdfs:comment "Defines the beta parameter of a beta distribution, which is the shape parameter that determines the skewness of the distribution"@en ;
                       rdfs:label "has beta parameter"@en ,
                                  "tiene el parámetro beta"@es .
 
@@ -991,6 +1057,7 @@ osdi:hasBetaParameter rdf:type owl:DatatypeProperty ;
 osdi:hasCalculationMethod rdf:type owl:DatatypeProperty ;
                           rdfs:domain osdi:QoLDataItemType ;
                           rdfs:range xsd:string ;
+                          rdfs:comment "Defines the method used to calculate a quality of life data item, for example, a utility or disutility. This can be useful for defining the method used to calculate a utility or disutility from a questionnaire, for example."@en ;
                           rdfs:label "has calculation method"@en ,
                                      "tiene el método de cálculo"@es .
 
@@ -999,14 +1066,32 @@ osdi:hasCalculationMethod rdf:type owl:DatatypeProperty ;
 osdi:hasDescription rdf:type owl:DatatypeProperty ;
                     rdfs:domain osdi:Describable ;
                     rdfs:range xsd:string ;
-                    rdfs:comment "Description of the model item" ;
+                    rdfs:comment "Description of the model item"@en ;
                     rdfs:label "has description"@en ,
                                "tiene la descripción"@es .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiscountForCosts
+osdi:hasDiscountForCosts rdf:type owl:DatatypeProperty ;
+                         rdfs:domain osdi:Experiment ;
+                         rdfs:range xsd:double ;
+                         rdfs:comment "Defines the discount rate for costs in the experiment."@en ;
+                         rdfs:label "has discount for costs"@en ,
+                                    "tiene el descuento para costos"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasDiscountForEffects
+osdi:hasDiscountForEffects rdf:type owl:DatatypeProperty ;
+                           rdfs:domain osdi:Experiment ;
+                           rdfs:range xsd:double ;
+                           rdfs:comment "Defines the discount rate for effects in the experiment."@en ;
+                           rdfs:label "has discount for effects"@en ,
+                                      "tiene el descuento para efectos"@es .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#hasDisutilityCombinationMethod
 osdi:hasDisutilityCombinationMethod rdf:type owl:DatatypeProperty ;
-                                    rdfs:domain osdi:Model ;
+                                    rdfs:domain osdi:Experiment ;
                                     rdfs:range [ rdf:type rdfs:Datatype ;
                                                  owl:oneOf [ rdf:type rdf:List ;
                                                              rdf:first "ADD" ;
@@ -1016,6 +1101,7 @@ osdi:hasDisutilityCombinationMethod rdf:type owl:DatatypeProperty ;
                                                                       ]
                                                            ]
                                                ] ;
+                                    rdfs:comment "Defines the method used to combine disutilities in the experiment. This is useful for calculating the combined disutility of multiple health conditions or interventions in a population. The most common methods are ADD (which assumes that the disutilities are additive) and MAX (which assumes that the disutility of the combination is equal to the maximum disutility among the combined conditions or interventions)."@en ;
                                     rdfs:label "has disutility combination method"@en ,
                                                "tiene el método de combinación de disutilidades"@es .
 
@@ -1028,6 +1114,7 @@ osdi:hasExpectedValue rdf:type owl:DatatypeProperty ;
                                                 )
                                   ] ;
                       rdfs:range xsd:double ;
+                      rdfs:comment "The expected value of a parameter with uncertainty. This is useful for deterministic parameters with uncertainty, which can be used in deterministic sensitivity analysis, and for second-order uncertainty parameters, which are used in two-level PSA."@en ;
                       rdfs:label "has expected value"@en ,
                                  "tiene el valor esperado"@es .
 
@@ -1036,6 +1123,7 @@ osdi:hasExpectedValue rdf:type owl:DatatypeProperty ;
 osdi:hasExpressionValue rdf:type owl:DatatypeProperty ;
                         rdfs:domain osdi:CalculatedParameter ;
                         rdfs:range xsd:string ;
+                        rdfs:comment "The expression in a formal language to calculate the value of a calculated parameter. The expression must be written using the syntax of the expression language defined for that parameter (see property isExpressionLanguageOf)."@en ;
                         rdfs:label "has expression value"@en ,
                                    "tiene el valor de expresión"@es .
 
@@ -1049,6 +1137,7 @@ osdi:hasGeographicalContext rdf:type owl:DatatypeProperty ;
                                                       )
                                         ] ;
                             rdfs:range xsd:string ;
+                            rdfs:comment "Defines the geographical context of a model, parameter or population. This can be useful for defining the scope of applicability of a model or parameter, for example."@en ;
                             rdfs:label "has geographical context"@en ,
                                        "tiene el contexto geográfico"@es .
 
@@ -1057,7 +1146,7 @@ osdi:hasGeographicalContext rdf:type owl:DatatypeProperty ;
 osdi:hasHoursInterval rdf:type owl:DatatypeProperty ;
                       rdfs:domain osdi:Guideline ;
                       rdfs:range xsd:string ;
-                      rdfs:comment "Interval in which the indicated dose of drug should be given." ;
+                      rdfs:comment "Interval in which the indicated dose of drug should be given."@en ;
                       rdfs:label "has hours interval"@en ,
                                  "tiene el intervalo de horas"@es .
 
@@ -1072,6 +1161,7 @@ osdi:hasLambdaParameter rdf:type owl:DatatypeProperty ;
                                                   )
                                     ] ;
                         rdfs:range xsd:double ;
+                        rdfs:comment "Defines the lambda parameter of a probability distribution, which is the rate parameter in an exponential distribution, the shape parameter in a gamma distribution and the average number of events in a Poisson distribution"@en ;
                         rdfs:label "has lambda parameter"@en ,
                                    "tiene el parámetro lambda"@es .
 
@@ -1081,6 +1171,7 @@ osdi:hasLowerLimitParameter rdf:type owl:DatatypeProperty ;
                             rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                             rdfs:domain osdi:UniformDistributionExpression ;
                             rdfs:range xsd:double ;
+                            rdfs:comment "Defines the lower limit parameter of a uniform distribution"@en ;
                             rdfs:label "has lower limit parameter"@en ,
                                        "tiene el parámetro de límite inferior"@es .
 
@@ -1089,6 +1180,7 @@ osdi:hasLowerLimitParameter rdf:type owl:DatatypeProperty ;
 osdi:hasMaxAge rdf:type owl:DatatypeProperty ;
                rdfs:domain osdi:Population ;
                rdfs:range xsd:double ;
+                rdfs:comment "Defines the maximum age of a population"@en ;
                rdfs:label "has maximum age"@en ,
                           "tiene la edad máxima"@es .
 
@@ -1097,6 +1189,7 @@ osdi:hasMaxAge rdf:type owl:DatatypeProperty ;
 osdi:hasMinAge rdf:type owl:DatatypeProperty ;
                rdfs:domain osdi:Population ;
                rdfs:range xsd:double ;
+               rdfs:comment "Defines the minimum age of a population"@en ;
                rdfs:label "has minimum age"@en ,
                           "tiene la edad mínima"@es .
 
@@ -1110,11 +1203,30 @@ osdi:hasNullProgression rdf:type owl:DatatypeProperty ;
                                    "tiene progresión nula"@es .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#hasNumberOfPSARuns
+osdi:hasNumberOfPSARuns rdf:type owl:DatatypeProperty ;
+                        rdfs:domain osdi:Experiment ;
+                        rdfs:range xsd:integer ;
+                        rdfs:comment "Defines the number of runs for the probabilistic sensitivity analysis (PSA) in the experiment"@en ;
+                        rdfs:label "has number of PSA runs"@en ,
+                                   "tiene número de ejecuciones de PSA"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#hasNumberOfSimulatedIndividuals
+osdi:hasNumberOfSimulatedIndividuals rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain osdi:Experiment ;
+                                     rdfs:range xsd:integer ;
+                                     rdfs:comment "Defines the number of simulated individuals in the experiment"@en ;
+                                     rdfs:label "has number of simulated individuals"@en ,
+                                                "tiene número de individuos simulados"@es .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#hasOffsetParameter
 osdi:hasOffsetParameter rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                         rdfs:domain osdi:ProbabilityDistributionExpression ;
                         rdfs:range xsd:double ;
+                        rdfs:comment "Defines the offset parameter of a probability distribution, which is a value that is added to the random variable defined by the distribution. This is useful for defining distributions that can only take values above or below a certain threshold (for example, an offset of 1 in a Poisson distribution would define a distribution that can only take values from 1 to infinite, instead of from 0 to infinite)."@en ;
                         rdfs:label "has offset parameter"@en ,
                                    "tiene el parámetro de desplazamiento"@es .
 
@@ -1123,6 +1235,7 @@ osdi:hasOffsetParameter rdf:type owl:DatatypeProperty ;
 osdi:hasProbabilityDistributionParameter rdf:type owl:DatatypeProperty ;
                                          rdfs:domain osdi:ProbabilityDistributionExpression ;
                                          rdfs:range xsd:double ;
+                                          rdfs:comment "Defines a parameter of a probability distribution. This is a general property which can be used for any parameter of any probability distribution, but more specific subproperties are provided for the most common parameters (average, variance, lambda, etc.)"@en ;
                                          rdfs:label "has probability distribution parameter"@en ,
                                                     "tiene el parámetro de distribución de probabilidad"@es .
 
@@ -1132,6 +1245,7 @@ osdi:hasProbabilityParameter rdf:type owl:DatatypeProperty ;
                              rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                              rdfs:domain osdi:BernoulliDistributionExpression ;
                              rdfs:range xsd:double ;
+                             rdfs:comment "Defines the probability parameter of a Bernoulli distribution"@en ;
                              rdfs:label "has probability parameter"@en ,
                                         "tiene el parámetro de probabilidad"@es .
 
@@ -1156,6 +1270,7 @@ osdi:hasRefTo rdf:type owl:DatatypeProperty ;
                                         )
                           ] ;
               rdfs:range xsd:string ;
+              rdfs:comment "Reference to the corresponding item in an external ontology or database, if available"@en ;
               rdfs:label "has reference to"@en ,
                          "tiene la referencia a"@es .
 
@@ -1165,6 +1280,7 @@ osdi:hasRefToDO rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf osdi:hasRefTo ;
                 rdfs:domain osdi:Disease ;
                 rdfs:range xsd:string ;
+                rdfs:comment "Reference to the corresponding item in DO, if available"@en ;
                 rdfs:label "has reference to DO"@en ,
                            "tiene la referencia a DO"@es .
 
@@ -1174,6 +1290,7 @@ osdi:hasRefToGARD rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf osdi:hasRefTo ;
                   rdfs:domain osdi:RareDisease ;
                   rdfs:range xsd:string ;
+                  rdfs:comment "Reference to the corresponding item in GARD, if available"@en ;
                   rdfs:label "has reference to GARD"@en ,
                              "tiene la referencia a GARD"@es .
 
@@ -1187,6 +1304,7 @@ osdi:hasRefToICD rdf:type owl:DatatypeProperty ;
                                            )
                              ] ;
                  rdfs:range xsd:string ;
+                 rdfs:comment "Reference to the corresponding item in ICD, if available"@en ;
                  rdfs:label "has reference to ICD"@en ,
                             "tiene la referencia a ICD"@es .
 
@@ -1196,6 +1314,7 @@ osdi:hasRefToOMIM rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf osdi:hasRefTo ;
                   rdfs:domain osdi:Disease ;
                   rdfs:range xsd:string ;
+                  rdfs:comment "Reference to the corresponding item in OMIM, if available"@en ;
                   rdfs:label "has reference to OMIM"@en ,
                              "tiene la referencia a OMIM"@es .
 
@@ -1205,6 +1324,7 @@ osdi:hasRefToORDO rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf osdi:hasRefTo ;
                   rdfs:domain osdi:RareDisease ;
                   rdfs:range xsd:string ;
+                  rdfs:comment "Reference to the corresponding item in ORDO, if available"@en ;
                   rdfs:label "has reference to ORDO"@en ,
                              "tiene la referencia a ORDO"@es .
 
@@ -1218,6 +1338,7 @@ osdi:hasRefToSNOMED rdf:type owl:DatatypeProperty ;
                                               )
                                 ] ;
                     rdfs:range xsd:string ;
+                    rdfs:comment "Reference to the corresponding item in SNOMED CT, if available"@en ;
                     rdfs:label "has reference to SNOMED"@en ,
                                "tiene la referencia a SNOMED"@es .
 
@@ -1231,6 +1352,7 @@ osdi:hasRefToSTATO rdf:type owl:DatatypeProperty ;
                                              )
                                ] ;
                    rdfs:range xsd:string ;
+                   rdfs:comment "Reference to the corresponding item in STATO, if available"@en ;
                    rdfs:label "has reference to STATO"@en ,
                               "tiene la referencia a STATO"@es .
 
@@ -1240,6 +1362,7 @@ osdi:hasRefToWikidata rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf osdi:hasRefTo ;
                       rdfs:domain osdi:Currency ;
                       rdfs:range xsd:string ;
+                      rdfs:comment "Reference to the corresponding item in Wikidata, if available"@en ;
                       rdfs:label "has reference to Wikidata"@en ,
                                  "tiene la referencia a Wikidata"@es .
 
@@ -1249,6 +1372,7 @@ osdi:hasScaleParameter rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                        rdfs:domain osdi:ProbabilityDistributionExpression ;
                        rdfs:range xsd:double ;
+                       rdfs:comment "Defines the scale parameter of a probability distribution"@en ;
                        rdfs:label "has scale parameter"@en ,
                                   "tiene el parámetro de escala"@es .
 
@@ -1257,6 +1381,7 @@ osdi:hasScaleParameter rdf:type owl:DatatypeProperty ;
 osdi:hasSize rdf:type owl:DatatypeProperty ;
              rdfs:domain osdi:Population ;
              rdfs:range xsd:integer ;
+             rdfs:comment "Number of individuals in the population"@en ;
              rdfs:label "has size"@en ,
                         "tiene el tamaño"@es .
 
@@ -1265,6 +1390,7 @@ osdi:hasSize rdf:type owl:DatatypeProperty ;
 osdi:hasSource rdf:type owl:DatatypeProperty ;
                rdfs:domain osdi:Parameter ;
                rdfs:range xsd:string ;
+               rdfs:comment "Source of the parameter value, e.g., a bibliographic reference, name of a dataset, name of an expert..."@en ;
                rdfs:label "has source"@en ,
                           "tiene la fuente"@es .
 
@@ -1274,13 +1400,14 @@ osdi:hasStandardDeviationParameter rdf:type owl:DatatypeProperty ;
                                    rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                                    rdfs:domain osdi:ProbabilityDistributionExpression ;
                                    rdfs:range xsd:double ;
+                                   rdfs:comment "Defines the standard deviation parameter of a probability distribution"@en ;
                                    rdfs:label "has standard deviation parameter"@en ,
                                               "tiene el parámetro de desviación estándar"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#hasTimeHorizon
 osdi:hasTimeHorizon rdf:type owl:DatatypeProperty ;
-                    rdfs:domain osdi:Model ;
+                    rdfs:domain osdi:Experiment ;
                     rdfs:range xsd:double ;
                     rdfs:comment "Defines the time horizon (in years) applied to a simulation"@en ;
                     rdfs:label "has time horizon"@en ,
@@ -1291,6 +1418,7 @@ osdi:hasTimeHorizon rdf:type owl:DatatypeProperty ;
 osdi:hasUnit rdf:type owl:DatatypeProperty ;
              rdfs:domain osdi:MeasuredDataItemType ;
              rdfs:range xsd:string ;
+             rdfs:comment "Unit of measurement of a data item type, e.g., \"years\", \"kg\", \"number of cases\"..."@en ;
              rdfs:label "has unit"@en ,
                         "tiene la unidad"@es .
 
@@ -1300,6 +1428,7 @@ osdi:hasUpperLimitParameter rdf:type owl:DatatypeProperty ;
                             rdfs:subPropertyOf osdi:hasProbabilityDistributionParameter ;
                             rdfs:domain osdi:UniformDistributionExpression ;
                             rdfs:range xsd:double ;
+                            rdfs:comment "Defines the upper limit parameter of a uniform distribution"@en ;
                             rdfs:label "has upper limit parameter"@en ,
                                        "tiene el parámetro de límite superior"@es .
 
@@ -1307,7 +1436,7 @@ osdi:hasUpperLimitParameter rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#hasYear
 osdi:hasYear rdf:type owl:DatatypeProperty ;
              rdfs:domain [ rdf:type owl:Class ;
-                           owl:unionOf ( osdi:Model
+                           owl:unionOf ( osdi:Experiment
                                          osdi:Parameter
                                          osdi:Population
                                        )
@@ -1321,7 +1450,10 @@ osdi:hasYear rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/ontologies-ULL/OSDi#isAssessedIntervention
 osdi:isAssessedIntervention rdf:type owl:DatatypeProperty ;
                             rdfs:domain osdi:Intervention ;
-                            rdfs:range xsd:boolean .
+                            rdfs:range xsd:boolean ;
+             rdfs:comment "Indicates whether an intervention is being assessed or it is a comparator"@en ;
+             rdfs:label "es una intervención evaluada"@es ,
+                        "is assessed intervention"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isDisutility
@@ -1329,14 +1461,15 @@ osdi:isDisutility rdf:type owl:DatatypeProperty ;
                   rdfs:domain osdi:Utility ;
                   rdfs:range xsd:boolean ;
                   rdfs:comment "Indicates whether a utility parameter represents a disutility or a utility"@en ;
-                  rdfs:label "Es una desutilidad"@es ,
-                             "Is disutility"@en .
+                  rdfs:label "es una desutilidad"@es ,
+                             "is disutility"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#isTrueEpidemiologicalParameterEstimate
 osdi:isTrueEpidemiologicalParameterEstimate rdf:type owl:DatatypeProperty ;
                                             rdfs:domain osdi:EpidemiologicalParameter ;
                                             rdfs:range xsd:boolean ;
+                                            rdfs:comment "Indicates whether an epidemiological parameter is a true estimate of the parameter or an estimation with known biases"@en ;
                                             rdfs:label "es una estimación verdadera de un parámetro epidemiológico"@es ,
                                                        "is true epidemiological parameter estimate"@en .
 
@@ -1344,6 +1477,14 @@ osdi:isTrueEpidemiologicalParameterEstimate rdf:type owl:DatatypeProperty ;
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
+
 
 ###  https://w3id.org/ontologies-ULL/OSDi#AcuteManifestation
 osdi:AcuteManifestation rdf:type owl:Class ;
@@ -1387,13 +1528,17 @@ osdi:Attribute rdf:type owl:Class ;
                                  owl:allValuesFrom osdi:Parameter
                                ] ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty osdi:isAffectedBy ;
+                                 owl:allValuesFrom osdi:Effect
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty osdi:hasRefToSNOMED ;
                                  owl:allValuesFrom xsd:string
                                ] ;
                owl:disjointWith osdi:ModelItemDefiningDiseaseProgression ,
                                 osdi:ModelItemWithCost ,
                                 osdi:ModelItemWithDetection ,
-                                osdi:ModelItemWithEffectInLifeExpectancy ,
+                                osdi:ModelItemWithEffect ,
                                 osdi:ModelItemWithFollowUp ,
                                 osdi:ModelItemWithRiskCharacterization ,
                                 osdi:ModelItemWithTemporalConstraints ,
@@ -1415,7 +1560,10 @@ osdi:AttributeValueParameter rdf:type owl:Class ;
                                                                       ) ;
                                                    rdf:type owl:Class
                                                  ] ;
-                             rdfs:subClassOf osdi:Parameter .
+                             rdfs:subClassOf osdi:Parameter ;
+             rdfs:comment "A parameter that represents the value of an attribute"@en ;
+             rdfs:label "Parámetro de valor de atributo"@es ,
+                        "Attribute Value Parameter"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#BernoulliDistributionExpression
@@ -1524,10 +1672,6 @@ osdi:ClinicalProgressionElement rdf:type owl:Class ;
                                                   owl:allValuesFrom osdi:Parameter
                                                 ] ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty osdi:hasProbabilityOfDiagnosis ;
-                                                  owl:allValuesFrom osdi:Parameter
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
                                                   owl:onProperty osdi:hasRiskCharacterization ;
                                                   owl:allValuesFrom [ rdf:type owl:Class ;
                                                                       owl:unionOf ( osdi:Parameter
@@ -1577,7 +1721,10 @@ osdi:ClinicalProgressionWithInitialProportion rdf:type owl:Class ;
                                                                                        ) ;
                                                                     rdf:type owl:Class
                                                                   ] ;
-                                              rdfs:subClassOf osdi:ClinicalProgressionElement .
+                                              rdfs:subClassOf osdi:ClinicalProgressionElement ;
+             rdfs:comment "A clinical progression element that is present in an initial proportion in a population"@en ;
+             rdfs:label "Progresión clínica con proporción inicial"@es ,
+                        "Clinical progression with initial proportion"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#CoexistentCombinationRule
@@ -1600,6 +1747,10 @@ osdi:Cost rdf:type owl:Class ;
                                 rdf:type owl:Class
                               ] ;
           rdfs:subClassOf osdi:YearDependantParameter ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty osdi:hasCategory ;
+                            owl:allValuesFrom skos:Concept
+                          ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty osdi:appliesOneTime ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1650,7 +1801,10 @@ osdi:Describable rdf:type owl:Class ;
                                        owl:onProperty osdi:hasDescription ;
                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                        owl:onDataRange xsd:string
-                                     ] .
+                                     ] ;
+             rdfs:comment "Any concept that can be described with a text"@en ;
+             rdfs:label "Describible"@es ,
+                        "Describable"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention
@@ -1664,10 +1818,6 @@ osdi:DetectionIntervention rdf:type owl:Class ;
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty osdi:detects ;
                                              owl:allValuesFrom osdi:Disease
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty osdi:hasDiagnosisCost ;
-                                             owl:allValuesFrom osdi:Cost
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty osdi:hasSensitivity ;
@@ -1780,6 +1930,14 @@ osdi:Development rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DiagnosisIntervention
 osdi:DiagnosisIntervention rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( osdi:DetectionIntervention
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty osdi:hasCategory ;
+                                                                        owl:hasValue osdi:DiagnosisCat
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
                            rdfs:subClassOf osdi:DetectionIntervention ;
                            owl:disjointWith osdi:ScreeningIntervention ;
                            rdfs:comment "An intervention intended to establish the presence/absence of certain disease or condition"@en ;
@@ -1789,6 +1947,14 @@ osdi:DiagnosisIntervention rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DiagnosisStrategy
 osdi:DiagnosisStrategy rdf:type owl:Class ;
+                       owl:equivalentClass [ owl:intersectionOf ( osdi:DetectionStrategy
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty osdi:hasCategory ;
+                                                                    owl:hasValue osdi:DiagnosisCat
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] ;
                        rdfs:subClassOf osdi:DetectionStrategy ;
                        rdfs:comment "A strategy related to the diagnosis of a disease"@es ;
                        rdfs:label "Diagnosis strategy"@en ,
@@ -1806,10 +1972,6 @@ osdi:DiscreteEventSimulationModel rdf:type owl:Class ;
 ###  https://w3id.org/ontologies-ULL/OSDi#Disease
 osdi:Disease rdf:type owl:Class ;
              rdfs:subClassOf osdi:HealthCondition ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasDiagnosisCost ;
-                               owl:allValuesFrom osdi:Cost
-                             ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasEpidemiologicalParameter ;
                                owl:allValuesFrom [ owl:intersectionOf ( osdi:EpidemiologicalParameter
@@ -1838,10 +2000,6 @@ osdi:Disease rdf:type owl:Class ;
                                                  ]
                              ] ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty osdi:hasScreeningCost ;
-                               owl:allValuesFrom osdi:Cost
-                             ] ,
-                             [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:usesAttributeValue ;
                                owl:allValuesFrom osdi:Parameter
                              ] ,
@@ -1868,15 +2026,30 @@ osdi:Disease rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#DiseaseProgressionElement
 osdi:DiseaseProgressionElement rdf:type owl:Class ;
-                               rdfs:subClassOf osdi:ModelItem .
+                               rdfs:subClassOf osdi:ModelItem ;
+             rdfs:comment "An element characterizing the progression of a disease"@en ;
+             rdfs:label "Elemento de progresión de la enfermedad"@es ,
+                        "Disease progression element"@en .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#Drug
-osdi:Drug rdf:type owl:Class ;
-          rdfs:subClassOf osdi:HealthTechnology ;
-          rdfs:comment "A natural or synthetic remedy for a disease or manifestation"@en ;
-          rdfs:label "Drug"@en ,
-                     "Fármaco"@es .
+###  https://w3id.org/ontologies-ULL/OSDi#Effect
+osdi:Effect rdf:type owl:Class ;
+            rdfs:subClassOf osdi:ModelItem ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty osdi:affects ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( osdi:Attribute
+                                                                osdi:Parameter
+                                                              )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty osdi:hasEffectMagnitude ;
+                              owl:allValuesFrom osdi:Parameter
+                            ] ;
+             rdfs:comment "An effect of a treatment or intervention"@en ;
+             rdfs:label "Efecto"@es ,
+                        "Effect"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#EpidemiologicalParameter
@@ -1894,6 +2067,52 @@ osdi:EpidemiologicalParameter rdf:type owl:Class ;
                               rdfs:comment "A parameter related to the epidemiology (prevalence, incidence...) of a disease or condition"@en ;
                               rdfs:label "Epidemiological parameter"@en ,
                                          "Parámetro epidemiológico"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#Experiment
+osdi:Experiment rdf:type owl:Class ;
+                rdfs:subClassOf osdi:Describable ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty osdi:usesModel ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass osdi:Model
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty osdi:hasDisutilityCombinationMethod ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                    owl:oneOf [ rdf:type rdf:List ;
+                                                                rdf:first "ADD" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "MAX" ;
+                                                                           rdf:rest rdf:nil
+                                                                         ]
+                                                              ]
+                                                  ]
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty osdi:hasYear ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:short
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty osdi:hasDiscountForCosts ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty osdi:hasDiscountForEffects ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty osdi:hasTimeHorizon ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:double
+                                ] ;
+                rdfs:comment "An HTA experiment that uses a model, some input parameters and obtains results"@en ;
+                rdfs:label "Experiment"@en ,
+                           "Experimento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ExponentialDistributionExpression
@@ -1955,22 +2174,18 @@ osdi:FirstOrderUncertaintyParameter rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#FollowUpStrategy
 osdi:FollowUpStrategy rdf:type owl:Class ;
-                      rdfs:subClassOf osdi:Strategy ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty osdi:usesHealthTechnology ;
-                                        owl:allValuesFrom osdi:FollowUpTest
-                                      ] ;
+                      owl:equivalentClass [ owl:intersectionOf ( osdi:Strategy
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty osdi:hasCategory ;
+                                                                   owl:hasValue osdi:FollowUpCat
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf osdi:Strategy ;
                       rdfs:comment "A strategy related to the follow-up of a disease or condition"@es ;
                       rdfs:label "Estrategia de seguimiento"@es ,
                                  "Follow-up strategy"@en .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#FollowUpTest
-osdi:FollowUpTest rdf:type owl:Class ;
-                  rdfs:subClassOf osdi:HealthTechnology ;
-                  rdfs:comment "Tests performed to monitor the state of a patient"@en ;
-                  rdfs:label "Follow-up test"@en ,
-                             "Prueba de seguimiento"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#GammaDistributionExpression
@@ -2021,7 +2236,10 @@ osdi:GroupableModelItem rdf:type owl:Class ;
                                                                  ) ;
                                               rdf:type owl:Class
                                             ] ;
-                        rdfs:subClassOf osdi:ModelItem .
+                        rdfs:subClassOf osdi:ModelItem ;
+             rdfs:comment "A model item that can be put in a group"@en ;
+             rdfs:label "Elemento del modelo agrupable"@es ,
+                        "Groupable model item"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#GroupableModelItemWithProportion
@@ -2043,7 +2261,7 @@ osdi:GroupableModelItemWithProportion rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Guideline
 osdi:Guideline rdf:type owl:Class ;
-               rdfs:subClassOf osdi:ResourceUsageItem ,
+               rdfs:subClassOf osdi:ModelItem ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty osdi:hasGuideline ;
                                  owl:someValuesFrom osdi:Guideline
@@ -2073,7 +2291,6 @@ osdi:Guideline rdf:type owl:Class ;
                                  owl:onDataRange xsd:string
                                ] ;
                owl:disjointWith osdi:ModelItemWithCost ,
-                                osdi:ModelItemWithEffectInLifeExpectancy ,
                                 osdi:ModelItemWithUtility ;
                rdfs:comment "The way a treatment, drug, test... is applied. It defines a period of time (range), dose, frequency, etc." ;
                rdfs:label "Guideline"@en ,
@@ -2088,16 +2305,8 @@ osdi:HealthCondition rdf:type owl:Class ;
                                        owl:allValuesFrom osdi:Cost
                                      ] ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty osdi:hasIncreasedMortalityRate ;
-                                       owl:allValuesFrom osdi:Parameter
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty osdi:hasLifeExpectancyReduction ;
-                                       owl:allValuesFrom osdi:Parameter
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty osdi:hasProbabilityOfDeath ;
-                                       owl:allValuesFrom osdi:Parameter
+                                       owl:onProperty osdi:hasEffect ;
+                                       owl:allValuesFrom osdi:Effect
                                      ] ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty osdi:hasStrategy ;
@@ -2114,33 +2323,61 @@ osdi:HealthCondition rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#HealthTechnology
 osdi:HealthTechnology rdf:type owl:Class ;
-                      rdfs:subClassOf osdi:ResourceUsageItem ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty osdi:hasCost ;
-                                        owl:allValuesFrom osdi:Cost
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty osdi:hasGuideline ;
-                                        owl:allValuesFrom osdi:Guideline
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty osdi:hasUtility ;
-                                        owl:allValuesFrom osdi:Utility
-                                      ] ;
+                      rdfs:subClassOf osdi:ResourceUsageItem ;
                       rdfs:comment "Any treatment, drug, test... that may be applied to a patient. In the context of this ontology, this class and its subclasses define resource usage to compute costs and must not be confused with the 'interventions'"@en ;
                       rdfs:label "Health technology"@en ,
                                  "Tecnología sanitaria"@es .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#IncreasedMortalityRateEffect
+osdi:IncreasedMortalityRateEffect rdf:type owl:Class ;
+                                  rdfs:subClassOf [ owl:intersectionOf ( osdi:Effect
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty osdi:affects ;
+                                                                           owl:hasValue osdi:Attribute_LifeExpectancy
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ] ;
+                                  rdfs:comment "An increment on the mortality rate of an individual or population."@en ;
+                                  rdfs:label "Efecto de incremento en la tasa de mortalidad"@es ,
+                                             "Incresed of mortality rate effect"@en .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#InfectiousDisease
 osdi:InfectiousDisease rdf:type owl:Class ;
                        rdfs:subClassOf osdi:Disease ;
-                       owl:disjointWith osdi:InheritedDisease .
+                       owl:disjointWith osdi:InheritedDisease ;
+             rdfs:comment "A disease that is transmitted from one person to another through various means"@en ;
+             rdfs:label "Enfermedad infecciosa"@es ,
+                        "Infectious disease"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#InheritedDisease
 osdi:InheritedDisease rdf:type owl:Class ;
-                      rdfs:subClassOf osdi:Disease .
+                      rdfs:subClassOf osdi:Disease ;
+             rdfs:comment "A disease that is passed down from parent to child through genes"@en ;
+             rdfs:label "Enfermedad hereditaria"@es ,
+                        "Inherited disease"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#InstantDeathEffect
+osdi:InstantDeathEffect rdf:type owl:Class ;
+                        rdfs:subClassOf [ owl:intersectionOf ( osdi:Effect
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty osdi:affects ;
+                                                                 owl:hasValue osdi:Attribute_LifeExpectancy
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty osdi:hasCost ;
+                                          owl:allValuesFrom osdi:Cost
+                                        ] ;
+                        rdfs:comment "Defines an 'instantaneous' death risk, e.g., a probability of dying upon the onset of a condition"@en ;
+                        rdfs:label "Efecto de muerte instantánea"@es ,
+                                   "Instantaneous death effect"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Intervention
@@ -2152,8 +2389,16 @@ osdi:Intervention rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf osdi:ModelItem ,
                                   [ rdf:type owl:Restriction ;
+                                    owl:onProperty osdi:hasCategory ;
+                                    owl:allValuesFrom skos:Concept
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
                                     owl:onProperty osdi:hasCost ;
                                     owl:allValuesFrom osdi:Cost
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty osdi:hasEffect ;
+                                    owl:allValuesFrom osdi:Effect
                                   ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty osdi:hasStrategy ;
@@ -2162,10 +2407,6 @@ osdi:Intervention rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty osdi:hasUtility ;
                                     owl:allValuesFrom osdi:Utility
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty osdi:involvesModification ;
-                                    owl:allValuesFrom osdi:ModifierParameter
                                   ] ;
                   owl:disjointWith osdi:ModelItemDefiningDiseaseProgression ,
                                    osdi:ModelItemWithRiskCharacterization ;
@@ -2174,8 +2415,31 @@ osdi:Intervention rdf:type owl:Class ;
                              "Intervention"@en .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#LifeExpectancyReductionEffect
+osdi:LifeExpectancyReductionEffect rdf:type owl:Class ;
+                                   rdfs:subClassOf [ owl:intersectionOf ( osdi:Effect
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty osdi:affects ;
+                                                                            owl:hasValue osdi:Attribute_LifeExpectancy
+                                                                          ]
+                                                                        ) ;
+                                                     rdf:type owl:Class
+                                                   ] ;
+                                   rdfs:comment "An effect that reduces the life expectancy of an individual or population."@en ;
+                                   rdfs:label "Efecto de reducción en la esperanza de vida"@es ,
+                                              "Life expectancy reduction effect"@en .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#LineOfTherapy
 osdi:LineOfTherapy rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( osdi:Strategy
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty osdi:hasCategory ;
+                                                                owl:hasValue osdi:TreatmentCat
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
                    rdfs:subClassOf osdi:Strategy ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty osdi:failsIf ;
@@ -2184,14 +2448,6 @@ osdi:LineOfTherapy rdf:type owl:Class ;
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty osdi:hasStrategy ;
                                      owl:allValuesFrom osdi:FollowUpStrategy
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty osdi:usesHealthTechnology ;
-                                     owl:allValuesFrom [ rdf:type owl:Class ;
-                                                         owl:unionOf ( osdi:Drug
-                                                                       osdi:Treatment
-                                                                     )
-                                                       ]
                                    ] ;
                    rdfs:comment "A strategy related to the treatment of a disease or condition"@es ;
                    rdfs:label "Estrategia de tratamiento"@es ,
@@ -2265,29 +2521,6 @@ osdi:Model rdf:type owl:Class ;
                            [ rdf:type owl:Restriction ;
                              owl:onProperty osdi:hasRefTo ;
                              owl:allValuesFrom xsd:string
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty osdi:hasDisutilityCombinationMethod ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange [ rdf:type rdfs:Datatype ;
-                                               owl:oneOf [ rdf:type rdf:List ;
-                                                           rdf:first "ADD" ;
-                                                           rdf:rest [ rdf:type rdf:List ;
-                                                                      rdf:first "MAX" ;
-                                                                      rdf:rest rdf:nil
-                                                                    ]
-                                                         ]
-                                             ]
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty osdi:hasYear ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:short
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty osdi:hasTimeHorizon ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:double
                            ] ;
            rdfs:comment "A container to define all the items that conform a model that can be simulated"@en ;
            rdfs:label "Model"@en ,
@@ -2321,7 +2554,10 @@ osdi:ModelItemDefiningDiseaseProgression rdf:type owl:Class ;
                                                           osdi:Pathway ,
                                                           osdi:Population ,
                                                           osdi:ProbabilityDistributionExpression ,
-                                                          osdi:ResourceUsageItem .
+                                                          osdi:ResourceUsageItem ;
+             rdfs:comment "A model item that defines the progression of a disease"@en ;
+             rdfs:label "Elemento del modelo definiendo progreso de la enfermedad"@es ,
+                        "Model item defining disease progression"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithCost
@@ -2345,66 +2581,33 @@ osdi:ModelItemWithCost rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithDetection
 osdi:ModelItemWithDetection rdf:type owl:Class ;
-                            owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
-                                                                       [ rdf:type owl:Class ;
-                                                                         owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasDiagnosisCost ;
-                                                                                         owl:someValuesFrom osdi:Cost
-                                                                                       ]
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasIntervention ;
-                                                                                         owl:someValuesFrom osdi:DetectionIntervention
-                                                                                       ]
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasScreeningCost ;
-                                                                                         owl:someValuesFrom osdi:Cost
-                                                                                       ]
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty osdi:hasStrategy ;
-                                                                                         owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                                                              owl:unionOf ( osdi:DiagnosisStrategy
-                                                                                                                            osdi:ScreeningStrategy
-                                                                                                                          )
-                                                                                                            ]
-                                                                                       ]
-                                                                                     )
-                                                                       ]
-                                                                     ) ;
-                                                  rdf:type owl:Class
-                                                ] ;
                             rdfs:subClassOf osdi:ModelItem ;
                             owl:disjointWith osdi:Parameter ,
                                              osdi:Pathway ,
                                              osdi:Population ,
                                              osdi:ResourceUsageItem ,
-                                             osdi:TherapeuticIntervention .
+                                             osdi:TherapeuticIntervention ;
+             rdfs:comment "A model item that represents a detection mechanism for a disease"@en ;
+             rdfs:label "Elemento del modelo con detección"@es ,
+                        "Model item with detection"@en .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffectInLifeExpectancy
-osdi:ModelItemWithEffectInLifeExpectancy rdf:type owl:Class ;
-                                         owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
-                                                                                    [ rdf:type owl:Class ;
-                                                                                      owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty osdi:hasIncreasedMortalityRate ;
-                                                                                                      owl:someValuesFrom osdi:Parameter
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty osdi:hasLifeExpectancyReduction ;
-                                                                                                      owl:someValuesFrom osdi:Parameter
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty osdi:hasProbabilityOfDeath ;
-                                                                                                      owl:someValuesFrom osdi:Parameter
-                                                                                                    ]
-                                                                                                  )
-                                                                                    ]
-                                                                                  ) ;
-                                                               rdf:type owl:Class
-                                                             ] ;
-                                         rdfs:subClassOf osdi:ModelItem ;
-                                         owl:disjointWith osdi:Parameter ,
-                                                          osdi:Population ,
-                                                          osdi:ProbabilityDistributionExpression .
+###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithEffect
+osdi:ModelItemWithEffect rdf:type owl:Class ;
+                         owl:equivalentClass [ owl:intersectionOf ( osdi:ModelItem
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty osdi:hasEffect ;
+                                                                      owl:someValuesFrom osdi:Effect
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ] ;
+                         rdfs:subClassOf osdi:ModelItem ;
+                         owl:disjointWith osdi:Parameter ,
+                                          osdi:ProbabilityDistributionExpression ;
+             rdfs:comment "A model item that has at least one associated effect"@en ;
+             rdfs:label "Elemento del modelo con efecto"@es ,
+                        "Model item with effect"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithFollowUp
@@ -2450,7 +2653,10 @@ osdi:ModelItemWithRiskCharacterization rdf:type owl:Class ;
                                        owl:disjointWith osdi:Parameter ,
                                                         osdi:Population ,
                                                         osdi:ProbabilityDistributionExpression ,
-                                                        osdi:ResourceUsageItem .
+                                                        osdi:ResourceUsageItem ;
+             rdfs:comment "A model item that has risk characterization, i.e., associated with a parameter or pathway that represents a risk factor"@en ;
+             rdfs:label "Tipo de elemento del modelo con caracterización de riesgo"@es ,
+                        "Model item with risk characterization"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTemporalConstraints
@@ -2478,7 +2684,10 @@ osdi:ModelItemWithTemporalConstraints rdf:type owl:Class ;
                                       owl:disjointWith osdi:Parameter ,
                                                        osdi:Pathway ,
                                                        osdi:Population ,
-                                                       osdi:ProbabilityDistributionExpression .
+                                                       osdi:ProbabilityDistributionExpression ;
+             rdfs:comment "A model item that has temporal constraints, i.e., duration, onset age, and end age"@en ;
+             rdfs:label "Elemento del modelo con restricciones temporales"@es ,
+                        "Model item with temporal constraints"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ModelItemWithTreatment
@@ -2524,19 +2733,6 @@ osdi:ModelItemWithUtility rdf:type owl:Class ;
                                      "Model item with utility"@en .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#ModifierParameter
-osdi:ModifierParameter rdf:type owl:Class ;
-                       owl:equivalentClass [ owl:intersectionOf ( osdi:Parameter
-                                                                  [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty osdi:modifies ;
-                                                                    owl:someValuesFrom osdi:Parameter
-                                                                  ]
-                                                                ) ;
-                                             rdf:type owl:Class
-                                           ] ;
-                       rdfs:subClassOf osdi:Parameter .
-
-
 ###  https://w3id.org/ontologies-ULL/OSDi#NormalDistributionExpression
 osdi:NormalDistributionExpression rdf:type owl:Class ;
                                   rdfs:subClassOf osdi:ProbabilityDistributionExpression ,
@@ -2576,8 +2772,8 @@ osdi:OrderedModelItem rdf:type owl:Class ;
 osdi:Parameter rdf:type owl:Class ;
                rdfs:subClassOf osdi:ModelItem ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty osdi:isModifiedBy ;
-                                 owl:allValuesFrom osdi:Parameter
+                                 owl:onProperty osdi:isAffectedBy ;
+                                 owl:allValuesFrom osdi:Effect
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty osdi:hasDataItemType ;
@@ -2624,6 +2820,10 @@ osdi:Pathway rdf:type owl:Class ;
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasCost ;
                                owl:allValuesFrom osdi:Cost
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty osdi:hasEffect ;
+                               owl:allValuesFrom osdi:Effect
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty osdi:hasParameter ;
@@ -2720,7 +2920,10 @@ osdi:Population rdf:type owl:Class ;
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty osdi:hasLifeExpectancy ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass osdi:Parameter
+                                  owl:onClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty osdi:isValueOfAttribute ;
+                                                owl:hasValue osdi:Attribute_LifeExpectancy
+                                              ]
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty osdi:isSubpopulationOf ;
@@ -2809,7 +3012,10 @@ osdi:QoLDataItemType rdf:type owl:Class ;
                                        owl:onProperty osdi:hasCalculationMethod ;
                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                        owl:onDataRange xsd:string
-                                     ] .
+                                     ] ;
+             rdfs:comment "A type of data item related to quality-of-life measures"@en ;
+             rdfs:label "Tipo de elemento de datos de calidad de vida"@es ,
+                        "Quality-of-Life Data Item Type"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#RareDisease
@@ -2830,20 +3036,46 @@ osdi:RareDisease rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ResourceUsageItem
 osdi:ResourceUsageItem rdf:type owl:Class ;
-                       rdfs:subClassOf osdi:ModelItem .
+                       rdfs:subClassOf osdi:ModelItem ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osdi:hasCategory ;
+                                         owl:allValuesFrom skos:Concept
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osdi:hasCost ;
+                                         owl:allValuesFrom osdi:Cost
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osdi:hasEffect ;
+                                         owl:allValuesFrom osdi:Effect
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osdi:hasGuideline ;
+                                         owl:allValuesFrom osdi:Guideline
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osdi:hasUtility ;
+                                         owl:allValuesFrom osdi:Utility
+                                       ] ;
+             rdfs:comment "Item related to the use of health resources, belonging to some specific category"@en ;
+             rdfs:label "Elemento de uso de recursos"@es ,
+                        "Resource Usage Item"@en .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention
 osdi:ScreeningIntervention rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( osdi:DetectionIntervention
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty osdi:hasCategory ;
+                                                                        owl:hasValue osdi:ScreeningCat
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
                            rdfs:subClassOf osdi:DetectionIntervention ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty osdi:hasTemporaryThreshold ;
                                              owl:allValuesFrom osdi:Parameter
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty osdi:hasScreeningCost ;
-                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                             owl:onClass osdi:Cost
                                            ] ;
                            rdfs:comment "An intervention to identifiy the subset of population who may have certain disease or condition and require further testing to obtain a final diagnosis"@en ;
                            rdfs:label "Intervención de cribado"@es ,
@@ -2852,6 +3084,14 @@ osdi:ScreeningIntervention rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#ScreeningStrategy
 osdi:ScreeningStrategy rdf:type owl:Class ;
+                       owl:equivalentClass [ owl:intersectionOf ( osdi:DetectionStrategy
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty osdi:hasCategory ;
+                                                                    owl:hasValue osdi:ScreeningCat
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] ;
                        rdfs:subClassOf osdi:DetectionStrategy ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty osdi:hasTemporaryThreshold ;
@@ -2956,16 +3196,8 @@ osdi:Strategy rdf:type owl:Class ;
                                 owl:allValuesFrom osdi:Parameter
                               ] ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty osdi:hasCost ;
-                                owl:allValuesFrom osdi:Cost
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty osdi:hasGuideline ;
-                                owl:allValuesFrom osdi:Guideline
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty osdi:hasUtility ;
-                                owl:allValuesFrom osdi:Utility
+                                owl:onProperty osdi:usesHealthTechnology ;
+                                owl:allValuesFrom osdi:HealthTechnology
                               ] ;
               rdfs:comment "A way of defining a series of steps required to treat, detect or follow-up a disease or condition"@es ;
               rdfs:label "Estrategia"@es ,
@@ -2974,6 +3206,14 @@ osdi:Strategy rdf:type owl:Class ;
 
 ###  https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention
 osdi:TherapeuticIntervention rdf:type owl:Class ;
+                             owl:equivalentClass [ owl:intersectionOf ( osdi:Intervention
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty osdi:hasCategory ;
+                                                                          owl:hasValue osdi:TreatmentCat
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
+                                                 ] ;
                              rdfs:subClassOf osdi:Intervention ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty osdi:hasStrategy ;
@@ -2986,14 +3226,6 @@ osdi:TherapeuticIntervention rdf:type owl:Class ;
                              rdfs:comment "An intervention driven by a set of drugs and/or treatments"@en ;
                              rdfs:label "Intervención terapéutica"@es ,
                                         "Therapeutic intervention"@en .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#Treatment
-osdi:Treatment rdf:type owl:Class ;
-               rdfs:subClassOf osdi:HealthTechnology ;
-               rdfs:comment "Any non-drug intervention used to treat a disease or manifestation"@en ;
-               rdfs:label "Non-drug treatment"@en ,
-                          "Tratamiento no farmacológico"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression
@@ -3055,7 +3287,10 @@ osdi:YearDependantParameter rdf:type owl:Class ;
                                                                      ) ;
                                                   rdf:type owl:Class
                                                 ] ;
-                            rdfs:subClassOf osdi:Parameter .
+                            rdfs:subClassOf osdi:Parameter ;
+             rdfs:comment "A parameter which value that depends on the year, such as costs"@en ;
+             rdfs:label "Parámetro dependiente del año"@es ,
+                        "Year-Dependent Parameter"@en .
 
 
 #################################################################
@@ -3365,61 +3600,75 @@ osdi:DI_Upper95ConfidenceLimit rdf:type owl:NamedIndividual ,
                                           "Upper 95% CI limit"@en .
 
 
+###  https://w3id.org/ontologies-ULL/OSDi#DetectionCat
+osdi:DetectionCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:broader osdi:HealthCareCat ;
+                  skos:prefLabel "Detección"@es ,
+                                 "Detection"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#DiagnosisCat
+osdi:DiagnosisCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader osdi:DetectionCat ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:prefLabel "Diagnostic"@en ,
+                                 "Diagnóstico"@es .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#DrugCat
+osdi:DrugCat rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader osdi:TreatmentCat ;
+             skos:inScheme osdi:ResourceUsageCategoryScheme ;
+             skos:definition "Tratamiento basado en la administración de medicamentos o fármacos."@es ,
+                             "Treatment based on the administration of medicinal products or drugs."@en ;
+             skos:prefLabel "Drug-based treatment"@en ,
+                            "Tratamiento farmacológico"@es .
+
+
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Excel
 osdi:Exp_Excel rdf:type owl:NamedIndividual ,
                         osdi:ExpressionLanguage ;
-               osdi:hasDescription "Expression language for Excel"^^xsd:string .
+               osdi:hasDescription "Expression language for Excel" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_JEXL
 osdi:Exp_JEXL rdf:type owl:NamedIndividual ,
                        osdi:ExpressionLanguage ;
-              osdi:hasDescription "Expression language for Java Expression Language"^^xsd:string .
+              osdi:hasDescription "Expression language for Java Expression Language" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Java
 osdi:Exp_Java rdf:type owl:NamedIndividual ,
                        osdi:ExpressionLanguage ;
-              osdi:hasDescription "Expression language for Java"^^xsd:string .
+              osdi:hasDescription "Expression language for Java" .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#Exp_Javaluator
 osdi:Exp_Javaluator rdf:type owl:NamedIndividual ,
                              osdi:ExpressionLanguage ;
-                    osdi:hasDescription "Expression language for Javaluator"^^xsd:string .
+                    osdi:hasDescription "Expression language for Javaluator" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_FollowUp
-osdi:Group_Cost_FollowUp rdf:type owl:NamedIndividual ,
-                                  [ owl:intersectionOf ( osdi:Group
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty osdi:hasGroupItem ;
-                                                           owl:allValuesFrom osdi:Cost
-                                                         ]
-                                                       ) ;
-                                    rdf:type owl:Class
-                                  ] ;
-                         osdi:hasDescription "Group of costs for follow-up items"^^xsd:string .
+###  https://w3id.org/ontologies-ULL/OSDi#FollowUpCat
+osdi:FollowUpCat rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                 skos:broader osdi:HealthCareCat ;
+                 skos:prefLabel "Follow-up"@en ,
+                                "Seguimiento"@es .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi#Group_Cost_Treatment
-osdi:Group_Cost_Treatment rdf:type owl:NamedIndividual ,
-                                   [ owl:intersectionOf ( osdi:Group
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty osdi:hasGroupItem ;
-                                                            owl:allValuesFrom osdi:Cost
-                                                          ]
-                                                        ) ;
-                                     rdf:type owl:Class
-                                   ] ;
-                          osdi:hasDescription "Group of costs for treatment items"^^xsd:string .
-
-
-###  https://w3id.org/ontologies-ULL/OSDi#GuidelineLifetimeAnual
-osdi:GuidelineLifetimeAnual rdf:type owl:NamedIndividual ,
-                                     osdi:Guideline ;
-                            osdi:REMOVEhasFrequency "1y" ;
-                            osdi:hasRange "0y-*" .
+###  https://w3id.org/ontologies-ULL/OSDi#HealthCareCat
+osdi:HealthCareCat rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                   skos:topConceptOf osdi:ResourceUsageCategoryScheme ;
+                   skos:prefLabel "Healthcare"@en ,
+                                "Cuidado sanitario"@es .
 
 
 ###  https://w3id.org/ontologies-ULL/OSDi#InterventionDoNothing
@@ -3427,6 +3676,31 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
                                     osdi:Intervention ;
                            osdi:hasDescription "A null intervention that has no effect on the patient" ;
                            osdi:isAssessedIntervention "false"^^xsd:boolean .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#ResourceUsageCategoryScheme
+osdi:ResourceUsageCategoryScheme rdf:type owl:NamedIndividual ,
+                                          skos:ConceptScheme ;
+                                 skos:prefLabel "Categorías relacionadas con uso de recursos"@es ,
+                                                "Resource usage-related categories"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#ScreeningCat
+osdi:ScreeningCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader osdi:DetectionCat ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:prefLabel "Cribado"@es ,
+                                 "Screening"@en .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#TreatmentCat
+osdi:TreatmentCat rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:inScheme osdi:ResourceUsageCategoryScheme ;
+                  skos:broader osdi:HealthCareCat ;
+                  skos:prefLabel "Tratamiento"@es ,
+                                 "Treatment"@en .
 
 
 #################################################################
@@ -3458,6 +3732,7 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( osdi:DataItemType
+                osdi:Experiment
                 osdi:ExpressionLanguage
                 osdi:Model
                 osdi:ModelItem
@@ -3474,4 +3749,4 @@ osdi:InterventionDoNothing rdf:type owl:NamedIndividual ,
 ] .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
