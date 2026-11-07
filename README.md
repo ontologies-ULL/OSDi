@@ -41,5 +41,6 @@ For commercial use, please contact the authors.
 |---------|------|
 | `1.0` | [https://w3id.org/ontologies-ULL/OSDi/1.0](https://w3id.org/ontologies-ULL/OSDi/1.0) |
 | `1.1` | [https://w3id.org/ontologies-ULL/OSDi/1.1](https://w3id.org/ontologies-ULL/OSDi/1.1) |
+| `1.2` | [https://w3id.org/ontologies-ULL/OSDi/1.2](https://w3id.org/ontologies-ULL/OSDi/1.2) |
 
 <!-- END_OSDI_VERSIONS -->
