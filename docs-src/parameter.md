@@ -10,7 +10,7 @@ We will use a number of simple examples to illustrate how to properly define par
 
 ### 4.1. Defining a simple deterministic value
 
-In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is a **Deterministic Parameter**. There is a specific **Data Item Type** for sensitivity ([`osdi:DI_Sensitivity`]({{ config.extra.osdi }}#DI_Sensitivity)); otherwise, a more generic type might be used ([`osdi:DI_Probability`]({{ config.extra.osdi }}#DI_Probability)). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to ([`osdi:hasYear`]({{ config.extra.osdi }}#hasYear)) or the geographical context ([`osdi:hasGeographicalContext`]({{ config.extra.osdi }}#hasGeographicalContext)) may be added.
+In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is a **Deterministic Parameter**. There is a specific **Data Item Type** for sensitivity ([`osdi:DI_Sensitivity`]({{ config.extra.osdi }}#DI_Sensitivity)); otherwise, a more generic type might be used ([`osdi:DI_Probability`]({{ config.extra.osdi }}#DI_Probability)). This parameter will be used by the screening strategy ([`osdi:hasSensitivity`]({{ config.extra.osdi }}#hasSensitivity), see the [interventions section](intervention.md)). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to ([`osdi:hasYear`]({{ config.extra.osdi }}#hasYear)) or the geographical context ([`osdi:hasGeographicalContext`]({{ config.extra.osdi }}#hasGeographicalContext)) may be added.
 
 **TTL Example (Constant sensitivity):**
 
@@ -26,7 +26,7 @@ osdi:BD_ScreeningSensitivity
 
 ### 4.2. Adding uncertainty to parameters
 
-Deterministic parameters are treated as constants but, in general, we can add uncertainty by changing the nature of the parameter to first- or second- order uncertainty, ie.e. by inheriting  [`osdi:FirstOrderUncertaintyParameter`]({{ config.extra.osdi }}#FirstOrderUncertaintyParameter) or [`osdi:SecondOrderUncertaintyParameter`]({{ config.extra.osdi }}#SecondOrderUncertaintyParameter), respectively. Both natures define a [`osdi:hasUncertaintyCharacterization`]({{ config.extra.osdi }}#hasUncertaintyCharacterization) property to describe the uncertainty itself. The most straightforward approach is creating an individual based on the predefined **Probability Distribution Expressions** ([`osdi:ProbabilityDistributionExpression`]({{ config.extra.osdi }}#ProbabilityDistributionExpression)).
+Deterministic parameters are treated as constants but, in general, we can add uncertainty by changing the nature of the parameter to first- or second-order uncertainty, i.e., by inheriting [`osdi:FirstOrderUncertaintyParameter`]({{ config.extra.osdi }}#FirstOrderUncertaintyParameter) or [`osdi:SecondOrderUncertaintyParameter`]({{ config.extra.osdi }}#SecondOrderUncertaintyParameter), respectively. Both natures define a [`osdi:hasUncertaintyCharacterization`]({{ config.extra.osdi }}#hasUncertaintyCharacterization) property to describe the uncertainty itself. The most straightforward approach is creating an individual based on the predefined **Probability Distribution Expressions** ([`osdi:ProbabilityDistributionExpression`]({{ config.extra.osdi }}#ProbabilityDistributionExpression)).
 
 Let's suppose the proportion of individuals with profound BD who present seizures, as described in the reference study. Since its expected value comes from a meta-analysis of several studies, we should include second-order uncertainty when modeling this parameter. We would start by creating the individual for the parameter, that includes the expected value obtained from the meta-analysis (0.564).
 
@@ -39,7 +39,7 @@ osdi:BD_Proportion_Seizures_PBD
     osdi:hasDescription "Proportion of seizures in clinically diagnosed profound BD" ;
     osdi:hasDataItemType osdi:DI_Proportion ;
     osdi:hasExpectedValue "0.564"^^xsd:double ; 
-    osdi:hasUncertaintyCharacterization osdi:BD_Proportion_Seizures_PBD_Uncertainty
+    osdi:hasUncertaintyCharacterization osdi:BD_Proportion_Seizures_PBD_Uncertainty ;
     osdi:hasSource "Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399" .
 ```
 
@@ -53,9 +53,23 @@ osdi:BD_Proportion_Seizures_PBD_Uncertainty
     rdfs:label "Uncertainty on proportion of seizures PBD"@en ;
     osdi:hasDescription "Characterization of the uncertainty on the proportion of seizures in clinically diagnosed profound BD" ;
     osdi:hasAlfaParameter "65.0"^^xsd:double ;
-    osdi:hasBetaParameter "50.0"^^xsd:double .
+    osdi:hasBetaParameter "50.0"^^xsd:double ;
     osdi:hasSource "Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399" .
 ```
+
+Each probability distribution expression defines its own parameters:
+
+| Distribution | Parameters |
+| --- | --- |
+| [`osdi:BernoulliDistributionExpression`]({{ config.extra.osdi }}#BernoulliDistributionExpression) | probability ([`osdi:hasProbabilityParameter`]({{ config.extra.osdi }}#hasProbabilityParameter)) |
+| [`osdi:BetaDistributionExpression`]({{ config.extra.osdi }}#BetaDistributionExpression) | alpha and beta ([`osdi:hasAlfaParameter`]({{ config.extra.osdi }}#hasAlfaParameter), [`osdi:hasBetaParameter`]({{ config.extra.osdi }}#hasBetaParameter)) |
+| [`osdi:GammaDistributionExpression`]({{ config.extra.osdi }}#GammaDistributionExpression) | shape k and scale theta ([`osdi:hasAlfaParameter`]({{ config.extra.osdi }}#hasAlfaParameter), [`osdi:hasThetaParameter`]({{ config.extra.osdi }}#hasThetaParameter)); mean = k * theta. A gamma expressed with a rate lambda has theta = 1 / lambda. Until version 1.2, the scale was called `hasLambdaParameter` |
+| [`osdi:ExponentialDistributionExpression`]({{ config.extra.osdi }}#ExponentialDistributionExpression) | rate lambda ([`osdi:hasLambdaParameter`]({{ config.extra.osdi }}#hasLambdaParameter)); mean = 1 / lambda |
+| [`osdi:PoissonDistributionExpression`]({{ config.extra.osdi }}#PoissonDistributionExpression) | mean number of events lambda ([`osdi:hasLambdaParameter`]({{ config.extra.osdi }}#hasLambdaParameter)) |
+| [`osdi:NormalDistributionExpression`]({{ config.extra.osdi }}#NormalDistributionExpression) | mean and standard deviation ([`osdi:hasAverageParameter`]({{ config.extra.osdi }}#hasAverageParameter), [`osdi:hasStandardDeviationParameter`]({{ config.extra.osdi }}#hasStandardDeviationParameter)) |
+| [`osdi:UniformDistributionExpression`]({{ config.extra.osdi }}#UniformDistributionExpression) | lower and upper limits ([`osdi:hasLowerLimitParameter`]({{ config.extra.osdi }}#hasLowerLimitParameter), [`osdi:hasUpperLimitParameter`]({{ config.extra.osdi }}#hasUpperLimitParameter)) |
+
+Any distribution may also define a factor that multiplies the value ([`osdi:hasScaleParameter`]({{ config.extra.osdi }}#hasScaleParameter)) and an offset that is added afterwards ([`osdi:hasOffsetParameter`]({{ config.extra.osdi }}#hasOffsetParameter)).
 
 Once defined, you can link the parameter with the manifestation already defined by means of the [`osdi:hasRiskCharacterization`]({{ config.extra.osdi }}#hasRiskCharacterization) property, to numerically characterize the progression.
 
@@ -72,13 +86,13 @@ osdi:BD_Seizures
 
 Uncertainty can also be expressed as a combination of parameters. For example, you could express the lower and upper values of a confidence interval or add a standard deviation. 
 
-### 4.2. Costs and utilities
+### 4.3. Costs and utilities
 
-**Cost** ([`osdi:Cost`]({{ config.extra.osdi }}#Cost)) parameters require a year and a can only use data item types that are subclass of [`osdi:Currency`]({{ config.extra.osdi }}#Currency). With this information, the applications that use the knowledge stored in an ontological repository may automatically update and/or convert costs. 
+**Cost** ([`osdi:Cost`]({{ config.extra.osdi }}#Cost)) parameters require a year and can only use data item types that are subclass of [`osdi:Currency`]({{ config.extra.osdi }}#Currency). With this information, the applications that use the knowledge stored in an ontological repository may automatically update and/or convert costs. 
 
-**Utility** ([`osdi:Utility`]({{ config.extra.osdi }}#Utility)) models health-related quality of life (QoL) measures (QALYs). If it represents a decrement in QoL, the [`osdi:isDisutility`]({{ config.extra.osdi }}#isDisutility) property is set to `true`; `false` otherwise.
+**Utility** ([`osdi:Utility`]({{ config.extra.osdi }}#Utility)) models health-related quality of life (QoL) measures (QALYs). If it represents a decrement in QoL, the [`osdi:isDisutility`]({{ config.extra.osdi }}#isDisutility) property is set to `true`; `false` otherwise. A utility u (`false`) is equivalent to a disutility of (base utility of the population - u).
 
-Both costs and utilities can be define to be used just once ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) is set to `true`), or anually ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) is set to `false`).
+Both costs and utilities can be defined to be used just once ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) is set to `true`), or annually ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) is set to `false`). A one-time utility is a loss of QALYs (a negative loss is a gain), added when a manifestation appears or when a strategy or one of its outcomes is applied. The costs and utilities of an acute manifestation apply per episode, so they must be one-time.
 
 For example, the unit cost for the screening test is $0.13 (expressed in 2013 US dollars). 
 
@@ -95,7 +109,7 @@ osdi:BD_Cost_ScreeningTest
     osdi:appliesOneTime "true"^^xsd:boolean .
 ```
 
-The disutility for seizures is applied anually as a decrement of the base utility of the individual.
+The disutility of a mild seizure disorder is applied annually as a decrement of the base utility of the individual. Annual payoffs only make sense for chronic progressions, such as a chronic seizure disorder: the payoffs of an acute seizure episode would be one-time.
 
 **TTL Example (Disutility for Seizures):**
 
@@ -110,7 +124,7 @@ osdi:BD_Disutility_MildSeizureDisorder
     osdi:appliesOneTime "false"^^xsd:boolean .
 ```
 
-### 4.3. Calculated Parameters
+### 4.4. Calculated Parameters
 
 Correctly modeling the correlation among parameters is a key aspect to consider, especially when dealing with sensitivity analyses. Hence, you should explicitly state such correlations instead of using the final values of the parameters as much as you can. **Calculated Parameters** ([`osdi:CalculatedParameter`]({{ config.extra.osdi }}#CalculatedParameter)) model values derived from an explicit formula involving other parameters. The formula can be expressed in different languages (currently, Excel [`osdi:Exp_Excel`]({{ config.extra.osdi }}#Exp_Excel), Java [`osdi:Exp_Java`]({{ config.extra.osdi }}#Exp_Java), Javaluator [`osdi:Exp_Javaluator`]({{ config.extra.osdi }}#Exp_Javaluator) and Java Expression Language [`osdi:Exp_JEXL`]({{ config.extra.osdi }}#Exp_JEXL) are supported by the applications using **OSDi**). The string representing the formula literal ([`osdi:hasExpressionValue`]({{ config.extra.osdi }}#hasExpressionValue)) should use the names of the individuals defined in OSDi, which at the same time, should be linked to the formula by means of the [`osdi:dependsOn`]({{ config.extra.osdi }}#dependsOn) property.
 
@@ -125,6 +139,6 @@ osdi:BD_Cost_TreatedBD_NoComplications
     osdi:hasDataItemType osdi:Currency_Dollar ;
     osdi:hasYear "2013"^^xsd:short ;
     osdi:hasExpressionValue "BD_Cost_Biotin_Pack_5mg40Tablets*(365/30) + BD_Cost_SpecialistVisit*4 + BD_Cost_Audiometry + BD_Cost_VisualAcuityTest"^^xsd:string ;
-    osdi:dependsOn BD_Cost_Biotin_Pack_5mg40Tablets , BD_Cost_SpecialistVisit , BD_Cost_Audiometry , BD_Cost_VisualAcuityTest ;
+    osdi:dependsOn osdi:BD_Cost_Biotin_Pack_5mg40Tablets , osdi:BD_Cost_SpecialistVisit , osdi:BD_Cost_Audiometry , osdi:BD_Cost_VisualAcuityTest ;
     osdi:hasExpressionLanguage osdi:Exp_Excel .
 ```

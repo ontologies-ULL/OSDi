@@ -16,8 +16,8 @@ theme:
   name: material
 
 extra:
-  version: "1.0"
-  osdi: "https://w3id.org/ontologies-ULL/OSDi/1.0"
+  version: "1.3"
+  osdi: "https://w3id.org/ontologies-ULL/OSDi/1.3"
 
 nav:
   - Home: index.md
@@ -29,7 +29,7 @@ nav:
   - 4. Parameters: parameter.md
   - 5. Characterizing the risk using pathways: pathway.md
   - 6. Population affected: population.md
-  - 7. Interventions and their effects: intervention.md
+  - 7. Interventions, strategies and effects: intervention.md
   - 8. Decision model: model_structure.md
   - 9. Modeling costs in detail: resource_usage.md
   - Ontology reference (Widoco): https://w3id.org/ontologies-ULL/OSDi

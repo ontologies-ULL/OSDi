@@ -1,9 +1,9 @@
 
-The **Population** ([`osdi:Population`]({{ config.extra.osdi }}#Population)) class defines the target cohort for the interventions under assessment. All the relevant characteristics of the individuals must be defined here, such as the distribution by sex and age, but also clinical characteristics (or patient **Atributes**) that may influence the progression of the disease or the effect of the intervention.
+The **Population** ([`osdi:Population`]({{ config.extra.osdi }}#Population)) class defines the target cohort for the interventions under assessment. All the relevant characteristics of the individuals must be defined here, such as the distribution by sex and age, but also clinical characteristics (or patient **Attributes**) that may influence the progression of the disease or the effect of the intervention.
 
 ![Population classes](img/osdi_population.png)
 
-**OSDi** defines some default attributes: [`osdi:Attribute_Age`]({{ config.extra.osdi }}#Attribute_Age), [`osdi:Attribute_Sex`]({{ config.extra.osdi }}#Attribute_Sex), [`osdi:Attribute_LifeExpectancy`]({{ config.extra.osdi }}#Attribute_LifeExpectancy). **Populations** expect values for these **Atributes** by means of specific properties ([`osdi:hasAge`]({{ config.extra.osdi }}#hasAge), [`osdi:hasSex`]({{ config.extra.osdi }}#hasSex)). Such values must be defined as **Parameters**.
+**OSDi** defines some default attributes: [`osdi:Attribute_Age`]({{ config.extra.osdi }}#Attribute_Age), [`osdi:Attribute_Sex`]({{ config.extra.osdi }}#Attribute_Sex), [`osdi:Attribute_LifeExpectancy`]({{ config.extra.osdi }}#Attribute_LifeExpectancy). **Populations** expect values for these **Attributes** by means of specific properties ([`osdi:hasAge`]({{ config.extra.osdi }}#hasAge), [`osdi:hasSex`]({{ config.extra.osdi }}#hasSex)). Such values must be defined as **Parameters**. If a population does not define them, applications may assume default values (e.g., JaDES assumes 18 years, 50% women and a life expectancy of 100 years, and warns about it).
 
 For example, the base age for the population of newborns in the reference problem should be 0.
 
@@ -34,7 +34,7 @@ osdi:BD_BasePopulation
     osdi:hasSize 540963 .
 ```
 
-If required, we can define subgroups of population (e.g., cases with profound BD) using the [`osdi:isSubpopulationOf`]({{ config.extra.osdi }}#isSubpopulationOf) property.
+If required, we can define subgroups of population (e.g., cases with profound BD) using the [`osdi:isSubPopulationOf`]({{ config.extra.osdi }}#isSubPopulationOf) (or its inverse, [`osdi:hasSubpopulation`]({{ config.extra.osdi }}#hasSubpopulation)) property.
 
 Having different **Populations** allows for testing the same interventions on multiple cohorts. You may characterize different populations in terms of **Attributes** or **EpidemiologicalParameters** ([`osdi:EpidemiologicalParameter`]({{ config.extra.osdi }}#EpidemiologicalParameter)), which capture population-level statistics like incidence or birth-prevalence. For example, you may define a population using the birth prevalence from Galicia, but also a different population with the birth prevalence from a worldwide survey ([Wolf, 1991](https://doi.org/10.1007/BF01800475)).
 

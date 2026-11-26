@@ -8,13 +8,13 @@ We will continue this section by explaining the main classes available to repres
 
 **ClinicalProgressionElement** ([`osdi:ClinicalProgressionElement`]({{ config.extra.osdi }}#ClinicalProgressionElement)) allow for different level of detail and characterize the different ways in which the disease signs and symptoms occur:
   * **Development** ([`osdi:Development`]({{ config.extra.osdi }}#Development)): A specific progression pathway, such as the natural history without screening. This is also useful when little detail is provided on the specific manifestations of a disease (e.g. you just need to model mild and severe *developments*)
-  * **Manifestation** ([`osdi:Manifestation`]({{ config.extra.osdi }}#Manifestation)): Specific symptoms categorized as **Acute** ([`osdi:AcuteManifestation`]({{ config.extra.osdi }}#AcuteManifestation)) (e.g., seizures, hypotonia, skin problems) or **Chronic** ([`osdi:ChronicManifestation`]({{ config.extra.osdi }}#ChronicManifestation)) (e.g., cognitive deficits, optic atrophy, hearing loss).
+  * **Manifestation** ([`osdi:Manifestation`]({{ config.extra.osdi }}#Manifestation)): Specific symptoms categorized as **Acute** ([`osdi:AcuteManifestation`]({{ config.extra.osdi }}#AcuteManifestation)) (e.g., seizures, hypotonia, skin problems) or **Chronic** ([`osdi:ChronicManifestation`]({{ config.extra.osdi }}#ChronicManifestation)) (e.g., cognitive deficits, optic atrophy, hearing loss). The costs and utilities of an acute manifestation apply per episode, so they should be one-time ([`osdi:appliesOneTime`]({{ config.extra.osdi }}#appliesOneTime) set to `true`); annual costs and utilities of an acute manifestation are ignored. An acute manifestation may define how many episodes happen per year ([`osdi:hasFrequency`]({{ config.extra.osdi }}#hasFrequency)).
   * **Stage** ([`osdi:Stage`]({{ config.extra.osdi }}#Stage)): Phases in the progression of a disease, such as those used to describe an oncological condition.
 
 All of these subclasses can be combined to create a detail view of the disease. Hence, you may define **Stages** or **Manifestations** specific to certain **Development**, and also **Manifestations** specific to certain **Stage** by using **hasSubProgression** ([`osdi:hasSubProgression`]({{ config.extra.osdi }}#hasSubProgression)). 
 
 For more complex structures, **OSDi** defines **Progression Combination Rules** ([`osdi:ProgressionCombinationRule`]({{ config.extra.osdi }}#ProgressionCombinationRule)). Each rule may affect several **Clinical Progression Elements** by means of **affectsProgressionElement** ([`osdi:affectsProgressionElement`]({{ config.extra.osdi }}#affectsProgressionElement)). These rules include: 
-  * **CoexistenCombinationRule** ([`osdi:CoexistenCombinationRule`]({{ config.extra.osdi }}#CoexistenCombinationRule)) describes a set of progressions (manifestations, stages...) that may occur simultaneously (e.g. retinopathy and nephropathy in diabetes).
+  * **CoexistentCombinationRule** ([`osdi:CoexistentCombinationRule`]({{ config.extra.osdi }}#CoexistentCombinationRule)) describes a set of progressions (manifestations, stages...) that may occur simultaneously (e.g. retinopathy and nephropathy in diabetes).
   * **AlternativeCombinationRule** ([`osdi:AlternativeCombinationRule`]({{ config.extra.osdi }}#AlternativeCombinationRule)) describes a set of progressions (manifestations, stages...) that are mutually exclusive, i.e., they can not occur simultaneously (e.g. mild and severe development of a disease). This set of progressions may also include a default (i.e., "none of the above") branch by setting the **hasNullProgression** ([`osdi:hasNullProgression`]({{ config.extra.osdi }}#hasNullProgression)) property to true.
   * **SequentialCombinationRule** ([`osdi:SequentialCombinationRule`]({{ config.extra.osdi }}#SequentialCombinationRule)) describes a set of progressions (manifestations, stages...) that appear sequentially. Unlike **AlternativeCombinationRule**, where progressions may appear in any order, in this case each new progressions replaces the former. The clinical progressions affected by this rule must be **Ordered Model Items** ([`osdi:OrderedModelItem`]({{ config.extra.osdi }}#OrderedModelItem)), which allows for the creation of a linked list of model items. The **SequentialCombinationRule** points to the first item by means of the **hasFirst** ([`osdi:hasFirst`]({{ config.extra.osdi }}#hasFirst)) property.
 
@@ -54,18 +54,20 @@ Since all the manifestations can occur simultaneously, they can be grouped toget
 
 ```turtle
 osdi:BD_ManifestationRule
-    a osdi:CoexistenCombinationRule ;
+    a osdi:CoexistentCombinationRule ;
     rdfs:label "Set of manifestations for BD"@en ,
                "Conjunto de manifestaciones para DB"@es ;
     osdi:hasDescription "Set of acute and chronic manifestations for untreated profound biotinidase deficiency. Any combination (including none) is allowed in the decision model."@en ;
-    osdi:affectsDiseaseProgression osdi:BD_Seizures ;
-                                    BD_SkinProblems ;
-                                    BD_HearingLoss ;
-                                    BD_CognitiveDeficit .
+    osdi:affectsProgressionElement osdi:BD_Seizures ,
+                                   osdi:BD_SkinProblems ,
+                                   osdi:BD_HearingLoss ,
+                                   osdi:BD_CognitiveDeficit .
 ```
 
 
 The two forms for BD (profound and partial) can be treated in many different ways in a model: we could define two different populations for each of the forms, and we could even consider them as different diseases. However, in this tutorial, we will consider them as **Developments**.
+
+The manifestations that only appear in the profound form are linked to its development by means of [`osdi:hasSubProgression`]({{ config.extra.osdi }}#hasSubProgression): they can only appear while the development is active.
 
 **TTL Example (Developments for forms of DB):**
 
@@ -73,9 +75,14 @@ The two forms for BD (profound and partial) can be treated in many different way
 osdi:BD_ProfoundBD_Development
     a osdi:Development ;
     rdfs:label "Reference development of profound BD without screening"@en ;
-    # Links to sets of acute and chronic manifestations, and death
-    osdi:hasProgressionElement osdi:BD_ManifestationRule .
+    # The manifestations of the profound form
+    osdi:hasSubProgression osdi:BD_Seizures ,
+                           osdi:BD_SkinProblems ,
+                           osdi:BD_HearingLoss ,
+                           osdi:BD_CognitiveDeficit .
 ```
+
+A development or a chronic manifestation without a risk characterization ([`osdi:hasRiskCharacterization`]({{ config.extra.osdi }}#hasRiskCharacterization)) that does not belong to a group of alternatives is always active in its context. Within a group of alternative progressions (an **AlternativeCombinationRule** with two or more members), the progression without risk (at most one) takes the remaining probability.
 
 In general, it is also recommended to link the disease with all the progression elements.
 
@@ -87,13 +94,13 @@ osdi:BD_Disease
       osdi:RareDisease ;
     rdfs:label "Biotinidase deficiency"@en ,
                "Deficiencia de biotinidasa"@es ;
-    osdi:hasDescription "Inherited metabolic disorder caused by deficiency of the biotinidase enzyme. The decision model distinguishes profound and partial biotinidase deficiency, each with its own untreated reference development."@en ,
-    osdi:hasProgressionElement  osdi:BD_ProfoundBD_Development ;
-                                osdi:BD_ManifestationRule ;
-                                osdi:BD_Seizures ;
-                                osdi:BD_SkinProblems ;
-                                osdi:BD_HearingLoss ;
-                                osdi:BD_CognitiveDeficit .    
+    osdi:hasDescription "Inherited metabolic disorder caused by deficiency of the biotinidase enzyme. The decision model distinguishes profound and partial biotinidase deficiency, each with its own untreated reference development."@en ;
+    osdi:hasProgressionElement osdi:BD_ProfoundBD_Development ,
+                               osdi:BD_ManifestationRule ,
+                               osdi:BD_Seizures ,
+                               osdi:BD_SkinProblems ,
+                               osdi:BD_HearingLoss ,
+                               osdi:BD_CognitiveDeficit .
 ```
 
 To see how to numerically characterize the risk of a manifestation or any other disease progression, please refer to the [parameters section](parameter.md#42-adding-uncertainty-to-parameters). 
