@@ -16,6 +16,9 @@ This IRI resolves to the latest published version.
 
 - 📘 **Repository:** [ontologies-ULL/OSDi](https://github.com/ontologies-ULL/OSDi)
 - 🌐 **Documentation:** [GitHub Pages](https://ontologies-ull.github.io/OSDi/)
+- 📝 **Changes between versions:** [CHANGELOG.md](CHANGELOG.md)
+- 🧪 **Validation examples:** [examples/](examples/README.md), published studies represented in OSDi and the results that [JaDES](https://github.com/JaDES-ULL/JaDES) must reproduce
+- 👤 **Individuals:** [individuals/](individuals/), complete models of Profound Biotinidase Deficiency (`PBD.ttl`) and Type 1 Diabetes Mellitus (`T1DM.ttl`)
 
 ---
 

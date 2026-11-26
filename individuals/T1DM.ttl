@@ -1,28 +1,28 @@
 @prefix : <https://w3id.org/ontologies-ULL/OSDi#> .
-@prefix osdi: <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix osdi: <https://w3id.org/ontologies-ULL/OSDi#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/ontologies-ULL/OSDi#> .
 
-<https://w3id.org/ontologies-ULL//individuals/T1DM> rdf:type owl:Ontology ;
-										   rdfs:label "OSDi individuals for Type 1 Diabetes Mellitus"@en ;
-										   rdfs:comment "Individuals for OSDi ontology, version 1.0"@en ;
-                                           owl:imports <https://w3id.org/ontologies-ULL/OSDi/1.0> .
+<https://w3id.org/ontologies-ULL/OSDi/individuals/T1DM> rdf:type owl:Ontology ;
+                                                     owl:imports <https://w3id.org/ontologies-ULL/OSDi/1.3> ;
+                                                     rdfs:comment "Individuals for OSDi ontology, version 1.3"@en ;
+                                                     rdfs:label "OSDi individuals for Type 1 Diabetes Mellitus"@en .
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#Constant_Prevalence1
+###  https://w3id.org/ontologies-ULL/OSDi#Constant_Prevalence1
 osdi:Constant_Prevalence1 rdf:type owl:NamedIndividual .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_BETA_Manif_ALB1
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_BETA_Manif_ALB1
 osdi:T1DM_BETA_Manif_ALB1 rdf:type owl:NamedIndividual ,
-                                   osdi:DeterministicParameter ,
-                                   osdi:Parameter ;
+                                   osdi:DeterministicParameter ;
                           osdi:hasDataItemType osdi:DI_RelativeRisk ;
                           osdi:includedByModel osdi:T1DM_StdModelDES ;
                           osdi:hasDescription "Beta parameter for Microalbuminuria" ;
@@ -30,10 +30,9 @@ osdi:T1DM_BETA_Manif_ALB1 rdf:type owl:NamedIndividual ,
                           osdi:hasSource "DCCT 1996 https://doi.org/10.2337/diab.45.10.1289, as adapted by Sheffield" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_BETA_Manif_ALB2
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_BETA_Manif_ALB2
 osdi:T1DM_BETA_Manif_ALB2 rdf:type owl:NamedIndividual ,
-                                   osdi:DeterministicParameter ,
-                                   osdi:Parameter ;
+                                   osdi:DeterministicParameter ;
                           osdi:hasDataItemType osdi:DI_RelativeRisk ;
                           osdi:includedByModel osdi:T1DM_StdModelDES ;
                           osdi:hasDescription "Beta parameter for Macroalbuminuria" ;
@@ -41,10 +40,9 @@ osdi:T1DM_BETA_Manif_ALB2 rdf:type owl:NamedIndividual ,
                           osdi:hasSource "DCCT 1996 https://doi.org/10.2337/diab.45.10.1289, as adapted by Sheffield" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_BETA_Manif_NEU
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_BETA_Manif_NEU
 osdi:T1DM_BETA_Manif_NEU rdf:type owl:NamedIndividual ,
-                                  osdi:DeterministicParameter ,
-                                  osdi:Parameter ;
+                                  osdi:DeterministicParameter ;
                          osdi:hasDataItemType osdi:DI_RelativeRisk ;
                          osdi:includedByModel osdi:T1DM_StdModelDES ;
                          osdi:hasDescription "Beta parameter for Neuropathy" ;
@@ -52,7 +50,7 @@ osdi:T1DM_BETA_Manif_NEU rdf:type owl:NamedIndividual ,
                          osdi:hasSource "DCCT 1996 https://doi.org/10.2337/diab.45.10.1289, as adapted by Sheffield" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_DCCT1_ComplicationsFree_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_DCCT1_ComplicationsFree_U
 osdi:T1DM_DCCT1_ComplicationsFree_U rdf:type owl:NamedIndividual ,
                                              osdi:SecondOrderUncertaintyParameter ,
                                              osdi:Utility ;
@@ -67,7 +65,7 @@ osdi:T1DM_DCCT1_ComplicationsFree_U rdf:type owl:NamedIndividual ,
                                     osdi:isDisutility "false"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_DCCT1_ComplicationsFree_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_DCCT1_ComplicationsFree_U_L95CI
 osdi:T1DM_DCCT1_ComplicationsFree_U_L95CI rdf:type owl:NamedIndividual ,
                                                    osdi:DeterministicParameter ,
                                                    osdi:Utility ;
@@ -78,7 +76,7 @@ osdi:T1DM_DCCT1_ComplicationsFree_U_L95CI rdf:type owl:NamedIndividual ,
                                           osdi:hasSource "TODO: Buscar" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_DCCT1_ComplicationsFree_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_DCCT1_ComplicationsFree_U_U95CI
 osdi:T1DM_DCCT1_ComplicationsFree_U_U95CI rdf:type owl:NamedIndividual ,
                                                    osdi:DeterministicParameter ,
                                                    osdi:Utility ;
@@ -89,9 +87,12 @@ osdi:T1DM_DCCT1_ComplicationsFree_U_U95CI rdf:type owl:NamedIndividual ,
                                           osdi:hasSource "TODO: Buscar" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Disease
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Disease
 osdi:T1DM_Disease rdf:type owl:NamedIndividual ,
                            osdi:Disease ;
+                  osdi:hasCost osdi:T1DM_Disease_AC ;
+                  osdi:hasEpidemiologicalParameter osdi:Constant_Prevalence1 ;
+                  osdi:hasIntervention osdi:T1DM_Intervention_DCCTIntensive ;
                   osdi:hasProgressionElement osdi:T1DM_Manif_ALB1 ,
                                              osdi:T1DM_Manif_ALB2 ,
                                              osdi:T1DM_Manif_ANGINA ,
@@ -102,9 +103,6 @@ osdi:T1DM_Disease rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Manif_NEU ,
                                              osdi:T1DM_Manif_STROKE ,
                                              osdi:T1DM_Stage_CHD ;
-                  osdi:hasEpidemiologicalParameter osdi:Constant_Prevalence1 ;
-                  osdi:hasCost osdi:T1DM_Disease_AC ;
-                  osdi:hasIntervention osdi:T1DM_Intervention_DCCTIntensive ;
                   osdi:includedByModel osdi:T1DM_StdModelDES ;
                   osdi:hasDescription "Type I Diabetes Mellitus" ;
                   osdi:hasRefToDO "do:9744" ;
@@ -113,7 +111,7 @@ osdi:T1DM_Disease rdf:type owl:NamedIndividual ,
                   osdi:hasRefToSNOMED "snomed:46635009" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Disease_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Disease_AC
 osdi:T1DM_Disease_AC rdf:type owl:NamedIndividual ,
                               osdi:Cost ,
                               osdi:DeterministicParameter ;
@@ -126,7 +124,17 @@ osdi:T1DM_Disease_AC rdf:type owl:NamedIndividual ,
                      osdi:hasYear "2012"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Group_Manif_CHD
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_ExperimentBase
+osdi:T1DM_ExperimentBase rdf:type owl:NamedIndividual ,
+                                  osdi:Experiment ;
+                         osdi:usesModel osdi:T1DM_StdModelDES ;
+                         osdi:hasDiscountForCosts "0.03"^^xsd:double ;
+                         osdi:hasDiscountForEffects "0.03"^^xsd:double ;
+                         osdi:hasDisutilityCombinationMethod "ADD" ;
+                         osdi:hasYear "2022"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Group_Manif_CHD
 osdi:T1DM_Group_Manif_CHD rdf:type owl:NamedIndividual ,
                                    osdi:Group ;
                           osdi:hasGroupItem osdi:T1DM_Manif_ANGINA ,
@@ -136,7 +144,7 @@ osdi:T1DM_Group_Manif_CHD rdf:type owl:NamedIndividual ,
                           osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Group_Manif_NEU
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Group_Manif_NEU
 osdi:T1DM_Group_Manif_NEU rdf:type owl:NamedIndividual ,
                                    osdi:Group ;
                           osdi:hasGroupItem osdi:T1DM_Manif_LEA ,
@@ -144,38 +152,43 @@ osdi:T1DM_Group_Manif_NEU rdf:type owl:NamedIndividual ,
                           osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Intervention_DCCTIntensive
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Intervention_DCCTIntensive
 osdi:T1DM_Intervention_DCCTIntensive rdf:type owl:NamedIndividual ,
                                               osdi:TherapeuticIntervention ;
+                                     osdi:hasEffect osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect ;
                                      osdi:includedByModel osdi:T1DM_StdModelDES ;
-                                     osdi:involvesModification osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification ;
-                                     osdi:hasDescription "DCCT intensive arm" ;
-                                     osdi:isAssessedIntervention "true"^^xsd:boolean .
+                                     osdi:hasDescription "DCCT intensive arm" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Intervention_DCCTIntensive_HbA1c_Modification
-osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification rdf:type owl:NamedIndividual ,
-                                                                 osdi:FirstOrderUncertaintyParameter ,
-                                                                 osdi:Parameter ;
-                                                        osdi:hasDataItemType osdi:DI_MeanDifference ;
-                                                        osdi:hasUncertaintyCharacterization osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification_StochasticUncertainty ;
-                                                        osdi:includedByModel osdi:T1DM_StdModelDES ;
-                                                        osdi:isValueOfAttribute osdi:Attribute_HbA1c ;
-                                                        osdi:modifies osdi:T1DM_Population_DCCT1_HbA1c ;
-                                                        osdi:hasDescription "Value of Attribute_HbA1c" ;
-                                                        osdi:hasSource "DCCT" ;
-                                                        osdi:hasYear "2013"^^xsd:short .
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Intervention_DCCTIntensive_HbA1c_Effect
+osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect rdf:type owl:NamedIndividual ,
+                                                           osdi:Effect ;
+                                                  osdi:affects osdi:Attribute_HbA1c ;
+                                                  osdi:hasEffectMagnitude osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect_Magnitude ;
+                                                  osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Intervention_DCCTIntensive_HbA1c_Modification_StochasticUncertainty
-osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification_StochasticUncertainty rdf:type owl:NamedIndividual ,
-                                                                                       osdi:NormalDistributionExpression ;
-                                                                              osdi:includedByModel osdi:T1DM_StdModelDES ;
-                                                                              osdi:hasAverageParameter "1.5"^^xsd:double ;
-                                                                              osdi:hasStandardDeviationParameter "1.1"^^xsd:double .
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Intervention_DCCTIntensive_HbA1c_Effect_Magnitude
+osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect_Magnitude rdf:type owl:NamedIndividual ,
+                                                                     osdi:FirstOrderUncertaintyParameter ;
+                                                            osdi:hasDataItemType osdi:DI_MeanDifference ;
+                                                            osdi:hasUncertaintyCharacterization osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect_StochasticUncertainty ;
+                                                            osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                                            osdi:isValueOfAttribute osdi:Attribute_HbA1c ;
+                                                            osdi:hasDescription "Value of Attribute_HbA1c" ;
+                                                            osdi:hasSource "DCCT" ;
+                                                            osdi:hasYear "2013"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Intervention_DCCTIntensive_HbA1c_Effect_StochasticUncertainty
+osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect_StochasticUncertainty rdf:type owl:NamedIndividual ,
+                                                                                 osdi:NormalDistributionExpression ;
+                                                                        osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                                                        osdi:hasAverageParameter "1.5"^^xsd:double ;
+                                                                        osdi:hasStandardDeviationParameter "1.1"^^xsd:double .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1
 osdi:T1DM_Manif_ALB1 rdf:type owl:NamedIndividual ,
                               osdi:ChronicManifestation ;
                      osdi:hasCost osdi:T1DM_Manif_ALB1_AC ;
@@ -186,7 +199,7 @@ osdi:T1DM_Manif_ALB1 rdf:type owl:NamedIndividual ,
                      osdi:hasDescription "Microalbuminuria" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1_AC
 osdi:T1DM_Manif_ALB1_AC rdf:type owl:NamedIndividual ,
                                  osdi:Cost ,
                                  osdi:DeterministicParameter ;
@@ -199,7 +212,7 @@ osdi:T1DM_Manif_ALB1_AC rdf:type owl:NamedIndividual ,
                         osdi:hasYear "2024"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1_Incidence
 osdi:T1DM_Manif_ALB1_Incidence rdf:type owl:NamedIndividual ,
                                         osdi:EpidemiologicalParameter ,
                                         osdi:SecondOrderUncertaintyParameter ;
@@ -213,7 +226,7 @@ osdi:T1DM_Manif_ALB1_Incidence rdf:type owl:NamedIndividual ,
                                osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1_Incidence_L95CI
 osdi:T1DM_Manif_ALB1_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                               osdi:DeterministicParameter ,
                                               osdi:EpidemiologicalParameter ;
@@ -225,7 +238,7 @@ osdi:T1DM_Manif_ALB1_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1_Incidence_U95CI
 osdi:T1DM_Manif_ALB1_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                               osdi:DeterministicParameter ,
                                               osdi:EpidemiologicalParameter ;
@@ -237,7 +250,7 @@ osdi:T1DM_Manif_ALB1_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1_RR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1_RR
 osdi:T1DM_Manif_ALB1_RR rdf:type owl:NamedIndividual ,
                                  osdi:CalculatedParameter ,
                                  osdi:EpidemiologicalParameter ;
@@ -252,7 +265,7 @@ osdi:T1DM_Manif_ALB1_RR rdf:type owl:NamedIndividual ,
                         osdi:hasYear "1996"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB1_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB1_U
 osdi:T1DM_Manif_ALB1_U rdf:type owl:NamedIndividual ,
                                 osdi:DeterministicParameter ,
                                 osdi:Utility ;
@@ -265,21 +278,21 @@ osdi:T1DM_Manif_ALB1_U rdf:type owl:NamedIndividual ,
                        osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2
 osdi:T1DM_Manif_ALB2 rdf:type owl:NamedIndividual ,
                               osdi:ChronicManifestation ;
-                     osdi:supersedesClinicalProgression osdi:T1DM_Manif_ALB1 ;
                      osdi:hasCost osdi:T1DM_Manif_ALB2_AC ;
-                     osdi:hasIncreasedMortalityRate osdi:T1DM_Manif_ALB2_IMR ;
+                     osdi:hasEffect osdi:T1DM_Manif_ALB2_IMR ;
                      osdi:hasRiskCharacterization osdi:T1DM_Manif_ALB2_Incidence ,
                                                   osdi:T1DM_Manif_ALB2_RR ,
                                                   osdi:T1DM_Manif_Pathway_ALB1_ALB2 ;
                      osdi:hasUtility osdi:T1DM_Manif_ALB2_U ;
                      osdi:includedByModel osdi:T1DM_StdModelDES ;
+                     osdi:supersedesClinicalProgression osdi:T1DM_Manif_ALB1 ;
                      osdi:hasDescription "Macroalbuminuria" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_AC
 osdi:T1DM_Manif_ALB2_AC rdf:type owl:NamedIndividual ,
                                  osdi:Cost ,
                                  osdi:DeterministicParameter ;
@@ -292,24 +305,17 @@ osdi:T1DM_Manif_ALB2_AC rdf:type owl:NamedIndividual ,
                         osdi:hasYear "2024"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_IMR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_IMR
 osdi:T1DM_Manif_ALB2_IMR rdf:type owl:NamedIndividual ,
-                                  osdi:Parameter ,
-                                  osdi:SecondOrderUncertaintyParameter ;
-                         osdi:hasDataItemType osdi:DI_RelativeRisk ;
-                         osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_ALB2_IMR_L95CI ,
-                                                             osdi:T1DM_Manif_ALB2_IMR_U95CI ;
-                         osdi:includedByModel osdi:T1DM_StdModelDES ;
-                         osdi:hasDescription "Increased mortality rate due to severe proteinuria" ;
-                         osdi:hasExpectedValue "2.23"^^xsd:double ;
-                         osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
-                         osdi:hasYear "2005"^^xsd:short .
+                                  osdi:IncreasedMortalityRateEffect ;
+                         osdi:affects osdi:Attribute_LifeExpectancy ;
+                         osdi:hasEffectMagnitude osdi:T1DM_Manif_ALB2_IMR_Magnitude ;
+                         osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_IMR_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_IMR_L95CI
 osdi:T1DM_Manif_ALB2_IMR_L95CI rdf:type owl:NamedIndividual ,
-                                        osdi:DeterministicParameter ,
-                                        osdi:Parameter ;
+                                        osdi:DeterministicParameter ;
                                osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                osdi:hasDescription "Lower 95% confidence interval for Increased mortality rate due to severe proteinuria" ;
@@ -318,10 +324,22 @@ osdi:T1DM_Manif_ALB2_IMR_L95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_IMR_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_IMR_Magnitude
+osdi:T1DM_Manif_ALB2_IMR_Magnitude rdf:type owl:NamedIndividual ,
+                                            osdi:SecondOrderUncertaintyParameter ;
+                                   osdi:hasDataItemType osdi:DI_RelativeRisk ;
+                                   osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_ALB2_IMR_L95CI ,
+                                                                       osdi:T1DM_Manif_ALB2_IMR_U95CI ;
+                                   osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                   osdi:hasDescription "Increased mortality rate due to severe proteinuria" ;
+                                   osdi:hasExpectedValue "2.23"^^xsd:double ;
+                                   osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
+                                   osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_IMR_U95CI
 osdi:T1DM_Manif_ALB2_IMR_U95CI rdf:type owl:NamedIndividual ,
-                                        osdi:DeterministicParameter ,
-                                        osdi:Parameter ;
+                                        osdi:DeterministicParameter ;
                                osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                osdi:hasDescription "Upper 95% confidence interval for Increased mortality rate due to severe proteinuria" ;
@@ -330,7 +348,7 @@ osdi:T1DM_Manif_ALB2_IMR_U95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_Incidence
 osdi:T1DM_Manif_ALB2_Incidence rdf:type owl:NamedIndividual ,
                                         osdi:EpidemiologicalParameter ,
                                         osdi:SecondOrderUncertaintyParameter ;
@@ -344,7 +362,7 @@ osdi:T1DM_Manif_ALB2_Incidence rdf:type owl:NamedIndividual ,
                                osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_Incidence_L95CI
 osdi:T1DM_Manif_ALB2_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                               osdi:DeterministicParameter ,
                                               osdi:EpidemiologicalParameter ;
@@ -356,7 +374,7 @@ osdi:T1DM_Manif_ALB2_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_Incidence_U95CI
 osdi:T1DM_Manif_ALB2_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                               osdi:DeterministicParameter ,
                                               osdi:EpidemiologicalParameter ;
@@ -368,7 +386,7 @@ osdi:T1DM_Manif_ALB2_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_RR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_RR
 osdi:T1DM_Manif_ALB2_RR rdf:type owl:NamedIndividual ,
                                  osdi:CalculatedParameter ,
                                  osdi:EpidemiologicalParameter ;
@@ -383,7 +401,7 @@ osdi:T1DM_Manif_ALB2_RR rdf:type owl:NamedIndividual ,
                         osdi:hasYear "1996"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_U
 osdi:T1DM_Manif_ALB2_U rdf:type owl:NamedIndividual ,
                                 osdi:SecondOrderUncertaintyParameter ,
                                 osdi:Utility ;
@@ -398,7 +416,7 @@ osdi:T1DM_Manif_ALB2_U rdf:type owl:NamedIndividual ,
                        osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_U_L95CI
 osdi:T1DM_Manif_ALB2_U_L95CI rdf:type owl:NamedIndividual ,
                                       osdi:DeterministicParameter ,
                                       osdi:Utility ;
@@ -409,7 +427,7 @@ osdi:T1DM_Manif_ALB2_U_L95CI rdf:type owl:NamedIndividual ,
                              osdi:hasSource "Bagust and Beale (10.1002/hec.910)" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ALB2_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ALB2_U_U95CI
 osdi:T1DM_Manif_ALB2_U_U95CI rdf:type owl:NamedIndividual ,
                                       osdi:DeterministicParameter ,
                                       osdi:Utility ;
@@ -421,22 +439,22 @@ osdi:T1DM_Manif_ALB2_U_U95CI rdf:type owl:NamedIndividual ,
                              osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA
 osdi:T1DM_Manif_ANGINA rdf:type owl:NamedIndividual ,
                                 osdi:ChronicManifestation ;
-                       osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                       osdi:supersedesClinicalProgression osdi:T1DM_Manif_HF ,
-                                                       osdi:T1DM_Manif_MI ,
-                                                       osdi:T1DM_Manif_STROKE ;
+                       osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                        osdi:hasCost osdi:T1DM_Manif_ANGINA_AC ,
                                     osdi:T1DM_Manif_ANGINA_TC ;
                        osdi:hasRiskCharacterization osdi:T1DM_Manif_Pathway_ANGINA ;
                        osdi:hasUtility osdi:T1DM_Manif_ANGINA_U ;
                        osdi:includedByModel osdi:T1DM_StdModelDES ;
+                       osdi:supersedesClinicalProgression osdi:T1DM_Manif_HF ,
+                                                          osdi:T1DM_Manif_MI ,
+                                                          osdi:T1DM_Manif_STROKE ;
                        osdi:hasDescription "Angina" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_AC
 osdi:T1DM_Manif_ANGINA_AC rdf:type owl:NamedIndividual ,
                                    osdi:Cost ,
                                    osdi:DeterministicParameter ;
@@ -449,11 +467,10 @@ osdi:T1DM_Manif_ANGINA_AC rdf:type owl:NamedIndividual ,
                           osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_Proportion
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_Proportion
 osdi:T1DM_Manif_ANGINA_Proportion rdf:type owl:NamedIndividual ,
-                                           osdi:Parameter ,
                                            osdi:SecondOrderUncertaintyParameter ;
-                                  osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
+                                  osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                                   osdi:hasDataItemType osdi:DI_Proportion ;
                                   osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_ANGINA_Proportion_ParamUncertainty ;
                                   osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -463,15 +480,15 @@ osdi:T1DM_Manif_ANGINA_Proportion rdf:type owl:NamedIndividual ,
                                   osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_Proportion_ParamUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_Proportion_ParamUncertainty
 osdi:T1DM_Manif_ANGINA_Proportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                             osdi:GammaDistributionExpression ;
                                                    osdi:includedByModel osdi:T1DM_StdModelDES ;
                                                    osdi:hasAlfaParameter "1.0"^^xsd:double ;
-                                                   osdi:hasLambdaParameter "0.28"^^xsd:double .
+                                                   osdi:hasThetaParameter "0.28"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_TC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_TC
 osdi:T1DM_Manif_ANGINA_TC rdf:type owl:NamedIndividual ,
                                    osdi:Cost ,
                                    osdi:DeterministicParameter ;
@@ -484,7 +501,7 @@ osdi:T1DM_Manif_ANGINA_TC rdf:type owl:NamedIndividual ,
                           osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_U
 osdi:T1DM_Manif_ANGINA_U rdf:type owl:NamedIndividual ,
                                   osdi:SecondOrderUncertaintyParameter ,
                                   osdi:Utility ;
@@ -499,7 +516,7 @@ osdi:T1DM_Manif_ANGINA_U rdf:type owl:NamedIndividual ,
                          osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_U_L95CI
 osdi:T1DM_Manif_ANGINA_U_L95CI rdf:type owl:NamedIndividual ,
                                         osdi:DeterministicParameter ,
                                         osdi:Utility ;
@@ -511,7 +528,7 @@ osdi:T1DM_Manif_ANGINA_U_L95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ANGINA_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ANGINA_U_U95CI
 osdi:T1DM_Manif_ANGINA_U_U95CI rdf:type owl:NamedIndividual ,
                                         osdi:DeterministicParameter ,
                                         osdi:Utility ;
@@ -523,23 +540,23 @@ osdi:T1DM_Manif_ANGINA_U_U95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD
 osdi:T1DM_Manif_ESRD rdf:type owl:NamedIndividual ,
                               osdi:ChronicManifestation ;
-                     osdi:supersedesClinicalProgression osdi:T1DM_Manif_ALB1 ,
-                                                     osdi:T1DM_Manif_ALB2 ;
                      osdi:hasCost osdi:T1DM_Manif_ESRD_AC ,
                                   osdi:T1DM_Manif_ESRD_TC ;
-                     osdi:hasIncreasedMortalityRate osdi:T1DM_Manif_ESRD_IMR ;
+                     osdi:hasEffect osdi:T1DM_Manif_ESRD_IMR ;
                      osdi:hasRiskCharacterization osdi:T1DM_Manif_Pathway_ALB1_ESRD ,
                                                   osdi:T1DM_Manif_Pathway_ALB2_ESRD ,
                                                   osdi:T1DM_Stage_ESRD_Incidence ;
                      osdi:hasUtility osdi:T1DM_Manif_ESRD_U ;
                      osdi:includedByModel osdi:T1DM_StdModelDES ;
+                     osdi:supersedesClinicalProgression osdi:T1DM_Manif_ALB1 ,
+                                                        osdi:T1DM_Manif_ALB2 ;
                      osdi:hasDescription "End-Stage Renal Disease" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_AC
 osdi:T1DM_Manif_ESRD_AC rdf:type owl:NamedIndividual ,
                                  osdi:Cost ,
                                  osdi:DeterministicParameter ;
@@ -552,24 +569,17 @@ osdi:T1DM_Manif_ESRD_AC rdf:type owl:NamedIndividual ,
                         osdi:hasYear "2015"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_IMR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_IMR
 osdi:T1DM_Manif_ESRD_IMR rdf:type owl:NamedIndividual ,
-                                  osdi:Parameter ,
-                                  osdi:SecondOrderUncertaintyParameter ;
-                         osdi:hasDataItemType osdi:DI_RelativeRisk ;
-                         osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_ESRD_IMR_L95CI ,
-                                                             osdi:T1DM_Manif_ESRD_IMR_U95CI ;
-                         osdi:includedByModel osdi:T1DM_StdModelDES ;
-                         osdi:hasDescription "Increased mortality rate due to end-stage renal disease" ;
-                         osdi:hasExpectedValue "4.53"^^xsd:double ;
-                         osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
-                         osdi:hasYear "2005"^^xsd:short .
+                                  osdi:IncreasedMortalityRateEffect ;
+                         osdi:affects osdi:Attribute_LifeExpectancy ;
+                         osdi:hasEffectMagnitude osdi:T1DM_Manif_ESRD_IMR_Magnitude ;
+                         osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_IMR_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_IMR_L95CI
 osdi:T1DM_Manif_ESRD_IMR_L95CI rdf:type owl:NamedIndividual ,
-                                        osdi:DeterministicParameter ,
-                                        osdi:Parameter ;
+                                        osdi:DeterministicParameter ;
                                osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                osdi:hasDescription "Lower 95% confidence interval for Increased mortality rate due to end-stage renal disease" ;
@@ -578,10 +588,22 @@ osdi:T1DM_Manif_ESRD_IMR_L95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_IMR_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_IMR_Magnitude
+osdi:T1DM_Manif_ESRD_IMR_Magnitude rdf:type owl:NamedIndividual ,
+                                            osdi:SecondOrderUncertaintyParameter ;
+                                   osdi:hasDataItemType osdi:DI_RelativeRisk ;
+                                   osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_ESRD_IMR_L95CI ,
+                                                                       osdi:T1DM_Manif_ESRD_IMR_U95CI ;
+                                   osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                   osdi:hasDescription "Increased mortality rate due to end-stage renal disease" ;
+                                   osdi:hasExpectedValue "4.53"^^xsd:double ;
+                                   osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
+                                   osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_IMR_U95CI
 osdi:T1DM_Manif_ESRD_IMR_U95CI rdf:type owl:NamedIndividual ,
-                                        osdi:DeterministicParameter ,
-                                        osdi:Parameter ;
+                                        osdi:DeterministicParameter ;
                                osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                osdi:hasDescription "Upper 95% confidence interval for Increased mortality rate due to end-stage renal disease" ;
@@ -590,20 +612,20 @@ osdi:T1DM_Manif_ESRD_IMR_U95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_TC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_TC
 osdi:T1DM_Manif_ESRD_TC rdf:type owl:NamedIndividual ,
                                  osdi:Cost ,
                                  osdi:DeterministicParameter ;
                         osdi:hasDataItemType osdi:Currency_Euro ;
                         osdi:includedByModel osdi:T1DM_StdModelDES ;
-                        osdi:appliesOneTime "false"^^xsd:boolean ;
+                        osdi:appliesOneTime "true"^^xsd:boolean ;
                         osdi:hasDescription "Cost of onset of end-stage renal disease" ;
                         osdi:hasExpectedValue "3250.73"^^xsd:double ;
                         osdi:hasSource "Ray (2005)" ;
                         osdi:hasYear "2015"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_U
 osdi:T1DM_Manif_ESRD_U rdf:type owl:NamedIndividual ,
                                 osdi:SecondOrderUncertaintyParameter ,
                                 osdi:Utility ;
@@ -619,7 +641,7 @@ osdi:T1DM_Manif_ESRD_U rdf:type owl:NamedIndividual ,
                        osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_U_L95CI
 osdi:T1DM_Manif_ESRD_U_L95CI rdf:type owl:NamedIndividual ,
                                       osdi:DeterministicParameter ,
                                       osdi:Utility ;
@@ -631,7 +653,7 @@ osdi:T1DM_Manif_ESRD_U_L95CI rdf:type owl:NamedIndividual ,
                              osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_ESRD_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_ESRD_U_U95CI
 osdi:T1DM_Manif_ESRD_U_U95CI rdf:type owl:NamedIndividual ,
                                       osdi:DeterministicParameter ,
                                       osdi:Utility ;
@@ -643,22 +665,22 @@ osdi:T1DM_Manif_ESRD_U_U95CI rdf:type owl:NamedIndividual ,
                              osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF
 osdi:T1DM_Manif_HF rdf:type owl:NamedIndividual ,
                             osdi:ChronicManifestation ;
-                   osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                   osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
-                                                   osdi:T1DM_Manif_MI ,
-                                                   osdi:T1DM_Manif_STROKE ;
+                   osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                    osdi:hasCost osdi:T1DM_Manif_HF_AC ,
                                 osdi:T1DM_Manif_HF_TC ;
                    osdi:hasRiskCharacterization osdi:T1DM_Manif_Pathway_HF ;
                    osdi:hasUtility osdi:T1DM_Manif_HF_U ;
                    osdi:includedByModel osdi:T1DM_StdModelDES ;
+                   osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
+                                                      osdi:T1DM_Manif_MI ,
+                                                      osdi:T1DM_Manif_STROKE ;
                    osdi:hasDescription "Heart Failure" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_AC
 osdi:T1DM_Manif_HF_AC rdf:type owl:NamedIndividual ,
                                osdi:Cost ,
                                osdi:DeterministicParameter ;
@@ -671,11 +693,10 @@ osdi:T1DM_Manif_HF_AC rdf:type owl:NamedIndividual ,
                       osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_Proportion
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_Proportion
 osdi:T1DM_Manif_HF_Proportion rdf:type owl:NamedIndividual ,
-                                       osdi:Parameter ,
                                        osdi:SecondOrderUncertaintyParameter ;
-                              osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
+                              osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                               osdi:hasDataItemType osdi:DI_Proportion ;
                               osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_HF_Proportion_ParamUncertainty ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -685,15 +706,15 @@ osdi:T1DM_Manif_HF_Proportion rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_Proportion_ParamUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_Proportion_ParamUncertainty
 osdi:T1DM_Manif_HF_Proportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                         osdi:GammaDistributionExpression ;
                                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                                osdi:hasAlfaParameter "1.0"^^xsd:double ;
-                                               osdi:hasLambdaParameter "0.12"^^xsd:double .
+                                               osdi:hasThetaParameter "0.12"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_TC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_TC
 osdi:T1DM_Manif_HF_TC rdf:type owl:NamedIndividual ,
                                osdi:Cost ,
                                osdi:DeterministicParameter ;
@@ -706,7 +727,7 @@ osdi:T1DM_Manif_HF_TC rdf:type owl:NamedIndividual ,
                       osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_U
 osdi:T1DM_Manif_HF_U rdf:type owl:NamedIndividual ,
                               osdi:SecondOrderUncertaintyParameter ,
                               osdi:Utility ;
@@ -721,7 +742,7 @@ osdi:T1DM_Manif_HF_U rdf:type owl:NamedIndividual ,
                      osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_U_L95CI
 osdi:T1DM_Manif_HF_U_L95CI rdf:type owl:NamedIndividual ,
                                     osdi:DeterministicParameter ,
                                     osdi:Utility ;
@@ -733,7 +754,7 @@ osdi:T1DM_Manif_HF_U_L95CI rdf:type owl:NamedIndividual ,
                            osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_HF_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_HF_U_U95CI
 osdi:T1DM_Manif_HF_U_U95CI rdf:type owl:NamedIndividual ,
                                     osdi:DeterministicParameter ,
                                     osdi:Utility ;
@@ -745,22 +766,22 @@ osdi:T1DM_Manif_HF_U_U95CI rdf:type owl:NamedIndividual ,
                            osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA
 osdi:T1DM_Manif_LEA rdf:type owl:NamedIndividual ,
                              osdi:ChronicManifestation ;
-                    osdi:belongsToGroup osdi:T1DM_Group_Manif_NEU ;
-                    osdi:supersedesClinicalProgression osdi:T1DM_Manif_NEU ;
+                    osdi:isGroupItemOf osdi:T1DM_Group_Manif_NEU ;
                     osdi:hasCost osdi:T1DM_Manif_LEA_AC ,
                                  osdi:T1DM_Manif_LEA_TC ;
-                    osdi:hasIncreasedMortalityRate osdi:T1DM_Manif_LEA_IMR ;
+                    osdi:hasEffect osdi:T1DM_Manif_LEA_IMR ;
                     osdi:hasRiskCharacterization osdi:T1DM_Manif_LEA_Incidence ,
                                                  osdi:T1DM_Manif_Pathway_NEU_LEA ;
                     osdi:hasUtility osdi:T1DM_Manif_LEA_U ;
                     osdi:includedByModel osdi:T1DM_StdModelDES ;
+                    osdi:supersedesClinicalProgression osdi:T1DM_Manif_NEU ;
                     osdi:hasDescription "Lower Extremity Amputation" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_AC
 osdi:T1DM_Manif_LEA_AC rdf:type owl:NamedIndividual ,
                                 osdi:Cost ,
                                 osdi:DeterministicParameter ;
@@ -773,24 +794,17 @@ osdi:T1DM_Manif_LEA_AC rdf:type owl:NamedIndividual ,
                        osdi:hasYear "2017"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_IMR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_IMR
 osdi:T1DM_Manif_LEA_IMR rdf:type owl:NamedIndividual ,
-                                 osdi:Parameter ,
-                                 osdi:SecondOrderUncertaintyParameter ;
-                        osdi:hasDataItemType osdi:DI_RelativeRisk ;
-                        osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_LEA_IMR_L95CI ,
-                                                            osdi:T1DM_Manif_LEA_IMR_U95CI ;
-                        osdi:includedByModel osdi:T1DM_StdModelDES ;
-                        osdi:hasDescription "Increased mortality rate due to peripheral neuropathy (amputation)" ;
-                        osdi:hasExpectedValue "3.98"^^xsd:double ;
-                        osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
-                        osdi:hasYear "2005"^^xsd:short .
+                                 osdi:IncreasedMortalityRateEffect ;
+                        osdi:affects osdi:Attribute_LifeExpectancy ;
+                        osdi:hasEffectMagnitude osdi:T1DM_Manif_LEA_IMR_Magnitude ;
+                        osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_IMR_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_IMR_L95CI
 osdi:T1DM_Manif_LEA_IMR_L95CI rdf:type owl:NamedIndividual ,
-                                       osdi:DeterministicParameter ,
-                                       osdi:Parameter ;
+                                       osdi:DeterministicParameter ;
                               osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
                               osdi:hasDescription "Lower 95% confidence interval for Increased mortality rate due to peripheral neuropathy (amputation)" ;
@@ -799,10 +813,22 @@ osdi:T1DM_Manif_LEA_IMR_L95CI rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_IMR_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_IMR_Magnitude
+osdi:T1DM_Manif_LEA_IMR_Magnitude rdf:type owl:NamedIndividual ,
+                                           osdi:SecondOrderUncertaintyParameter ;
+                                  osdi:hasDataItemType osdi:DI_RelativeRisk ;
+                                  osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_LEA_IMR_L95CI ,
+                                                                      osdi:T1DM_Manif_LEA_IMR_U95CI ;
+                                  osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                  osdi:hasDescription "Increased mortality rate due to peripheral neuropathy (amputation)" ;
+                                  osdi:hasExpectedValue "3.98"^^xsd:double ;
+                                  osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
+                                  osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_IMR_U95CI
 osdi:T1DM_Manif_LEA_IMR_U95CI rdf:type owl:NamedIndividual ,
-                                       osdi:DeterministicParameter ,
-                                       osdi:Parameter ;
+                                       osdi:DeterministicParameter ;
                               osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
                               osdi:hasDescription "Upper 95% confidence interval for Increased mortality rate due to peripheral neuropathy (amputation)" ;
@@ -811,7 +837,7 @@ osdi:T1DM_Manif_LEA_IMR_U95CI rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_Incidence
 osdi:T1DM_Manif_LEA_Incidence rdf:type owl:NamedIndividual ,
                                        osdi:EpidemiologicalParameter ,
                                        osdi:SecondOrderUncertaintyParameter ;
@@ -824,7 +850,7 @@ osdi:T1DM_Manif_LEA_Incidence rdf:type owl:NamedIndividual ,
                               osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_Incidence_ParamUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_Incidence_ParamUncertainty
 osdi:T1DM_Manif_LEA_Incidence_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                         osdi:UniformDistributionExpression ;
                                                osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -832,7 +858,7 @@ osdi:T1DM_Manif_LEA_Incidence_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                osdi:hasUpperLimitParameter "6.0E-4"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_TC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_TC
 osdi:T1DM_Manif_LEA_TC rdf:type owl:NamedIndividual ,
                                 osdi:Cost ,
                                 osdi:SecondOrderUncertaintyParameter ;
@@ -846,7 +872,7 @@ osdi:T1DM_Manif_LEA_TC rdf:type owl:NamedIndividual ,
                        osdi:hasYear "2017"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_TC_ParamUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_TC_ParamUncertainty
 osdi:T1DM_Manif_LEA_TC_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                  osdi:Cost ,
                                                  osdi:DeterministicParameter ;
@@ -858,7 +884,7 @@ osdi:T1DM_Manif_LEA_TC_ParamUncertainty rdf:type owl:NamedIndividual ,
                                         osdi:hasYear "2017"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_U
 osdi:T1DM_Manif_LEA_U rdf:type owl:NamedIndividual ,
                                osdi:SecondOrderUncertaintyParameter ,
                                osdi:Utility ;
@@ -873,7 +899,7 @@ osdi:T1DM_Manif_LEA_U rdf:type owl:NamedIndividual ,
                       osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_U_L95CI
 osdi:T1DM_Manif_LEA_U_L95CI rdf:type owl:NamedIndividual ,
                                      osdi:DeterministicParameter ,
                                      osdi:Utility ;
@@ -885,7 +911,7 @@ osdi:T1DM_Manif_LEA_U_L95CI rdf:type owl:NamedIndividual ,
                             osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_LEA_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_LEA_U_U95CI
 osdi:T1DM_Manif_LEA_U_U95CI rdf:type owl:NamedIndividual ,
                                      osdi:DeterministicParameter ,
                                      osdi:Utility ;
@@ -897,23 +923,23 @@ osdi:T1DM_Manif_LEA_U_U95CI rdf:type owl:NamedIndividual ,
                             osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI
 osdi:T1DM_Manif_MI rdf:type owl:NamedIndividual ,
                             osdi:ChronicManifestation ;
-                   osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                   osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
-                                                   osdi:T1DM_Manif_HF ,
-                                                   osdi:T1DM_Manif_STROKE ;
+                   osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                    osdi:hasCost osdi:T1DM_Manif_MI_AC ,
                                 osdi:T1DM_Manif_MI_TC ;
-                   osdi:hasProbabilityOfDeath osdi:T1DM_Manif_MI_ProbDeath ;
+                   osdi:hasEffect osdi:T1DM_Manif_MI_ProbDeath ;
                    osdi:hasRiskCharacterization osdi:T1DM_Manif_Pathway_MI ;
                    osdi:hasUtility osdi:T1DM_Manif_MI_U ;
                    osdi:includedByModel osdi:T1DM_StdModelDES ;
+                   osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
+                                                      osdi:T1DM_Manif_HF ,
+                                                      osdi:T1DM_Manif_STROKE ;
                    osdi:hasDescription "Myocardial Infarction" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_AC
 osdi:T1DM_Manif_MI_AC rdf:type owl:NamedIndividual ,
                                osdi:Cost ,
                                osdi:DeterministicParameter ;
@@ -926,23 +952,29 @@ osdi:T1DM_Manif_MI_AC rdf:type owl:NamedIndividual ,
                       osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_ProbDeath
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_ProbDeath
 osdi:T1DM_Manif_MI_ProbDeath rdf:type owl:NamedIndividual ,
-                                      osdi:DeterministicParameter ,
-                                      osdi:Parameter ;
-                             osdi:hasDataItemType osdi:DI_Probability ;
-                             osdi:includedByModel osdi:T1DM_StdModelDES ;
-                             osdi:hasDescription "Probability of sudden death after MI (average men-women)" ;
-                             osdi:hasExpectedValue "0.3785"^^xsd:double ;
-                             osdi:hasSource "As in CORE Model" ;
-                             osdi:hasYear "2005"^^xsd:short .
+                                      osdi:InstantDeathEffect ;
+                             osdi:affects osdi:Attribute_LifeExpectancy ;
+                             osdi:hasEffectMagnitude osdi:T1DM_Manif_MI_ProbDeath_Magnitude ;
+                             osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_Proportion
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_ProbDeath_Magnitude
+osdi:T1DM_Manif_MI_ProbDeath_Magnitude rdf:type owl:NamedIndividual ,
+                                                osdi:DeterministicParameter ;
+                                       osdi:hasDataItemType osdi:DI_Probability ;
+                                       osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                       osdi:hasDescription "Probability of sudden death after MI (average men-women)" ;
+                                       osdi:hasExpectedValue "0.3785"^^xsd:double ;
+                                       osdi:hasSource "As in CORE Model" ;
+                                       osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_Proportion
 osdi:T1DM_Manif_MI_Proportion rdf:type owl:NamedIndividual ,
-                                       osdi:Parameter ,
                                        osdi:SecondOrderUncertaintyParameter ;
-                              osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
+                              osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                               osdi:hasDataItemType osdi:DI_Proportion ;
                               osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_MI_Proportion_ParamUncertainty ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -952,15 +984,15 @@ osdi:T1DM_Manif_MI_Proportion rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_Proportion_ParamUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_Proportion_ParamUncertainty
 osdi:T1DM_Manif_MI_Proportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                         osdi:GammaDistributionExpression ;
                                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                                osdi:hasAlfaParameter "1.0"^^xsd:double ;
-                                               osdi:hasLambdaParameter "0.53"^^xsd:double .
+                                               osdi:hasThetaParameter "0.53"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_TC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_TC
 osdi:T1DM_Manif_MI_TC rdf:type owl:NamedIndividual ,
                                osdi:Cost ,
                                osdi:DeterministicParameter ;
@@ -973,7 +1005,7 @@ osdi:T1DM_Manif_MI_TC rdf:type owl:NamedIndividual ,
                       osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_U
 osdi:T1DM_Manif_MI_U rdf:type owl:NamedIndividual ,
                               osdi:SecondOrderUncertaintyParameter ,
                               osdi:Utility ;
@@ -988,7 +1020,7 @@ osdi:T1DM_Manif_MI_U rdf:type owl:NamedIndividual ,
                      osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_U_L95CI
 osdi:T1DM_Manif_MI_U_L95CI rdf:type owl:NamedIndividual ,
                                     osdi:DeterministicParameter ,
                                     osdi:Utility ;
@@ -1000,7 +1032,7 @@ osdi:T1DM_Manif_MI_U_L95CI rdf:type owl:NamedIndividual ,
                            osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_MI_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_MI_U_U95CI
 osdi:T1DM_Manif_MI_U_U95CI rdf:type owl:NamedIndividual ,
                                     osdi:DeterministicParameter ,
                                     osdi:Utility ;
@@ -1012,12 +1044,12 @@ osdi:T1DM_Manif_MI_U_U95CI rdf:type owl:NamedIndividual ,
                            osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU
 osdi:T1DM_Manif_NEU rdf:type owl:NamedIndividual ,
                              osdi:ChronicManifestation ;
-                    osdi:belongsToGroup osdi:T1DM_Group_Manif_NEU ;
+                    osdi:isGroupItemOf osdi:T1DM_Group_Manif_NEU ;
                     osdi:hasCost osdi:T1DM_Manif_NEU_AC ;
-                    osdi:hasIncreasedMortalityRate osdi:T1DM_Manif_NEU_IMR ;
+                    osdi:hasEffect osdi:T1DM_Manif_NEU_IMR ;
                     osdi:hasRiskCharacterization osdi:T1DM_Manif_NEU_Incidence ,
                                                  osdi:T1DM_Manif_NEU_RR ;
                     osdi:hasUtility osdi:T1DM_Manif_NEU_U ;
@@ -1025,7 +1057,7 @@ osdi:T1DM_Manif_NEU rdf:type owl:NamedIndividual ,
                     osdi:hasDescription "Neuropathy" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_AC
 osdi:T1DM_Manif_NEU_AC rdf:type owl:NamedIndividual ,
                                 osdi:Cost ,
                                 osdi:DeterministicParameter ;
@@ -1038,24 +1070,17 @@ osdi:T1DM_Manif_NEU_AC rdf:type owl:NamedIndividual ,
                        osdi:hasYear "2015"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_IMR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_IMR
 osdi:T1DM_Manif_NEU_IMR rdf:type owl:NamedIndividual ,
-                                 osdi:Parameter ,
-                                 osdi:SecondOrderUncertaintyParameter ;
-                        osdi:hasDataItemType osdi:DI_RelativeRisk ;
-                        osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_NEU_IMR_L95CI ,
-                                                            osdi:T1DM_Manif_NEU_IMR_U95CI ;
-                        osdi:includedByModel osdi:T1DM_StdModelDES ;
-                        osdi:hasDescription "Increased mortality rate due to peripheral neuropathy (vibratory sense diminished)" ;
-                        osdi:hasExpectedValue "1.51"^^xsd:double ;
-                        osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
-                        osdi:hasYear "2005"^^xsd:short .
+                                 osdi:IncreasedMortalityRateEffect ;
+                        osdi:affects osdi:Attribute_LifeExpectancy ;
+                        osdi:hasEffectMagnitude osdi:T1DM_Manif_NEU_IMR_Magnitude ;
+                        osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_IMR_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_IMR_L95CI
 osdi:T1DM_Manif_NEU_IMR_L95CI rdf:type owl:NamedIndividual ,
-                                       osdi:DeterministicParameter ,
-                                       osdi:Parameter ;
+                                       osdi:DeterministicParameter ;
                               osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
                               osdi:hasDescription "Lower 95% confidence interval for Increased mortality rate due to peripheral neuropathy (vibratory sense diminished)" ;
@@ -1064,10 +1089,22 @@ osdi:T1DM_Manif_NEU_IMR_L95CI rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_IMR_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_IMR_Magnitude
+osdi:T1DM_Manif_NEU_IMR_Magnitude rdf:type owl:NamedIndividual ,
+                                           osdi:SecondOrderUncertaintyParameter ;
+                                  osdi:hasDataItemType osdi:DI_RelativeRisk ;
+                                  osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_NEU_IMR_L95CI ,
+                                                                      osdi:T1DM_Manif_NEU_IMR_U95CI ;
+                                  osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                  osdi:hasDescription "Increased mortality rate due to peripheral neuropathy (vibratory sense diminished)" ;
+                                  osdi:hasExpectedValue "1.51"^^xsd:double ;
+                                  osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
+                                  osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_IMR_U95CI
 osdi:T1DM_Manif_NEU_IMR_U95CI rdf:type owl:NamedIndividual ,
-                                       osdi:DeterministicParameter ,
-                                       osdi:Parameter ;
+                                       osdi:DeterministicParameter ;
                               osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
                               osdi:hasDescription "Upper 95% confidence interval for Increased mortality rate due to peripheral neuropathy (vibratory sense diminished)" ;
@@ -1076,7 +1113,7 @@ osdi:T1DM_Manif_NEU_IMR_U95CI rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_Incidence
 osdi:T1DM_Manif_NEU_Incidence rdf:type owl:NamedIndividual ,
                                        osdi:EpidemiologicalParameter ,
                                        osdi:SecondOrderUncertaintyParameter ;
@@ -1090,7 +1127,7 @@ osdi:T1DM_Manif_NEU_Incidence rdf:type owl:NamedIndividual ,
                               osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_Incidence_L95CI
 osdi:T1DM_Manif_NEU_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                              osdi:DeterministicParameter ,
                                              osdi:EpidemiologicalParameter ;
@@ -1102,7 +1139,7 @@ osdi:T1DM_Manif_NEU_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                     osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_Incidence_U95CI
 osdi:T1DM_Manif_NEU_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                              osdi:DeterministicParameter ,
                                              osdi:EpidemiologicalParameter ;
@@ -1114,7 +1151,7 @@ osdi:T1DM_Manif_NEU_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                     osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_RR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_RR
 osdi:T1DM_Manif_NEU_RR rdf:type owl:NamedIndividual ,
                                 osdi:CalculatedParameter ,
                                 osdi:EpidemiologicalParameter ;
@@ -1129,7 +1166,7 @@ osdi:T1DM_Manif_NEU_RR rdf:type owl:NamedIndividual ,
                        osdi:hasYear "1996"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_U
 osdi:T1DM_Manif_NEU_U rdf:type owl:NamedIndividual ,
                                osdi:SecondOrderUncertaintyParameter ,
                                osdi:Utility ;
@@ -1144,7 +1181,7 @@ osdi:T1DM_Manif_NEU_U rdf:type owl:NamedIndividual ,
                       osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_U_L95CI
 osdi:T1DM_Manif_NEU_U_L95CI rdf:type owl:NamedIndividual ,
                                      osdi:DeterministicParameter ,
                                      osdi:Utility ;
@@ -1156,7 +1193,7 @@ osdi:T1DM_Manif_NEU_U_L95CI rdf:type owl:NamedIndividual ,
                             osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_NEU_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_NEU_U_U95CI
 osdi:T1DM_Manif_NEU_U_U95CI rdf:type owl:NamedIndividual ,
                                      osdi:DeterministicParameter ,
                                      osdi:Utility ;
@@ -1168,7 +1205,7 @@ osdi:T1DM_Manif_NEU_U_U95CI rdf:type owl:NamedIndividual ,
                             osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ALB2
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ALB2
 osdi:T1DM_Manif_Pathway_ALB1_ALB2 rdf:type owl:NamedIndividual ,
                                            osdi:Pathway ;
                                   osdi:hasParameter osdi:T1DM_Manif_ALB2_RR ,
@@ -1178,7 +1215,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ALB2 rdf:type owl:NamedIndividual ,
                                   osdi:hasDescription "Path from Microalbuminuria to Macroalbuminuria" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ALB2_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ALB2_Incidence
 osdi:T1DM_Manif_Pathway_ALB1_ALB2_Incidence rdf:type owl:NamedIndividual ,
                                                      osdi:EpidemiologicalParameter ,
                                                      osdi:SecondOrderUncertaintyParameter ;
@@ -1192,7 +1229,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ALB2_Incidence rdf:type owl:NamedIndividual ,
                                             osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ALB2_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ALB2_Incidence_L95CI
 osdi:T1DM_Manif_Pathway_ALB1_ALB2_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                            osdi:DeterministicParameter ,
                                                            osdi:EpidemiologicalParameter ;
@@ -1204,7 +1241,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ALB2_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                   osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ALB2_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ALB2_Incidence_U95CI
 osdi:T1DM_Manif_Pathway_ALB1_ALB2_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                            osdi:DeterministicParameter ,
                                                            osdi:EpidemiologicalParameter ;
@@ -1216,7 +1253,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ALB2_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                   osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ESRD
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ESRD
 osdi:T1DM_Manif_Pathway_ALB1_ESRD rdf:type owl:NamedIndividual ,
                                            osdi:Pathway ;
                                   osdi:hasParameter osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence ;
@@ -1225,7 +1262,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ESRD rdf:type owl:NamedIndividual ,
                                   osdi:hasDescription "Path from Microalbuminuria to End-Stage Renal Disease" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ESRD_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ESRD_Incidence
 osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence rdf:type owl:NamedIndividual ,
                                                      osdi:EpidemiologicalParameter ,
                                                      osdi:SecondOrderUncertaintyParameter ;
@@ -1239,7 +1276,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence rdf:type owl:NamedIndividual ,
                                             osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ESRD_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ESRD_Incidence_L95CI
 osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                            osdi:DeterministicParameter ,
                                                            osdi:EpidemiologicalParameter ;
@@ -1251,7 +1288,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                   osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB1_ESRD_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB1_ESRD_Incidence_U95CI
 osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                            osdi:DeterministicParameter ,
                                                            osdi:EpidemiologicalParameter ;
@@ -1263,7 +1300,7 @@ osdi:T1DM_Manif_Pathway_ALB1_ESRD_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                   osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB2_ESRD
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB2_ESRD
 osdi:T1DM_Manif_Pathway_ALB2_ESRD rdf:type owl:NamedIndividual ,
                                            osdi:Pathway ;
                                   osdi:hasParameter osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence ;
@@ -1272,7 +1309,7 @@ osdi:T1DM_Manif_Pathway_ALB2_ESRD rdf:type owl:NamedIndividual ,
                                   osdi:hasDescription "Path from Macroalbuminuria to End-Stage Renal Disease" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB2_ESRD_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB2_ESRD_Incidence
 osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence rdf:type owl:NamedIndividual ,
                                                      osdi:EpidemiologicalParameter ,
                                                      osdi:SecondOrderUncertaintyParameter ;
@@ -1286,7 +1323,7 @@ osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence rdf:type owl:NamedIndividual ,
                                             osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB2_ESRD_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB2_ESRD_Incidence_L95CI
 osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                            osdi:DeterministicParameter ,
                                                            osdi:EpidemiologicalParameter ;
@@ -1298,7 +1335,7 @@ osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                   osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ALB2_ESRD_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ALB2_ESRD_Incidence_U95CI
 osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                            osdi:DeterministicParameter ,
                                                            osdi:EpidemiologicalParameter ;
@@ -1310,7 +1347,7 @@ osdi:T1DM_Manif_Pathway_ALB2_ESRD_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                   osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_ANGINA
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_ANGINA
 osdi:T1DM_Manif_Pathway_ANGINA rdf:type owl:NamedIndividual ,
                                         osdi:Pathway ;
                                osdi:hasParameter osdi:T1DM_Manif_ANGINA_Proportion ;
@@ -1319,7 +1356,7 @@ osdi:T1DM_Manif_Pathway_ANGINA rdf:type owl:NamedIndividual ,
                                osdi:hasDescription "Path to Angina" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_HF
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_HF
 osdi:T1DM_Manif_Pathway_HF rdf:type owl:NamedIndividual ,
                                     osdi:Pathway ;
                            osdi:hasParameter osdi:T1DM_Manif_HF_Proportion ;
@@ -1328,7 +1365,7 @@ osdi:T1DM_Manif_Pathway_HF rdf:type owl:NamedIndividual ,
                            osdi:hasDescription "Path to Heart Failure" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_MI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_MI
 osdi:T1DM_Manif_Pathway_MI rdf:type owl:NamedIndividual ,
                                     osdi:Pathway ;
                            osdi:hasParameter osdi:T1DM_Manif_MI_Proportion ;
@@ -1337,7 +1374,7 @@ osdi:T1DM_Manif_Pathway_MI rdf:type owl:NamedIndividual ,
                            osdi:hasDescription "Path to Myocardial Infarction" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_NEU_LEA
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_NEU_LEA
 osdi:T1DM_Manif_Pathway_NEU_LEA rdf:type owl:NamedIndividual ,
                                          osdi:Pathway ;
                                 osdi:hasParameter osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence ;
@@ -1346,7 +1383,7 @@ osdi:T1DM_Manif_Pathway_NEU_LEA rdf:type owl:NamedIndividual ,
                                 osdi:hasDescription "Path from Neuropathy to Lower Extremity Amputation" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_NEU_LEA_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_NEU_LEA_Incidence
 osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence rdf:type owl:NamedIndividual ,
                                                    osdi:EpidemiologicalParameter ,
                                                    osdi:SecondOrderUncertaintyParameter ;
@@ -1360,7 +1397,7 @@ osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence rdf:type owl:NamedIndividual ,
                                           osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_NEU_LEA_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_NEU_LEA_Incidence_L95CI
 osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                          osdi:DeterministicParameter ,
                                                          osdi:EpidemiologicalParameter ;
@@ -1372,7 +1409,7 @@ osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                                 osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_NEU_LEA_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_NEU_LEA_Incidence_U95CI
 osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                          osdi:DeterministicParameter ,
                                                          osdi:EpidemiologicalParameter ;
@@ -1384,7 +1421,7 @@ osdi:T1DM_Manif_Pathway_NEU_LEA_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                                 osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_Pathway_STROKE
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_Pathway_STROKE
 osdi:T1DM_Manif_Pathway_STROKE rdf:type owl:NamedIndividual ,
                                         osdi:Pathway ;
                                osdi:hasParameter osdi:T1DM_Manif_STROKE_Proportion ;
@@ -1393,23 +1430,23 @@ osdi:T1DM_Manif_Pathway_STROKE rdf:type owl:NamedIndividual ,
                                osdi:hasDescription "Path to Stroke" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE
 osdi:T1DM_Manif_STROKE rdf:type owl:NamedIndividual ,
                                 osdi:ChronicManifestation ;
-                       osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
-                       osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
-                                                       osdi:T1DM_Manif_HF ,
-                                                       osdi:T1DM_Manif_MI ;
+                       osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                        osdi:hasCost osdi:T1DM_Manif_STROKE_AC ,
                                     osdi:T1DM_Manif_STROKE_TC ;
-                       osdi:hasProbabilityOfDeath osdi:T1DM_Manif_STROKE_ProbDeath ;
+                       osdi:hasEffect osdi:T1DM_Manif_STROKE_ProbDeath ;
                        osdi:hasRiskCharacterization osdi:T1DM_Manif_Pathway_STROKE ;
                        osdi:hasUtility osdi:T1DM_Manif_STROKE_U ;
                        osdi:includedByModel osdi:T1DM_StdModelDES ;
+                       osdi:supersedesClinicalProgression osdi:T1DM_Manif_ANGINA ,
+                                                          osdi:T1DM_Manif_HF ,
+                                                          osdi:T1DM_Manif_MI ;
                        osdi:hasDescription "Stroke" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_AC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_AC
 osdi:T1DM_Manif_STROKE_AC rdf:type owl:NamedIndividual ,
                                    osdi:Cost ,
                                    osdi:DeterministicParameter ;
@@ -1422,23 +1459,29 @@ osdi:T1DM_Manif_STROKE_AC rdf:type owl:NamedIndividual ,
                           osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_ProbDeath
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_ProbDeath
 osdi:T1DM_Manif_STROKE_ProbDeath rdf:type owl:NamedIndividual ,
-                                          osdi:DeterministicParameter ,
-                                          osdi:Parameter ;
-                                 osdi:hasDataItemType osdi:DI_Probability ;
-                                 osdi:includedByModel osdi:T1DM_StdModelDES ;
-                                 osdi:hasDescription "Probability of sudden death after Stroke (average men-women)" ;
-                                 osdi:hasExpectedValue "0.124"^^xsd:double ;
-                                 osdi:hasSource "As in CORE Model" ;
-                                 osdi:hasYear "2005"^^xsd:short .
+                                          osdi:InstantDeathEffect ;
+                                 osdi:affects osdi:Attribute_LifeExpectancy ;
+                                 osdi:hasEffectMagnitude osdi:T1DM_Manif_STROKE_ProbDeath_Magnitude ;
+                                 osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_Proportion
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_ProbDeath_Magnitude
+osdi:T1DM_Manif_STROKE_ProbDeath_Magnitude rdf:type owl:NamedIndividual ,
+                                                    osdi:DeterministicParameter ;
+                                           osdi:hasDataItemType osdi:DI_Probability ;
+                                           osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                           osdi:hasDescription "Probability of sudden death after Stroke (average men-women)" ;
+                                           osdi:hasExpectedValue "0.124"^^xsd:double ;
+                                           osdi:hasSource "As in CORE Model" ;
+                                           osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_Proportion
 osdi:T1DM_Manif_STROKE_Proportion rdf:type owl:NamedIndividual ,
-                                           osdi:Parameter ,
                                            osdi:SecondOrderUncertaintyParameter ;
-                                  osdi:belongsToGroup osdi:T1DM_Group_Manif_CHD ;
+                                  osdi:isGroupItemOf osdi:T1DM_Group_Manif_CHD ;
                                   osdi:hasDataItemType osdi:DI_Proportion ;
                                   osdi:hasUncertaintyCharacterization osdi:T1DM_Manif_STROKE_Proportion_ParamUncertainty ;
                                   osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -1448,15 +1491,15 @@ osdi:T1DM_Manif_STROKE_Proportion rdf:type owl:NamedIndividual ,
                                   osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_Proportion_ParamUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_Proportion_ParamUncertainty
 osdi:T1DM_Manif_STROKE_Proportion_ParamUncertainty rdf:type owl:NamedIndividual ,
                                                             osdi:GammaDistributionExpression ;
                                                    osdi:includedByModel osdi:T1DM_StdModelDES ;
                                                    osdi:hasAlfaParameter "1.0"^^xsd:double ;
-                                                   osdi:hasLambdaParameter "0.07"^^xsd:double .
+                                                   osdi:hasThetaParameter "0.07"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_TC
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_TC
 osdi:T1DM_Manif_STROKE_TC rdf:type owl:NamedIndividual ,
                                    osdi:Cost ,
                                    osdi:DeterministicParameter ;
@@ -1469,7 +1512,7 @@ osdi:T1DM_Manif_STROKE_TC rdf:type owl:NamedIndividual ,
                           osdi:hasYear "2016"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_U
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_U
 osdi:T1DM_Manif_STROKE_U rdf:type owl:NamedIndividual ,
                                   osdi:SecondOrderUncertaintyParameter ,
                                   osdi:Utility ;
@@ -1484,7 +1527,7 @@ osdi:T1DM_Manif_STROKE_U rdf:type owl:NamedIndividual ,
                          osdi:isDisutility "true"^^xsd:boolean .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_U_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_U_L95CI
 osdi:T1DM_Manif_STROKE_U_L95CI rdf:type owl:NamedIndividual ,
                                         osdi:DeterministicParameter ,
                                         osdi:Utility ;
@@ -1496,7 +1539,7 @@ osdi:T1DM_Manif_STROKE_U_L95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Manif_STROKE_U_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Manif_STROKE_U_U95CI
 osdi:T1DM_Manif_STROKE_U_U95CI rdf:type owl:NamedIndividual ,
                                         osdi:DeterministicParameter ,
                                         osdi:Utility ;
@@ -1508,7 +1551,7 @@ osdi:T1DM_Manif_STROKE_U_U95CI rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1
 osdi:T1DM_Population_DCCT1 rdf:type owl:NamedIndividual ,
                                     osdi:Population ;
                            osdi:hasAge osdi:T1DM_Population_DCCT1_Age ;
@@ -1519,16 +1562,16 @@ osdi:T1DM_Population_DCCT1 rdf:type owl:NamedIndividual ,
                            osdi:usesAttributeValue osdi:T1DM_Population_DCCT1_DurationOfDiabetes ,
                                                    osdi:T1DM_Population_DCCT1_HbA1c ;
                            osdi:hasDescription "First cohort of DCCT Population" ;
-                           osdi:hasMaxAge "40"^^xsd:double ;
-                           osdi:hasMinAge "13"^^xsd:double ;
+                           osdi:hasMaxAge "40.0"^^xsd:double ;
+                           osdi:hasMinAge "13.0"^^xsd:double ;
                            osdi:hasSize 100 ;
                            osdi:hasYear "2010"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1_Age
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1_Age
 osdi:T1DM_Population_DCCT1_Age rdf:type owl:NamedIndividual ,
-                                        osdi:DeterministicParameter ,
-                                        osdi:Parameter ;
+                                        osdi:AttributeValueParameter ,
+                                        osdi:DeterministicParameter ;
                                osdi:hasDataItemType osdi:DI_Other ;
                                osdi:includedByModel osdi:T1DM_StdModelDES ;
                                osdi:isValueOfAttribute osdi:Attribute_Age ;
@@ -1538,10 +1581,10 @@ osdi:T1DM_Population_DCCT1_Age rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2013"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1_DurationOfDiabetes
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1_DurationOfDiabetes
 osdi:T1DM_Population_DCCT1_DurationOfDiabetes rdf:type owl:NamedIndividual ,
-                                                       osdi:FirstOrderUncertaintyParameter ,
-                                                       osdi:Parameter ;
+                                                       osdi:AttributeValueParameter ,
+                                                       osdi:FirstOrderUncertaintyParameter ;
                                               osdi:hasDataItemType osdi:DI_TimeToEvent ;
                                               osdi:hasUncertaintyCharacterization osdi:T1DM_Population_DCCT1_DurationOfDiabetes_StochasticUncertainty ;
                                               osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -1551,7 +1594,7 @@ osdi:T1DM_Population_DCCT1_DurationOfDiabetes rdf:type owl:NamedIndividual ,
                                               osdi:hasYear "2013"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1_DurationOfDiabetes_StochasticUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1_DurationOfDiabetes_StochasticUncertainty
 osdi:T1DM_Population_DCCT1_DurationOfDiabetes_StochasticUncertainty rdf:type owl:NamedIndividual ,
                                                                              osdi:NormalDistributionExpression ;
                                                                     osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -1559,13 +1602,12 @@ osdi:T1DM_Population_DCCT1_DurationOfDiabetes_StochasticUncertainty rdf:type owl
                                                                     osdi:hasStandardDeviationParameter "1.4"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1_HbA1c
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1_HbA1c
 osdi:T1DM_Population_DCCT1_HbA1c rdf:type owl:NamedIndividual ,
-                                          osdi:DeterministicParameter ,
-                                          osdi:Parameter ;
+                                          osdi:AttributeValueParameter ,
+                                          osdi:DeterministicParameter ;
                                  osdi:hasDataItemType osdi:DI_Other ;
                                  osdi:includedByModel osdi:T1DM_StdModelDES ;
-                                 osdi:isModifiedBy osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification ;
                                  osdi:isValueOfAttribute osdi:Attribute_HbA1c ;
                                  osdi:hasDescription "Value of Attribute_HbA1c" ;
                                  osdi:hasExpectedValue "8.8"^^xsd:double ;
@@ -1573,10 +1615,10 @@ osdi:T1DM_Population_DCCT1_HbA1c rdf:type owl:NamedIndividual ,
                                  osdi:hasYear "2013"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1_Sex
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1_Sex
 osdi:T1DM_Population_DCCT1_Sex rdf:type owl:NamedIndividual ,
-                                        osdi:FirstOrderUncertaintyParameter ,
-                                        osdi:Parameter ;
+                                        osdi:AttributeValueParameter ,
+                                        osdi:FirstOrderUncertaintyParameter ;
                                osdi:hasDataItemType osdi:DI_Proportion ;
                                osdi:hasUncertaintyCharacterization osdi:T1DM_Population_DCCT1_Sex_StochasticUncertainty ;
                                osdi:includedByModel osdi:T1DM_StdModelDES ;
@@ -1586,41 +1628,34 @@ osdi:T1DM_Population_DCCT1_Sex rdf:type owl:NamedIndividual ,
                                osdi:hasYear "2013"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Population_DCCT1_Sex_StochasticUncertainty
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Population_DCCT1_Sex_StochasticUncertainty
 osdi:T1DM_Population_DCCT1_Sex_StochasticUncertainty rdf:type owl:NamedIndividual ,
                                                               osdi:BernoulliDistributionExpression ;
                                                      osdi:includedByModel osdi:T1DM_StdModelDES ;
                                                      osdi:hasProbabilityParameter "0.483966942"^^xsd:double .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD
 osdi:T1DM_Stage_CHD rdf:type owl:NamedIndividual ,
                              osdi:Stage ;
-                    osdi:hasIncreasedMortalityRate osdi:T1DM_Stage_CHD_IMR ;
+                    osdi:hasEffect osdi:T1DM_Stage_CHD_IMR ;
                     osdi:hasRiskCharacterization osdi:T1DM_Stage_CHD_Incidence ,
                                                  osdi:T1DM_Stage_CHD_Incidence_RR ;
                     osdi:includedByModel osdi:T1DM_StdModelDES ;
                     osdi:hasDescription "Coronary Heart Disease" .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_IMR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IMR
 osdi:T1DM_Stage_CHD_IMR rdf:type owl:NamedIndividual ,
-                                 osdi:Parameter ,
-                                 osdi:SecondOrderUncertaintyParameter ;
-                        osdi:hasDataItemType osdi:DI_RelativeRisk ;
-                        osdi:hasUncertaintyCharacterization osdi:T1DM_Stage_CHD_IMR_L95CI ,
-                                                            osdi:T1DM_Stage_CHD_IMR_U95CI ;
-                        osdi:includedByModel osdi:T1DM_StdModelDES ;
-                        osdi:hasDescription "Increased mortality rate for CHD" ;
-                        osdi:hasExpectedValue "1.96"^^xsd:double ;
-                        osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
-                        osdi:hasYear "2005"^^xsd:short .
+                                 osdi:IncreasedMortalityRateEffect ;
+                        osdi:affects osdi:Attribute_LifeExpectancy ;
+                        osdi:hasEffectMagnitude osdi:T1DM_Stage_CHD_IMR_Magnitude ;
+                        osdi:includedByModel osdi:T1DM_StdModelDES .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_IMR_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IMR_L95CI
 osdi:T1DM_Stage_CHD_IMR_L95CI rdf:type owl:NamedIndividual ,
-                                       osdi:DeterministicParameter ,
-                                       osdi:Parameter ;
+                                       osdi:DeterministicParameter ;
                               osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
                               osdi:hasDescription "Lower 95% confidence interval for Increased mortality rate for CHD" ;
@@ -1629,10 +1664,22 @@ osdi:T1DM_Stage_CHD_IMR_L95CI rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_IMR_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IMR_Magnitude
+osdi:T1DM_Stage_CHD_IMR_Magnitude rdf:type owl:NamedIndividual ,
+                                           osdi:SecondOrderUncertaintyParameter ;
+                                  osdi:hasDataItemType osdi:DI_RelativeRisk ;
+                                  osdi:hasUncertaintyCharacterization osdi:T1DM_Stage_CHD_IMR_L95CI ,
+                                                                      osdi:T1DM_Stage_CHD_IMR_U95CI ;
+                                  osdi:includedByModel osdi:T1DM_StdModelDES ;
+                                  osdi:hasDescription "Increased mortality rate for CHD" ;
+                                  osdi:hasExpectedValue "1.96"^^xsd:double ;
+                                  osdi:hasSource "https://doi.org/10.2337/diacare.28.3.617" ;
+                                  osdi:hasYear "2005"^^xsd:short .
+
+
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IMR_U95CI
 osdi:T1DM_Stage_CHD_IMR_U95CI rdf:type owl:NamedIndividual ,
-                                       osdi:DeterministicParameter ,
-                                       osdi:Parameter ;
+                                       osdi:DeterministicParameter ;
                               osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                               osdi:includedByModel osdi:T1DM_StdModelDES ;
                               osdi:hasDescription "Upper 95% confidence interval for Increased mortality rate for CHD" ;
@@ -1641,7 +1688,7 @@ osdi:T1DM_Stage_CHD_IMR_U95CI rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2005"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_Incidence
 osdi:T1DM_Stage_CHD_Incidence rdf:type owl:NamedIndividual ,
                                        osdi:EpidemiologicalParameter ,
                                        osdi:SecondOrderUncertaintyParameter ;
@@ -1655,9 +1702,8 @@ osdi:T1DM_Stage_CHD_Incidence rdf:type owl:NamedIndividual ,
                               osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_IncidenceBase_RR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IncidenceBase_RR
 osdi:T1DM_Stage_CHD_IncidenceBase_RR rdf:type owl:NamedIndividual ,
-                                              osdi:Parameter ,
                                               osdi:SecondOrderUncertaintyParameter ;
                                      osdi:hasDataItemType osdi:DI_RelativeRisk ;
                                      osdi:hasUncertaintyCharacterization osdi:T1DM_Stage_CHD_IncidenceBase_RR_L95CI ,
@@ -1669,10 +1715,9 @@ osdi:T1DM_Stage_CHD_IncidenceBase_RR rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_IncidenceBase_RR_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IncidenceBase_RR_L95CI
 osdi:T1DM_Stage_CHD_IncidenceBase_RR_L95CI rdf:type owl:NamedIndividual ,
-                                                    osdi:DeterministicParameter ,
-                                                    osdi:Parameter ;
+                                                    osdi:DeterministicParameter ;
                                            osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                                            osdi:includedByModel osdi:T1DM_StdModelDES ;
                                            osdi:hasDescription "Lower 95% confidence interval for Base RR for CHD-related complication, associated to a 1 PP increment of HbA1c with respect to 9.1" ;
@@ -1681,10 +1726,9 @@ osdi:T1DM_Stage_CHD_IncidenceBase_RR_L95CI rdf:type owl:NamedIndividual ,
                                            osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_IncidenceBase_RR_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_IncidenceBase_RR_U95CI
 osdi:T1DM_Stage_CHD_IncidenceBase_RR_U95CI rdf:type owl:NamedIndividual ,
-                                                    osdi:DeterministicParameter ,
-                                                    osdi:Parameter ;
+                                                    osdi:DeterministicParameter ;
                                            osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                                            osdi:includedByModel osdi:T1DM_StdModelDES ;
                                            osdi:hasDescription "Upper 95% confidence interval for Base RR for CHD-related complication, associated to a 1 PP increment of HbA1c with respect to 9.1" ;
@@ -1693,10 +1737,9 @@ osdi:T1DM_Stage_CHD_IncidenceBase_RR_U95CI rdf:type owl:NamedIndividual ,
                                            osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_Incidence_L95CI
 osdi:T1DM_Stage_CHD_Incidence_L95CI rdf:type owl:NamedIndividual ,
-                                             osdi:DeterministicParameter ,
-                                             osdi:Parameter ;
+                                             osdi:DeterministicParameter ;
                                     osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                                     osdi:includedByModel osdi:T1DM_StdModelDES ;
                                     osdi:hasDescription "Lower 95% confidence interval for Base incidence of any manifestation related to CHD when HbA1c is 9.1" ;
@@ -1705,10 +1748,9 @@ osdi:T1DM_Stage_CHD_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                     osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_Incidence_RR
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_Incidence_RR
 osdi:T1DM_Stage_CHD_Incidence_RR rdf:type owl:NamedIndividual ,
-                                          osdi:CalculatedParameter ,
-                                          osdi:Parameter ;
+                                          osdi:CalculatedParameter ;
                                  osdi:dependsOn osdi:Attribute_HbA1c ,
                                                 osdi:T1DM_Stage_CHD_IncidenceBase_RR ;
                                  osdi:hasDataItemType osdi:DI_RelativeRisk ;
@@ -1720,10 +1762,9 @@ osdi:T1DM_Stage_CHD_Incidence_RR rdf:type owl:NamedIndividual ,
                                  osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_CHD_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_CHD_Incidence_U95CI
 osdi:T1DM_Stage_CHD_Incidence_U95CI rdf:type owl:NamedIndividual ,
-                                             osdi:DeterministicParameter ,
-                                             osdi:Parameter ;
+                                             osdi:DeterministicParameter ;
                                     osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                                     osdi:includedByModel osdi:T1DM_StdModelDES ;
                                     osdi:hasDescription "Upper 95% confidence interval for Base incidence of any manifestation related to CHD when HbA1c is 9.1" ;
@@ -1732,7 +1773,7 @@ osdi:T1DM_Stage_CHD_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                     osdi:hasYear "2004"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_ESRD_Incidence
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_ESRD_Incidence
 osdi:T1DM_Stage_ESRD_Incidence rdf:type owl:NamedIndividual ,
                                         osdi:EpidemiologicalParameter ,
                                         osdi:SecondOrderUncertaintyParameter ;
@@ -1746,10 +1787,9 @@ osdi:T1DM_Stage_ESRD_Incidence rdf:type owl:NamedIndividual ,
                                osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_ESRD_Incidence_L95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_ESRD_Incidence_L95CI
 osdi:T1DM_Stage_ESRD_Incidence_L95CI rdf:type owl:NamedIndividual ,
-                                              osdi:DeterministicParameter ,
-                                              osdi:Parameter ;
+                                              osdi:DeterministicParameter ;
                                      osdi:hasDataItemType osdi:DI_Lower95ConfidenceLimit ;
                                      osdi:includedByModel osdi:T1DM_StdModelDES ;
                                      osdi:hasDescription "Lower 95% confidence interval for Incidence of end-stage renal disease" ;
@@ -1758,10 +1798,9 @@ osdi:T1DM_Stage_ESRD_Incidence_L95CI rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_Stage_ESRD_Incidence_U95CI
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_Stage_ESRD_Incidence_U95CI
 osdi:T1DM_Stage_ESRD_Incidence_U95CI rdf:type owl:NamedIndividual ,
-                                              osdi:DeterministicParameter ,
-                                              osdi:Parameter ;
+                                              osdi:DeterministicParameter ;
                                      osdi:hasDataItemType osdi:DI_Upper95ConfidenceLimit ;
                                      osdi:includedByModel osdi:T1DM_StdModelDES ;
                                      osdi:hasDescription "Upper 95% confidence interval for Incidence of end-stage renal disease" ;
@@ -1770,9 +1809,10 @@ osdi:T1DM_Stage_ESRD_Incidence_U95CI rdf:type owl:NamedIndividual ,
                                      osdi:hasYear "1995"^^xsd:short .
 
 
-###  https://w3id.org/ontologies-ULL/OSDi-T1DM#T1DM_StdModelDES
+###  https://w3id.org/ontologies-ULL/OSDi#T1DM_StdModelDES
 osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
                                osdi:DiscreteEventSimulationModel ;
+                      osdi:hasAssessedIntervention osdi:T1DM_Intervention_DCCTIntensive ;
                       osdi:includesModelItem osdi:T1DM_BETA_Manif_ALB1 ,
                                              osdi:T1DM_BETA_Manif_ALB2 ,
                                              osdi:T1DM_BETA_Manif_NEU ,
@@ -1784,8 +1824,8 @@ osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Group_Manif_CHD ,
                                              osdi:T1DM_Group_Manif_NEU ,
                                              osdi:T1DM_Intervention_DCCTIntensive ,
-                                             osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification ,
-                                             osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Modification_StochasticUncertainty ,
+                                             osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect_Magnitude ,
+                                             osdi:T1DM_Intervention_DCCTIntensive_HbA1c_Effect_StochasticUncertainty ,
                                              osdi:T1DM_Manif_ALB1 ,
                                              osdi:T1DM_Manif_ALB1_AC ,
                                              osdi:T1DM_Manif_ALB1_Incidence ,
@@ -1795,8 +1835,8 @@ osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Manif_ALB1_U ,
                                              osdi:T1DM_Manif_ALB2 ,
                                              osdi:T1DM_Manif_ALB2_AC ,
-                                             osdi:T1DM_Manif_ALB2_IMR ,
                                              osdi:T1DM_Manif_ALB2_IMR_L95CI ,
+                                             osdi:T1DM_Manif_ALB2_IMR_Magnitude ,
                                              osdi:T1DM_Manif_ALB2_IMR_U95CI ,
                                              osdi:T1DM_Manif_ALB2_Incidence ,
                                              osdi:T1DM_Manif_ALB2_Incidence_L95CI ,
@@ -1815,8 +1855,8 @@ osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Manif_ANGINA_U_U95CI ,
                                              osdi:T1DM_Manif_ESRD ,
                                              osdi:T1DM_Manif_ESRD_AC ,
-                                             osdi:T1DM_Manif_ESRD_IMR ,
                                              osdi:T1DM_Manif_ESRD_IMR_L95CI ,
+                                             osdi:T1DM_Manif_ESRD_IMR_Magnitude ,
                                              osdi:T1DM_Manif_ESRD_IMR_U95CI ,
                                              osdi:T1DM_Manif_ESRD_TC ,
                                              osdi:T1DM_Manif_ESRD_U ,
@@ -1844,7 +1884,7 @@ osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Manif_LEA_U_U95CI ,
                                              osdi:T1DM_Manif_MI ,
                                              osdi:T1DM_Manif_MI_AC ,
-                                             osdi:T1DM_Manif_MI_ProbDeath ,
+                                             osdi:T1DM_Manif_MI_ProbDeath_Magnitude ,
                                              osdi:T1DM_Manif_MI_Proportion ,
                                              osdi:T1DM_Manif_MI_Proportion_ParamUncertainty ,
                                              osdi:T1DM_Manif_MI_TC ,
@@ -1915,9 +1955,7 @@ osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
                                              osdi:T1DM_Stage_ESRD_Incidence_U95CI ;
                       osdi:hasAuthor "ICR" ;
                       osdi:hasDescription "First example of T1DM model" ;
-                      osdi:hasDisutilityCombinationMethod "ADD" ;
-                      osdi:hasGeographicalContext "Spain" ;
-                      osdi:hasYear "2022"^^xsd:short .
+                      osdi:hasGeographicalContext "Spain" .
 
 
 [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "80.67230303494442"^^xsd:double ;
@@ -1925,4 +1963,4 @@ osdi:T1DM_StdModelDES rdf:type owl:NamedIndividual ,
   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
 ] .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -68,6 +68,13 @@ jobs:
           mkdir -p docs/latest/individuals
           cp -R individuals/* docs/latest/individuals/
 
+      # 7b. Copy examples folder (validation examples, see examples/README.md)
+      - name: Copy examples folder
+        if: ${{ hashFiles('examples/**') != '' }}
+        run: |
+          mkdir -p docs/latest/examples
+          cp -R examples/* docs/latest/examples/
+
       # 8. Copy versioned documentation
       - name: Copy versioned documentation
         run: |
