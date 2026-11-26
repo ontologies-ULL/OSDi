@@ -98,3 +98,25 @@ jobs:
             git pull --rebase origin main
             git push https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git HEAD:main
           fi
+
+      # 10. Tag the first publication of each version (vX.Y), if the tag does not exist yet.
+      #     The w3id rules send browsers to the examples of the tag of a version (blob/vX.Y/...).
+      #     Later commits with the same version (e.g., fixes in the documentation) keep the tag
+      #     of the first publication.
+      - name: Tag the version if it is not tagged yet
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if ! echo "$VERSION" | grep -qE '^[0-9]+(\.[0-9]+)+$'; then
+            echo "Version '$VERSION' is not a release number (X.Y or X.Y.Z), skipping tag"
+            exit 0
+          fi
+          TAG="v$VERSION"
+          if git ls-remote --exit-code --tags https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git "refs/tags/$TAG" > /dev/null; then
+            echo "Tag $TAG already exists, skipping"
+          else
+            git tag -a "$TAG" -m "OSDi $VERSION"
+            git push https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git "refs/tags/$TAG"
+            echo "Created tag $TAG on $(git rev-parse --short HEAD)"
+          fi
