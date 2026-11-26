@@ -21,15 +21,15 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
-        <title>7. Interventions and their effects - OSDi Tutorial</title>
+        <title>7. Interventions, strategies and effects - OSDi Tutorial</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -64,6 +64,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#71-the-target-of-an-intervention" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -101,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7. Interventions and their effects
+              7. Interventions, strategies and effects
             
           </span>
         </div>
@@ -460,6 +465,24 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Interventions, strategies and effects
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -467,7 +490,7 @@
   <span class="md-ellipsis">
     
   
-    7. Interventions and their effects
+    7. Interventions, strategies and effects
   
 
     
@@ -476,6 +499,56 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-the-target-of-an-intervention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. The target of an intervention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. Strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. Effects
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -580,6 +653,47 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-the-target-of-an-intervention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. The target of an intervention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. Strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. Effects
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -598,42 +712,85 @@
   
 
 
-  <h1>7. Interventions and their effects</h1>
+  <h1>7. Interventions, strategies and effects</h1>
 
-<p>Within each model, you must define one or more <strong>Interventions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Intervention"><code>osdi:Intervention</code></a>) to be assessed for cost-effectiveness. In the typical scenario for one intervention versus a comparator, the assessed intervention will be identified by setting <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isAssessedIntervention"><code>osdi:isAssessedIntervention</code></a> to <code>true</code>.</p>
+<p>Within each model, you must define two or more <strong>Interventions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Intervention"><code>osdi:Intervention</code></a>) to be compared in the cost-effectiveness analysis. The model identifies the assessed intervention (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasAssessedIntervention"><code>osdi:hasAssessedIntervention</code></a>) and its comparators (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasComparatorIntervention"><code>osdi:hasComparatorIntervention</code></a>), as shown in the <a href="../model_structure/">decision model section</a>.</p>
 <p><img alt="Intervention" src="../img/osdi_intervention.png" /></p>
+<h3 id="71-the-target-of-an-intervention">7.1. The target of an intervention</h3>
+<p>Every intervention has exactly one <strong>target</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#isInterventionOf"><code>osdi:isInterventionOf</code></a>, or its inverse <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasIntervention"><code>osdi:hasIntervention</code></a>): the health condition it is applied to, i.e., the disease or an element of its progression (a development, a stage or a manifestation).</p>
+<ul>
+<li>Time 0 is the moment when the intervention is applied: every patient presents the target, and the intervention is active during the whole simulation. Hence, a target should not have temporal constraints (such as an onset age).</li>
+<li>With an acute manifestation as the target, every patient starts with an episode (e.g., a migraine attack).</li>
+<li>The interventions compared in a model have the same target.</li>
+<li>The target of a detection intervention (screening or diagnosis) is the disease it detects, and the intervention applies to the population at risk of that disease, not only to those who present it.</li>
+<li>Since an intervention has exactly one target, it cannot be shared by the models of different diseases: a reasoner would infer that the diseases are the same individual. Give each model its own interventions.</li>
+</ul>
 <p><strong>TTL Example (Interventions for comparing NBS versus clinical detection):</strong></p>
 <pre><code class="language-turtle">osdi:BD_InterventionNoScreening 
     a owl:NamedIndividual , osdi:DiagnosisIntervention ;
     osdi:hasDescription &quot;No screening, i.e., clinical detection, of BD&quot; ;
-    osdi:isAssessedIntervention &quot;false&quot;^^xsd:boolean .
+    osdi:isInterventionOf osdi:BD_Disease .
 
 osdi:BD_InterventionScreening 
-    a owl:NamedIndividual ,  osdi:ScreeningIntervention ;
-    osdi:hasCost osdi:BD_CostScreening ;
-    osdi:hasSensitivity osdi:BD_ScreeningSensitivity ;
-    osdi:hasSpecificity osdi:BD_ScreeningSpecificity ;
-    osdi:hasEffect osdi:BD_InterventionScreeningEffect ;
+    a owl:NamedIndividual , osdi:ScreeningIntervention ;
     osdi:hasDescription &quot;Basic screening intervention for BD&quot; ;
-    osdi:isAssessedIntervention &quot;true&quot;^^xsd:boolean .
+    osdi:isInterventionOf osdi:BD_Disease ;
+    osdi:hasEffect osdi:BD_InterventionScreeningStrategies , osdi:BD_InterventionScreeningEffect .
 </code></pre>
-<p><strong>Interventions</strong> may involve costs and disutilities, but they should have some kind of effect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasEffect"><code>osdi:hasEffect</code></a>) on the progression of the disease or the use of resources. <strong>Effects</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Effect"><code>osdi:Effect</code></a>) are defined by the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute"><code>osdi:Attribute</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a> they affect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#affect"><code>osdi:affect</code></a>), and a Parameter that characterize the magnitude of the effect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasEffectMagnitude"><code>osdi:hasEffectMagnitude</code></a>).</p>
+<h3 id="72-strategies">7.2. Strategies</h3>
+<p><strong>Strategies</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Strategy"><code>osdi:Strategy</code></a>) describe what is done to detect, treat or follow up a health condition: detection strategies (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#ScreeningStrategy"><code>osdi:ScreeningStrategy</code></a> and <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DiagnosisStrategy"><code>osdi:DiagnosisStrategy</code></a>), lines of therapy (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#LineOfTherapy"><code>osdi:LineOfTherapy</code></a>) and follow-up strategies (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#FollowUpStrategy"><code>osdi:FollowUpStrategy</code></a>). A strategy may have costs and utilities, use health technologies (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#usesHealthTechnology"><code>osdi:usesHealthTechnology</code></a>) and be followed by other strategies (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#followedByStrategy"><code>osdi:followedByStrategy</code></a>). Several strategies can be put together in a <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Group"><code>osdi:Group</code></a>.</p>
+<p>The <strong>health conditions</strong> declare the strategies that are applied to them (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasStrategy"><code>osdi:hasStrategy</code></a>). In the reference case, without screening, BD is detected by a clinical diagnosis. The properties of the detection, i.e., the disease it detects (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#detects"><code>osdi:detects</code></a>), its sensitivity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasSensitivity"><code>osdi:hasSensitivity</code></a>) and specificity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasSpecificity"><code>osdi:hasSpecificity</code></a>), belong to the detection strategy.</p>
+<p><strong>TTL Example (Detection strategies of BD):</strong></p>
+<pre><code class="language-turtle">osdi:BD_Disease
+    osdi:hasStrategy osdi:BD_ClinicalDiagnosis .
+
+osdi:BD_ClinicalDiagnosis
+    a owl:NamedIndividual , osdi:DiagnosisStrategy ;
+    osdi:hasDescription &quot;Diagnosis of BD: quantitative enzymatic determination of biotinidase activity in serum&quot; ;
+    osdi:detects osdi:BD_Disease ;
+    osdi:hasCost osdi:BD_CostDiagnosis ;
+    osdi:hasSensitivity osdi:BD_DiagnosisSensitivity ;
+    osdi:hasSpecificity osdi:BD_DiagnosisSpecificity .
+
+osdi:BD_ScreeningStrategy
+    a owl:NamedIndividual , osdi:ScreeningStrategy ;
+    osdi:hasDescription &quot;Newborn screening test for BD&quot; ;
+    osdi:detects osdi:BD_Disease ;
+    osdi:hasCost osdi:BD_Cost_ScreeningTest ;
+    osdi:hasSensitivity osdi:BD_ScreeningSensitivity ;
+    osdi:hasSpecificity osdi:BD_ScreeningSpecificity .
+</code></pre>
+<p><strong>Interventions do not declare strategies directly.</strong> Instead, an intervention replaces the strategies of a health condition in its arm by means of a <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#StrategyReplacementEffect"><code>osdi:StrategyReplacementEffect</code></a>, which affects the health condition (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#affects"><code>osdi:affects</code></a>) and declares the new strategy or group of strategies (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasReplacementStrategy"><code>osdi:hasReplacementStrategy</code></a>). The replacement works by type of strategy (detection, follow-up or treatment): the new strategies replace those of the same type that the health condition declares, and the strategies of other types are kept. In the screening arm, the detection strategies of BD are the screening test and the confirmatory diagnosis; in the comparator arm, BD keeps its clinical diagnosis.</p>
+<p><strong>TTL Example (Strategies of the screening arm):</strong></p>
+<pre><code class="language-turtle">osdi:BD_InterventionScreeningStrategies
+    a owl:NamedIndividual , osdi:StrategyReplacementEffect ;
+    osdi:hasDescription &quot;In the screening arm, the detection strategies of BD are the screening test and the confirmatory diagnosis&quot; ;
+    osdi:affects osdi:BD_Disease ;
+    osdi:hasReplacementStrategy osdi:BD_ScreeningArmStrategies .
+
+osdi:BD_ScreeningArmStrategies
+    a owl:NamedIndividual , osdi:Group ;
+    osdi:hasDescription &quot;Detection strategies of BD in the screening arm&quot; ;
+    osdi:hasGroupItem osdi:BD_ScreeningStrategy , osdi:BD_ClinicalDiagnosis .
+</code></pre>
+<p>Strategies may also describe their <strong>outcomes</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasStrategyOutcome"><code>osdi:hasStrategyOutcome</code></a>): mutually exclusive results, each one with its risk, the strategy that follows it, its payoffs and effects, and whether it resolves the health condition. Treatment outcomes (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#TreatmentOutcome"><code>osdi:TreatmentOutcome</code></a>) include the success and the failure of a strategy (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#SuccessOutcome"><code>osdi:SuccessOutcome</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#FailureOutcome"><code>osdi:FailureOutcome</code></a>); detection outcomes (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DetectionOutcome"><code>osdi:DetectionOutcome</code></a>) are positive, negative or inconclusive. There are short forms for the most common cases: <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#failsIf"><code>osdi:failsIf</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#followedOnSuccessBy"><code>osdi:followedOnSuccessBy</code></a> and <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#followedOnFailureBy"><code>osdi:followedOnFailureBy</code></a> for treatments, and the sensitivity and specificity for detection strategies. Finally, a strategy may cause <strong>adverse events</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasAdverseEvent"><code>osdi:hasAdverseEvent</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#AdverseEvent"><code>osdi:AdverseEvent</code></a>), with a risk per application of the strategy. The <a href="https://github.com/ontologies-ULL/OSDi/tree/main/examples/evans1997-migraine">validation example of Evans et al. (1997)</a> uses outcomes, groups of alternative strategies and relapses after the response.</p>
+<h3 id="73-effects">7.3. Effects</h3>
+<p><strong>Interventions</strong> may involve costs and disutilities, but they should have some kind of effect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasEffect"><code>osdi:hasEffect</code></a>) on the progression of the disease or the use of resources. <strong>Effects</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Effect"><code>osdi:Effect</code></a>) are defined by the <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Attribute"><code>osdi:Attribute</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Parameter"><code>osdi:Parameter</code></a> they affect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#affects"><code>osdi:affects</code></a>), and a Parameter that characterizes the magnitude of the effect (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasEffectMagnitude"><code>osdi:hasEffectMagnitude</code></a>).</p>
+<p>The data item type of the magnitude defines how a generic effect is applied: a factor or a ratio multiplies; a relative risk or a hazard ratio (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DI_HazardRatio"><code>osdi:DI_HazardRatio</code></a>) on a probability multiplies the equivalent rate; an odds ratio (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DI_OddsRatio"><code>osdi:DI_OddsRatio</code></a>) multiplies the odds; a mean difference is subtracted; and any other type is an absolute value that replaces the affected item (see <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasEffectMagnitude"><code>osdi:hasEffectMagnitude</code></a> for the details).</p>
 <p>For example, according to the reference case, the effect of the screening should be to prevent the appearance of the manifestations related to profound BD. You can also use relative risks or mean differences to model such effects. </p>
 <p><strong>TTL Example (Effect of the screening):</strong></p>
 <pre><code class="language-turtle">osdi:BD_InterventionScreeningEffect 
-    a owl:NamedIndividual ,  osdi:Effect ;
-    osdi:hasDataItemType osdi:DI_Continuous_Variable ;
+    a owl:NamedIndividual , osdi:Effect ;
     osdi:affects osdi:BD_Proportion_Seizures_PBD , ... ;
     osdi:hasDescription &quot;Sets the probabilities of all the manifestations to 0&quot; ;
     osdi:hasEffectMagnitude osdi:BD_InterventionScreeningEffectMagnitude .
 
 osdi:BD_InterventionScreeningEffectMagnitude 
-    a owl:NamedIndividual ,  osdi:DeterministicParameter ;
+    a owl:NamedIndividual , osdi:DeterministicParameter ;
     osdi:hasDataItemType osdi:DI_Continuous_Variable ;
     osdi:hasExpectedValue &quot;0.0&quot;^^xsd:double .
-
 </code></pre>
-<p>Effects can be also triggered by health conditions (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#HealthCondition"><code>osdi:HealthCondition</code></a>), pathways (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Pathway"><code>osdi:Pathway</code></a>), and even populations (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Population"><code>osdi:Population</code></a>). Currently, <strong>OSDi</strong> includes a number of specific effects of particular interest, such as sudden death (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#InstantDeathEffect"><code>osdi:InstantDeathEffect</code></a>), whose magnitude is the probability of the death event; life expectancy reduction (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#LifeExpectancyReductionEffect"><code>osdi:LifeExpectancyReductionEffect</code></a>) or increased mortality rate (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#IncreasedMortalityRateEffect"><code>osdi:IncreasedMortalityRateEffect</code></a>).</p>
+<p>Effects can be also triggered by health conditions (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#HealthCondition"><code>osdi:HealthCondition</code></a>), pathways (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Pathway"><code>osdi:Pathway</code></a>), outcomes of strategies and even populations (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Population"><code>osdi:Population</code></a>). Currently, <strong>OSDi</strong> includes a number of specific effects of particular interest, such as sudden death (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#InstantDeathEffect"><code>osdi:InstantDeathEffect</code></a>), whose magnitude is the probability of the death event; life expectancy reduction (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#LifeExpectancyReductionEffect"><code>osdi:LifeExpectancyReductionEffect</code></a>); increased mortality rate (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#IncreasedMortalityRateEffect"><code>osdi:IncreasedMortalityRateEffect</code></a>); and the replacement of strategies (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#StrategyReplacementEffect"><code>osdi:StrategyReplacementEffect</code></a>) shown above, which has no magnitude.</p>
 
 
 
@@ -683,10 +840,10 @@ osdi:BD_InterventionScreeningEffectMagnitude
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.3"}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

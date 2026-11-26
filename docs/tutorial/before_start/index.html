@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -468,7 +468,7 @@
   <span class="md-ellipsis">
     
   
-    7. Interventions and their effects
+    7. Interventions, strategies and effects
   
 
     
@@ -601,18 +601,19 @@
   <h1>1. Some tips before starting</h1>
 
 <p>In general, individuals of OSDi are expected to be defined in a separate file. All examples use Turtle (TTL) syntax and assume the following prefixes are declared:</p>
-<pre><code class="language-turtle">@prefix osdi: https://w3id.org/ontologies-ULL/OSDi# .
-@prefix owl: http://www.w3.org/2002/07/owl# .
-@prefix rdfs: http://www.w3.org/2000/01/rdf-schema# .
-@prefix xsd: http://www.w3.org/2001/XMLSchema# .
+<pre><code class="language-turtle">@prefix osdi: &lt;https://w3id.org/ontologies-ULL/OSDi#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 </code></pre>
-<p>The file with the individuals should import <strong>OSDi</strong> and the namespace should be something like <code>https://w3id.org/ontologies-ULL/OSDi/individuals/&lt;name&gt;</code>.</p>
+<p>The file with the individuals should import a specific version of <strong>OSDi</strong> (its version IRI, e.g., <code>https://w3id.org/ontologies-ULL/OSDi/1.3</code>), and the namespace should be something like <code>https://w3id.org/ontologies-ULL/OSDi/individuals/&lt;name&gt;</code>.</p>
 <pre><code class="language-turtle">&lt;https://w3id.org/ontologies-ULL/OSDi/individuals/BD&gt; rdf:type owl:Ontology ;
     rdfs:label &quot;OSDi BD individuals&quot;@en ;
-    rdfs:comment &quot;OSDi individuals for newborn screening of Biotinidase Deficiency, version 1.0. &quot;@en ;
-    owl:imports &lt;https://w3id.org/ontologies-ULL/OSDi/1.0&gt; .
+    rdfs:comment &quot;OSDi individuals for newborn screening of Biotinidase Deficiency, version 1.3. &quot;@en ;
+    owl:imports &lt;https://w3id.org/ontologies-ULL/OSDi/1.3&gt; .
 </code></pre>
-<p>Remember that all the components of <strong>OSDi</strong>  (classes, properties and common named individuals) are <a href="https://w3id.org/ontologies-ULL/OSDi/1.0">documented online</a>.</p>
+<p>Remember that all the components of <strong>OSDi</strong>  (classes, properties and common named individuals) are <a href="https://w3id.org/ontologies-ULL/OSDi/1.3">documented online</a>.</p>
 
 
 
@@ -662,10 +663,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.3"}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

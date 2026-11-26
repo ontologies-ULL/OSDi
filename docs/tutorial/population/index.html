@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -468,7 +468,7 @@
   <span class="md-ellipsis">
     
   
-    7. Interventions and their effects
+    7. Interventions, strategies and effects
   
 
     
@@ -600,9 +600,9 @@
 
   <h1>6. Population affected</h1>
 
-<p>The <strong>Population</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Population"><code>osdi:Population</code></a>) class defines the target cohort for the interventions under assessment. All the relevant characteristics of the individuals must be defined here, such as the distribution by sex and age, but also clinical characteristics (or patient <strong>Atributes</strong>) that may influence the progression of the disease or the effect of the intervention.</p>
+<p>The <strong>Population</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Population"><code>osdi:Population</code></a>) class defines the target cohort for the interventions under assessment. All the relevant characteristics of the individuals must be defined here, such as the distribution by sex and age, but also clinical characteristics (or patient <strong>Attributes</strong>) that may influence the progression of the disease or the effect of the intervention.</p>
 <p><img alt="Population classes" src="../img/osdi_population.png" /></p>
-<p><strong>OSDi</strong> defines some default attributes: <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute_Age"><code>osdi:Attribute_Age</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute_Sex"><code>osdi:Attribute_Sex</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Attribute_LifeExpectancy"><code>osdi:Attribute_LifeExpectancy</code></a>. <strong>Populations</strong> expect values for these <strong>Atributes</strong> by means of specific properties (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasAge"><code>osdi:hasAge</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasSex"><code>osdi:hasSex</code></a>). Such values must be defined as <strong>Parameters</strong>.</p>
+<p><strong>OSDi</strong> defines some default attributes: <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Attribute_Age"><code>osdi:Attribute_Age</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Attribute_Sex"><code>osdi:Attribute_Sex</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Attribute_LifeExpectancy"><code>osdi:Attribute_LifeExpectancy</code></a>. <strong>Populations</strong> expect values for these <strong>Attributes</strong> by means of specific properties (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasAge"><code>osdi:hasAge</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasSex"><code>osdi:hasSex</code></a>). Such values must be defined as <strong>Parameters</strong>. If a population does not define them, applications may assume default values (e.g., JaDES assumes 18 years, 50% women and a life expectancy of 100 years, and warns about it).</p>
 <p>For example, the base age for the population of newborns in the reference problem should be 0.</p>
 <p><strong>TTL Example: Definition of the age of the base population</strong></p>
 <pre><code class="language-turtle">osdi:BD_BasePopulationAge 
@@ -624,8 +624,8 @@
     osdi:hasMinAge &quot;0.0&quot;^^xsd:double ;
     osdi:hasSize 540963 .
 </code></pre>
-<p>If required, we can define subgroups of population (e.g., cases with profound BD) using the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isSubpopulationOf"><code>osdi:isSubpopulationOf</code></a> property.</p>
-<p>Having different <strong>Populations</strong> allows for testing the same interventions on multiple cohorts. You may characterize different populations in terms of <strong>Attributes</strong> or <strong>EpidemiologicalParameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#EpidemiologicalParameter"><code>osdi:EpidemiologicalParameter</code></a>), which capture population-level statistics like incidence or birth-prevalence. For example, you may define a population using the birth prevalence from Galicia, but also a different population with the birth prevalence from a worldwide survey (<a href="https://doi.org/10.1007/BF01800475">Wolf, 1991</a>).</p>
+<p>If required, we can define subgroups of population (e.g., cases with profound BD) using the <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#isSubPopulationOf"><code>osdi:isSubPopulationOf</code></a> (or its inverse, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasSubpopulation"><code>osdi:hasSubpopulation</code></a>) property.</p>
+<p>Having different <strong>Populations</strong> allows for testing the same interventions on multiple cohorts. You may characterize different populations in terms of <strong>Attributes</strong> or <strong>EpidemiologicalParameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#EpidemiologicalParameter"><code>osdi:EpidemiologicalParameter</code></a>), which capture population-level statistics like incidence or birth-prevalence. For example, you may define a population using the birth prevalence from Galicia, but also a different population with the birth prevalence from a worldwide survey (<a href="https://doi.org/10.1007/BF01800475">Wolf, 1991</a>).</p>
 <p><strong>TTL Example (Birth Prevalence from Galicia):</strong></p>
 <pre><code class="language-turtle">osdi:BD_BirthPrevalence_ProfoundBD_Spain
     a owl:NamedIndividual , osdi:DeterministicParameter , osdi:EpidemiologicalParameter ;
@@ -693,10 +693,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.3"}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

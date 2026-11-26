@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -467,10 +467,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-costs-and-utilities" class="md-nav__link">
+  <a href="#43-costs-and-utilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2. Costs and utilities
+        4.3. Costs and utilities
       
     </span>
   </a>
@@ -478,10 +478,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#43-calculated-parameters" class="md-nav__link">
+  <a href="#44-calculated-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.3. Calculated Parameters
+        4.4. Calculated Parameters
       
     </span>
   </a>
@@ -569,7 +569,7 @@
   <span class="md-ellipsis">
     
   
-    7. Interventions and their effects
+    7. Interventions, strategies and effects
   
 
     
@@ -722,10 +722,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-costs-and-utilities" class="md-nav__link">
+  <a href="#43-costs-and-utilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2. Costs and utilities
+        4.3. Costs and utilities
       
     </span>
   </a>
@@ -733,10 +733,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#43-calculated-parameters" class="md-nav__link">
+  <a href="#44-calculated-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.3. Calculated Parameters
+        4.4. Calculated Parameters
       
     </span>
   </a>
@@ -772,11 +772,11 @@
 
 <h2 id="4-parameters">4. Parameters</h2>
 <p>Models require several types of parameters: probabilities, costs, utilities... Apart from the numeric value, parameters require the definition of many other properties to be appropriately used or to allow for inference. For example, the risk of suffering some kind of manifestation could be 0.3, but the utilization of this value in a model would be completely different depending on whether it is a probability, a ratio, a proportion, an odd... Besides, parameters have some kind of uncertainty associated to their values. Such uncertainty would represent variability among individuals (first-order uncertainty) or the degree of confidence on your estimates (second-order uncertainty).</p>
-<p>Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters have to be able to represent, at the same time, specific types (costs, utilities...) and nature of the parameter (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ParameterNature"><code>osdi:ParameterNature</code></a>), i.e., whether it is deterministic, calculated or involves uncertainty. Hence, multiple inheritance is expected to model some specific individuals. <strong>Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Parameter"><code>osdi:Parameter</code></a>) also define a <strong>Data Item Type</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DataItemType"><code>osdi:DataItemType</code></a>) by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasDataItemType"><code>osdi:hasDataItemType</code></a> property.</p>
+<p>Instead of using data properties to define the quantifiable values required by a model, we have created a more complex set of concepts to wrap them. Individuals representing parameters have to be able to represent, at the same time, specific types (costs, utilities...) and nature of the parameter (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#ParameterNature"><code>osdi:ParameterNature</code></a>), i.e., whether it is deterministic, calculated or involves uncertainty. Hence, multiple inheritance is expected to model some specific individuals. <strong>Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Parameter"><code>osdi:Parameter</code></a>) also define a <strong>Data Item Type</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DataItemType"><code>osdi:DataItemType</code></a>) by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasDataItemType"><code>osdi:hasDataItemType</code></a> property.</p>
 <p><img alt="Parameters" src="../img/osdi_parameter.png" /></p>
 <p>We will use a number of simple examples to illustrate how to properly define parameters.</p>
 <h3 id="41-defining-a-simple-deterministic-value">4.1. Defining a simple deterministic value</h3>
-<p>In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is a <strong>Deterministic Parameter</strong>. There is a specific <strong>Data Item Type</strong> for sensitivity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Sensitivity"><code>osdi:DI_Sensitivity</code></a>); otherwise, a more generic type might be used (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#DI_Probability"><code>osdi:DI_Probability</code></a>). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasYear"><code>osdi:hasYear</code></a>) or the geographical context (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasGeographicalContext"><code>osdi:hasGeographicalContext</code></a>) may be added.</p>
+<p>In the original reference study, sensitivity of the screening test was assumed to be 100%. This is a good example of a deterministic parameter. As seen in the code below, the individual is a <strong>Deterministic Parameter</strong>. There is a specific <strong>Data Item Type</strong> for sensitivity (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DI_Sensitivity"><code>osdi:DI_Sensitivity</code></a>); otherwise, a more generic type might be used (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#DI_Probability"><code>osdi:DI_Probability</code></a>). This parameter will be used by the screening strategy (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasSensitivity"><code>osdi:hasSensitivity</code></a>, see the <a href="../intervention/">interventions section</a>). It is important always to add the source of the parameter, even when it comes from an assumption. Information on the year the parameter applies to (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasYear"><code>osdi:hasYear</code></a>) or the geographical context (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasGeographicalContext"><code>osdi:hasGeographicalContext</code></a>) may be added.</p>
 <p><strong>TTL Example (Constant sensitivity):</strong></p>
 <pre><code class="language-turtle">osdi:BD_ScreeningSensitivity
     a owl:NamedIndividual , osdi:DeterministicParameter ;
@@ -787,7 +787,7 @@
     osdi:hasSource &quot;Assumption based on the estimated from Galicia&quot; .
 </code></pre>
 <h3 id="42-adding-uncertainty-to-parameters">4.2. Adding uncertainty to parameters</h3>
-<p>Deterministic parameters are treated as constants but, in general, we can add uncertainty by changing the nature of the parameter to first- or second- order uncertainty, ie.e. by inheriting  <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#FirstOrderUncertaintyParameter"><code>osdi:FirstOrderUncertaintyParameter</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#SecondOrderUncertaintyParameter"><code>osdi:SecondOrderUncertaintyParameter</code></a>, respectively. Both natures define a <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasUncertaintyCharacterization"><code>osdi:hasUncertaintyCharacterization</code></a> property to describe the uncertainty itself. The most straightforward approach is creating an individual based on the predefined <strong>Probability Distribution Expressions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#ProbabilityDistributionExpression"><code>osdi:ProbabilityDistributionExpression</code></a>).</p>
+<p>Deterministic parameters are treated as constants but, in general, we can add uncertainty by changing the nature of the parameter to first- or second-order uncertainty, i.e., by inheriting <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#FirstOrderUncertaintyParameter"><code>osdi:FirstOrderUncertaintyParameter</code></a> or <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#SecondOrderUncertaintyParameter"><code>osdi:SecondOrderUncertaintyParameter</code></a>, respectively. Both natures define a <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasUncertaintyCharacterization"><code>osdi:hasUncertaintyCharacterization</code></a> property to describe the uncertainty itself. The most straightforward approach is creating an individual based on the predefined <strong>Probability Distribution Expressions</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#ProbabilityDistributionExpression"><code>osdi:ProbabilityDistributionExpression</code></a>).</p>
 <p>Let's suppose the proportion of individuals with profound BD who present seizures, as described in the reference study. Since its expected value comes from a meta-analysis of several studies, we should include second-order uncertainty when modeling this parameter. We would start by creating the individual for the parameter, that includes the expected value obtained from the meta-analysis (0.564).</p>
 <p><strong>TTL Example (Base proportion of seizures):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Proportion_Seizures_PBD
@@ -796,7 +796,7 @@
     osdi:hasDescription &quot;Proportion of seizures in clinically diagnosed profound BD&quot; ;
     osdi:hasDataItemType osdi:DI_Proportion ;
     osdi:hasExpectedValue &quot;0.564&quot;^^xsd:double ; 
-    osdi:hasUncertaintyCharacterization osdi:BD_Proportion_Seizures_PBD_Uncertainty
+    osdi:hasUncertaintyCharacterization osdi:BD_Proportion_Seizures_PBD_Uncertainty ;
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
 </code></pre>
 <p>The uncertainty on the expected value of the proportion of seizures can be characterized by means of a beta distribution with parameters alfa = 65 and beta = 50.</p>
@@ -806,10 +806,50 @@
     rdfs:label &quot;Uncertainty on proportion of seizures PBD&quot;@en ;
     osdi:hasDescription &quot;Characterization of the uncertainty on the proportion of seizures in clinically diagnosed profound BD&quot; ;
     osdi:hasAlfaParameter &quot;65.0&quot;^^xsd:double ;
-    osdi:hasBetaParameter &quot;50.0&quot;^^xsd:double .
+    osdi:hasBetaParameter &quot;50.0&quot;^^xsd:double ;
     osdi:hasSource &quot;Meta-analysis from several studies as described in DOI:0.1542/peds.2014-3399&quot; .
 </code></pre>
-<p>Once defined, you can link the parameter with the manifestation already defined by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasRiskCharacterization"><code>osdi:hasRiskCharacterization</code></a> property, to numerically characterize the progression.</p>
+<p>Each probability distribution expression defines its own parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Distribution</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#BernoulliDistributionExpression"><code>osdi:BernoulliDistributionExpression</code></a></td>
+<td>probability (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasProbabilityParameter"><code>osdi:hasProbabilityParameter</code></a>)</td>
+</tr>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#BetaDistributionExpression"><code>osdi:BetaDistributionExpression</code></a></td>
+<td>alpha and beta (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasAlfaParameter"><code>osdi:hasAlfaParameter</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasBetaParameter"><code>osdi:hasBetaParameter</code></a>)</td>
+</tr>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#GammaDistributionExpression"><code>osdi:GammaDistributionExpression</code></a></td>
+<td>shape k and scale theta (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasAlfaParameter"><code>osdi:hasAlfaParameter</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasThetaParameter"><code>osdi:hasThetaParameter</code></a>); mean = k * theta. A gamma expressed with a rate lambda has theta = 1 / lambda. Until version 1.2, the scale was called <code>hasLambdaParameter</code></td>
+</tr>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#ExponentialDistributionExpression"><code>osdi:ExponentialDistributionExpression</code></a></td>
+<td>rate lambda (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasLambdaParameter"><code>osdi:hasLambdaParameter</code></a>); mean = 1 / lambda</td>
+</tr>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#PoissonDistributionExpression"><code>osdi:PoissonDistributionExpression</code></a></td>
+<td>mean number of events lambda (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasLambdaParameter"><code>osdi:hasLambdaParameter</code></a>)</td>
+</tr>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#NormalDistributionExpression"><code>osdi:NormalDistributionExpression</code></a></td>
+<td>mean and standard deviation (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasAverageParameter"><code>osdi:hasAverageParameter</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasStandardDeviationParameter"><code>osdi:hasStandardDeviationParameter</code></a>)</td>
+</tr>
+<tr>
+<td><a href="https://w3id.org/ontologies-ULL/OSDi/1.3#UniformDistributionExpression"><code>osdi:UniformDistributionExpression</code></a></td>
+<td>lower and upper limits (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasLowerLimitParameter"><code>osdi:hasLowerLimitParameter</code></a>, <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasUpperLimitParameter"><code>osdi:hasUpperLimitParameter</code></a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Any distribution may also define a factor that multiplies the value (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasScaleParameter"><code>osdi:hasScaleParameter</code></a>) and an offset that is added afterwards (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasOffsetParameter"><code>osdi:hasOffsetParameter</code></a>).</p>
+<p>Once defined, you can link the parameter with the manifestation already defined by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasRiskCharacterization"><code>osdi:hasRiskCharacterization</code></a> property, to numerically characterize the progression.</p>
 <p><strong>TTL Example (Including the parameter in the manifestation):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Seizures
     a osdi:AcuteManifestation ;
@@ -819,10 +859,10 @@
     osdi:hasRiskCharacterization osdi:BD_Proportion_Seizures_PBD .
 </code></pre>
 <p>Uncertainty can also be expressed as a combination of parameters. For example, you could express the lower and upper values of a confidence interval or add a standard deviation. </p>
-<h3 id="42-costs-and-utilities">4.2. Costs and utilities</h3>
-<p><strong>Cost</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Cost"><code>osdi:Cost</code></a>) parameters require a year and a can only use data item types that are subclass of <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Currency"><code>osdi:Currency</code></a>. With this information, the applications that use the knowledge stored in an ontological repository may automatically update and/or convert costs. </p>
-<p><strong>Utility</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Utility"><code>osdi:Utility</code></a>) models health-related quality of life (QoL) measures (QALYs). If it represents a decrement in QoL, the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#isDisutility"><code>osdi:isDisutility</code></a> property is set to <code>true</code>; <code>false</code> otherwise.</p>
-<p>Both costs and utilities can be define to be used just once (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#appliesOneTime"><code>osdi:appliesOneTime</code></a> is set to <code>true</code>), or anually (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#appliesOneTime"><code>osdi:appliesOneTime</code></a> is set to <code>false</code>).</p>
+<h3 id="43-costs-and-utilities">4.3. Costs and utilities</h3>
+<p><strong>Cost</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Cost"><code>osdi:Cost</code></a>) parameters require a year and can only use data item types that are subclass of <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Currency"><code>osdi:Currency</code></a>. With this information, the applications that use the knowledge stored in an ontological repository may automatically update and/or convert costs. </p>
+<p><strong>Utility</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Utility"><code>osdi:Utility</code></a>) models health-related quality of life (QoL) measures (QALYs). If it represents a decrement in QoL, the <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#isDisutility"><code>osdi:isDisutility</code></a> property is set to <code>true</code>; <code>false</code> otherwise. A utility u (<code>false</code>) is equivalent to a disutility of (base utility of the population - u).</p>
+<p>Both costs and utilities can be defined to be used just once (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#appliesOneTime"><code>osdi:appliesOneTime</code></a> is set to <code>true</code>), or annually (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#appliesOneTime"><code>osdi:appliesOneTime</code></a> is set to <code>false</code>). A one-time utility is a loss of QALYs (a negative loss is a gain), added when a manifestation appears or when a strategy or one of its outcomes is applied. The costs and utilities of an acute manifestation apply per episode, so they must be one-time.</p>
 <p>For example, the unit cost for the screening test is $0.13 (expressed in 2013 US dollars). </p>
 <p><strong>TTL Example (Unit Cost):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Cost_ScreeningTest
@@ -834,7 +874,7 @@
     osdi:hasYear &quot;2013&quot;^^xsd:short ;
     osdi:appliesOneTime &quot;true&quot;^^xsd:boolean .
 </code></pre>
-<p>The disutility for seizures is applied anually as a decrement of the base utility of the individual.</p>
+<p>The disutility of a mild seizure disorder is applied annually as a decrement of the base utility of the individual. Annual payoffs only make sense for chronic progressions, such as a chronic seizure disorder: the payoffs of an acute seizure episode would be one-time.</p>
 <p><strong>TTL Example (Disutility for Seizures):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Disutility_MildSeizureDisorder
     a owl:NamedIndividual , osdi:DeterministicParameter , osdi:Utility ;
@@ -845,8 +885,8 @@
     osdi:isDisutility &quot;true&quot;^^xsd:boolean ; # This is a QALY decrement (disutility)
     osdi:appliesOneTime &quot;false&quot;^^xsd:boolean .
 </code></pre>
-<h3 id="43-calculated-parameters">4.3. Calculated Parameters</h3>
-<p>Correctly modeling the correlation among parameters is a key aspect to consider, especially when dealing with sensitivity analyses. Hence, you should explicitly state such correlations instead of using the final values of the parameters as much as you can. <strong>Calculated Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#CalculatedParameter"><code>osdi:CalculatedParameter</code></a>) model values derived from an explicit formula involving other parameters. The formula can be expressed in different languages (currently, Excel <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_Excel"><code>osdi:Exp_Excel</code></a>, Java <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_Java"><code>osdi:Exp_Java</code></a>, Javaluator <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_Javaluator"><code>osdi:Exp_Javaluator</code></a> and Java Expression Language <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#Exp_JEXL"><code>osdi:Exp_JEXL</code></a> are supported by the applications using <strong>OSDi</strong>). The string representing the formula literal (<a href="https://w3id.org/ontologies-ULL/OSDi/1.0#hasExpressionValue"><code>osdi:hasExpressionValue</code></a>) should use the names of the individuals defined in OSDi, which at the same time, should be linked to the formula by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.0#dependsOn"><code>osdi:dependsOn</code></a> property.</p>
+<h3 id="44-calculated-parameters">4.4. Calculated Parameters</h3>
+<p>Correctly modeling the correlation among parameters is a key aspect to consider, especially when dealing with sensitivity analyses. Hence, you should explicitly state such correlations instead of using the final values of the parameters as much as you can. <strong>Calculated Parameters</strong> (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#CalculatedParameter"><code>osdi:CalculatedParameter</code></a>) model values derived from an explicit formula involving other parameters. The formula can be expressed in different languages (currently, Excel <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Exp_Excel"><code>osdi:Exp_Excel</code></a>, Java <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Exp_Java"><code>osdi:Exp_Java</code></a>, Javaluator <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Exp_Javaluator"><code>osdi:Exp_Javaluator</code></a> and Java Expression Language <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#Exp_JEXL"><code>osdi:Exp_JEXL</code></a> are supported by the applications using <strong>OSDi</strong>). The string representing the formula literal (<a href="https://w3id.org/ontologies-ULL/OSDi/1.3#hasExpressionValue"><code>osdi:hasExpressionValue</code></a>) should use the names of the individuals defined in OSDi, which at the same time, should be linked to the formula by means of the <a href="https://w3id.org/ontologies-ULL/OSDi/1.3#dependsOn"><code>osdi:dependsOn</code></a> property.</p>
 <p>The example illustrates an annual cost calculation for follow-up. </p>
 <p><strong>TTL Example (Annual Cost Calculation):</strong></p>
 <pre><code class="language-turtle">osdi:BD_Cost_TreatedBD_NoComplications
@@ -855,7 +895,7 @@
     osdi:hasDataItemType osdi:Currency_Dollar ;
     osdi:hasYear &quot;2013&quot;^^xsd:short ;
     osdi:hasExpressionValue &quot;BD_Cost_Biotin_Pack_5mg40Tablets*(365/30) + BD_Cost_SpecialistVisit*4 + BD_Cost_Audiometry + BD_Cost_VisualAcuityTest&quot;^^xsd:string ;
-    osdi:dependsOn BD_Cost_Biotin_Pack_5mg40Tablets , BD_Cost_SpecialistVisit , BD_Cost_Audiometry , BD_Cost_VisualAcuityTest ;
+    osdi:dependsOn osdi:BD_Cost_Biotin_Pack_5mg40Tablets , osdi:BD_Cost_SpecialistVisit , osdi:BD_Cost_Audiometry , osdi:BD_Cost_VisualAcuityTest ;
     osdi:hasExpressionLanguage osdi:Exp_Excel .
 </code></pre>
 
@@ -907,10 +947,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.3"}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
