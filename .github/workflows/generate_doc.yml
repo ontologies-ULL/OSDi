@@ -120,3 +120,38 @@ jobs:
             git push https://x-access-token:${PAT_TOKEN}@github.com/ontologies-ULL/OSDi.git "refs/tags/$TAG"
             echo "Created tag $TAG on $(git rev-parse --short HEAD)"
           fi
+
+      # 11. Create the GitHub release of the version (vX.Y), if it does not exist yet.
+      #     Its notes are the section "## OSDi X.Y" of CHANGELOG.md, and the OSDi.ttl of the
+      #     tag is attached. It depends on the release, not on the tag, so running the workflow
+      #     by hand creates the release of a version that was tagged before.
+      - name: Create the release of the version if it does not exist yet
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if ! echo "$VERSION" | grep -qE '^[0-9]+(\.[0-9]+)+$'; then
+            echo "Version '$VERSION' is not a release number (X.Y or X.Y.Z), skipping release"
+            exit 0
+          fi
+          TAG="v$VERSION"
+          git fetch --tags --quiet origin
+          if ! git rev-parse --verify --quiet "refs/tags/$TAG" > /dev/null; then
+            echo "::warning::Tag $TAG does not exist, skipping release"
+            exit 0
+          fi
+          if gh release view "$TAG" --repo ontologies-ULL/OSDi > /dev/null 2>&1; then
+            echo "Release $TAG already exists, skipping"
+            exit 0
+          fi
+          NOTES="$RUNNER_TEMP/release-notes.md"
+          git show "$TAG:CHANGELOG.md" | awk -v h="## OSDi $VERSION" '$0 == h {f = 1; next} f && /^## / {exit} f' > "$NOTES"
+          if ! grep -q '[^[:space:]]' "$NOTES"; then
+            echo "::warning::CHANGELOG.md has no section '## OSDi $VERSION' in $TAG, skipping release"
+            exit 0
+          fi
+          ASSET="$RUNNER_TEMP/OSDi-$VERSION.ttl"
+          git show "$TAG:OSDi.ttl" > "$ASSET"
+          gh release create "$TAG" --repo ontologies-ULL/OSDi --verify-tag \
+            --title "OSDi $VERSION" --notes-file "$NOTES" "$ASSET"
+          echo "Created release $TAG"
